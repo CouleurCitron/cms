@@ -1,0 +1,163 @@
+
+	/* *-*-*-*- *-*-*-*- *-*-*         Begin Menu tree rules        *-*-*-*- *-*-*-*- *-*-*-*- 
+ 	 *                                 _____________________                                */
+			.button{
+				/* may cause windows bug:
+				   position: relative;
+				*/
+ 				/*letter-spacing: .2em;*/
+				color: #000000;
+				z-index: 100000;
+				cursor: default;
+				font-family:  "Verdana", "Arial";
+				font: menu;
+				margin-bottom: -2px;
+				margin-top: 2px;
+				font-size: 12px;
+			}
+			
+			.buttonlabel{
+				font-size: 11px;
+				height: 12px;
+				/* may cause windows bug:
+				   position: relative;
+				*/
+				font-weight: 800;
+				cursor: default;
+				
+				/** padding/margin Causes Freeze in
+				 *  Windows IE6.
+				 *  Bug discovered by 
+				 *  Michael of 13thparallel.org
+				 *
+				 * padding: .05em .5em .05em .4em;
+				 * margin: 1px 1px 0px 1px;
+				 */
+				
+				border-width: 1px;
+				top: 0;
+				left: 0;
+				visibility: visible;
+			}
+			
+			.buttonlabel img{
+				margin: 0 0 -4px 0 !important;
+				border: 0 !important;
+				padding: 0 !important;
+			}
+			
+			.level1label {
+				height: 10px;
+				font-size: 10px;
+				font-weight: 700;
+				padding: 1px 3px;
+				cursor: default;
+ 				margin-bottom: 0;
+ 				margin-top:  .05em;
+				border-left: 0px solid #BBBBBB !important;
+			}
+			
+			.labelOver {
+				color: #00C;
+			}
+			
+			/** .menuItem replaces .menuNode 
+			 * to open menus instantly. 
+			 * (see open-instantly.html source)
+			 */
+			.menuNode, .menuItem{
+				font-size: 11px;
+				border-bottom: 1px solid #BBBBBB;
+				border-left: 1px solid #BBBBBB;
+				height: 17px;
+			}
+			
+			.menuNode a, menuItem a{
+				color: #000;
+				font-size: 10px;
+				line-height: 16px;
+				font-weight: 300;
+				padding: 0px 3px 1px 8px;
+				text-decoration: none;
+				width: auto;
+				white-space: nowrap;
+ 			}
+ 			
+ 			.menuNode a:hover, .menuItem a:hover{
+				color: #000;
+ 				text-decoration: underline;
+ 			}
+ 			
+			.menu {
+				position: relative;
+				padding-left: 6px;
+				padding-bottom:  .6em;
+				padding-top: 1px;
+ 				font-family: Verdana, Arial, sans-serif;
+ 				margin-bottom: -3px;
+ 				
+			 }
+			 .menu .menu, .menu .menu .menu{ /* submenus & submenus' submenus  */
+				border-left: 1px solid #BBBBBB;
+				padding-left: 10px;
+			 }			 
+			 .menu .menu .menu{ /* submenus' submenus  */
+ 				height:1%;
+			 }
+			 	 
+#nav 
+{
+	color: #575B60;
+	overflow: hidden;
+	position: absolute;
+	width: 264px;
+	margin: 0 0 0 0;
+	left: 0px;
+	top: 0px;
+	white-space: nowrap;
+	-moz-user-select: none;
+	background-image: url(/backoffice/cms/img/fond_menu.jpg);
+        z-index: 1000;
+}
+
+#connect a
+{
+	color: #666666;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 11px;
+}
+					
+#nav a:hover 
+{
+	color: #A6A4A3;
+	text-decoration: underline;
+}
+/* *-*-*-*- *-*-*-*- *-*-*-*         End Menu tree rules        *-*-*-*- *-*-*-*- *-*-*-*- 
+ *                                   ___________________                                */
+h1{
+	color: #777;
+	font-size: 22px;
+	text-indent: 24px;
+	padding: 10px;
+}
+h2{
+	color: #733;
+	font-size: 14px;
+	text-indent: 24px;
+	padding: 10px;
+}
+/* *-*-*-*- *-*-*-*- *-*-*-*-        @media print rules        *-*-*-*- *-*-*-*- *-*-*-*- 
+*                                   __________________                                 */
+@media print {
+
+	title { display: none }
+	#nav {
+		position: absolute;
+		width: 0;
+		height: 0;
+		padding: 0px;
+		margin: 0;
+		display: none;
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<class name="cms_site" libelle="Sites" prefix="cms" display="name" abstract="rep">
+<item name="id" type="int" length="11" isprimary="true" notnull="true" default="-1" list="true" asso="seni_assoresidencesite" />
+</class>

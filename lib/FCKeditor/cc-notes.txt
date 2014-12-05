@@ -1,0 +1,14 @@
+dans 
+
+editor/dialog/fck_specialchar.html
+ajouter "&oelig;" après
+"&aelig;"
+
+
+dans
+
+fckconfig.js
+FCKConfig.ToolbarSets["Basic"] = [
+	['Bold','Italic','-','OrderedList','UnorderedList','-','Subscript','Superscript','SpecialChar','-','Link','Unlink','-','About']
+] ;
+

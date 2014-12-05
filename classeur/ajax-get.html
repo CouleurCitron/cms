@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script type="text/javascript">
+	function submitForm()
+	{ 
+		var req = null; 
+
+		document.ajax.dyn.value="Started...";
+		if(window.XMLHttpRequest)
+			req = new XMLHttpRequest(); 
+		else if (window.ActiveXObject)
+			req  = new ActiveXObject(Microsoft.XMLHTTP); 
+
+		req.onreadystatechange = function()
+		{ 
+			document.ajax.dyn.value="Wait server...";
+			if(req.readyState == 4)
+			{
+				if(req.status == 200)
+				{
+					document.ajax.dyn.value="Received:" + req.responseText;	
+				}	
+				else	
+				{
+					document.ajax.dyn.value="Error: returned status code " + req.status + " " + req.statusText;
+				}	
+			} 
+		}; 
+		req.open("GET", "data.xml", true); 
+		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
+		req.send(null); 
+	} 
+	</script>
+	</head>
+
+	<body>
+		<FORM name="ajax" method="post" action="">
+			
+  <p>
+    <INPUT type="BUTTON" value="Submit"  ONCLICK="submitForm()">
+  </p>
+  <p>
+    <input type="text" name="dyn" size="32" value="">
+  </p>
+</FORM>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<chart>
+	<!--<chart_type>column</chart_type>-->
+	<draw_text>
+		<!-- titre -->
+		<text color="4DAEE7" alpha="100" font="arial" rotation="0" bold="1" size="11" x="0" y="0" width="400" height="400" h_align="left" v_align="top">dfbdf df</text>
+		<!-- legende -->
+		<text color="000000" alpha="100" font="arial" rotation="0" bold="" size="10" x="0" y="-3" width="400" height="400" h_align="center" v_align="bottom">gd sddf dfhdf dfh df</text>
+		<text color="707070" alpha="100" font="arial" rotation="0" bold="" size="11" x="405" y="15" width="70" height="400" h_align="left" v_align="top"> hgdf hgdfhdf\rhdfh hdfhdf\rdfh dfh</text>
+	</draw_text>
+	<canvas_bg width="500" height="400" color="FFFFFF" />
+	<chart_bg positive_color="ffffff" positive_alpha="100" negative_color="ffffff" negative_alpha="100" />
+	<series_color>
+		<value>99D1F2</value>
+		<value>39A5EB</value>
+		<value>7BDBB8</value>
+		<value>7BBF24</value>
+		<value>B7D404</value>
+		<value>6F8EDE</value>
+		<value>0054AD</value>
+	</series_color>
+	<legend_label size="10" bold="" />
+	<legend_bg bg_color="FFFFFF" bg_alpha="0" border_color="FFFFFF" border_alpha="0" border_thickness="3" />
+	<chart_value position="outside" size="10" color="000000" alpha="100" />
+	<axis_value size="10" />
+	<axis_category size="10" />
+	<!--<legend_rect y="32" x="10" width="380" />
+	<draw_rect>
+		<value x="400" y="10" width="90" height="380" rotation="0" fill_color="B6DE54" fill_alpha="20" line_color="B6DE54" line_alpha="100" line_thickness="1" />
+	</draw_rect>-->
+	<draw_line>
+		<value x1="10" y1="22" x2="390" y2="22" line_color="FFFFFF" line_alpha="0" line_thickness="0" />
+		<value x1="10" y1="380" x2="390" y2="380" line_color="FFFFFF" line_alpha="0" line_thickness="0" />
+	</draw_line>
+	<!--<chart_rect x="50" y="72" width="300" height="278" />-->
+</chart>

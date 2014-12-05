@@ -1,0 +1,21 @@
+Installation de SpeedTest4.PHP
+==============================
+
+ - Creez un repertoire "speedtest" (par exemple)
+ - Puis placez-y les elements suivants :
+ 
+      128K.inc
+      512K.inc
+      barre.png
+      barre_rouge.png
+      gpl.txt
+      index.html
+      speedanim.gif
+      speedanimoff.gif
+      speedtest4.conf
+      speedtest4.inc
+      speedtest4.php
+
+C'est fait !
+
+Il ne vous reste plus qu'a taper l'URL du repertoire que vous venez de creer.

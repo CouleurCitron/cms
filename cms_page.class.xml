@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<class name="cms_page" libelle="Pages" prefix="page" display="name_page" abstract="nodeid_page" >
+<item name="id_page" type="int" length="11" isprimary="true" notnull="true" default="-1" list="true" order="true"  asso="assovideopages,assodiaporamapages"  />
+<item name="name_page" libelle="Nom" type="varchar" length="64" list="true" order="true" />
+<item name="gabarit_page" libelle="Gabarit" type="int" length="11" default="0" list="true" order="true" fkey="cms_page" />
+<item name="dateadd_page" libelle="Date de création" type="timestamp" notnull="true" order="true" list="true" default="CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP" /> 
+<item name="dateupd_page" libelle="Date de modification" type="timestamp" notnull="true" order="true" list="true" default="0000-00-00 00:00:00" /> 
+<item name="datedlt_page" libelle="Date de suppression" type="timestamp" notnull="true" order="true" list="true" default="0000-00-00 00:00:00" /> 
+<item name="datemep_page" libelle="Date de mise en prod" type="timestamp" notnull="true" order="true" list="true" default="0000-00-00 00:00:00" /> 
+<item name="isgenerated_page" libelle="Est générée" type="bool" length="2" default="0" list="true" order="true" />
+<item name="valid_page" libelle="Est valide" type="bool" length="2" default="0" list="true" order="true" />
+<item name="nodeid_page" libelle="Noeud d'arbo." type="int" length="11" default="0" list="true" order="true" fkey="cms_arbo_pages"  />
+<item name="options_page" libelle="Options" type="varchar" length="512" nohtml="true" />
+<item name="html_page" libelle="Source HTML" type="text" length="1024" option="textarea" />
+<item name="isgabarit_page" libelle="Est un gabarit" type="bool" length="2" default="0" list="true" order="true" />
+<item name="width_page" libelle="largeur zone de travail" type="int" length="5" default="0"/>
+<item name="height_page" libelle="hauteur zone de travail" type="int" length="5" default="0"/>
+<item name="id_site" libelle="Site" type="int" length="11" list="true" order="true" oblig="true" fkey="cms_site" />
+<item name="toutenligne_page" libelle="Tout en ligne" type="bool" length="2" default="0" list="true" order="true" />
+<item name="existeligne_page" libelle="Existe en ligne" type="bool" length="2" default="0" list="true" order="true" />
+<item name="iscustom" libelle="Custom (non basé sur les briques)" type="bool" length="2" default="0" list="true" order="true" />
+<item name="theme" libelle="Thème" type="int" length="11" list="true" order="true" fkey="cms_theme" />
+<langpack lang="fr">
+<norecords>Pas de donnée à afficher</norecords>
+</langpack>
+</class> 

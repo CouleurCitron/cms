@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^slideshow3(.*)$ /backoffice/adss/slideshow3$1 [L]
+RewriteRule ^slideshow(.*)$ /backoffice/adss/slideshow$1 [L]

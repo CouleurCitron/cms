@@ -1,0 +1,345 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	background: #ebeff3;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background-color:#ebeff3;
+	overflow:auto;
+}
+
+/* Style des tableaux de données */
+div{float:none;}
+input[disabled ] {background-color: #ccc;}
+textarea[disabled ] {background-color: #ccc;}
+form{
+	margin: 0 0 0 0;
+}
+
+.listDataTable{
+	background-color: #ffffff;
+	padding: 1px;
+	cellspacing: 1;
+	border: 1px;       
+}
+
+.listDataTitle{
+	background: #E6E6E6;
+	font-size: 10px;
+	text-align: center
+}
+
+.MainTitle{
+	background: #efcfaf;
+	font-size: 14px;
+	color: white;
+}
+
+.listDataL0{
+	background: #E6E6E6;
+}
+
+.listDataL1{
+	background: #F3F3F3;
+}
+
+.listDataValue{
+	font-size: 10px;
+vertical-align:	top;
+}
+
+/* Style des tableaux de données */
+.dek {
+	position:absolute;
+	visibility:hidden;
+	z-index:10;
+	width: 150px;
+	padding: 2px;
+	background-color: #ffffff;
+	text-align: center;
+	border: 1px solid #000000;
+	layer-background-color: #ffffff;
+}
+
+.help{
+	position:absolute;	
+	top:0px;
+	right:0px;
+	padding: 2px;
+	padding-top: 4px;
+	z-index:50;
+	text-align: center;
+
+}
+
+/* -------------------------------- */
+
+TD {
+	vertical-align: top;
+}
+
+.arbo{
+	font-size: 10px;
+	color: #3B3635;
+}
+
+.arbo a{
+	color: #3B3635;
+}
+
+.arbo2{
+	font-size: 11px;
+/*	color: #BFCA95; */
+	color: #575B60;
+	font-weight:bold;
+	text-transform: lowercase;	
+}
+
+.arbo3{
+	font-size: 11px;
+/*	color: #BFCA95; */
+	color: #838990;
+	font-weight:bold; 
+	text-transform: lowercase;
+}
+
+.arbo4,
+.arbo4 a{
+	font-size: 11px;
+/*	color: #BFCA95; */
+	color: #838990;
+	font-weight:bold; 
+	text-transform: lowercase;
+}
+form a.arbo b{
+	display:none;
+}
+
+.pair,
+tr .pair{
+	background-color: White;
+	color: #575B60;
+}
+
+.impair,
+tr .impair{
+	background-color: #EBEFF3;
+	color: #575B60;
+}
+
+.pair a,
+tr .pair a,
+.impair a,
+tr .impair a,
+.pairReady a,
+.impairReady a{
+	color: #575B60;
+}
+
+.pairReady {background-color: White;}
+.impairReady {background-color: #EBEFF3;}
+.EnrSelectionne {background-color: #FBFBEC;}
+
+.col_titre{
+	background-color: #838F9F;
+	color: White;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.col_titre a{
+	color: White;
+}
+
+.add{
+	background-color: #B6C354;
+	width: 100px;
+	float: left;
+	font-size: 11px;
+	color: White;
+	padding: 5px 5px 5px 5px;
+	font-weight: bold;
+}
+
+.add a{
+	color: White;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+div#filters{
+	background-image: url(/backoffice/cms/img/bg_recherche.jpg);
+	background-repeat: no-repeat;
+	margin: 10px 0 0 0;
+	width: 970px;
+	height: 122px;
+	font-size: 10px;
+	background-color: White;
+	padding:20px 0 10px 0;
+	/*display: block;*/
+}
+
+div#filters table{
+	margin: 0 0 0 350px;
+
+}
+
+html>body div#filters{
+	height: auto;
+	min-height: 122px;
+}
+
+.recherche{
+	margin: 20px 0 0 200px;
+	width: 600px;
+}
+
+.recherche td{
+	height: 25px;
+	line-height: 20px;
+	padding: 0 5px 0 0;
+}
+
+.pagination{
+	font-size: 10px;
+	background-image: url(/backoffice/cms/img/bg_pagination.jpg);
+	width: 970px;
+	height: 23px;
+	line-height: 18px;
+	color: White;
+	text-align: center;
+	margin: 0 0 0 0;
+	float:left;
+}
+
+.noresults{
+	font-size: 10px;
+	width: 970px;
+	height: 23px;
+	line-height: 18px;
+	text-align: center;
+	margin: 0 0 0 0;
+	float:left;
+}
+
+.resultat{
+	font-size: 10px;
+	background-image: url(/backoffice/cms/img/bg_pagination.jpg);
+	width: 970px;
+	height: 23px;
+	line-height: 18px;
+	color: White;
+	text-align: center;
+	margin: 0 0 0 0;
+}
+
+
+.pagination a{
+	color: White;
+}
+
+.newelement{
+	height: 36px;
+	width: auto;
+	background-image: url(/backoffice/cms/img/bg_newelement.jpg);
+	font-size: 10px;
+	padding: 0 5px 0 43px;
+	margin: 0 0 0 200px;
+	display: inline;
+	float: left;
+	color: White;
+}
+
+
+.newelement a,
+.export a{
+	color: White;
+	line-height: 34px;
+	font-weight: bold;
+}
+
+.export{
+	height: 36px;
+	width: 170px;
+	background-image: url(/backoffice/cms/img/bg_export.jpg);
+	font-size: 10px;
+	padding: 0 0 0 43px;
+	margin: 0 0 0 20px;
+	float: left;
+	color: White;
+}
+
+.export_template a {
+	 color: #666666;
+	 font-size: 11px;
+}
+
+.ariane{
+	background-color: #D1D7DE;
+	height: 20px;
+	line-height: 20px;
+	width: 100%;
+	margin: 0 0 20px 0;
+	text-indent: 15px;
+}
+
+.titre_site
+{
+	font-family: Helvetica;
+	font-size: 20px;
+	font-weight: bold;
+	color: White;
+	text-transform: uppercase;
+	text-indent: 15px;
+}
+
+.sous_titre_site
+{
+	font-family: Helvetica;
+	font-weight: bold;
+	color: #666666;
+	text-indent: 15px;
+}
+
+.space,
+#space{
+	position:relative;
+	left:0;
+	width: 975px;
+	height: 600px;
+	overflow:auto;
+	margin: 0 0 0 0;
+}
+
+/* Style titre BO */
+td.title {
+	font-size: 22px;
+	color: #5B6E8A;
+	padding: 5px 0px 10px 20px;
+}
+td.title span {
+	font-weight: bold;
+}
+td.title sup {
+	font-size: 11px;
+}
+
+.error {
+	color:#990000;
+	font-weight:bold;
+	font-size:11px;
+}
+
+.error14 {
+	color:#990000;
+	font-weight:bold;
+	font-size:14px;
+	padding: 0px 0px 10px 100px;
+}
+
+form#managetree input.arbo {
+	width:300px;
+}
