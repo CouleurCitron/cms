@@ -24,15 +24,14 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
   window.open(theURL,winName,features);
 }
 
-function openWYSYWYGWindow(theURL,winName,width,height,features,bCentre,idField,idForm) {
+function openWYSYWYGWindow(theURL,winName,width,height,features,bCentre,idField,idForm, Type) {
 	
   /**
   width et height sont deprecated  
   */
   
-  
   var htmlcode = document.forms[idForm].elements[idField].value;
-  theURL = theURL + "?idField="+idField+"&idForm="+idForm+"&";
+  theURL = theURL + "?idField="+idField+"&idForm="+idForm+"&Type="+Type+"&";
   
   var window_width = Math.round(screen.width*.8);
   var window_height = Math.round(screen.height*.8);
