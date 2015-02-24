@@ -407,6 +407,7 @@ else{
 			$sqlCount.= " WHERE  xit_statut =".DEF_ID_STATUT_LIGNE." ";
 			$sqlCount.= " AND xit_news_inscrit = ins_id ";
 			$sqlCount.= " AND xit_news_theme = ".$oNews->get_theme()." ";
+			
 			$eCountInscrit = dbGetUniqueValueFromRequete($sqlCount);	
 			
 			
