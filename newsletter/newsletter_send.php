@@ -337,7 +337,7 @@ if ($oNews->get_statut() != DEF_ID_STATUT_ARCHI ) {  // SID à décommenter
 	}
 	
 	// tous les inscrits pour cette newsletter
-	for ($a=0; $a<sizeof($aInscrit); $a++) {
+	for ($a=0; $a<count($aInscrit); $a++) {
 		
 		if ($cpt%100 == 0) echo '&nbsp;<br />';
 		
