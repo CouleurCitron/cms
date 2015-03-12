@@ -82,6 +82,14 @@ $conf.= "	config.filebrowserFlashBrowseUrl = '/backoffice/cms/lib/ckeditor/Filem
 		$conf.= "config.filebrowserImageUploadUrl = '';
 		";
 	}
+        
+        if(defined('CKEDITOR_MORE_COLOR')){
+            if(!CKEDITOR_MORE_COLOR){
+                $conf .= "config.colorButton_enableMore = false;
+                        ";
+            }
+        }
+        
 
 $conf.= "	config.filebrowserFlashUploadUrl = '';
 	config.filebrowserAws_videoDialogUploadUrl = '';
