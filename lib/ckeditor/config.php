@@ -90,6 +90,11 @@ $conf.= "	config.filebrowserFlashBrowseUrl = '/backoffice/cms/lib/ckeditor/Filem
             }
         }
         
+        if(defined('CKEDITOR_COLOR_LIST')){
+                $conf .= "config.colorButton_colors = '".CKEDITOR_COLOR_LIST."';
+                        ";
+        }
+        
 
 $conf.= "	config.filebrowserFlashUploadUrl = '';
 	config.filebrowserAws_videoDialogUploadUrl = '';
