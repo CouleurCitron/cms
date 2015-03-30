@@ -3,7 +3,7 @@ error_reporting(0);
 include_once ($_SERVER['DOCUMENT_ROOT']."/include/autoprepend.php"); 
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_cms.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php'); // classe de customisation des classes
-include('index.custom.php'); ?> 
+include_once ('index.custom.php'); ?> 
 <!DOCTYPE html>  
 <html>
 <head>

@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
+
 error_reporting(0);
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_cms.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php'); // classe de customisation des classes
@@ -11,9 +11,13 @@ if (!preg_match ("/Filemanager-master/", $_SERVER['HTTP_REFERER'])) {
 	unset ($_SESSION["ck_filemanager_path"]); 
 }
   
-if (is_get('dir')) {
+if (!isset($_SESSION["ck_filemanager_path"]) && $_SESSION["ck_filemanager_path"] == '' && $_GET["dir"] != '') {
 	$_SESSION["ck_filemanager_path"] = $_GET["dir"]; 
 } 
+else if (isset($_SESSION["ck_filemanager_path"]) && $_SESSION["ck_filemanager_path"] != '' &&  $_GET["dir"] != '') {
+	$_SESSION["ck_filemanager_path"] = $_GET["dir"]; 
+} 
+ 
 
 $aClasse = dbGetObjectsFromFieldValue("classe", array("get_statut"),  array(DEF_ID_STATUT_LIGNE), NULL); 
 
@@ -21,8 +25,30 @@ $src = '' ;
  
 if ( $_GET["source"] == "initvideo") {
 
-}
+ /*
+?>
 
+<div id="changeressource">
+<select id="typeressource" name="typeressource">
+	<option value="" <?php if ($_GET["dir"] == '') echo "selected"; ?>><?php $translator->echoTransByCode('Type_de_fichier'); ?></option>
+	
+	 
+	<?php if (is_dir ($_SERVER['DOCUMENT_ROOT'].'/custom/swf/'.$_SESSION['rep_travail'].'/')) { ?>
+	<option value="/custom/swf/<?php echo $_SESSION['rep_travail']; ?>/&langCode=<?php echo $_SESSION["site_langue"];?>&source=initvideo" <?php if ($_GET["dir"] == '/custom/swf/'.$_SESSION['rep_travail'].'/') echo "selected"; ?>>Flash</option>  
+	<?php } ?>
+	<?php if (is_dir ($_SERVER['DOCUMENT_ROOT'].'/custom/video/'.$_SESSION['rep_travail'].'/')) { ?>
+	<option value="/custom/video/<?php echo $_SESSION['rep_travail']; ?>/&langCode=<?php echo $_SESSION["site_langue"];?>&source=initvideo" <?php if ($_GET["dir"] == '/custom/video/'.$_SESSION['rep_travail'].'/') echo "selected"; ?>>Videos</option>  
+	<?php } ?>
+	 
+	
+	?>
+</select>
+</div>
+
+<?php
+*/
+
+}
 else if ( $_GET["source"] != "init") {
 
   
