@@ -8,6 +8,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/gabarit.lib.php');
 activateMenu('gestionpage');  //permet de dérouler le menu contextuellement
 $generationIsOk = true;
 
+
 //listing complet
 global $aCacheFile;
 $aCacheFile = array();
@@ -15,6 +16,12 @@ $aCacheFile = array();
 unset($_SESSION['BO']['CACHE']);
 
 function getPagesImages($page_url) {
+	$oSite = new cms_site($_SESSION['idSite']);
+	$site_url = $oSite->get_url();
+	if($site_url == '') {
+		$site_url = $_SERVER["HTTP_HOST"];
+	}
+
 	$curl_init = curl_init();
 	curl_setopt($curl_init, CURLOPT_URL, $page_url);
 	curl_setopt($curl_init, CURLOPT_RETURNTRANSFER, 1);
@@ -31,7 +38,7 @@ function getPagesImages($page_url) {
 			$file_headers = @get_headers('http://'.$_SERVER["HTTP_HOST"].$img_src);
 			if(file_exists($_SERVER['DOCUMENT_ROOT'].$img_src)) {
 				global $aCacheFile;
-				$aCacheFile[] = 'http://'.$_SERVER["HTTP_HOST"].str_replace( array('%2F'), array('/'), rawurlencode($img_src));
+				$aCacheFile[] = 'http://'.$site_url.str_replace( array('%2F'), array('/'), rawurlencode($img_src));
 			}
 		}
 	}
@@ -43,6 +50,11 @@ function regenerateManifeste($id_site) {
 
 	$oSite = new cms_site($id_site);
 	$site_repo = $oSite->get_rep();
+	$site_url = $oSite->get_url();
+	if($site_url == '') {
+		$site_url = $_SERVER["HTTP_HOST"];
+	}
+	//var_dump($site_url);
 
 	//Liste des répertoires à parcourir et intégrer
 	$directories = array(
@@ -54,11 +66,22 @@ function regenerateManifeste($id_site) {
 
 	//Toutes les pages
 	//$contenus = getAllPages($id_site);
-        $contenus = getAllPagesNotRecursive($id_site);
+    $contenus = getAllPagesNotRecursive($id_site);
 	foreach ($contenus as $k => $oPage) {
 		foreach ($oPage as $o => $iPage) {
-			$page_url = 'http://'.$_SERVER["HTTP_HOST"].'/content'.$iPage->absolute_path_name;
-			$aCacheFile[] = $page_url;
+			$page_url = 'http://'.$site_url.'/content'.$iPage->absolute_path_name;
+			$file_headers = @get_headers($page_url);
+			$InvalidHeaders = array('404', '403', '500');
+			$add = true;
+			foreach($InvalidHeaders as $HeaderVal){
+				if(strstr($file_headers[0], $HeaderVal)) {
+					$add = false;
+					break;
+				}
+			}
+			if($add) {
+				$aCacheFile[] = $page_url;
+			}
 			getPagesImages($page_url);
 		}
 	}
@@ -71,7 +94,10 @@ function regenerateManifeste($id_site) {
 		            && $file != '.' 
 		            && $file != ".." 
 		            && $file != "CVS" ) {
-		        $aCacheFile[] = 'http://'.$_SERVER["HTTP_HOST"].$dir.rawurlencode($file);
+		    	$file_parts = pathinfo($_SERVER['DOCUMENT_ROOT'].$dir.$file);
+		    	if($file_parts['extension'] != '') {
+		        	$aCacheFile[] = 'http://'.$site_url.$dir.rawurlencode($file);
+		    	}
 		    }
 		}
 	}
