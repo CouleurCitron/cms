@@ -30,8 +30,11 @@ function openWYSYWYGWindow(theURL,winName,width,height,features,bCentre,idField,
   width et height sont deprecated  
   */
   
+  
   var htmlcode = document.forms[idForm].elements[idField].value;
-  theURL = theURL + "?idField="+idField+"&idForm="+idForm+"&Type="+Type+"&";
+  
+  if (theURL.indexOf("?") < 0 ) theURL = theURL + "?vars";
+  theURL = theURL + "&idField="+idField+"&idForm="+idForm+"&Type="+Type+"&";
   
   var window_width = Math.round(screen.width*.8);
   var window_height = Math.round(screen.height*.8);
