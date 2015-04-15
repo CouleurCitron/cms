@@ -9,24 +9,33 @@ $conf.= "CKEDITOR.editorConfig = function( config ) {
 	// config.uiColor = '#AADC6E';
 	
 	//config.toolbar_Full =
-	config.toolbar =
-	[
-		['Source'],
-		['Cut','Copy','Paste','PasteText','PasteWord','-','Print'],
-		['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
-		'/',
-		['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
-		['NumberedList','BulletedList'],
-		['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
-		['Link','Unlink','Anchor'],
-		['Image','Flash','Table','HorizontalRule','SpecialChar'],
-			'/',
-		['Styles','Format','FontSize','TextColor'] ,
-		['aws_video','oembed']
-		
-	];
- 
-	config.height = 600;
+        ";
+
+if(!defined('CKEDITOR_TOOLBAR_CONFIG')){
+    $conf.= "config.toolbar =
+            [
+                    ['Source'],
+                    ['Cut','Copy','Paste','PasteText','PasteWord','-','Print'],
+                    ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+                    '/',
+                    ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+                    ['NumberedList','BulletedList'],
+                    ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+                    ['Link','Unlink','Anchor'],
+                    ['Image','Flash','Table','HorizontalRule','SpecialChar'],
+                            '/',
+                    ['Styles','Format','FontSize','TextColor'] ,
+                    ['aws_video','oembed']
+
+            ];";
+} else {
+    $conf.= "config.toolbar =
+            [
+                    ". CKEDITOR_TOOLBAR_CONFIG ."
+
+            ];";
+}
+$conf.= "config.height = 600;
 
 	//Appel des plugins	+ configuration
 	config.extraPlugins = 'aws_video,oembed,widget';
