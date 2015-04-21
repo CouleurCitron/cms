@@ -64,6 +64,9 @@ function regenerateManifeste($id_site) {
 		"/custom/img/".$site_repo."/"
 	);
 
+        $page_url_home = 'http://'.$site_url.'/content/' . $site_repo . '/';
+        $aCacheFile[] = $page_url_home;
+        
 	//Toutes les pages
 	//$contenus = getAllPages($id_site);
     $contenus = getAllPagesNotRecursive($id_site);
