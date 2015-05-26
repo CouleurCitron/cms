@@ -126,7 +126,9 @@ else{
 		$fullPathToFile = removeToSlashDir($fullPathToFile);
 	} 
 	
-	ini_set('zlib.output_compression','Off'); 
+	if(defined('CMS_DL_ZLIB_COMPRESSION')){
+		ini_set('zlib.output_compression',CMS_DL_ZLIB_COMPRESSION); 
+	}
 
 	header('HTTP/1.0 200 OK'); 
 	header('Content-Description: File Transfer');
