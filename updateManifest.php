@@ -65,7 +65,7 @@ function regenerateManifeste($id_site) {
 	);
 
         $page_url_home = 'http://'.$site_url.'/content/' . $site_repo . '/';
-        $aCacheFile[] = $page_url_home;
+        //$aCacheFile[] = $page_url_home;
         
 	//Toutes les pages
 	//$contenus = getAllPages($id_site);
@@ -106,7 +106,6 @@ function regenerateManifeste($id_site) {
 	}
 
 	$aCacheFile = array_unique($aCacheFile);
-
 	// $cache_data = "header('Content-Type: text/cache-manifest');\n";
 
 	//Génère le fichier
