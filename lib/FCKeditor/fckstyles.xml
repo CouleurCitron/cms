@@ -1,0 +1,526 @@
+
+
+
+
+<Styles>
+<Style name="bouton" element="span">
+<Attribute name="class" value="bouton" />
+</Style>
+<Style name="bloc_comfin" element="span">
+<Attribute name="class" value="bloc_comfin" />
+</Style>
+<Style name="bloc_comfin_en" element="span">
+<Attribute name="class" value="bloc_comfin_en" />
+</Style>
+<Style name="bloc_actufin" element="span">
+<Attribute name="class" value="bloc_actufin" />
+</Style>
+<Style name="bloc_agenda" element="span">
+<Attribute name="class" value="bloc_agenda" />
+</Style>
+<Style name="bloc_agenda_table" element="span">
+<Attribute name="class" value="bloc_agenda_table" />
+</Style>
+<Style name="bloc_agenda_table_td1" element="span">
+<Attribute name="class" value="bloc_agenda_table_td1" />
+</Style>
+<Style name="bloc_agenda_table_td2" element="span">
+<Attribute name="class" value="bloc_agenda_table_td2" />
+</Style>
+<Style name="agenda_cc" element="span">
+<Attribute name="class" value="agenda_cc" />
+</Style>
+<Style name="bloc_stages_en" element="span">
+<Attribute name="class" value="bloc_stages_en" />
+</Style>
+<Style name="bloc_stages" element="span">
+<Attribute name="class" value="bloc_stages" />
+</Style>
+<Style name="bloc_stages_table" element="span">
+<Attribute name="class" value="bloc_stages_table" />
+</Style>
+<Style name="bloc_stages_table_td1" element="span">
+<Attribute name="class" value="bloc_stages_table_td1" />
+</Style>
+<Style name="bloc_stages_table_td2" element="span">
+<Attribute name="class" value="bloc_stages_table_td2" />
+</Style>
+<Style name="liens_bas" element="span">
+<Attribute name="class" value="liens_bas" />
+</Style>
+<Style name="recherchesite" element="span">
+<Attribute name="class" value="recherchesite" />
+</Style>
+<Style name="champtxt" element="span">
+<Attribute name="class" value="champtxt" />
+</Style>
+<Style name="boutonok" element="span">
+<Attribute name="class" value="boutonok" />
+</Style>
+<Style name="titre_01" element="span">
+<Attribute name="class" value="titre_01" />
+</Style>
+<Style name="table_bleu" element="span">
+<Attribute name="class" value="table_bleu" />
+</Style>
+<Style name="table_bleu_td2" element="span">
+<Attribute name="class" value="table_bleu_td2" />
+</Style>
+<Style name="table_date" element="span">
+<Attribute name="class" value="table_date" />
+</Style>
+<Style name="table_td_17" element="span">
+<Attribute name="class" value="table_td_17" />
+</Style>
+<Style name="table_td_18" element="span">
+<Attribute name="class" value="table_td_18" />
+</Style>
+<Style name="table_td_20" element="span">
+<Attribute name="class" value="table_td_20" />
+</Style>
+<Style name="table_td_30" element="span">
+<Attribute name="class" value="table_td_30" />
+</Style>
+<Style name="table_td_39" element="span">
+<Attribute name="class" value="table_td_39" />
+</Style>
+<Style name="table_td_50" element="span">
+<Attribute name="class" value="table_td_50" />
+</Style>
+<Style name="table_td_89" element="span">
+<Attribute name="class" value="table_td_89" />
+</Style>
+<Style name="table_td_97" element="span">
+<Attribute name="class" value="table_td_97" />
+</Style>
+<Style name="table_td_98" element="span">
+<Attribute name="class" value="table_td_98" />
+</Style>
+<Style name="table_td_00" element="span">
+<Attribute name="class" value="table_td_00" />
+</Style>
+<Style name="table_td_02" element="span">
+<Attribute name="class" value="table_td_02" />
+</Style>
+<Style name="table_td_03" element="span">
+<Attribute name="class" value="table_td_03" />
+</Style>
+<Style name="table_td_04" element="span">
+<Attribute name="class" value="table_td_04" />
+</Style>
+<Style name="table_td_05" element="span">
+<Attribute name="class" value="table_td_05" />
+</Style>
+<Style name="table_td_06" element="span">
+<Attribute name="class" value="table_td_06" />
+</Style>
+<Style name="div_action_global" element="span">
+<Attribute name="class" value="div_action_global" />
+</Style>
+<Style name="texte_action" element="span">
+<Attribute name="class" value="texte_action" />
+</Style>
+<Style name="table_global_action" element="span">
+<Attribute name="class" value="table_global_action" />
+</Style>
+<Style name="table_global_action_td1" element="span">
+<Attribute name="class" value="table_global_action_td1" />
+</Style>
+<Style name="table_action" element="span">
+<Attribute name="class" value="table_action" />
+</Style>
+<Style name="table2" element="span">
+<Attribute name="class" value="table2" />
+</Style>
+<Style name="table2_td1" element="span">
+<Attribute name="class" value="table2_td1" />
+</Style>
+<Style name="table2_td2" element="span">
+<Attribute name="class" value="table2_td2" />
+</Style>
+<Style name="table2_td3" element="span">
+<Attribute name="class" value="table2_td3" />
+</Style>
+<Style name="table_pdt" element="span">
+<Attribute name="class" value="table_pdt" />
+</Style>
+<Style name="table_pdt_img" element="span">
+<Attribute name="class" value="table_pdt_img" />
+</Style>
+<Style name="table_pdt_td1" element="span">
+<Attribute name="class" value="table_pdt_td1" />
+</Style>
+<Style name="table_pdt_td2" element="span">
+<Attribute name="class" value="table_pdt_td2" />
+</Style>
+<Style name="table_pdt_td3" element="span">
+<Attribute name="class" value="table_pdt_td3" />
+</Style>
+<Style name="table_double_ATV" element="span">
+<Attribute name="class" value="table_double_ATV" />
+</Style>
+<Style name="table_double_satellite" element="span">
+<Attribute name="class" value="table_double_satellite" />
+</Style>
+<Style name="table_double_g" element="span">
+<Attribute name="class" value="table_double_g" />
+</Style>
+<Style name="table_double_d" element="span">
+<Attribute name="class" value="table_double_d" />
+</Style>
+<Style name="emploi" element="span">
+<Attribute name="class" value="emploi" />
+</Style>
+<Style name="bloc_recherche" element="span">
+<Attribute name="class" value="bloc_recherche" />
+</Style>
+<Style name="deroulant2" element="span">
+<Attribute name="class" value="deroulant2" />
+</Style>
+<Style name="result" element="span">
+<Attribute name="class" value="result" />
+</Style>
+<Style name="ligne1" element="span">
+<Attribute name="class" value="ligne1" />
+</Style>
+<Style name="ligne2" element="span">
+<Attribute name="class" value="ligne2" />
+</Style>
+<Style name="ligne3" element="span">
+<Attribute name="class" value="ligne3" />
+</Style>
+<Style name="ligne4" element="span">
+<Attribute name="class" value="ligne4" />
+</Style>
+<Style name="ligne5" element="span">
+<Attribute name="class" value="ligne5" />
+</Style>
+<Style name="ligne6" element="span">
+<Attribute name="class" value="ligne6" />
+</Style>
+<Style name="ligne7" element="span">
+<Attribute name="class" value="ligne7" />
+</Style>
+<Style name="formulaire" element="span">
+<Attribute name="class" value="formulaire" />
+</Style>
+<Style name="langue" element="span">
+<Attribute name="class" value="langue" />
+</Style>
+<Style name="sites_latec" element="span">
+<Attribute name="class" value="sites_latec" />
+</Style>
+<Style name="table_sites_general" element="span">
+<Attribute name="class" value="table_sites_general" />
+</Style>
+<Style name="table_sites" element="span">
+<Attribute name="class" value="table_sites" />
+</Style>
+<Style name="table_sites_td" element="span">
+<Attribute name="class" value="table_sites_td" />
+</Style>
+<Style name="table_sites_td2" element="span">
+<Attribute name="class" value="table_sites_td2" />
+</Style>
+<Style name="table_sites2" element="span">
+<Attribute name="class" value="table_sites2" />
+</Style>
+<Style name="table_sites2_td" element="span">
+<Attribute name="class" value="table_sites2_td" />
+</Style>
+<Style name="titres_sites2" element="span">
+<Attribute name="class" value="titres_sites2" />
+</Style>
+<Style name="titres_sites" element="span">
+<Attribute name="class" value="titres_sites" />
+</Style>
+<Style name="titres_sites3" element="span">
+<Attribute name="class" value="titres_sites3" />
+</Style>
+<Style name="sites_contenu" element="span">
+<Attribute name="class" value="sites_contenu" />
+</Style>
+<Style name="sites_contenu2" element="span">
+<Attribute name="class" value="sites_contenu2" />
+</Style>
+<Style name="synthesefi" element="span">
+<Attribute name="class" value="synthesefi" />
+</Style>
+<Style name="synthesefi_td1" element="span">
+<Attribute name="class" value="synthesefi_td1" />
+</Style>
+<Style name="rapports_telechargement" element="span">
+<Attribute name="class" value="rapports_telechargement" />
+</Style>
+<Style name="rapports_telechargement_en" element="span">
+<Attribute name="class" value="rapports_telechargement_en" />
+</Style>
+<Style name="lettre" element="span">
+<Attribute name="class" value="lettre" />
+</Style>
+<Style name="lettre_en" element="span">
+<Attribute name="class" value="lettre_en" />
+</Style>
+<Style name="lettre_content" element="span">
+<Attribute name="class" value="lettre_content" />
+</Style>
+<Style name="comptederesultat" element="span">
+<Attribute name="class" value="comptederesultat" />
+</Style>
+<Style name="comptederesultaten" element="span">
+<Attribute name="class" value="comptederesultaten" />
+</Style>
+<Style name="comptederesultat_table" element="span">
+<Attribute name="class" value="comptederesultat_table" />
+</Style>
+<Style name="comptederesultat_table_td1" element="span">
+<Attribute name="class" value="comptederesultat_table_td1" />
+</Style>
+<Style name="comptederesultat_table_td2" element="span">
+<Attribute name="class" value="comptederesultat_table_td2" />
+</Style>
+<Style name="comptederesultat_td1" element="span">
+<Attribute name="class" value="comptederesultat_td1" />
+</Style>
+<Style name="comptederesultat_td2" element="span">
+<Attribute name="class" value="comptederesultat_td2" />
+</Style>
+<Style name="comptederesultat_td3" element="span">
+<Attribute name="class" value="comptederesultat_td3" />
+</Style>
+<Style name="comptederesultat_td4" element="span">
+<Attribute name="class" value="comptederesultat_td4" />
+</Style>
+<Style name="chiffredaffaires" element="span">
+<Attribute name="class" value="chiffredaffaires" />
+</Style>
+<Style name="chiffredaffaires_en" element="span">
+<Attribute name="class" value="chiffredaffaires_en" />
+</Style>
+<Style name="bilansimplifie" element="span">
+<Attribute name="class" value="bilansimplifie" />
+</Style>
+<Style name="bilansimplifieen" element="span">
+<Attribute name="class" value="bilansimplifieen" />
+</Style>
+<Style name="bilansimplifie_td" element="span">
+<Attribute name="class" value="bilansimplifie_td" />
+</Style>
+<Style name="bilansimplifie_td1" element="span">
+<Attribute name="class" value="bilansimplifie_td1" />
+</Style>
+<Style name="bilansimplifie_td2" element="span">
+<Attribute name="class" value="bilansimplifie_td2" />
+</Style>
+<Style name="bilansimplifie_td3" element="span">
+<Attribute name="class" value="bilansimplifie_td3" />
+</Style>
+<Style name="fond_ombre" element="span">
+<Attribute name="class" value="fond_ombre" />
+</Style>
+<Style name="resultat_tr" element="span">
+<Attribute name="class" value="resultat_tr" />
+</Style>
+<Style name="resultatnet" element="span">
+<Attribute name="class" value="resultatnet" />
+</Style>
+<Style name="resultatoperationnel" element="span">
+<Attribute name="class" value="resultatoperationnel" />
+</Style>
+<Style name="ventilationducaparactivite" element="span">
+<Attribute name="class" value="ventilationducaparactivite" />
+</Style>
+<Style name="ventilationducaparclient" element="span">
+<Attribute name="class" value="ventilationducaparclient" />
+</Style>
+<Style name="portefeuilledecommandes" element="span">
+<Attribute name="class" value="portefeuilledecommandes" />
+</Style>
+<Style name="portefeuilleparclient" element="span">
+<Attribute name="class" value="portefeuilleparclient" />
+</Style>
+<Style name="strategie" element="span">
+<Attribute name="class" value="strategie" />
+</Style>
+<Style name="table_implantations_td1" element="span">
+<Attribute name="class" value="table_implantations_td1" />
+</Style>
+<Style name="table_objectifs" element="span">
+<Attribute name="class" value="table_objectifs" />
+</Style>
+<Style name="table_organigramme" element="span">
+<Attribute name="class" value="table_organigramme" />
+</Style>
+<Style name="table_organigramme_organe" element="span">
+<Attribute name="class" value="table_organigramme_organe" />
+</Style>
+<Style name="table_organigramme_organe2" element="span">
+<Attribute name="class" value="table_organigramme_organe2" />
+</Style>
+<Style name="table_organigramme_organe2_td" element="span">
+<Attribute name="class" value="table_organigramme_organe2_td" />
+</Style>
+<Style name="table_organigramme_organe2_td2" element="span">
+<Attribute name="class" value="table_organigramme_organe2_td2" />
+</Style>
+<Style name="table_organigramme_organe_td1" element="span">
+<Attribute name="class" value="table_organigramme_organe_td1" />
+</Style>
+<Style name="table_organigramme_td1" element="span">
+<Attribute name="class" value="table_organigramme_td1" />
+</Style>
+<Style name="table_organigramme_td2" element="span">
+<Attribute name="class" value="table_organigramme_td2" />
+</Style>
+<Style name="table_organigramme_td3" element="span">
+<Attribute name="class" value="table_organigramme_td3" />
+</Style>
+<Style name="table_organigramme_petit" element="span">
+<Attribute name="class" value="table_organigramme_petit" />
+</Style>
+<Style name="table_organigramme_petit_td" element="span">
+<Attribute name="class" value="table_organigramme_petit_td" />
+</Style>
+<Style name="deroulant" element="span">
+<Attribute name="class" value="deroulant" />
+</Style>
+<Style name="pop_up_general" element="span">
+<Attribute name="class" value="pop_up_general" />
+</Style>
+<Style name="fermer" element="span">
+<Attribute name="class" value="fermer" />
+</Style>
+<Style name="plandusite" element="span">
+<Attribute name="class" value="plandusite" />
+</Style>
+<Style name="plandusite2" element="span">
+<Attribute name="class" value="plandusite2" />
+</Style>
+<Style name="plandusite2_td1" element="span">
+<Attribute name="class" value="plandusite2_td1" />
+</Style>
+<Style name="plandusite2_td2" element="span">
+<Attribute name="class" value="plandusite2_td2" />
+</Style>
+<Style name="plandusite2_td3" element="span">
+<Attribute name="class" value="plandusite2_td3" />
+</Style>
+<Style name="table_liens" element="span">
+<Attribute name="class" value="table_liens" />
+</Style>
+<Style name="table_map" element="span">
+<Attribute name="class" value="table_map" />
+</Style>
+<Style name="table_map_td1" element="span">
+<Attribute name="class" value="table_map_td1" />
+</Style>
+<Style name="table_map_td2" element="span">
+<Attribute name="class" value="table_map_td2" />
+</Style>
+<Style name="table_map_td3" element="span">
+<Attribute name="class" value="table_map_td3" />
+</Style>
+<Style name="leveltrois" element="span">
+<Attribute name="class" value="leveltrois" />
+</Style>
+<Style name="leveltroisencours" element="span">
+<Attribute name="class" value="leveltroisencours" />
+</Style>
+<Style name="table_recherche" element="span">
+<Attribute name="class" value="table_recherche" />
+</Style>
+<Style name="table_recherche_td1" element="span">
+<Attribute name="class" value="table_recherche_td1" />
+</Style>
+<Style name="table_recherche_td2" element="span">
+<Attribute name="class" value="table_recherche_td2" />
+</Style>
+<Style name="titre_recherche" element="span">
+<Attribute name="class" value="titre_recherche" />
+</Style>
+<Style name="rubrique" element="span">
+<Attribute name="class" value="rubrique" />
+</Style>
+<Style name="recherche_fermer" element="span">
+<Attribute name="class" value="recherche_fermer" />
+</Style>
+<Style name="bt_fermer" element="span">
+<Attribute name="class" value="bt_fermer" />
+</Style>
+<Style name="acces" element="span">
+<Attribute name="class" value="acces" />
+</Style>
+<Style name="acces_texte" element="span">
+<Attribute name="class" value="acces_texte" />
+</Style>
+</Styles>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<class name="nws_content" libelle="Actualités" prefix="nws" display="titre_court" abstract="sous_titre">
+<item name="id" type="int" length="11" isprimary="true" notnull="true" default="-1" list="true" order="true" asso="seni_assonwsresidence,seni_assonewssite" />
+<item name="statut" libelle="Statut" type="int" length="11" notnull="true" default="DEF_CODE_STATUT_DEFAUT" list="true" order="true" /> 
+<item name="titre_court" libelle="Titre court" type="int" length="11" list="true" order="true" translate="reference" /> 
+<item name="titre_long" libelle="Balise Title" type="int" length="11" rss="title" translate="reference" /> 
+<item name="sous_titre" libelle="Sous-titre" type="int" length="11" list="true" order="true" option="textarea" translate="reference" /> 
+<item name="texte_long" libelle="Corps du texte" type="int" length="11" option="textarea" rss="description" translate="reference" />
+<item name="document" libelle="Documentation" type="int" length="11" fkey="cms_pdf"/> 
+<item name="vignette" libelle="Vignette" type="varchar" length="255" option="file"/>
+<item name="diaporama" libelle="Vignette de partage" type="varchar" length="255" option="file" fkey="">
+    <option type="image" width="484" height="252" />
+</item>
+<item name="url" libelle="URL" type="varchar" length="256" option="url" /> 
+<item name="remontee" libelle="Remontee" type="enum" length="'Y','N'" default="N" />
+<item name="ordre" libelle="Ordre" type="int" length="11" list="true" order="true" />
+<item name="date_pub_debut" libelle="Début de publication" type="datetime"  format="l j F Y" rss="pubDate" />
+<item name="date_pub_fin" libelle="Fin de publication" type="datetime"  format="l j F Y" rss="pubendDate" /> 
+<item name="cdate" libelle="Date de création" type="date" />
+<item name="mdate" libelle="Date de modification" type="date" />
+</class>

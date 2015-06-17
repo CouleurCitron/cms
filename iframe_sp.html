@@ -1,0 +1,24 @@
+<html>
+<body>
+<form name="test_sp05MyForm" action="/frontoffice/eformalites/writeform.php" method="post"><script src="/backoffice/cms/js/validForm.js"></script>
+	<input type="hidden" name="destEmails" value="">
+	<input type="hidden" name="formulaire" value="test_sp05">
+	<input type="hidden" name="brTypeForm" value="file">
+	<table cellpadding="0" cellspacing="0" border="0"><tr id="titre"><td colspan="2"><h1>test_sp05</h1></td></tr><tr id=tr1><td align="right">nom : </td><td><input type="text" name="nom" value="" size="25" maxlength="25" errorMsg="Ce champ est obligatoire" pattern=""></td></tr>
+<tr id=tr1><td align="right">prenom : </td><td><input type="text" name="prenom" value="" size="25" maxlength="25" errorMsg="Ce champ est obligatoire" pattern=""></td></tr>
+<tr id=tr1><td colspan="2"><input type="hidden" name="hcb_cc1" value="Non">
+<input type="checkbox" name="cb_cc1" value="Oui">cc1<br/>
+</td></tr><tr id=tr1><td colspan="2"><input type="hidden" name="hcb_cc2" value="Non">
+<input type="checkbox" name="cb_cc2" value="Oui">cc2<br/>
+</td></tr><tr id=tr1><td colspan="2" nowrap><input type="radio" name="br" value="br1">br1<br/>
+<input type="radio" name="br" value="br2">br2<br/>
+<input type="radio" name="br" value="br3">br3<br/>
+</td></tr><tr id=tr1><td colspan="2" nowrap><select name="liste"><option value="liste01">liste01</option>
+<option value="liste02">liste02</option>
+</select></td></tr><tr>
+	<td align="center"><input type="button" name="test_sp05"value="Envoyer" onClick="javascript:if(validate_form()){submit();}"></td>
+	<td align="center"><input type="reset"></td>
+	</tr>
+	</table></form>
+</body>
+</html>

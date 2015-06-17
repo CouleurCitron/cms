@@ -1,0 +1,1 @@
+<?php include('cms-inc/autoClass/list.php'); ?>
