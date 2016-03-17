@@ -48,6 +48,8 @@ $folderPath = $_SESSION["ck_filemanager_path"];
 $fm = new Filemanager();
 $fm->setFileRoot($folderPath);
 
+
+
 $response = '';
 
 if(!auth()) {
@@ -75,7 +77,6 @@ if(!isset($_GET)) {
         break;
 
       case 'getfolder':
-        	
         if($fm->getvar('path')) {
           $response = $fm->getfolder();
         }
@@ -110,6 +111,7 @@ if(!isset($_GET)) {
         break;
 
       case 'download':
+
         if($fm->getvar('path')) {
           $fm->download();
         }

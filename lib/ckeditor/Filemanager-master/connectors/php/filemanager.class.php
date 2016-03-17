@@ -70,6 +70,7 @@ class Filemanager {
 		// else it takes $_SERVER['DOCUMENT_ROOT'] default value
 		if ($this->config['options']['fileRoot'] !== false ) {
 			if($this->config['options']['serverRoot'] === true) {
+
 				$this->doc_root = $_SERVER['DOCUMENT_ROOT'];
 				$this->separator = basename($this->config['options']['fileRoot']);
 			} else {
@@ -100,6 +101,7 @@ class Filemanager {
 	public function setFileRoot($path) {
 
 		if($this->config['options']['serverRoot'] === true) {
+	
 			$this->doc_root = $_SERVER['DOCUMENT_ROOT']. '/'.  $path;
 		} else {
 			$this->doc_root =  $path;
@@ -191,8 +193,6 @@ class Filemanager {
 		$filesDir = array();
 
 		$current_path = $this->getFullPath();
-
-
 		if(!$this->isValidPath($current_path)) {
 			$this->error("No way.");
 		}
@@ -264,6 +264,7 @@ class Filemanager {
 	
 	
 	public function editfile() {
+
 
 		$current_path = $this->getFullPath();
 		
@@ -451,6 +452,9 @@ class Filemanager {
 	}
 
 	public function delete() {
+
+		$this->doc_root=str_replace('custom/img/'.$_SESSION['rep_travail'].'/', '', $this->doc_root);
+
 
 		$current_path = $this->getFullPath();
 		$thumbnail_path = $this->get_thumbnail_path($current_path);
@@ -701,7 +705,8 @@ class Filemanager {
 	}
 
 	public function download() {
-			
+		
+		$this->doc_root=str_replace('custom/img/'.$_SESSION['rep_travail'].'/', '', $this->doc_root);
 		$current_path = $this->getFullPath();
 			
 		if(!$this->has_permission('download') || !$this->isValidPath($current_path)) {
@@ -854,7 +859,7 @@ class Filemanager {
 }
 
 private function getFullPath($path = '') {
-		
+
 	if($path == '') {
 		if(isset($this->get['path'])) $path = $this->get['path'];
 	}
@@ -869,9 +874,7 @@ private function getFullPath($path = '') {
 	}
 		
 	$full_path = str_replace("//", "/", $full_path);
-		
-	// $this->__log(__METHOD_. " returned path : " . $full_path);
-		
+
 	return $full_path;
 		
 }
