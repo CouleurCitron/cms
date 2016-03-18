@@ -101,7 +101,6 @@ class Filemanager {
 	public function setFileRoot($path) {
 
 		if($this->config['options']['serverRoot'] === true) {
-	
 			$this->doc_root = $_SERVER['DOCUMENT_ROOT']. '/'.  $path;
 		} else {
 			$this->doc_root =  $path;
@@ -875,6 +874,8 @@ private function getFullPath($path = '') {
 		
 	$full_path = str_replace("//", "/", $full_path);
 
+	// $this->__log(__METHOD_. " returned path : " . $full_path);
+		
 	return $full_path;
 		
 }

@@ -77,6 +77,7 @@ if(!isset($_GET)) {
         break;
 
       case 'getfolder':
+        	
         if($fm->getvar('path')) {
           $response = $fm->getfolder();
         }
