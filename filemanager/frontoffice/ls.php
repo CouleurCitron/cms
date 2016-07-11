@@ -1,5 +1,7 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_cms.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php');
 
 $oSite = detectSite($_SERVER['PHP_SELF']);
  
