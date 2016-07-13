@@ -1,6 +1,14 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 
+if (strpos($_SERVER['REQUEST_URI'], 'ls.inc.php')!==false){
+	// hack attempt
+	error_log('hack attempt on '.$_SERVER['PHP_SELF'].' from '.$_SERVER['REMOTE_ADDR']);
+	unset($_SESSION['FO']);
+	$sRetour = '';
+	die();	
+}
+
 function fileToIcon($filepath){
 	if (is_dir($filepath)){
 		return '/icons/folder.png';	

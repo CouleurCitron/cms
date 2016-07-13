@@ -1,9 +1,9 @@
 <?php
- 
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_cms.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php');
 
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/secure.php'); 
 ?>
 
 <link href="/backoffice/cms/css/bo.css" rel="stylesheet" type="text/css" />

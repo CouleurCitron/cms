@@ -175,38 +175,55 @@ if (preg_match('/\/cdn\//si', $fullPathToFile)==1 || preg_match('/cdn/si', $aFil
 	$fullPathToFile = $fullPathToCache;
 }
 
-if (is_file($fullPathToFile)){
-
-	header('HTTP/1.0 200 OK'); 
-	header('Content-Disposition: inline; filename="'.basename($Fichier_a_telecharger).'"'); 
-	header("Content-Type: ".$mimeType); 
-	header('Content-Transfer-Encoding: binary'."\n");
-	header('Content-Length: '.filesize($fullPathToFile)); 
-	//header('Pragma: no-cache'); 
-	header('Cache-Control: must-revalidate, post-check=0, pre-check=0, public'); 
-	header('Expires: 0'); 
+if (isDownloadable($fullPathToFile)===false){
+ 
+	header('HTTP/1.1 401 Unauthorized');
 	header('Connection: close');  
-	ob_clean();
-	flush();
-	set_time_limit(0);
-	if (function_exists('virtual')) {		
-		//$aInfo = apache_lookup_uri (str_replace($_SERVER['DOCUMENT_ROOT'], '', $fullPathToFile));
-		//error_log('virtual : '.str_replace($_SERVER['DOCUMENT_ROOT'], '', $fullPathToFile).' - '.$aInfo->status.' - '.$mimeType);		
-		if (virtual(str_replace($_SERVER['DOCUMENT_ROOT'], '', $fullPathToFile))){
-			// ras
-			//error_log('virtual ok');
+	error_log('Hack attempt : '.$fullPathToFile);
+	exit;
+}   
+else{ 
+	// on enleve les slashes après test downloadable	
+	if (defined('DEF_UPLOAD_REMOVE_SLASHDIR') ) {
+		if (DEF_UPLOAD_REMOVE_SLASHDIR) 
+			$fullPathToFile = removeToSlashDir($fullPathToFile); 
+	}
+	else {
+		$fullPathToFile = removeToSlashDir($fullPathToFile);
+	}
+
+	if (is_file($fullPathToFile)){	
+		header('HTTP/1.0 200 OK'); 
+		header('Content-Disposition: inline; filename="'.basename($Fichier_a_telecharger).'"'); 
+		header("Content-Type: ".$mimeType); 
+		header('Content-Transfer-Encoding: binary'."\n");
+		header('Content-Length: '.filesize($fullPathToFile)); 
+		//header('Pragma: no-cache'); 
+		header('Cache-Control: must-revalidate, post-check=0, pre-check=0, public'); 
+		header('Expires: 0'); 
+		header('Connection: close');  
+		ob_clean();
+		flush();
+		set_time_limit(0);
+		if (function_exists('virtual')) {		
+			//$aInfo = apache_lookup_uri (str_replace($_SERVER['DOCUMENT_ROOT'], '', $fullPathToFile));
+			//error_log('virtual : '.str_replace($_SERVER['DOCUMENT_ROOT'], '', $fullPathToFile).' - '.$aInfo->status.' - '.$mimeType);		
+			if (virtual(str_replace($_SERVER['DOCUMENT_ROOT'], '', $fullPathToFile))){
+				// ras
+				//error_log('virtual ok');
+			}
+			else{
+				//error_log('virtual failed'); 
+				readfile($fullPathToFile);
+			}
 		}
 		else{
-			//error_log('virtual failed'); 
 			readfile($fullPathToFile);
 		}
 	}
 	else{
-		readfile($fullPathToFile);
+		header('HTTP/1.0 404');
 	}
-}
-else{
-	header('HTTP/1.0 404');
 }
 exit;
 ?>
