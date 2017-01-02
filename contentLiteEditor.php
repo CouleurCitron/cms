@@ -56,7 +56,7 @@ if ($operation == "UPDATE")
 	if (DEF_BDD == "ORACLE" || DEF_BDD == "POSTGRES") {
 	
 		$datemep = date("Y/m/d/H:m:s");
-		$datemep = split('/', $datemep);
+		$datemep = explode('/', $datemep);
 		$datemep = "to_date('".$datemep[2]."/".$datemep[1]."/".$datemep[0]."', 'dd/mm/yyyy')";
 	
 	} else if (DEF_BDD == "MYSQL") {
@@ -98,7 +98,7 @@ if ($operation == "UPDATE")
 		if (DEF_BDD == "ORACLE" || DEF_BDD == "POSTGRES") {
 		
 			$datemep = date("Y/m/d/H:m:s");
-			$datemep = split('/', $datemep);
+			$datemep = explode('/', $datemep);
 			$datemep = "to_date('".$datemep[2]."/".$datemep[1]."/".$datemep[0]."', 'dd/mm/yyyy')";
 		
 		} else if (DEF_BDD == "MYSQL") {
@@ -141,7 +141,7 @@ body {
 // on est en mode conception
 // this part determines the physical root of your website
 // it's up to you how to do this
-if (!ereg('/$', $HTTP_SERVER_VARS['DOCUMENT_ROOT']))
+if (!preg_match('/\/$/msi', $HTTP_SERVER_VARS['DOCUMENT_ROOT']))
   $_root = $HTTP_SERVER_VARS['DOCUMENT_ROOT'].'/';
 else
   $_root = $HTTP_SERVER_VARS['DOCUMENT_ROOT'];

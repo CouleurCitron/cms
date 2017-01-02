@@ -3,7 +3,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 
 // this part determines the physical root of your website
 // it's up to you how to do this
-if (!ereg('/$', $HTTP_SERVER_VARS['DOCUMENT_ROOT']))
+if (!preg_match('/\/$/msi', $HTTP_SERVER_VARS['DOCUMENT_ROOT']))
   $_root = $HTTP_SERVER_VARS['DOCUMENT_ROOT'].'/';
 else
   $_root = $HTTP_SERVER_VARS['DOCUMENT_ROOT'];

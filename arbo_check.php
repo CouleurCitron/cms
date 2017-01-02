@@ -113,7 +113,7 @@ for ($i=0;$i<count($aNodes);$i++){
 		// controle file system
 		$fullPath = $_SERVER['DOCUMENT_ROOT']."/content".trim($correctPath);
 		// spec windows:
-		//$fullPath = ereg_replace("/", "\\", $fullPath);
+		//$fullPath = preg_replace("/\//msi", "\\", $fullPath);
 		// --------------
 		
 		dirExists($fullPath);		

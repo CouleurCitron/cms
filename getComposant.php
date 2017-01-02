@@ -14,7 +14,7 @@ if ($composant!=false) {
 
 	$sChaine = $composant['html'];
 	
-	$sChaine = ereg_replace("<\?(.*)\?>", "[code php dynamique]", $sChaine);
+	$sChaine = preg_replace("/<\?(.*)\?>/msi", "[code php dynamique]", $sChaine);
 
 	echo $sChaine;
 }

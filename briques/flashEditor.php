@@ -32,10 +32,10 @@ if(!strlen($_POST['swf'])>0) {
 		$type = ' value="'.$composant['type'].'" ';
 		//echo "type :$type";		
 		$sBodyHTML = $composant['html'];		
-		$sSwfUrl = ereg_replace( ".*swfSrcEmbed = \"([^\"]+)embedUrl.*", "\\1", $sBodyHTML);		
-		$sSwf = ereg_replace("([^\?]+)(\?.*)", "\\1.swf", $sSwfUrl);
-		$sParams = ereg_replace("([^\?]+\?)(.*)", "\\2", $sSwfUrl);		
-		$sWmode = ereg_replace('.*"wmode", "([^"]*)".*', '\\1', $sBodyHTML);
+		$sSwfUrl = preg_replace( "/.*swfSrcEmbed = \"([^\"]+)embedUrl.*/msi", "$1", $sBodyHTML);		
+		$sSwf = preg_replace("/([^\?]+)(\?.*)/msi", "$1.swf", $sSwfUrl);
+		$sParams = preg_replace("/([^\?]+\?)(.*)/msi", "$2", $sSwfUrl);		
+		$sWmode = preg_replace('/.*"wmode", "([^"]*)".*/msi', '$1', $sBodyHTML);
 		if (trim($sWmode)==''){
 			$sWmode='opaque';
 		}
@@ -85,7 +85,7 @@ print $Upload-> Field[0];
 				if (is_dir($basedir)){					
 					if ($dir = @opendir($basedir)) {
 						while (($file = readdir($dir)) !== false) {					
-							if ((is_file($basedir."/".$file)) && (ereg(".*\.(swf|SWF)", $file))) {
+							if ((is_file($basedir."/".$file)) && (preg_match("/.*\.(swf)/msi", $file))) {
 								$swfPath = str_replace($_SERVER['DOCUMENT_ROOT'], "", $basedir."/".$file);								
 								
 								 if($swfPath == $sSwf){
@@ -180,7 +180,7 @@ WMODE&nbsp;:&nbsp;<input id="fwmode" name="fwmode" value="<?php echo $sWmode ?>"
 <div id="rows">
 <?php
 $eParamCount = 0;
-$aParams = split("&", $sParams);
+$aParams = explode("&", $sParams);
 
 $isAdmin = false;
 if (($_SESSION["rank"] == "ADMIN")||(intval($_SESSION["groupe"]) == 1)){
@@ -190,7 +190,7 @@ if (($_SESSION["rank"] == "ADMIN")||(intval($_SESSION["groupe"]) == 1)){
 if ($isAdmin == true){ // pour les admins, paramètres names éditables
 	foreach($aParams as $k => $sParamSet){
 		if (strlen($sParamSet) > 0){
-			$aParamSet = split("=", $sParamSet);
+			$aParamSet = explode("=", $sParamSet);
 			echo "<br /><input id=\"param".$eParamCount."\" name=\"param".$eParamCount."\" type=\"text\" value=\"".$aParamSet[0]."\" />";
 			echo "<input id=\"value".$eParamCount."\" name=\"value".$eParamCount."\" type=\"text\" value=\"".flashurl_decode(utf8_decode($aParamSet[1]))."\" />";
 			$eParamCount++;
@@ -207,7 +207,7 @@ if ($isAdmin == true){ // pour les admins, paramètres names éditables
 else{ // pour les autres, paramètres values éditables only
 	foreach($aParams as $k => $sParamSet){
 		if (strlen($sParamSet) > 0){
-			$aParamSet = split("=", $sParamSet);
+			$aParamSet = explode("=", $sParamSet);
 			echo "<br /><input id=\"__".$eParamCount."\" name=\"__".$eParamCount."\" type=\"text\" value=\"".$aParamSet[0]."\" disabled=\"1\" />";
 			echo "<input id=\"param".$eParamCount."\" name=\"param".$eParamCount."\" type=\"hidden\" value=\"".$aParamSet[0]."\" />";
 			echo "<input id=\"value".$eParamCount."\" name=\"value".$eParamCount."\" type=\"text\" value=\"".flashurl_decode(utf8_decode($aParamSet[1]))."\" />";

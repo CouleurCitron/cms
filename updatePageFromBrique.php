@@ -191,7 +191,7 @@ if (isset($_POST['pageDisplayed']) || isset($_GET['pageDisplayed'])) {
 	else  {
 		$pageToGenerate = $_POST['togenerate'];
 		$pageDisplayed =  $_POST['pageDisplayed'];
-		$pageDisplayed = split(',',$_POST['pageDisplayed']);
+		$pageDisplayed = explode(',',$_POST['pageDisplayed']);
 	}
 	
 		

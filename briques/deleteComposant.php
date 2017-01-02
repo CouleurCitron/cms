@@ -172,7 +172,7 @@ if ($result) {
 	// Dans le dossier /modules/graphiques/xmldata/
 	if ($composant['type']=="Graphique") {
 		$htmlstring = $composant['html'];
-	   if ( ereg ( "<!--CHART_ID ([^µ]*)µ-->", $htmlstring, $tab_result ) ) {
+	   if ( preg_match ( "/<!--CHART_ID ([^µ]*)µ-->/msi", $htmlstring, $tab_result ) ) {
 			$chart_id=$tab_result[1];
 	   }
 		global $HTTP_SERVER_VARS;

@@ -145,15 +145,15 @@ if(!(strlen($larg)>0 && strlen($long)>0)) {
 		
 		$chart['draw_text'][0]['width'] = $larg;
 		$chart['draw_text'][0]['height'] = $long;
-		$chart['draw_text'][0]['text'] = ereg_replace("[\r]?\n",'\\\r',$_SESSION['chart_title']);
+		$chart['draw_text'][0]['text'] = preg_replace("/[\r]?\n/msi",'\\\r',$_SESSION['chart_title']);
 		
 		$chart['draw_text'][1]['width'] = $larg;
 		$chart['draw_text'][1]['height'] = $long;
-		$chart['draw_text'][1]['text'] = ereg_replace("[\r]?\n",'\\\r',$_SESSION['chart_legend']);
+		$chart['draw_text'][1]['text'] = preg_replace("/[\r]?\n/msi",'\\\r',$_SESSION['chart_legend']);
 		
 		$chart['draw_text'][2]['width'] = $larg;
 		$chart['draw_text'][2]['height'] = $long;
-		$chart['draw_text'][2]['text'] = ereg_replace("[\r]?\n",'\\\r',$_SESSION['chart_txt']);
+		$chart['draw_text'][2]['text'] = preg_replace("/[\r]?\n/msi",'\\\r',$_SESSION['chart_txt']);
 		
 		
 		// Paramtres par dfaut du flash
@@ -211,7 +211,7 @@ if(!(strlen($larg)>0 && strlen($long)>0)) {
 			$chart[ 'draw_text' ][1]['width'] = $larg-$txtsupp_w;
 			$chart[ 'draw_text' ][2]['x'] = $larg-$txtsupp_w+5;
 			$chart[ 'draw_text' ][2]['width'] = $txtsupp_w-30;
-			$chart[ 'draw_text' ][2]['text'] = ereg_replace("[\r]?\n",'\\\r',wordwrap( $chart[ 'draw_text' ][2]['text'] , $nb_car_cesure));
+			$chart[ 'draw_text' ][2]['text'] = preg_replace("/[\r]?\n/msi",'\\\r',wordwrap( $chart[ 'draw_text' ][2]['text'] , $nb_car_cesure));
 			$chart [ 'draw_rect' ] = array ( array (   'x'               =>  $larg-$txtsupp_w, 
 											   'y'               =>  10, 
 											   'width'           =>  $txtsupp_w-10,  
@@ -240,7 +240,7 @@ if(!(strlen($larg)>0 && strlen($long)>0)) {
 		
 		// Si camembert => la lgende coule partout
 		// Rajustement pour l'affichage
-		if(ereg ( "pie", $chart['chart_type'] )) {
+		if(preg_match ( "/pie/msi", $chart['chart_type'] )) {
 			$chart [ 'chart_grid_h' ]['alpha'] = 0; //  Bug pas de fond de graphique
 			$chart[ 'legend_rect' ]['x'] = 10;
 			$chart [ 'legend_rect' ]['width'] = 10;
@@ -351,7 +351,7 @@ if(!(strlen($larg)>0 && strlen($long)>0)) {
 	
 	// this part determines the physical root of your website
 	// it's up to you how to do this
-	if (!ereg('/$', $_SERVER['DOCUMENT_ROOT']))
+	if (!preg_match('/\/$/msi', $_SERVER['DOCUMENT_ROOT']))
 	  $_root = $_SERVER['DOCUMENT_ROOT'].'/';
 	else
 	  $_root = $_SERVER['DOCUMENT_ROOT'];

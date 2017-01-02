@@ -208,8 +208,8 @@ $aContent = dbGetObjectsFromRequete("Cms_content", $sql);
 
 foreach($aContent as $key => $content){
 
-	if (!ereg("swf|SWF",$content->getType_content())){ // pas de correction utf8 sur les contents SWF
-		if (ereg("é", $content->getHtml_content())){ // é
+	if (!preg_match("/swf/msi",$content->getType_content())){ // pas de correction utf8 sur les contents SWF
+		if (preg_match("/é/msi", $content->getHtml_content())){ // é
 			echo "content ".$content->getId_content()." seems to be UTF8<br />\n";
 			$content->setHtml_content(utf8_decode($content->getHtml_content()));
 			echo "correct latin content should be ".$content->getHtml_content()."<br />\n";
@@ -217,19 +217,6 @@ foreach($aContent as $key => $content){
 		}
 	}
 }
-/*
-$sql = "SELECT * FROM cms_archi_content;";
-$aContent = dbGetObjectsFromRequete("Cms_archi_content", $sql);
 
-foreach($aContent as $key => $content){
-
-	if (ereg("é", $content->getHtml_archi())){ // é
-		echo "content ".$content->getId_archi()." seems to be UTF8<br />\n";
-		$content->setHtml_archi(utf8_decode($content->getHtml_archi()));
-		echo "correct latin content should be ".$content->getHtml_archi()."<br />\n";
-		echo "correction reussie? : ".dbUpdate($content)."<br /><br />\n";
-	}
-}
-*/
 
 ?>

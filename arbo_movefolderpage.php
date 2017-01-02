@@ -171,7 +171,7 @@ if($_POST['node_id']=="") {
 		$virtualPath = $_GET['v_comp_path'];
 		
 	$nodeInfos=getNodeInfos($db, $virtualPath);
-	$parentvirtualPath = ereg_replace(',[^,]+$','',$virtualPath);
+	$parentvirtualPath = preg_replace('/,[^,]+$/msi','',$virtualPath);
 	$parentnodeInfos=getNodeInfos($db, $parentvirtualPath);
 
 } else{
@@ -186,7 +186,7 @@ if($_POST['node_id']=="") {
 
 	$id=moveNode($idSite, $db,$virtualPath,$_POST['node_id']);
 
-	$parentvirtualPath = ereg_replace(',[^,]+$','',$virtualPath);
+	$parentvirtualPath = preg_replace('/,[^,]+$/msi','',$virtualPath);
 	$parentnodeInfos=getNodeInfos($db, $parentvirtualPath);
 
 }
