@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: listeInscrits.php,v 1.9 2013-03-01 10:28:18 pierre Exp $
-	$Author: pierre $
+	$Id: listeInscrits.php,v 1.1 2013-09-30 09:42:12 raphael Exp $
+	$Author: raphael $
 
 	$Log: listeInscrits.php,v $
+	Revision 1.1  2013-09-30 09:42:12  raphael
+	*** empty log message ***
+
 	Revision 1.9  2013-03-01 10:28:18  pierre
 	*** empty log message ***
 
@@ -241,7 +244,7 @@ foreach( $listeInscrits as $k => $inscrit) {
   <td nowrap="nowrap" align="center" class="arbo">&nbsp;<?php echo $inscrit->prenom; ?>&nbsp;</td>
   <td nowrap="nowrap" align="center" class="arbo"><a href="javascript:change_pwd_inscrit(<?php echo $inscrit->id; ?>)" class="arbo">changer</a></td>
   <td nowrap="nowrap" align="center" class="arbo"><a href="javascript:afficher_inscrit(<?php echo $inscrit->id; ?>)" class="arbo">voir</a></td>
-  <td nowrap="nowrap" align="center" class="arbo">&nbsp;<a href="#" onclick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cet inscrit ?')) {document.location='validerInscription.php?action=supprimer&amp;id=<?php echo $inscrit->id; ?>'}" title="Supprimer cette personne"><img src="/backoffice/cms/img/supprimer.gif" border="0" /></a>&nbsp;</td>
+  <td nowrap="nowrap" align="center" class="arbo">&nbsp;<a href="#" onclick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cet inscrit ?')) {document.location='validerInscription.php?action=supprimer&amp;id=<?php echo $inscrit->id; ?>'}" title="Supprimer cette personne"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" /></a>&nbsp;</td>
  </tr>
 <?php
 }

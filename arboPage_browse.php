@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /* 
-$Author: thao $
-$Revision: 1.28 $
+$Author: raphael $
+$Revision: 1.1 $
 
 $Log: arboPage_browse.php,v $
+Revision 1.1  2013-09-30 09:23:51  raphael
+*** empty log message ***
+
 Revision 1.28  2013-04-04 15:49:13  thao
 *** empty log message ***
 
@@ -397,8 +400,8 @@ afficheIconePreviewPage($idContent, $sNature, $idPage, $sNomPage, $bToutenligne_
    <td align="center" nowrap>
 <table cellpadding="0" cellspacing="1">
 <tr>
-	<td width="20"><a href="javascript:page_infos(<?php echo $page['id'];?>, <?php echo $page['gabarit'];?>)"><img src="/backoffice/cms/img/modifier.gif" border="0" title="Modifier la page"></a></td>
-	<td width="20"><a href="pageModif.php?id=<?php echo $page['id'];?>&idGab=<?php echo $page['gabarit'];?>"><img src="/backoffice/cms/img/propriete.gif" border="0" title="Propriétés de la page"></a></td>
+	<td width="20"><a href="javascript:page_infos(<?php echo $page['id'];?>, <?php echo $page['gabarit'];?>)"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0" title="Modifier la page"></a></td>
+	<td width="20"><a href="pageModif.php?id=<?php echo $page['id'];?>&idGab=<?php echo $page['gabarit'];?>"><img src="/backoffice/cms/img/2013/icone/propriete.png" border="0" title="Propriétés de la page"></a></td>
 	<td width="20"><?php
 // sponthus 31/05
 // A VOIR
@@ -407,12 +410,12 @@ afficheIconePreviewPage($idContent, $sNature, $idPage, $sNomPage, $bToutenligne_
 // si la page n'a pas de version  en ligne
 // A VOIR
 if ($bExisteligne_page == 1) {
-?><a href="movePage.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/deplacer.gif" border="0" title="Déplacer la page"></a><?php
+?><a href="movePage.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/2013/icone/deplacer.png" border="0" title="Déplacer la page"></a><?php
 }
 ?></td>
-	<td width="20"><a href="renamePage.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/renommer.gif" border="0" title="Renommer la page"></a></td>
-	<td width="20"><a href="/node.php?page=<?php echo $page['id'];?>&amp;" target="_blank" onclick="prompt('Permalien vers cette page:', 'http://<?php echo $_SERVER['HTTP_HOST']; ?>/node.php?page=<?php echo $page['id'];?>&amp;amp;'); return false;" title="Permalien"><img src="/backoffice/cms/img/link.gif" alt="Permalien" border="0" height="14" width="14" /></a></td>
-	<td width="20"><a href="#" onClick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cette page ?')){ document.location='site/deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/supprimer.gif" border="0" title="Supprimer la page"></a></td>
+	<td width="20"><a href="renamePage.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/2013/icone/renommer.png" border="0" title="Renommer la page"></a></td>
+	<td width="20"><a href="/node.php?page=<?php echo $page['id'];?>&amp;" target="_blank" onclick="prompt('Permalien vers cette page:', 'http://<?php echo $_SERVER['HTTP_HOST']; ?>/node.php?page=<?php echo $page['id'];?>&amp;amp;'); return false;" title="Permalien"><img src="/backoffice/cms/img/2013/icone/link.png" alt="Permalien" border="0"/></a></td>
+	<td width="20"><a href="#" onClick="if(window.confirm('<?php $translator->echoTransByCode('confirme_suppression'); ?>')){ document.location='site/deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" title="Supprimer la page"></a></td>
 </tr>
 </table>
 <!--<a href="javascript:page_maj(<?php echo $page['id'];?>)">modifier</a>&nbsp;--></td>

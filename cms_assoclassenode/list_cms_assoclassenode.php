@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php'); 
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 $aCustom = array();
 $aCustom["JS"] = " // js
 function loadnodes(id){
@@ -17,7 +17,7 @@ function savenodes(id){
 		document.##classePrefixe##_list_form.submit();
 }
  ";
-$aCustom["Action"] = "<a href=\"javascript:loadnodes(##id##);\" title=\"Charger les objets d'après les dossiers\"><img src=\"/backoffice/cms/img/right.gif\" width=\"14\" height=\"14\" alt=\"Charger les objets d'après les dossiers\" border=\"0\" /></a>";
-$aCustom["Action"] .= "&nbsp;&nbsp;<a href=\"javascript:savenodes(##id##);\" title=\"Ecrire les dossier d'après les objets\"><img src=\"/backoffice/cms/img/left.gif\" width=\"14\" height=\"14\" alt=\"Ecrire les dossier d'après les objets\" border=\"0\" /></a>";
+$aCustom["Action"] = "<a href=\"javascript:loadnodes(##id##);\" title=\"Charger les objets d'après les dossiers\"><img src=\"/backoffice/cms/img/2013/icone/right.png\" alt=\"Charger les objets d'après les dossiers\" border=\"0\" /></a>";
+$aCustom["Action"] .= "&nbsp;&nbsp;<a href=\"javascript:savenodes(##id##);\" title=\"Ecrire les dossier d'après les objets\"><img src=\"/backoffice/cms/img/2013/icone/left.png\"   alt=\"Ecrire les dossier d'après les objets\" border=\"0\" /></a>";
 
 include('cms-inc/autoClass/list.php'); ?>

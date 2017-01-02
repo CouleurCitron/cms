@@ -4,10 +4,13 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 	2005/05/11 Michael
 	Modif pour Moz 
 
-	$Id: dirClasseur.php,v 1.7 2013-03-01 10:28:21 pierre Exp $
-	$Author: pierre $
+	$Id: dirClasseur.php,v 1.1 2013-09-30 09:44:03 raphael Exp $
+	$Author: raphael $
 
 	$Log: dirClasseur.php,v $
+	Revision 1.1  2013-09-30 09:44:03  raphael
+	*** empty log message ***
+
 	Revision 1.7  2013-03-01 10:28:21  pierre
 	*** empty log message ***
 
@@ -82,7 +85,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 include_once('include/utils/dir.lib.php');
 
 ?>
-<link href="/css/bo.css" rel="stylesheet" type="text/css" />
+<link href="/backoffice/cms/css/bo.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 <!--
 body {
@@ -200,13 +203,13 @@ function doIt(str) { // *** CC Mkl : Rajout de "document." pour Moz
 </table>
 <hr size="1" />
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
-<tr bgcolor="<?php echo $colors[$i%2]; $i++; ?>"><td colspan="2"><img src="/backoffice/cms/img/ico_dossier_opened.gif" border="0">&nbsp;&nbsp;<?php if($relDir) echo $relDir; else echo "/";?></td></tr>
+<tr bgcolor="<?php echo $colors[$i%2]; $i++; ?>"><td colspan="2"><img src="/backoffice/cms/img/2013/ico_dossier_opened.png" border="0">&nbsp;&nbsp;<?php if($relDir) echo $relDir; else echo "/";?></td></tr>
 <?php
 	foreach($dirs as $k => $dir) {
 ?>
 <tr bgcolor="<?php echo $colors[$i%2]; $i++; ?>">
    <td>&nbsp;&nbsp;</td>
-   <td><span class="texteFile"><a href="<?php echo $_SERVER['PHP_SELF']."?dir=".rawurlencode($relDir.'/'.$dir); ?>&form=<?php echo $_GET['form']; ?>&champ=<?php echo $_GET['champ']; ?>"><img src="/backoffice/cms/img/ico_dossier.gif" border="0">&nbsp;&nbsp;<?php echo $dir; ?></a></span></td>
+   <td><span class="texteFile"><a href="<?php echo $_SERVER['PHP_SELF']."?dir=".rawurlencode($relDir.'/'.$dir); ?>&form=<?php echo $_GET['form']; ?>&champ=<?php echo $_GET['champ']; ?>"><img src="/backoffice/cms/img/2013/ico_dossier.png" border="0">&nbsp;&nbsp;<?php echo $dir; ?></a></span></td>
 </tr>
 <?php
 	}

@@ -301,11 +301,11 @@ ou <br />
 <!--<input type="hidden" name="desc_form" id="desc_form" value="<?php echo $oForm->getDesc_form(); ?>" />-->
 <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
 <div align="left" class="arbo">Texte affiché après validation du formulaire &nbsp;:&nbsp;</div>
-<textarea name="desc_form" cols="60" rows="4" id="desc_form" class="arbo"><?php echo $oForm->getDesc_form(); ?></textarea><br/><br/>
+<textarea name="desc_form" id="desc_form" class="arbo textareaEdit"><?php echo $oForm->getDesc_form(); ?></textarea><br/><br/>
 <div align="left" class="arbo">Destinataire e-mail éventuel &nbsp;:&nbsp;</div>
 <input type="text" name="comm_form" id="comm_form" pattern="^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$" errormsg="Adresse e-mail non valide" value="<?php echo $oForm->getComm_form(); ?>" size="60" class="arbo" /><br/><br/>
 <div align="left" class="arbo">Texte accusé de réception (optionnel)&nbsp;:&nbsp;</div>
-<textarea name="ar_form" cols="60" rows="6" id="ar_form" class="arbo"><?php echo $oForm->getAr_form(); ?></textarea><br/><br/>
+<textarea name="ar_form" id="ar_form" class="arbo textareaEdit"><?php echo $oForm->getAr_form(); ?></textarea><br/><br/>
 <div align="left" class="arbo">Adresse de validation (optionnel)&nbsp;:&nbsp;</div>
 <input type="text" name="post_form" id="post_form" value="<?php echo $oForm->getPost_form(); ?>" size="60" class="arbo" /><br/><br/>
 <input type="hidden" name="node_id" id="node_id" value="<?php echo $node_id; ?>" /><br>

@@ -1,0 +1,657 @@
+/* POLICES DE CARACTERES */
+@font-face {
+    font-family: 'HelveticaNeueThin';
+    src: url('/backoffice/cms/font/helveticaneue-thin-webfont.eot');
+    src: url('/backoffice/cms/font/helveticaneue-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/backoffice/cms/font/helveticaneue-thin-webfont.woff') format('woff'),
+         url('/backoffice/cms/font/helveticaneue-thin-webfont.ttf') format('truetype'),
+         url('/backoffice/cms/font/helveticaneue-thin-webfont.svg#HelveticaNeueThin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HelveticaNeueHeavy';
+    src: url('/backoffice/cms/font/helveticaneue-heavy-webfont.eot');
+    src: url('/backoffice/cms/font/helveticaneue-heavy-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/backoffice/cms/font/helveticaneue-heavy-webfont.woff') format('woff'),
+         url('/backoffice/cms/font/helveticaneue-heavy-webfont.ttf') format('truetype'),
+         url('/backoffice/cms/font/helveticaneue-heavy-webfont.svg#HelveticaNeueHeavy') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HelveticaNeueLight';
+    src: url('/backoffice/cms/font/helveticaneue-light-webfont.eot');
+    src: url('/backoffice/cms/font/helveticaneue-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/backoffice/cms/font/helveticaneue-light-webfont.woff') format('woff'),
+         url('/backoffice/cms/font/helveticaneue-light-webfont.ttf') format('truetype'),
+         url('/backoffice/cms/font/helveticaneue-light-webfont.svg#HelveticaNeueLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HelveticaNeueMedium';
+    src: url('/backoffice/cms/font/helveticaneue-medium-webfont.eot');
+    src: url('/backoffice/cms/font/helveticaneue-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/backoffice/cms/font/helveticaneue-medium-webfont.woff') format('woff'),
+         url('/backoffice/cms/font/helveticaneue-medium-webfont.ttf') format('truetype'),
+         url('/backoffice/cms/font/helveticaneue-medium-webfont.svg#HelveticaNeueMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {	
+	background-color: #5B6E8A;
+	color:#333333;
+}
+
+
+/***************/
+/*      BO     */
+/***************/
+
+/****************************************************************************/
+/***************************** BLOC HEADER **********************************/
+/****************************************************************************/
+header {
+	background-color: #2d4569;
+	background: url(/backoffice/cms/img/2013/theme1/img/fd_top.png) repeat-y left top;
+	color: #FFFFFF;
+	position: fixed;
+	z-index: 5;
+}
+header h1 {
+	font-family: 'HelveticaNeueThin';
+	color:#ffffff;
+}
+header h1 span {
+	font-family: 'HelveticaNeueMedium';
+}
+header h1 a:link {
+	font-size: 1.2em;
+}
+header p.user_infos a {
+	color: #FFFFFF;
+}
+header p.user_infos a.deconnexion {
+	background-image: url(/backoffice/cms/img/2013/theme1/img/fd_deconnexion.png);
+    color: #676767;
+    /*font-size:0.9em;*/
+}
+header p.user_infos span.nom {
+	color:#89A4CC;
+}
+
+/****************************************************************************/
+/***************************** BLOC CENTER **********************************/
+/****************************************************************************/
+#center {
+	background: url(/backoffice/cms/img/2013/theme1/img/trame-claire.gif) repeat;
+	margin-top: 35px;
+}
+/* Col left */
+#col_left {	
+	background: url(/backoffice/cms/img/2013/theme1/img/fd_menu.jpg) repeat-y right top #ffffff;
+}
+#col_left p.site_travail {
+	font-size: 1.2em;
+    font-family: 'HelveticaNeueLight';
+    color: #2d4569;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+/* CSS menu */
+#menu.open_menu li.niv1 a {
+	background: url(/backoffice/cms/img/2013/theme1/img/fd_menu.png) no-repeat left top;
+	color: #69788D;	
+	font-family: 'HelveticaNeueLight';	
+	font-size:1.5em;
+}
+#menu li.niv1.active a, #menu li.niv1.active a:hover {
+	background: url(/backoffice/cms/img/2013/theme1/img/fd_menu_on.png) no-repeat left top;
+	color:#ffffff;
+}
+#menu li.niv1 a:hover {
+	color: #2D4569;	
+}
+/* Css ss_menu */
+#menu li.niv1.active li.niv2 a, #menu li.niv1 li.niv2 a {		
+	color: #25334d;
+	font-size: 1em;	
+	background: url(/backoffice/cms/img/2013/theme1/img/picto/fleche_noire.png) no-repeat 0px 3px;
+	text-transform:uppercase;
+	font-family:arial, verdana, helvetica, sans-serif;
+}
+
+#menu ul li.niv2.active a {	
+	color: #dfac1d;
+}
+#menu ul li a:hover, #menu ul li.niv3 ul li a:hover {
+	color: #dfac1d;
+}
+#menu li.active li.active li.niv3 a {
+	color: #25334D;
+	font-size: 1.1em;
+	text-transform:none;
+	background: url(/backoffice/cms/img/2013/theme1/img/picto/puce_bleue.png) no-repeat 0px 6px;
+}
+#menu ul li.active li.niv3.active a, #menu ul li.active li.niv3 a:hover {
+	color: #DFAC1D;
+	background: url(/backoffice/cms/img/2013/theme1/img/picto/puce_jaune.png) no-repeat 0px 6px;
+}
+
+
+/****************************************************************************/
+/***************************** MENU SMALL ***********************************/
+/****************************************************************************/
+#menu.close_menu li.niv1 a, #menu.close_menu li.niv1 a:hover {
+	background: url(/backoffice/cms/img/2013/theme1/img/fd_menu_small.png) no-repeat left top;
+	color: #69788D;	
+	font-family: arial;	
+	font-size:1em;
+}
+#menu.close_menu li.niv1.active li.niv2 a, #menu li.niv1 li.niv2 a{
+	/*color:#ffffff;*/
+	color: #000000;
+}
+#menu.close_menu li.niv1.active li.niv2 a, #menu.close_menu li.niv1 li.niv2 a {		
+	color: #ffffff;
+	font-size: 1em;	
+	background: url(/backoffice/cms/img/2013/theme1/img/picto/fleche_blanche.png) no-repeat 0px 3px;
+	text-transform:uppercase;
+	font-family:arial, verdana, helvetica, sans-serif;
+}
+#menu.close_menu li.niv1.active li.niv2.active a {		
+	color: #000000;
+	font-size: 1em;	
+	background: url(/backoffice/cms/img/2013/theme1/img/picto/fleche_noire.png) no-repeat 0px 3px;
+	text-transform:uppercase;
+	font-family:arial, verdana, helvetica, sans-serif;
+}
+#menu.close_menu li.niv1.Utilisateurs.active li.niv2.active a{
+	color:#000000;
+}
+#menu.close_menu li.niv1.Utilisateurs.active li.niv2.active li a {
+	color:#ffffff;
+	background: url(/backoffice/cms/img/2013/theme1/img/picto/fleche_blanche.png) no-repeat 0px 3px;
+	text-transform:none;
+}
+
+/****************************************************************************/
+/***************************** COL RIGHT ************************************/
+/****************************************************************************/
+#col_right ul.fil_ariane li{
+	font-family: 'HelveticaNeueLight';
+	font-size:1.8em;
+	background: url(/backoffice/cms/img/2013/theme1/img/picto/fleche_noire3.png) no-repeat left 7px;
+}
+#col_right .bloc_fond{
+	background-color:#ffffff;
+}
+#col_right table th, #col_right table tr.col_titre td{
+	background-color:#2d4569;
+	color:#ffffff;
+	text-align:center;
+	font-size: 1.2em;
+}
+#col_right table th a, #col_right table tr.col_titre td a{
+	color:#ffffff;
+}
+#col_right table td{
+	background-color:#cbd1dc;
+	color:#000000;
+	/*text-align:center;*/
+	border-top:2px solid #ffffff;
+	font-size: 1.2em;
+	padding: 5px;
+	vertical-align: middle;
+}
+#col_right table#sortable tr:hover td, #col_right form[name="pageLiteForm"] table tr:hover td {
+	background-color: #5679ad;
+	color: #FFFFFF;
+}
+#col_right table#sortable tr:hover td a, #col_right form[name="pageLiteForm"] table tr:hover td a {
+	color: #FFFFFF;
+}
+#col_right table#sortable tr:hover td a:hover, #col_right form[name="pageLiteForm"] table tr:hover td a:hover {
+	text-decoration: underline;
+}
+#col_right table td table td {
+	border-top:2px solid #cbd1dc;
+}
+#col_right table tr td:first-child {
+	font-weight: bold;
+}
+#col_right table#chooseGabarit tr:hover td, #col_right table#chooseGabarit tr:hover td a{
+    background-color:#5679ad;
+    color: #fff;
+}
+div#col_right form.arbo div#delayed_page_associations table {
+	width: 100%;
+}
+div#col_right form.arbo div#delayed_page_associations td {
+	text-align: left;
+	border: none;
+	padding: 4px 8px;
+}
+#col_right table .impair td{
+	background-color:#dee2e8;
+	color:#000000;
+	/*text-align:center;*/
+}
+div#col_right form div#filters.arbo {
+	padding-bottom: 20px;
+	font-size: 1.1em;
+	/*width: auto;*/
+	/* DESIGN DEUX */
+	/*background: #cbd1dc;
+	border: 5px solid #fff;*/
+}
+div#col_right form div#filters.arbo input[type="button"] {
+	/*font-size: 1em;*/	
+	height: 20px;
+	font-size: 13px;
+}
+div#col_right form div#filters.arbo table {
+	background: none;
+	width: 60%;
+	margin: 0 auto;
+}
+div#col_right form div#filters.arbo table tbody {
+	background: none;
+}
+div#col_right form div#filters.arbo table td {
+	background: none;
+	border: none;
+} 
+
+/****************************************************************************/
+/***************************** FOOTER ***************************************/
+/****************************************************************************/
+footer {
+	background-color: #69788d;
+}
+
+/*******************************************************************/
+/***************************** FIL ARIANE **************************/
+/*******************************************************************/
+.ariane{
+	background-color:#ffffff;
+	font-size:1.1em;
+}
+
+/*******************************************************************/
+/***************************** BARRE STATUT ************************/
+/*******************************************************************/
+.statut_tab{
+	background-color:#ffffff;	
+	float:right;
+	width:300px;
+}
+input[type=button]{
+background-color:#ffffff;
+border-radius:10px;
+box-shadow: 0px 0px 5px #999999;
+color:#676767;
+font-size:1em;
+background: url(/backoffice/cms/img/2013/theme1/img/fd_button.png) repeat-x scroll left top transparent;
+cursor: pointer;
+}
+input[type=button]:hover{
+background: url(/backoffice/cms/img/2013//theme1/img/fd_button_roll.png) repeat-x scroll left top transparent;
+}
+input[type=submit], input[type=reset] {
+	background: url(/backoffice/cms/img/2013/theme1/img/fd_button.png) repeat-x scroll left top transparent;
+	height: 23px;
+	border-radius: 10px;
+	width: 10%;
+	cursor: pointer;
+}
+input[type=submit]:hover, input[type=reset]:hover{
+background: url(/backoffice/cms/img/2013//theme1/img/fd_button_roll.png) repeat-x scroll left top transparent;
+}
+
+
+/*******************************************************************/
+/***************************** MOTEUR RECHERCHE ********************/
+/*******************************************************************/
+#filters #filters_content{
+background: url(/backoffice/cms/img/2013/theme1/img/fd_recherche2.png) repeat-x left top #ffffff;
+}
+#filters #filters_content h2{
+color:#ffffff;
+font-family: 'HelveticaNeueLight';
+text-transform:none;
+font-size:1.8em;
+font-weight:normal;
+text-indent:0;
+background: url(/backoffice/cms/img/2013/theme1/img/fd_recherche.png) no-repeat 15px 3px #2D4569;
+}
+.pagination_recherche_content{
+	background:url(/backoffice/cms/img/2013/theme1/img/fd_pagination.png) repeat-x left bottom transparent;
+}
+#col_right form h2{
+color:#ffffff;
+font-family: 'HelveticaNeueLight';
+text-transform:none;
+font-size:1.6em;
+font-weight:normal;
+text-indent:0;
+/*background-color:#2D4569;*/
+/* DESIGN DEUX */
+/*background-color: #838F9F;
+text-align: center;
+font-weight: bold;
+font-size: 1.2em;
+text-transform: uppercase;*/
+/* DESIGN TROIS */
+background: rgb(45,69,105); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(45,69,105,1) 0%, rgba(90,109,137,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(45,69,105,1)), color-stop(100%,rgba(90,109,137,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(45,69,105,1) 0%,rgba(90,109,137,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(45,69,105,1) 0%,rgba(90,109,137,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(45,69,105,1) 0%,rgba(90,109,137,1) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(45,69,105,1) 0%,rgba(90,109,137,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d4569', endColorstr='#5a6d89',GradientType=1 ); /* IE6-9 */
+}
+#col_right form h3{
+font-family: 'HelveticaNeueLight';
+text-transform:none;
+font-size:1.3em;
+font-weight:normal;
+text-indent:0;
+color:#2D4569;
+}
+#col_right form p{
+padding:0 0 10px 0;
+}
+#col_right form input[type=text], #col_right form input[type=textarea] {
+border:1px solid #999999;
+font-size:1em;
+padding: 3px;
+margin-bottom: 3px;
+}
+#col_right form table #foldername, #col_right form #pagename {
+	width: 288px;
+	background-color: #E9E9E9;
+	height: 23px;
+}
+
+/****************************************************************************/
+/***************************** ICONE ****************************************/
+/****************************************************************************/
+
+/********** SITES ****************/
+#menu li.niv1.Sites.active a,
+#menu.close_menu li.niv1.Sites ul {
+	background-color:#0b5b96;
+}
+#menu li.niv1.Sites.active li.niv2.active a,
+#menu li.niv1.Sites.active li.niv2.active li.active a{
+	color:#0b5b96;
+}
+#menu li.niv1.Sites.active li.niv2.active li a{
+color:#000000;	
+}
+
+/********** UTILISATEURS ****************/
+#menu li.niv1.Utilisateurs.active a,
+#menu.close_menu li.niv1.Utilisateurs ul,
+#menu li.niv1.Users.active a,
+#menu.close_menu li.niv1.Users ul{
+	background-color:#3898cf;
+}
+#menu li.niv1.Utilisateurs.active li.niv2.active a,
+#menu li.niv1.Utilisateurs.active li.niv2.active li.active a{
+	color:#3898cf;
+}
+#menu li.niv1.Utilisateurs.active li.niv2.active li a{
+color:#000000;	
+}
+
+/********** GABARITS ****************/
+#menu li.niv1.Gabarits.active a,
+#menu.close_menu li.niv1.Gabarits ul,
+#menu li.niv1.Templates.active a,
+#menu.close_menu li.niv1.Templates ul{
+	background-color:#97cce5;
+}
+#menu li.niv1.Gabarits.active li.niv2.active a,
+#menu li.niv1.Gabarits.active li.niv2.active li.active a{
+	color:#97cce5;
+}
+#menu li.niv1.Gabarits.active li.niv2.active li a{
+color:#000000;	
+}
+
+/********** PAGES ****************/
+#menu li.niv1.Pages.active a,
+#menu.close_menu li.niv1.Pages ul{
+	background-color:#7fc180;
+}
+#menu li.niv1.Pages.active li.niv2.active a,
+#menu li.niv1.Pages.active li.niv2.active li.active a{
+	color:#7fc180;
+}
+#menu li.niv1.Pages.active li.niv2.active li a{
+color:#000000;	
+}
+
+/********** BRIQUES ****************/
+#menu li.niv1.Briques.active a,
+#menu.close_menu li.niv1.Briques ul,
+#menu li.niv1.Bricks.active a,
+#menu.close_menu li.niv1.Bricks ul{
+	background-color:#aebd27;
+}
+#menu li.niv1.Briques.active li.niv2.active a,
+#menu li.niv1.Briques.active li.niv2.active li.active a{
+	color:#aebd27;
+}
+#menu li.niv1.Briques.active li.niv2.active li a{
+color:#000000;	
+}
+
+/********** CONTENUS ****************/
+#menu li.niv1.Contenus.active a,
+#menu.close_menu li.niv1.Contenus ul,
+#menu li.niv1.Contents.active a,
+#menu.close_menu li.niv1.Contents ul{
+	background-color:#718003;
+}
+#menu li.niv1.Contenus.active li.niv2.active a,
+#menu li.niv1.Contenus.active li.niv2.active li.active a{
+	color:#718003;
+}
+#menu li.niv1.Contenus.active li.niv2.active li a{
+color:#000000;	
+}
+
+/********** FICHIERS ****************/
+#menu li.niv1.Fichiers.active a,
+#menu.close_menu li.niv1.Fichiers ul,
+#menu li.niv1.Files.active a,
+#menu.close_menu li.niv1.Files ul{
+	background-color:#b17b1b;
+}
+#menu li.niv1.Fichiers.active li.niv2.active a,
+#menu li.niv1.Fichiers.active li.niv2.active li.active a{
+	color:#b17b1b;
+}
+#menu li.niv1.Fichiers.active li.niv2.active li a{
+color:#000000;	
+}
+
+/********** ACTUALITE ****************/
+#menu li.niv1.Actualites.active a,
+#menu.close_menu li.niv1.Actualites ul{
+	background-color:#f3ce00;
+}
+#menu li.niv1.Actualites.active li.niv2.active a,
+#menu li.niv1.Actualites.active li.niv2.active li.active a{
+	color:#f3ce00;
+}
+#menu li.niv1.Actualites.active li.niv2.active li a{
+color:#000000;	
+}
+
+/********** MODULES ****************/
+#menu li.niv1.Modules.active a,
+#menu.close_menu li.niv1.Modules ul{
+	background-color:#f78046;
+}
+#menu li.niv1.Modules.active li.niv2.active a,
+#menu li.niv1.Modules.active li.niv2.active li.active a{
+	color:#f78046;
+}
+#menu li.niv1.Modules.active li.niv2.active li a{
+color:#000000;	
+}
+
+/********** NEWSLETTER ****************/
+#menu li.niv1.Newsletter.active a,
+#menu.close_menu li.niv1.Newsletter ul{
+	background-color:#d62929;
+}
+#menu li.niv1.Newsletter.active li.niv2.active a,
+#menu li.niv1.Newsletter.active li.niv2.active li.active a{
+	color:#d62929;
+}
+#menu li.niv1.Newsletter.active li.niv2.active li a{
+color:#000000;	
+}
+
+/********** BOUTIQUE et Catalogue ****************/
+#menu li.niv1.Boutique.active a,
+#menu.close_menu li.Boutique.sites ul,
+#menu li.niv1.Gestion-des-produits.active a,
+#menu.close_menu li.Gestion-des-produits.sites ul{
+	background-color:#d92e75;
+}
+#menu li.niv1.Boutique.active li.niv2.active a,
+#menu li.niv1.Boutique.active li.niv2.active li.active a,
+#menu li.niv1.Gestion-des-produits.active li.niv2.active a,
+#menu li.niv1.Gestion-des-produits.active li.niv2.active li.active a{
+	color:#d92e75;
+}
+#menu li.niv1.Boutique.active li.niv2.active li a,
+#menu li.niv1.Gestion-des-produits.active li.niv2.active li a{
+color:#000000;	
+}
+
+/********** AVIS ****************/
+#menu li.niv1.Avis.active a,
+#menu.close_menu li.niv1.Avis ul{
+	background-color:#925397;
+}
+#menu li.niv1.Avis.active li.niv2.active a,
+#menu li.niv1.Avis.active li.niv2.active li.active a{
+	color:#925397;
+}
+#menu li.niv1.Avis.active li.niv2.active li a{
+color:#000000;	
+}
+
+/********** VIDEOS ****************/
+#menu li.niv1.Video-sitemap.active a,
+#menu.close_menu li.niv1.Video-sitemap ul{
+	background-color:#f79400;
+}
+#menu li.niv1.Video-sitemap.active li.niv2.active a,
+#menu li.niv1.Video-sitemap.active li.niv2.active li.active a{
+	color:#f79400;
+}
+#menu li.niv1.Video-sitemap.active li.niv2.active li a{
+color:#000000;	
+}
+
+/********** COMPTES ****************/
+#menu li.niv1.Comptes.active a,
+#menu.close_menu li.niv1.Comptes ul{
+	background-color:#7d6641;
+}
+#menu li.niv1.Comptes.active li.niv2.active a,
+#menu li.niv1.Comptes.active li.niv2.active li.active a{
+	color:#7d6641;
+}
+#menu li.niv1.Comptes.active li.niv2.active li a{
+	color:#000000;	
+}
+
+/********** SLIDESHOW 5 ****************/
+#menu li.niv1.Slideshow-5.active a,
+#menu.close_menu li.niv1.Slideshow-5 ul{
+	background-color:#c7440b;
+}
+#menu li.niv1.Slideshow-5.active li.niv2.active a,
+#menu li.niv1.Slideshow-5.active li.niv2.active li.active a{
+	color:#c7440b;
+}
+#menu li.niv1.Slideshow-5.active li.niv2.active li a{
+	color:#000000;	
+}
+
+/********** FORMULAIRE ****************/
+#menu li.niv1.Formulaire.active a,
+#menu.close_menu li.niv1.Formulaire ul{
+	background-color:#5a2f74;
+}
+#menu li.niv1.Formulaire.active li.niv2.active a,
+#menu li.niv1.Formulaire.active li.niv2.active li.active a{
+	color:#5a2f74;
+}
+#menu li.niv1.Formulaire.active li.niv2.active li a{
+color:#000000;	
+}
+
+#menu.close_menu li.niv1.active li.niv2 a, #menu.close_menu li.niv1 li.niv2 a {
+	color: #fff;
+}
+#menu.close_menu li.niv1.active li.niv2.active a {
+	color: #000;
+}
+#menu.close_menu li.niv1.active li.niv2.active li.niv3 a {
+	color: #fff;
+	padding-left: 13px;
+	background: url(/backoffice/cms/img/2013/theme1/img/picto/fleche_blanche.png) no-repeat 0px 3px;
+}
+#menu.close_menu li.niv1.active li.niv2.active li.niv3.active a {
+	color: #000;
+}
+
+
+/********** ONGLET LANGUE FORMULAIRE ****************/
+p.choiceLang{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    clear: both;
+}
+p.choiceLang a{
+    display:block;
+    float: right;
+    background-color: #ccc;
+    height: 100%;
+    padding: 10px 20px;
+    margin: 0 10px;
+    color: #fff;
+}
+p.choiceLang a.actif{
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+}
+
+
+
+/********** BASE ****************/
+
+
+
+
+	

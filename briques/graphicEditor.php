@@ -55,57 +55,35 @@ if(!(strlen($larg)>0 && strlen($long)>0)) {
 		$contenuhtml = preg_replace("/'/",'`',$contenuhtml);
 	}
 ?>
-<br />
-<br />
-<br />
+<div class="ariane"><span class="arbo2">Créer une brique graphique</span></div>
 <form name="creation" id="creation" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 <input type="hidden" name="id" id="id" value="<?php if (strlen($id)>0) echo $id; ?>" />
 <input type="hidden" name="chart_id" id="chart_id" value="<?php if (preg_match('/CHART_ID [0-9]+µ/msi', $contenuhtml)==1) echo preg_replace('/.*CHART_ID ([0-9]+)µ.*/msi', '$1', $contenuhtml); ?>" />
 
 <input type="hidden" name="contenuhtml" id="contenuhtml" value='<?php if (strlen($contenuhtml)>0) echo $contenuhtml; ?>' />
-<br />
-<table width="369" border="1" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" class="arbo">
-  <tr>
-    <td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="arbo">
-        <tr valign="middle"  >
-          <td height="28" colspan="2" nowrap background="/backoffice/cms/img/fond_tab.gif"><table width="100%" border="0" cellspacing="0" cellpadding="5">
-              <tr>
-                <td class="arbo"><strong>&nbsp;Cr&eacute;ation de la brique Graphique</strong></td>
-              </tr>
-          </table></td>
-        </tr>
-        <tr>
-          <td colspan="2" align="right">&nbsp;</td>
-        </tr>
-        <tr>
-          <td align="right" style="vertical-align:middle">Nom&nbsp;:&nbsp;</td>
-          <td align="left"><input name="name" type="text" class="arbo" id="name" size="30"  maxlength="30" <?php echo $name; ?> /></td>
-        </tr>
-		<tr>
-		  <td colspan="2" align="right">&nbsp;</td>
-		  </tr>
-		<tr>
-		  <td align="right" style="vertical-align:middle">Largeur&nbsp;:&nbsp;</td>
-		  <td align="left"><input name="l" type="text" class="arbo" size="4" maxlength="4" <?php echo $larg; ?> />&nbsp;pixels</td>
-		</tr>
-		<tr>
-		  <td colspan="2" align="right">&nbsp;</td>
-		  </tr>
-		<tr>
-		  <td align="right" style="vertical-align:middle">Hauteur&nbsp;:&nbsp;</td>
-		  <td align="left"><input name="h" type="text" class="arbo" size="4" maxlength="4" <?php echo $long; ?> />&nbsp;pixels</td>
-		</tr>
-        <tr>
-          <td  colspan="2" align="center"><br />
-              <input name="Suite (edition) >>" type="submit" class="arbo" id="Suite (edition) >>" value="Suite (&eacute;dition) >>" >
-              <br />
-              <br /></td>
-        </tr>
-    </table></td>
-  </tr>
-</table>
-<br /><br />
-<font class="arbo" style="color:#ff0000"><b>Attention:</b> la taille d'une brique graphique ne peut pas d&eacute;passer 536 en largeur.</font>
+
+<div class="arbo" id="briqueGraphicEditor">
+    <div class="col_titre">
+        Cr&eacute;ation de la brique Graphique
+    </div>
+        <div>
+            <label for="name">Nom :</label>
+            <input name="name" type="text" class="arbo" id="name" size="30"  maxlength="30" <?php echo $name; ?> />
+        </div>
+        <div>
+            <label for="l">Largeur :</label>
+            <input name="l" id="l" type="text" class="arbo" size="4" maxlength="4" <?php echo $larg; ?> /> <span>&nbsp;pixels</span>
+        </div>
+        <div>
+            <label for="h">Hauteur :</label>
+            <input name="h" id="h" type="text" class="arbo" size="4" maxlength="4" <?php echo $long; ?> /> <span>&nbsp;pixels</span>
+        </div>
+        <div>
+            <input name="Suite (edition) >>" type="submit" class="arbo" id="SuiteButton" value="Suite (&eacute;dition) >>" >
+        </div>
+    </div>
+
+<p class="warning"><b>Attention:</b> la taille d'une brique graphique ne peut pas d&eacute;passer 536px en largeur.</p>
 </form>
 <?php	
 	if(!$_POST['init']==1 && !$_GET['init']==1){ // Reset des valeurs de sessions pour viter les conflits
@@ -438,7 +416,7 @@ if(!(strlen($larg)>0 && strlen($long)>0)) {
 	// EDITION DU TABLEAU DE DONNEES
 
 ?>
-<span style="font-family: arial; font-size: 12px">Type de graphique&nbsp;:&nbsp;<select style="font-family: arial; font-size: 12px" name="chart_type">
+<span>Type de graphique&nbsp;:&nbsp;<select name="chart_type">
   <option value="column" <?php echo ($chart['chart_type']=='bar') ? "selected" : ""?>>Histogramme</option>
   <option value="3d column" <?php echo ($chart['chart_type']=='3d column') ? "selected" : ""?>>Histogramme 3D</option> 
   <option value="stacked column" <?php echo ($chart['chart_type']=='stacked column') ? "selected" : ""?>>Histogramme en piles</option> 

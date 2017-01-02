@@ -241,19 +241,6 @@ elseif ($_POST['actiontodo'] == "SENDTEST") {
 		$bAllowEdit = 0;
 	}
 	
-	if (defined('DEF_CRITERE_LIB') && is_file(DEF_CRITERE_LIB) && $bUseCriteres){
-		include_once(DEF_CRITERE_LIB);
-		$oCriNlter = new critereNewsletter();			
-		
-		$oCriNlter->bUseCriteres=$bUseCriteres;
-		$oCriNlter->eNews=$oNews->get_id();
-		$oCriNlter->theme=$oNews->get_theme();
-		
-		if (method_exists($oCriNlter, 'preProcess')){
-			$oCriNlter->preProcess();
-		}
-	}
-	
 	$sMessage = 'E-mail envoyé aux adresses (expéditeur : '.htmlentities($from).') :<br />';  
 	
 	if (isset($addies)&&(count($addies)>0)){	
@@ -270,7 +257,7 @@ elseif ($_POST['actiontodo'] == "SENDTEST") {
 			}			
 			
 			//$bSend = sendNewsletter ($id, $idIns, $_GET["ldj"], $addy);
-			$bSend = sendNewsletter ($id, $idIns, $_GET["ldj"], $addy, $themeNews, $bUseCriteres, $bUseMultiple, $lang, $oCriNlter);
+			$bSend = sendNewsletter ($id, $idIns, $_GET["ldj"], $addy, $themeNews, $bUseCriteres, $bUseMultiple, $lang);
 			
 			if ($bSend == true){
 				$sMessage.= $addy.'<br />';
@@ -407,7 +394,6 @@ else{
 			$sqlCount.= " WHERE  xit_statut =".DEF_ID_STATUT_LIGNE." ";
 			$sqlCount.= " AND xit_news_inscrit = ins_id ";
 			$sqlCount.= " AND xit_news_theme = ".$oNews->get_theme()." ";
-			
 			$eCountInscrit = dbGetUniqueValueFromRequete($sqlCount);	
 			
 			
@@ -417,9 +403,6 @@ else{
 			$sql.= " AND xit_news_theme = ".$oNews->get_theme()." "; 	
 			$aReq = dbGetObjectsFromRequete('news_inscrit', $sql); 
 			
-			$sql = ' DELETE FROM news_assoinscritnewsletter WHERE Xin_newsletter = '.$oNews->get_id().';';
-			dbExecuteQueryQuiet($sql);
-			
 			if (defined('DEF_CRITERE_LIB') && is_file(DEF_CRITERE_LIB)) {
 				
 				include_once(DEF_CRITERE_LIB);
@@ -428,17 +411,13 @@ else{
 				$translator =& TslManager::getInstance();	
 				
 				$e = 0;
-				
+						
 				$id = $oNews->get_id();
 				$bUseCriteres = false;					
 				$oCriNlter = new critereNewsletter();
 				$oCriNlter->bUseCriteres=$bUseCriteres;
 				$oCriNlter->eNews=$id;
 				$oCriNlter->theme=$themeNews;
-				
-				if (method_exists($oCriNlter, 'preProcess')){
-					$oCriNlter->preProcess();
-				}
 						
 				foreach ($aReq as $oInscrit) {
 					$idIns = $oInscrit->get_id();
@@ -446,35 +425,20 @@ else{
 					$themeNews = $oNews->get_theme();
 					$lang = getInscritLang($oInscrit);
 					$oCriNlter->lang=$lang;
-					$oCriNlter->eIns=$idIns;					
+					$oCriNlter->eIns=$idIns;
 					
 					if (method_exists($oCriNlter, 'sendNewsletterOrNot')){
 						$bSend = $oCriNlter->sendNewsletterOrNot();
 						if ($bSend){
-							
-							$oX = new news_assoinscritnewsletter();
-							$oX->set_news_inscrit($idIns);
-							$oX->set_newsletter($oNews->get_id());
-							dbSauve($oX);
-							
 							$e++;
 						}
 					}
 				}
-				echo $e." inscrit(s) - sur critères d'association (".$eCountInscrit." inscrits au total)";
 				
-				//echo $eCountInscrit." inscrit(s) au total - le nombre effectif peut être inférieur à ce total selon les critères d'association";
+				echo $e." inscrit(s) - sur critères d'association (".$eCountInscrit." inscrits au total)";
 				
 			}
 		else { 
-			foreach ($aReq as $oInscrit) {
-				$idIns = $oInscrit->get_id();
-				
-				$oX = new news_assoinscritnewsletter();
-				$oX->set_news_inscrit($idIns);
-				$oX->set_newsletter($oNews->get_id());
-				dbSauve($oX);
-			}
 			echo $eCountInscrit." inscrit(s)";
 		}
 			
@@ -504,7 +468,7 @@ else{
 			}
 			
 			if ($bUseCriteres == 1){
-				$sBodyHTML = rewriteNewsletterBody($oNews->get_html(), 0, $id, $themeNews, $bUseCriteres, $bUseMultiple, $_SESSION['id_langue'], $oNews->get_libelle(), $oCriNlter);
+				$sBodyHTML = rewriteNewsletterBody($oNews->get_html(), 0, $id, $themeNews, $bUseCriteres, $bUseMultiple, $_SESSION['id_langue'], $oNews->get_libelle());
 			}
 			else{
 				$sBodyHTML = $oNews->get_html();
@@ -517,7 +481,7 @@ else{
 			<td colspan="2">&nbsp; </td>
 		</tr>
 		<tr height="30px">
-			<td align="center" ><textarea  type="textarea" name="mailtest" id="mailtest"  cols="50"  rows="20" class="arbo"></textarea>
+			<td align="center" ><textarea  type="textarea" name="mailtest" id="mailtest" class="arbo textareaEdit"></textarea>
 			<br />		</td>
 			<td height="30px">
 			<input type="hidden" value="<?php echo $_POST['urlRetour']; ?>" id="urlRetour" name="urlRetour" />
@@ -529,7 +493,7 @@ else{
 		<?php if ($oNews->get_test() == 1) {?>
 		<tr>
 			<td align="center">&nbsp;
-			<textarea type="textarea" name="maillist" id="maillist"  cols="50"  rows="20" class="arbo"  ></textarea></td>
+			<textarea type="textarea" name="maillist" id="maillist" class="arbo textareaEdit" ></textarea></td>
 			<td align="left">	
 			<input type="hidden" value="<?php echo $_POST['urlRetour']; ?>" id="urlRetour" name="urlRetour" />	
 			<input type="button" value="Envoyer la newsletter (en y incorporant les adresses ci-contre)" class="arbo" onClick="javascript:doSend()">		</td>

@@ -16,9 +16,9 @@ else{
 activateMenu(ereg_replace("([^\.]+)\.php", "\\1", basename($_SERVER['PHP_SELF']))); 
 
 ?>
-placer les images dans le dossier /tmp
+<p>placer les images dans le dossier /tmp</p>
 <form id="dupli" name="dupli" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-id site dans lequel importer :<br />
+<p>id site dans lequel importer :</p>
 <!--<input type="text" value="1" id="sourcesite" name="sourcesite" />-->
 <select id="site" name="site">
 <?php

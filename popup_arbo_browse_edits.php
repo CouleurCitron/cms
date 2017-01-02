@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /* 
-$Author: pierre $
-$Revision: 1.14 $
+$Author: raphael $
+$Revision: 1.1 $
 
 $Log: popup_arbo_browse_edits.php,v $
+Revision 1.1  2013-09-30 09:24:15  raphael
+*** empty log message ***
+
 Revision 1.14  2013-03-01 10:28:04  pierre
 *** empty log message ***
 

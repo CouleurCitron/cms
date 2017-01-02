@@ -1,10 +1,16 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /* 
-$Author: pierre $
-$Revision: 1.8 $
+$Author: quentin $
+$Revision: 1.2 $
 
 $Log: arbo_descriptionpage.php,v $
+Revision 1.2  2013-10-07 15:09:51  quentin
+*** empty log message ***
+
+Revision 1.1  2013-09-30 09:23:56  raphael
+*** empty log message ***
+
 Revision 1.8  2013-03-01 10:28:04  pierre
 *** empty log message ***
 
@@ -169,11 +175,11 @@ print drawCompTree($idSite, $db, $virtualPath);
       <table border="1" cellpadding="5" cellspacing="0" bordercolor="#FFFFFF">
         <tr bgcolor="E6E6E6">
           <td class="arbo" style="vertical-align:middle"><small>Description&nbsp;:&nbsp;</small></td>
-          <td><input type="hidden" id="v_comp_path" name="v_comp_path" value="<?php echo $_REQUEST['v_comp_path']; ?>"><textarea name="folderdescription" cols="30" rows="5" class="arbo" id="folderdescription" type="text"><?php echo $nodeInfos['description']; ?></textarea></td>
+          <td><input type="hidden" id="v_comp_path" name="v_comp_path" value="<?php echo $_REQUEST['v_comp_path']; ?>"><textarea name="folderdescription" class="arbo textareaEdit" id="folderdescription" type="text"><?php echo $nodeInfos['description']; ?></textarea></td>
         </tr>
         <tr align="center" bgcolor="EEEEEE">
-            <td colspan="2" bgcolor="D2D2D2" class="arbo"><a href="pageArbo.php?menuOpen=<?php echo $_GET['menuOpen']; ?>" class="arbo"><strong>Annuler</strong></a>&nbsp;&nbsp;<a href="pageArbo.php?menuOpen=<?php echo $_GET['menuOpen']; ?>" class="arbo"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a> 
-              - <a href="#" class="arbo" onClick="javascript:document.forms[0].submit();"><strong>Enregistrer</strong></a>&nbsp;&nbsp;<a href="#" onClick="javascript:document.forms[0].submit();" class="arbo"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+            <td colspan="2" bgcolor="D2D2D2" class="arbo"><a href="pageArbo.php?menuOpen=<?php echo $_GET['menuOpen']; ?>" class="arbo"><strong>Annuler</strong></a>&nbsp;&nbsp;<a href="pageArbo.php?menuOpen=<?php echo $_GET['menuOpen']; ?>" class="arbo"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a> 
+              - <a href="#" class="arbo" onClick="javascript:document.forms[0].submit();"><strong>Enregistrer</strong></a>&nbsp;&nbsp;<a href="#" onClick="javascript:document.forms[0].submit();" class="arbo"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
         </tr>
       </table>
       <br />

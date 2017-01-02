@@ -135,15 +135,15 @@ $widthWindow = $sizeFond[0]+10;
 	color: #000000;
 }
 .currdraggable2 a.update, .currdraggable2 a.del, .currdraggable2 a.validate {
-	background: url(/backoffice/cms/img/modifier.gif) no-repeat;
+	background: url(/backoffice/cms/img/2013/icone/modifier.png) no-repeat;
 	padding-left: 16px;
 	margin: 0px 5px;
 }
 .currdraggable2 a.del {
-	background: url(/backoffice/cms/img/supprimer.gif) no-repeat;
+	background: url(/backoffice/cms/img/2013/icone/supprimer.png) no-repeat;
 }
 .currdraggable2 a.validate {
-	background: url(/backoffice/cms/img/right.gif) no-repeat;
+	background: url(/backoffice/cms/img/2013/icone/right.png) no-repeat;
 }
 .currdraggable2 input {
 	background-color: #FFFFFF;

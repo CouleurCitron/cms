@@ -3,15 +3,18 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 
 /* 
 
-$Author: pierre $
+$Author: raphael $
 
-$Revision: 1.11 $
+$Revision: 1.1 $
 
 
 
 
 
 $Log: pageArbo.php,v $
+Revision 1.1  2013-09-30 09:24:11  raphael
+*** empty log message ***
+
 Revision 1.11  2013-03-25 14:04:09  pierre
 *** empty log message ***
 
@@ -260,21 +263,21 @@ print drawCompTree($idSite, $db, $virtualPath, null);
           <tr bgcolor="E6E6E6">
 
             <td class="arbo"<?php if($virtualPath=="0") echo "title='Impossible de déplacer le dossier Racine' style='color:#b0b0b0'"; ?>><li>D&eacute;placer le dossier</li></td>
-            <td<?php if($virtualPath=="0") echo ' title="Impossible de déplacer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_movefolderpage.php?v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a><?php } ?></td>
+            <td<?php if($virtualPath=="0") echo ' title="Impossible de déplacer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_movefolderpage.php?v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a><?php } ?></td>
 
           </tr>
 
           <tr bgcolor="EEEEEE">
 
             <td bgcolor="EEEEEE" class="arbo"<?php if($virtualPath=="0") echo "title='Impossible de renommer le dossier Racine' style='color:#b0b0b0'"; ?>><li>Renommer le dossier</li></td>
-            <td<?php if($virtualPath=="0") echo ' title="Impossible de renommer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_renamefolderpage.php?v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a><?php } ?></td>
+            <td<?php if($virtualPath=="0") echo ' title="Impossible de renommer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_renamefolderpage.php?v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a><?php } ?></td>
 
           </tr>
 
           <tr bgcolor="E6E6E6">
 
             <td bgcolor="E6E6E6" class="arbo"<?php if($virtualPath=="0") echo "title='Impossible de supprimer le dossier Racine' style='color:#b0b0b0'"; ?>><li>Supprimer le dossier</li></td>
-            <td<?php if($virtualPath=="0") echo ' title="Impossible de supprimer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_deletefolderpage.php?v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a><?php } ?></td>
+            <td<?php if($virtualPath=="0") echo ' title="Impossible de supprimer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_deletefolderpage.php?v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a><?php } ?></td>
 
           </tr>
 
@@ -282,7 +285,7 @@ print drawCompTree($idSite, $db, $virtualPath, null);
 
             <td class="arbo"><li>Cr&eacute;er un sous dossier</li></td>
 
-            <td><a href="arbo_createfolderpage.php?v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+            <td><a href="arbo_createfolderpage.php?v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
 
           </tr>
 
@@ -292,7 +295,7 @@ print drawCompTree($idSite, $db, $virtualPath, null);
 
 &nbsp;&nbsp;              &nbsp;sous dossiers</small></li></td>
 
-            <td><a href="arbo_orderfolderpage.php?v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+            <td><a href="arbo_orderfolderpage.php?v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
 
           </tr>
 
@@ -300,7 +303,7 @@ print drawCompTree($idSite, $db, $virtualPath, null);
 
             <td class="arbo"><li>Description du dossier</li></td>
 
-            <td><a href="arbo_descriptionpage.php?v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+            <td><a href="arbo_descriptionpage.php?v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
 
           </tr>
 

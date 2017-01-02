@@ -150,8 +150,8 @@ if (count($langpile) > 0) {
 <?php
 		if ($found_it) {
 ?>
-		<a href="javascript:showTranslation(<?php echo $lang_id; ?>)" title="Modifier"><img src="/backoffice/cms/img/modifier.gif" border="0" alt="Modifier" align="top" /></a>&nbsp;
-		<a href="javascript:delTranslation(<?php echo $lang_id; ?>)" title="Supprimer"><img src="/backoffice/cms/img/supprimer.gif" border="0" alt="Supprimer" align="top" /></a>&nbsp;
+		<a href="javascript:showTranslation(<?php echo $lang_id; ?>)" title="Modifier"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0" alt="Modifier" align="top" /></a>&nbsp;
+		<a href="javascript:delTranslation(<?php echo $lang_id; ?>)" title="Supprimer"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" alt="Supprimer" align="top" /></a>&nbsp;
 <?php
 		} else {
 ?>

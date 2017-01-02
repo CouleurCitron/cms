@@ -51,8 +51,10 @@ input {
 /*************/
 #logo {
 	position: absolute;
-	top: 152px;
-	left: 770px;
+	/*top: 152px;
+	left: 770px;*/
+	bottom: 0;
+	right: 0;
 }
 
 /***************/
@@ -60,13 +62,13 @@ input {
 /***************/
 #center {
 	background: url(/backoffice/cms/img/fd_center_bo.jpg) no-repeat;
-	padding: 66px 0px 0px 248px;
+	padding: 56px 0px 0px 248px;
 }
 #center h2 {
 	color: #FFFFFF;
 	font-size: 2.2em;
 	font-weight: normal;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 #center h2 cufon {
 	margin-bottom: 5px;
@@ -84,6 +86,13 @@ input {
 	width: 90px;
 	font-size: 1.2em;	 
 }
+#center p label.error {
+	float: none;
+	margin-left: 90px;
+	color: #FFD239;
+	font-size: 11px;
+	font-weight: bold;
+}
 #center p input {
 	width: 186px;
 	padding: 2px;
@@ -96,12 +105,20 @@ input {
 	text-align: right;
 	padding: 10px 0px 30px 0px;
 }
-#center p.valider a {
+#center p.valider a, #center p.valider input {
 	font-size: 2.1em;
 	background: url(/backoffice/cms/img/fleche_valid.gif) no-repeat 0px 3px;
 	padding-left: 20px;
 	color: #FFFFFF;
 	text-decoration: none;
+}
+#center p.valider input {
+	width: auto;
+	font-size: 16px;
+	font-weight: bold;
+	text-transform: uppercase;
+	cursor: pointer;
+	background: url(/backoffice/cms/img/fleche_valid.gif) no-repeat 0px 6px;
 }
 #center p.erreur {
 	font-size: 1.1em;

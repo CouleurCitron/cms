@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: alertes.php,v 1.5 2013-03-01 10:28:03 pierre Exp $
-	$Author: pierre $
+	$Id: alertes.php,v 1.1 2013-09-30 09:23:49 raphael Exp $
+	$Author: raphael $
 
 	$Log: alertes.php,v $
+	Revision 1.1  2013-09-30 09:23:49  raphael
+	*** empty log message ***
+
 	Revision 1.5  2013-03-01 10:28:03  pierre
 	*** empty log message ***
 
@@ -63,8 +66,8 @@ foreach($listePage as $k => $page) {
  <td <?php echo ($page['date'] <= date('Y-m-d')) ? 'style="color: red;"' : ''?>>&nbsp;<?php echo $date; ?>&nbsp;</td>
  <td>&nbsp;<?php echo $infos['name']; ?>&nbsp;</td>
  <td>&nbsp;<?php echo $infos['titre']; ?>&nbsp;</td>
- <td align="center">&nbsp;<a href="pageModif.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/modifier.gif" border="0"></a>&nbsp;</td>
-<td align="center">&nbsp;<a href="#" onClick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cette page ?')){ document.location='deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/supprimer.gif" border="0" onMouseOut='kill();' onMouseOver='popup("Supprimer la page");'></a>&nbsp;</td>
+ <td align="center">&nbsp;<a href="pageModif.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0"></a>&nbsp;</td>
+<td align="center">&nbsp;<a href="#" onClick="if(window.confirm('<?php $translator->echoTransByCode('confirme_suppression'); ?>')){ document.location='deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" onMouseOut='kill();' onMouseOver='popup("Supprimer la page");'></a>&nbsp;</td>
 </tr>
 <?php
 }

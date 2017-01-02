@@ -49,28 +49,14 @@ $contenus = getListGabarits($_SESSION['idSite_travail']);
 	}
 -->
 </script>
-<style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
--->
-</style><form name="managetree" action="arboaddnode.php" method="post">
+<form name="managetree" action="arboaddnode.php" method="post">
 
 <input type="hidden" name="urlRetour" value="<?php echo $_POST['urlRetour']; ?>">
 <input type="hidden" name="idSite" value="<?php echo $idSite; ?>">
 
-<?php
-// site de travail
-//if (DEF_MENUS_MINISITES == "ON") print(putAfficheSite());
-?>
-
   <table cellpadding="5" cellspacing="0" border="0" bordercolor="#FFFFFF" class="arbo">
 	<tr class="col_titre">
-		<td align="center"><strong>&nbsp;&nbsp;Nom&nbsp;</strong></td>
+		<td align="center"><strong>&nbsp;&nbsp;<?php $translator->echoTransByCode('Composants_nom'); ?>&nbsp;</strong></td>
 <?php
 if ($bAffichSite) {
 ?>
@@ -78,10 +64,9 @@ if ($bAffichSite) {
 <?php
 }
 ?>
-	  <td align="center"><strong>&nbsp;Créé<br>
-	  le</strong></td>
-	<td align="center"><strong>Dernière modif.</strong></td>
-	<td colspan="5" align="center"><strong>&nbsp;&nbsp;Actions</strong><strong>&nbsp;</strong></td>
+	  <td align="center"><strong>&nbsp;<?php $translator->echoTransByCode('Composants_creation'); ?></strong></td>
+	<td align="center"><strong><?php $translator->echoTransByCode('Composants_derniere_modif'); ?></strong></td>
+	<td colspan="5" align="center"><strong>&nbsp;&nbsp;<?php $translator->echoTransByCode('Composants_actions'); ?></strong><strong>&nbsp;</strong></td>
 	</tr>
   <?php
 	// tableau vide
@@ -111,11 +96,11 @@ if ($bAffichSite) {
 ?>
    <td align="center">&nbsp;<?php echo $page['creation'];?>&nbsp;</td>
    <td align="center">&nbsp;<?php echo $page['modification'];?>&nbsp;</td>
-   <td align="center">&nbsp;<a href="gabaritModif.php?id=<?php echo $page['id'];?>&idSite=<?php echo $page['id_site']; ?>"><img src="/backoffice/cms/img/modifier.gif" border="0" title="Modifier le gabarit"></a>&nbsp;</td>
-   <td align="center">&nbsp;<a href="renamePage.php?id=<?php echo $page['id'];?>&idSite=<?php echo $page['id_site']; ?>"><img src="/backoffice/cms/img/propriete.gif" border="0" title="Propriétés du gabarit"></a>&nbsp;</td>
-   <td align="center">&nbsp;<a href="/backoffice/cms/site/page_infos.php?idGab=1&idPage=<?php echo $page['id'];?>&idSite=<?php echo $page['id_site']; ?>"><img src="/backoffice/cms/img/modifier-xml.gif" border="0" title="Meta-données du gabarit"></a>&nbsp;</td>   
-   <td align="center">&nbsp;<a href="gabaritCopy.php?id=<?php echo $page['id'];?>&idSite=<?php echo $page['id_site']; ?>"><img src="/backoffice/cms/img/dupliquer.gif" border="0" title="Dupliquer le gabarit"></a>&nbsp;</td>   
-   <td align="center">&nbsp;<a href="#" onClick="if(window.confirm('Etes vous sur(e) de vouloir supprimer ce gabarit ?')){ document.location='deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/supprimer.gif" border="0" title="Supprimer le gabarit"></a>&nbsp;</td>
+   <td align="center">&nbsp;<a href="gabaritModif.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0" title="Modifier le gabarit"></a>&nbsp;</td>
+   <td align="center">&nbsp;<a href="renamePage.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/2013/icone/propriete.png" border="0" title="Propriétés du gabarit"></a>&nbsp;</td>
+   <td align="center">&nbsp;<a href="/backoffice/cms/site/page_infos.php?idGab=1&idPage=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/2013/icone/modifier-xml.png" border="0" title="Meta-données du gabarit"></a>&nbsp;</td>   
+   <td align="center">&nbsp;<a href="gabaritCopy.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/2013/icone/dupliquer.png" border="0" title="Dupliquer le gabarit"></a>&nbsp;</td>   
+   <td align="center">&nbsp;<a href="#" onClick="if(window.confirm('Etes vous sur(e) de vouloir supprimer ce gabarit ?')){ document.location='deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" title="Supprimer le gabarit"></a>&nbsp;</td>
    </tr>
 <?php
 		}

@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: deletePage.php,v 1.3 2013-03-01 10:28:20 pierre Exp $
-	$Author: pierre $
+	$Id: deletePage.php,v 1.1 2013-09-30 09:43:13 raphael Exp $
+	$Author: raphael $
 	
 	$Log: deletePage.php,v $
+	Revision 1.1  2013-09-30 09:43:13  raphael
+	*** empty log message ***
+
 	Revision 1.3  2013-03-01 10:28:20  pierre
 	*** empty log message ***
 
@@ -96,8 +99,8 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 ?>
 <link href="/backoffice/cms/css/bo.css" rel="stylesheet" type="text/css">
 <body class="arbo">
-<span class="arbo2">GABARIT&nbsp;>&nbsp;</span>
-<span class="arbo3">Suppression de Gabarit</span><br><br>
+<span class="arbo2"><?php $translator->echoTransByCode('gabarit'); ?>&nbsp;>&nbsp;</span>
+<span class="arbo3"><?php $translator->echoTransByCode('suppression_de_gabarit'); ?></span><br><br>
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/pages.lib.php');
 include_once('delete.lib.php');
@@ -122,7 +125,7 @@ if ($page!=null) {
 			if (!isset($_GET['action'])) {
 				$pages = $eCount == 1 ? " page" : " pages";
 				echo "Votre gabarit est lié à ".$eCount.$pages.".<br>";
-				echo "Vous avez le choix entre : <br><br>";
+				echo $translator->getTransByCode('Vous_avez_le_choix_entre')." <br><br>";
 				echo "&bull;&nbsp;&nbsp;<a href=\"deletePage.php?".$_SERVER['QUERY_STRING']."&action=delall\">Supprimer toutes les pages du CMS et du serveur</a><br>";
 				echo "&bull;&nbsp;&nbsp;<a href=\"deletePage.php?".$_SERVER['QUERY_STRING']."&action=delcms\">Supprimer toutes les pages du CMS mais les conserver sur le serveur</a><br><br>";
 				echo "<a href=\"gabaritList.php?".$_SERVER['QUERY_STRING'].">Revenir à la liste des gabarits</a>";
@@ -144,8 +147,8 @@ if ($page!=null) {
 			if ($result) {
 				deleteInfosByIdPage($id);
 				deleteStructByIdPage($id);
-				echo "<br /><br><strong>Suppression effectuée.</strong><br><br>";
-				echo "<a href=\"gabaritList.php\">Revenir à la liste des gabarits</a>";
+				echo "<br /><br><strong>".$translator->getTransByCode('Suppression_effectuee').".</strong><br><br>";
+				echo "<a href=\"gabaritList.php\">".$translator->getTransByCode('Revenir_liste_des_gabarits')."</a>";
 				?>
 		
 				<script type="text/javascript">
@@ -154,23 +157,23 @@ if ($page!=null) {
 				</script>
 				<?php
 			} else { 
-				echo "<br /><br>Erreur lors de la suppression de la page. Merci de contacter l'administrateur si l'erreur persiste.";
+				echo "<br /><br>".$translator->getTransByCode('erreur_suppression');
 			}
 		}
 	}
 	else {
 		if (!isset($_GET['action'])) {
-			echo "Pour supprimer votre page, vous avez le choix entre : <br><br>";
-			echo "&bull;&nbsp;&nbsp;<a href=\"deletePage.php?".$_SERVER['QUERY_STRING']."&action=delall\">La supprimer du CMS et du serveur</a><br>";
-			echo "&bull;&nbsp;&nbsp;<a href=\"deletePage.php?".$_SERVER['QUERY_STRING']."&action=delcms\">La supprimer du CMS mais la conserver sur le serveur</a><br><br>";
-			echo "<a href=\"../arboPage_browse.php?".$_SERVER['QUERY_STRING'].">Revenir à la liste des pages</a>";
+			echo $translator->getTransByCode('pour_supprimer_votre_page')." <br><br>";
+			echo "&bull;&nbsp;&nbsp;<a href=\"deletePage.php?".$_SERVER['QUERY_STRING']."&action=delall\">".$translator->getTransByCode('supprimer_cms_et_serveur')."</a><br>";
+			echo "&bull;&nbsp;&nbsp;<a href=\"deletePage.php?".$_SERVER['QUERY_STRING']."&action=delcms\">".$translator->getTransByCode('supprimer_cms_pas_serveur')."</a><br><br>";
+			echo "<a href=\"../arboPage_browse.php?".$_SERVER['QUERY_STRING'].">".$translator->getTransByCode('Revenir_liste_des_pages')."</a>";
 		}
 		else {
 			$action = $_GET['action'];
 			$result = deletePageByIdPage ($id, $action);
 			if ($result) {
-    	echo "<br /><br><strong>Suppression effectuée.</strong><br><br>";
-		echo "<a href=\"../arboPage_browse.php\">Revenir à la liste des pages</a>";
+    	echo "<br /><br><strong>".$translator->getTransByCode('Suppression_effectuee').".</strong><br><br>";
+		echo "<a href=\"../arboPage_browse.php\">".$translator->getTransByCode('Revenir_liste_des_pages')."</a>";
 		?>
 
 		<script type="text/javascript">
@@ -179,7 +182,7 @@ if ($page!=null) {
 		</script>
 		<?php
 	} else { 
-		echo "<br /><br>Erreur lors de la suppression de la page. Merci de contacter l'administrateur si l'erreur persiste.";
+		echo "<br /><br>".$translator->getTransByCode('erreur_suppression');
 	}
 		}
 	}

@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: nouvellesAnnonces.php,v 1.8 2013-03-01 10:28:18 pierre Exp $
-	$Author: pierre $
+	$Id: nouvellesAnnonces.php,v 1.1 2013-09-30 09:42:15 raphael Exp $
+	$Author: raphael $
 
 	$Log: nouvellesAnnonces.php,v $
+	Revision 1.1  2013-09-30 09:42:15  raphael
+	*** empty log message ***
+
 	Revision 1.8  2013-03-01 10:28:18  pierre
 	*** empty log message ***
 
@@ -222,7 +225,7 @@ href="mailto:<?php echo $oInscript->getMail();?>" title="<?php echo $oInscript->
 <?php echo $oInscript->getPrenom().'&nbsp;'.$oInscript->getNom(); ?>&nbsp;</td>
   <td nowrap align="center" class="arbo">&nbsp;<?php echo $oCategorie->getLibelle(); ?>&nbsp;</td>
   <td nowrap align="center" class="arbo">&nbsp;<?php echo ($annonce->getValid()) ? "Oui&nbsp;<a href=\"validerAnnonce.php?id=".$annonce->getId()."&action=invalider\" onMouseOver='popup(\"Définir cette annonce comme non validé\");' onMouseOut=\"kill();\">invalider</a>" : "Non&nbsp;<a href=\"validerAnnonce.php?id=".$annonce->getId()."&action=valider\" onMouseOver='popup(\"Définir cette annonce comme validé\");' onMouseOut=\"kill();\">valider</a>"; ?>&nbsp;</td>
-  <td nowrap align="center" class="arbo">&nbsp;<a href="#" onClick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cette annonce ?')) document.location='validerAnnonce.php?id=<?php echo $annonce->getId(); ?>&action=supprimer';" title="Supprimer cette annonce"><img src="/backoffice/cms/img/supprimer.gif" border="0"></a>&nbsp;</td>
+  <td nowrap align="center" class="arbo">&nbsp;<a href="#" onClick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cette annonce ?')) document.location='validerAnnonce.php?id=<?php echo $annonce->getId(); ?>&action=supprimer';" title="Supprimer cette annonce"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0"></a>&nbsp;</td>
  </tr>
 <?php
 }

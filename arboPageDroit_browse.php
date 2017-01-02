@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /* 
-$Author: pierre $
-$Revision: 1.13 $
+$Author: raphael $
+$Revision: 1.1 $
 
 $Log: arboPageDroit_browse.php,v $
+Revision 1.1  2013-09-30 09:23:51  raphael
+*** empty log message ***
+
 Revision 1.13  2013-03-01 10:28:04  pierre
 *** empty log message ***
 
@@ -389,8 +392,9 @@ body {
 }
 -->
 </style>
+<div class="ariane">
 <span class="arbo2">PAGE&nbsp;>&nbsp;</span><span class="arbo3">Gestion des droits&nbsp;>&nbsp;Liste des droits</span>
-<br />
+</div>
 
 <form name="arboDroits" method="post">
 
@@ -471,8 +475,8 @@ $sChemin = $oNoeudSelected->getNode_libelle();
 if ($sChemin == "") $sChemin = "Chemin";
 ?>
 		<input name="foldername" type="text" disabled class="arbo" id="foldername" value="<?php echo $sChemin;?>" size="30">&nbsp;
-		<a href="#" class="arbo" onClick="chooseFolder();"><img src="/backoffice/cms/img/go.gif" border="0">&nbsp;choisir le dossier</a>&nbsp;
-		<a href="#" class="arbo" onClick="effacerFolder();"><img src="/backoffice/cms/img/go.gif" border="0">&nbsp;effacer</a></td>
+		<a href="#" class="arbo" onClick="chooseFolder();"><img src="/backoffice/cms/img/2013/icone/go.png" border="0">&nbsp;choisir le dossier</a>&nbsp;
+		<a href="#" class="arbo" onClick="effacerFolder();"><img src="/backoffice/cms/img/2013/icone/go.png" border="0">&nbsp;effacer</a></td>
 	</tr>
 	<tr>
 		<tD><input type="button" name="btRecherche" class="arbo" onClick="javascript:recherche()" value="Lancer la recherche"></tD>

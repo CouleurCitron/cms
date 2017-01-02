@@ -144,7 +144,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/utils/chars.lib.php');
  </tr>-->
   <tr>
   <td align="right" nowrap class="arbo">Texte retour&nbsp;:&nbsp;<br/></td>
-  <td><textarea name="items" cols="40" rows="10" class="arbo"></textarea></td>
+  <td><textarea name="items" class="arbo textareaEdit"></textarea></td>
  </tr>
 <tr>
   <td align="center" colspan="2"><input type="button" name="bouton" value="Ajouter le champ au formulaire" onClick="javascript:makeit();" class="arbo"></td>

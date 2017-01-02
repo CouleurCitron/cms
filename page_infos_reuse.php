@@ -299,7 +299,7 @@ if(isset($_POST['dowhat']) && $_POST['dowhat'] == 'recordReuse'){
 		$editLink = false;
 		$editLink = false;
 		
-		// $aCustom["Action"] = '&nbsp;<a href="'.$linkNew.'" title="Nouveau"><img src="/backoffice/cms/img/add.gif" width="16" height="16" alt="Nouveau" border="0" /></a>';
+		// $aCustom["Action"] = '&nbsp;<a href="'.$linkNew.'" title="Nouveau"><img src="/backoffice/cms/img/2013/icone/add.png"  alt="Nouveau" border="0" /></a>';
 					
 		include('cms-inc/autoClass/list.table.php');
 	} 

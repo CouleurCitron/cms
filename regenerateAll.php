@@ -19,8 +19,8 @@ activateMenu('gestiongabarit');  //permet de dérouler le menu contextuellement
 if ($idSite == "") $idSite = $_SESSION['idSite_travail'];
 
 
-?><div class="ariane"><span class="arbo2">GABARIT&nbsp;>&nbsp;</span>
-<span class="arbo3">Regénération</span></div>
+?><div class="ariane"><span class="arbo2"><?php $translator->echoTransByCode('gabarits'); ?>&nbsp;>&nbsp;</span>
+<span class="arbo3"><?php $translator->echoTransByCode('Regeneration_gabarits'); ?></span></div>
 <?php
 
 // liste des gabarits
@@ -28,7 +28,7 @@ $contenus = getListGabarits($idSite);
 
 ?>
 <script type="text/javascript">
-document.title="Regénération de tout le site";
+document.title=<?php $translator->echoTransByCode('Regeneration_de_tout_le_site'); ?>;
 </script>
 <link rel="stylesheet" type="text/css" href="/backoffice/cms/css/bo.css">
 <form name="managetree" action="arboaddnode.php" method="post">
@@ -39,17 +39,14 @@ document.title="Regénération de tout le site";
 if (DEF_MENUS_MINISITES == "ON") print(putAfficheSite());
 ?>
 </form>
-<div class="arbo">Attention, cette fonction propose de regénérer TOUS LES GABARITS ainsi que TOUTES LES PAGES
-liées à ces gabarits.<br /><br />
-Vous pouvez désélectionner les pages et gabarits que vous ne souhaitez pas regénérer.<br /><br />
-Cette fonction peut être longue à s'executer, patienter jusqu'à la fin du traitement.
+<div class="arbo"><?php $translator->echoTransByCode('message_regeneration_gabarits'); ?>
 </div>
 <br /><br />
 <?php
 	// tableau vide
 	if((!is_array($contenus)) or (sizeof($contenus)==0)) {
 ?>
-<strong><div class="arbo">Pas de gabarit pour ce site</div></strong>
+<strong><div class="arbo"><?php $translator->echoTransByCode('pas_de_gabarits'); ?></div></strong>
 <?php
 } else {
 	// pour chaque gabarit

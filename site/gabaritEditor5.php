@@ -99,7 +99,7 @@ Mots clefs <small>(séparés par des virgules)</small>:&nbsp;
 <br>
 <br>
 Description :<br> 
-<textarea name="description" id="description" cols="60" rows="10" class="arbo"><?php echo stripslashes($description); ?></textarea>
+<textarea name="description" id="description" class="arbo textareaEdit"><?php echo stripslashes($description); ?></textarea>
 <br>
 <br>
 Vignette :&nbsp;

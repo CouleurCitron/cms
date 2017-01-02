@@ -46,7 +46,7 @@ if (strlen($id) > 0 ) {
   }
   
 </script>
-<link href="/css/bo.css" rel="stylesheet" type="text/css" />
+<link href="/backoffice/cms/css/bo.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 <!--
 body {
@@ -99,7 +99,7 @@ if(!$_GET['nom']&&!$_POST['nom']) {
         <tr>
           <td align="right" style="vertical-align:middle">Dossier&nbsp;:&nbsp;</td>
           <td align="left"><input name="foldername" type="text" disabled="disabled" class="arbo" value="<?php echo $infos_node['libelle'] ; ?>" size="20" />
-    &nbsp;&nbsp;<a href="#" class="arbo" onclick="chooseFolder();" title="choisir le dossier"><img src="/backoffice/cms/img/go.gif" border="0" alt="choisir le dossier" />&nbsp;choisir le dossier</a></td>
+    &nbsp;&nbsp;<a href="#" class="arbo" onclick="chooseFolder();" title="choisir le dossier"><img src="/backoffice/cms/img/2013/icone/go.png" border="0" alt="choisir le dossier" />&nbsp;choisir le dossier</a></td>
         </tr>
         <tr>
           <td colspan="2" align="right">&nbsp;</td>

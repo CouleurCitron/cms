@@ -129,7 +129,7 @@ Nom du composant : <input name="SURVEYname" type="text" class="arbo" id="SURVEYn
 <br/><br/>&nbsp;&nbsp;Question sélectionnée :
 &nbsp;&nbsp;<br>
 <br>
-<textarea name="libelle_ask" cols="60" rows="8" class="arbo"><?php echo $libelleAsk; ?></textarea>
+<textarea name="libelle_ask" class="arbo textareaEdit"><?php echo $libelleAsk; ?></textarea>
 <br>
 <br>
 <br>

@@ -92,7 +92,7 @@ $libelle_to_duplicate = $nodeInfos["libelle"];
 
 //$sql = "SELECT * FROM `cms_arbo_pages` where node_id_site = ".$idSte." AND node_absolute_path_name LIKE '%".$nodeInfos["path"]."%' AND node_id <> ".$node_id_to_duplicate.";";
 $sql = "SELECT * FROM `cms_arbo_pages` where node_id_site = ".$idSte." AND node_absolute_path_name LIKE '%".$nodeInfos["path"]."%' ;";
-//echo $sql;
+echo $sql;
  
 if ($simul) echo $sql;
 
@@ -373,11 +373,11 @@ else{
 if ($simul) echo '-- offset = '.$offsetAssoClassePageId."<br />\n";
 
 foreach($aO as $key => $oO){
-
 	$oO->set_id($lastId+$offsetAssoClassePageId);
 	$offsetAssoClassePageId++;
 	$oO->set_cms_page($aCache_cms_pages[$oO->get_cms_page()]);
 	$oO->set_classe($oO->get_classe());	
+	
 	
 	/*
 	ATTENTION (duplication de l'objet)
@@ -398,9 +398,11 @@ foreach($aO as $key => $oO){
 	*/
 	
 	$oO->set_objet($oNewObjet->get_id());	
+	
+		
 	//dumpObjLite($struct_pages);
 	if ($simul) echo "-- create cms_assoclassepage ".$oO->get_id()."<br />\n";
-	if ($simul == false){ 
+	if ($simul == false){
 		dbInsert($oO);
 	}
 	else{

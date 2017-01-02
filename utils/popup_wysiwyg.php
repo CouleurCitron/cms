@@ -64,34 +64,28 @@ if (defined("DEF_FCK_VERSION") && DEF_FCK_VERSION == "ckeditor" ) {
 	
 	$sHtml = $_POST['idSource'];
 	
-	$ck = "CKEDITOR.replace( 'FCKeditor1', {\n";
-					 
-				/*if (defined("DEF_FCK_TOOLBARSET")) $ck.=  "toolbar : '".DEF_FCK_TOOLBARSET."',";
-				$ck.= "width : '90%',";
-				$ck.= "height : '400px',"; */
-
-				//if (defined("DEF_FCK_TOOLBARSET")) $ck.=  "toolbar : '".DEF_FCK_TOOLBARSET."',";
-
-				$ck.= "customConfig : '/backoffice/cms/lib/ckeditor/config.php'";
-
-    			//$ck.= "extraPlugins : 'stylesheetparser,aws_video'";
-
-				
-			$ck.= "});";
-	
-	
-	echo " 
+	?>
 	 
-		<textarea cols=\"50\" id=\"FCKeditor1\" name=\"FCKeditor1\" rows=\"30\" width=\"500\" height=\"500\">".htmlFCKcompliant($sHtml)."</textarea>
+		<textarea cols="50" id="FCKeditor1" name="FCKeditor1" rows="30" width="500" height="500"><?php echo htmlFCKcompliant($sHtml); ?></textarea>
 		<script>
 		
+                        var roxyFileman = '/backoffice/cms/lib/ckeditor/fileman/index.html';
+                
 			function init_ck () {  
-				".$ck."
+				CKEDITOR.replace( 'FCKeditor1', {
+
+                                    customConfig : '/backoffice/cms/lib/ckeditor/config.php',
+                                    <?php if( defined( 'DEF_FILEMANAGER' ) && DEF_FILEMANAGER == 'fileman' ){ ?>
+                                    filebrowserBrowseUrl:roxyFileman,
+                                    filebrowserImageBrowseUrl:roxyFileman+'?type=image',
+                                    removeDialogTabs: 'link:upload;image:upload'
+                                    <?php } ?>
+                                });
 			}
 			
-			if (navigator.userAgent.toLowerCase().indexOf(\"chrome\") != -1) {
+			if (navigator.userAgent.toLowerCase().indexOf("chrome") != -1) {
 				
-				setTimeout(\"init_ck()\", 1000); 
+				setTimeout( function(){ init_ck() }, 1000); 
 			}
 			else {
 				init_ck();
@@ -99,7 +93,7 @@ if (defined("DEF_FCK_VERSION") && DEF_FCK_VERSION == "ckeditor" ) {
 			
 
 		</script> 
-		";
+<?php
 
 }
 else {

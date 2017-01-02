@@ -70,7 +70,7 @@ include_once ('index.custom.php'); ?>
 <script type="text/javascript" src="scripts/jquery.contextmenu/jquery.contextMenu-1.01.js"></script>
 <script type="text/javascript" src="scripts/jquery.impromptu-3.2.min.js"></script>
 <script type="text/javascript" src="scripts/jquery.tablesorter-2.7.2.min.js"></script>
-<script type="text/javascript" src="scripts/filemanager.js"></script>
+<script type="text/javascript" src="scripts/filemanager.min.js"></script>
 <script type="text/javascript" src="scripts/adequat.js"></script>
 </div>
 </body>

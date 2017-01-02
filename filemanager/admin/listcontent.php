@@ -95,7 +95,7 @@ if (!( $dir = opendir($show_dir) ) )
 	} 
     closedir($dir);
 ?>
-<table width="90%" border="0" align="center" cellpadding="0" cellspacing="1" class="arbo">
+<table class="arbo" id="dossierCourantFileManager">
   <tr> 
     <td>
 <div align="left"><strong><img src="./images/up.gif" width="10" height="11"> Dossier parent : <a class="arbo" href="<?php 			
@@ -131,37 +131,24 @@ if (isset($FM_ftpUser)){
 [<a href="javascript:refresh_page('<?php echo $rel_dir;?>');" class="arbo">Rafraichir</a>] </strong></div></td>
   </tr>
 </table>
-<br>
-<br>
+
 <?php 
 	$curr_path = $rel_dir;
 	if(strlen($curr_path)==0) $curr_path='Racine';
 ?>
-<table width="90%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF">
-  <tr>
-    <td><table width="100%" border="0" align="center" cellpadding="5" cellspacing="0" bgcolor="efefef" class="arbo">
-        <tr> 
-          <td width="59%" nowrap>Dossier courant &nbsp;&nbsp;: <?php echo $curr_path; ?><br>
-          </td>
-          <td width="19%">Total dossiers <?php echo $dir_count; ?> </td>
-          <td width="21%">Total fichiers <?php echo $file_count; ?> </td>
-          <td width="1%">&nbsp;</td>
-        </tr>
-      </table></td>
-  </tr>
-</table>
-<br>
-<table width="90%" border="0" align="center" cellpadding="0" cellspacing="1" class="arbo">
-   <tr>
-    <td><center><?php include_once ("results.php"); ?></center></td>
-  </tr>
-  <tr>
-    <td><strong>Dossiers : - </strong></td>
-  </tr>
-</table>
-<table width="90%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" class="arbo">
-  <tr> 
-    <td><table width="100%" border="0" cellpadding="5" cellspacing="0" class="arbo">
+<div class="arbo" id="dossierFileManager">
+        <p class="first">Dossier courant &nbsp;&nbsp;: <?php echo $curr_path; ?></p>
+        <p class="second">Total dossiers <?php echo $dir_count; ?> </p>
+        <p class="third last">Total fichiers <?php echo $file_count; ?></p>
+  </div>
+
+<div class="arbo" id="dossierCourantFileManager">
+   <p><?php include_once ("results.php"); ?></p>
+  
+    <p>Dossiers : - </p>
+</div>
+
+<table class="arbo" id="listDossierFileManager">
         <tr bgcolor="#efefef"> 
           <td width="30" bgcolor="#efefef"> 
             <center>
@@ -221,6 +208,4 @@ else {
 	}
 }
 	?>
-    </table></td>
-  </tr>
-</table> 
+    </table>

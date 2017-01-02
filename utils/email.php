@@ -52,7 +52,7 @@ else{
 	$from = DEF_CONTACT_FROM_EMAIL;
 }
 
-//      multiPartMail($to , 		$sujet , 	$html , 	$text, 					$from, 		$attach='', $typeAttach='text/plain', $host=DEF_MAIL_HOST, $replyto=''){
+//      multiPartMail($to , $sujet , 							 $html , $text,             $from, $attach='', $typeAttach='text/plain', $host=DEF_MAIL_HOST, $replyto=''){
 $bRes = multiPartMail($to, 'test mail sur '.$_SERVER['HTTP_HOST'], $mess, html_entity_decode($mess), $from, '', NULL);
 if($bRes===true){
 	echo '<p>Envoi OK</p>';

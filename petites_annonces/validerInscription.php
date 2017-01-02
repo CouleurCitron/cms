@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: validerInscription.php,v 1.6 2013-03-01 10:28:18 pierre Exp $
-	$Author: pierre $
+	$Id: validerInscription.php,v 1.1 2013-09-30 09:42:18 raphael Exp $
+	$Author: raphael $
 
 	$Log: validerInscription.php,v $
+	Revision 1.1  2013-09-30 09:42:18  raphael
+	*** empty log message ***
+
 	Revision 1.6  2013-03-01 10:28:18  pierre
 	*** empty log message ***
 

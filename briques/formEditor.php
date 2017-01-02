@@ -1,10 +1,16 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /* 
-$Author: pierre $
+$Author: quentin $
 $Revision: 1.2 $
 
 $Log: formEditor.php,v $
+Revision 1.2  2013-10-07 15:09:51  quentin
+*** empty log message ***
+
+Revision 1.1  2013-09-30 09:34:15  raphael
+*** empty log message ***
+
 Revision 1.2  2013-03-01 10:28:05  pierre
 *** empty log message ***
 
@@ -115,7 +121,7 @@ if($_GET['step']=='init') {
 Nom du formulaire&nbsp;:&nbsp;<br/>
 <input type="text" name="nom" id="nom" pattern="^.+$" errorMsg="Le nom est obligatoire"><br/></br>
 Destinataire(s) / une adresse email par ligne&nbsp;:&nbsp;<br/>
-<textarea name="destinataires" cols="50" rows="4" id="destinataires"></textarea><br/><br/>
+<textarea name="destinataires" class="textareaEdit" id="destinataires"></textarea><br/><br/>
 <input type="button" name="bouton" value="Suite" pattern="^.+$" errorMsg="Au moins une adresse email est requise." onClick="if(validate_form()) {submit();}">
 <?php
 } elseif ( (isset($_POST['nom']) && ($_GET['step']==1)) ) {

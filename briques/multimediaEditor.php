@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: multimediaEditor.php,v 1.2 2013-03-01 10:28:05 pierre Exp $
-	$Author: pierre $
+	$Id: multimediaEditor.php,v 1.1 2013-09-30 09:34:17 raphael Exp $
+	$Author: raphael $
 	
 	$Log: multimediaEditor.php,v $
+	Revision 1.1  2013-09-30 09:34:17  raphael
+	*** empty log message ***
+
 	Revision 1.2  2013-03-01 10:28:05  pierre
 	*** empty log message ***
 

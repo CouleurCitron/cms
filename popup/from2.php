@@ -11,10 +11,10 @@
 
 ?>
 	<style type="text/css">
-		@import "/css/menu.css";
+		@import "/backoffice/cms/css/menu.css";
 	</style>
 
-<link rel="stylesheet" type="text/css" href="/css/bo.css">
+<link rel="stylesheet" type="text/css" href="/backoffice/cms/css/bo.css">
 <script language="javascript"><!--
 	function makeit() {
 		

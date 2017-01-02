@@ -3,15 +3,18 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 
 /* 
 
-$Author: thao $
+$Author: raphael $
 
-$Revision: 1.5 $
+$Revision: 1.1 $
 
 
 
 
 
 $Log: arbo.php,v $
+Revision 1.1  2013-09-30 09:43:07  raphael
+*** empty log message ***
+
 Revision 1.5  2013-06-26 13:12:33  thao
 *** empty log message ***
 
@@ -270,22 +273,22 @@ if (strlen($_GET['v_comp_path']) > 0)
       <table width="300" border="0" cellpadding="5" cellspacing="0" bgcolor="#F0F1F3">       
           <tr bgcolor="#FFFFFF">
             <td align="left" class="arbo"<?php if($virtualPath=="0") echo "title='Impossible de déplacer le dossier Racine' style='color:#b0b0b0'"; ?>>D&eacute;placer le dossier</td>
-            <td<?php if($virtualPath=="0") echo ' title="Impossible de déplacer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_movefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a><?php } ?></td>
+            <td<?php if($virtualPath=="0") echo ' title="Impossible de déplacer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_movefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a><?php } ?></td>
           </tr>
           <tr>
             <td align="left" class="arbo"<?php if($virtualPath=="0") echo "title='Impossible de renommer le dossier Racine' style='color:#b0b0b0'"; ?>>Renommer le dossier</td>
-            <td<?php if($virtualPath=="0") echo ' title="Impossible de renommer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_renamefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a><?php } ?></td>
+            <td<?php if($virtualPath=="0") echo ' title="Impossible de renommer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_renamefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a><?php } ?></td>
           </tr>
           <tr bgcolor="#FFFFFF">
             <td align="left" class="arbo"<?php if($virtualPath=="0") echo "title='Impossible de supprimer le dossier Racine' style='color:#b0b0b0'"; ?>>Supprimer le dossier</td>
-            <td<?php if($virtualPath=="0") echo ' title="Impossible de supprimer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_deletefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a><?php } ?></td>
+            <td<?php if($virtualPath=="0") echo ' title="Impossible de supprimer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_deletefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a><?php } ?></td>
           </tr>
 		  
 		  
           <tr>
             <td align="left" class="arbo">Cr&eacute;er un sous dossier</td>
             <td>
-			<a href="arbo_createfolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"> </a>			
+			<a href="arbo_createfolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"> </a>			
 			</td>
           </tr>
 		  
@@ -293,20 +296,20 @@ if (strlen($_GET['v_comp_path']) > 0)
 		  
           <tr bgcolor="#FFFFFF">
             <td align="left" class="arbo">Ordre d'affichage des sous dossiers</td>
-            <td><a href="arbo_orderfolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+            <td><a href="arbo_orderfolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
           </tr>
 		   <tr>
             <td align="left" class="arbo">Description du dossier</td>
-            <td><a href="arbo_description.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+            <td><a href="arbo_description.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
           </tr>
 		  <tr bgcolor="#FFFFFF">
             <td align="left" class="arbo">Tag du dossier</td>
-            <td><a href="arbo_tag.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+            <td><a href="arbo_tag.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
           </tr>
 		  <?php if ($nameUser == "ccitron") { ?> 
 		  <tr>
             <td align="left" class="arbo">Edition avancée</td>
-            <td><a href="/backoffice/cms/cms_arbo_pages/maj_cms_arbo_pages.php?id=<?php echo ereg_replace('.*,([0-9]+)', '\\1', $virtualPath); ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+            <td><a href="/backoffice/cms/cms_arbo_pages/maj_cms_arbo_pages.php?id=<?php echo ereg_replace('.*,([0-9]+)', '\\1', $virtualPath); ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
           </tr>
 		  <?php } ?>
 		   <tr bgcolor="#FFFFFF">
@@ -332,7 +335,7 @@ if (strlen($_GET['v_comp_path']) > 0)
 			}
 			
 			 ?>
-            <td><a href="/#<?php echo $currDir;?>" target="_blank" onclick="prompt('Lien direct vers ce dossier:', 'http://<?php echo $_SERVER['HTTP_HOST']; ?>/#<?php echo $currDir;?>'); return false;" title="Lien direct"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+            <td><a href="/#<?php echo $currDir;?>" target="_blank" onclick="prompt('Lien direct vers ce dossier:', 'http://<?php echo $_SERVER['HTTP_HOST']; ?>/#<?php echo $currDir;?>'); return false;" title="Lien direct"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
           </tr>
        
     </table></td>

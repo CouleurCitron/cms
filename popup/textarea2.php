@@ -11,10 +11,10 @@
 
 ?>
 	<style type="text/css">
-		@import "/css/menu.css";
+		@import "/backoffice/cms/css/menu.css";
 	</style>
 
-<link rel="stylesheet" type="text/css" href="/css/bo.css">
+<link rel="stylesheet" type="text/css" href="/backoffice/cms/css/bo.css">
 <script language="javascript"><!--
 	function makeit() {
 	
@@ -30,9 +30,9 @@
 
 		
 		txtLine+= '<td arbo="awsformfield">';
-		txtLine+= '<textarea name="<?php echo $_GET["nomchamp"]; ?>" id="<?php echo $_GET["nomchamp"]; ?>" cols="' + document.forms['building'].cols.value + '" ';
+		txtLine+= '<textarea name="<?php echo $_GET["nomchamp"]; ?>" id="<?php echo $_GET["nomchamp"]; ?>"';
 		txtLine+= 'errorMsg="Le champ <?php echo $_GET["nomchamp"]; ?> est obligatoire" pattern="'+ pattern +'" ';
-		txtLine+= 'rows="' + document.forms['building'].rows.value + '" class="awsformfield">' + document.forms['building'].val.value;
+		txtLine+= 'class="awsformfield textareaEdit">' + document.forms['building'].val.value;
 		txtLine+= '</textarea>';
 		txtLine+="</td></tr>";
 

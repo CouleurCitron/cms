@@ -362,23 +362,23 @@ print drawCompTreeCarte($idSite, $db,$virtualPath,null);
    <td align="center" bgcolor="F7F7F7">&nbsp;<a href="http://<?php echo $_SERVER["HTTP_HOST"]; ?>/backoffice/<?php echo $carte['nom_classe']; ?>/show_<?php echo $carte['nom_classe']; ?>.php?id=<?php echo  $carte['id_enregistrement'];; ?>" target="_blank"><?php echo $carte['description_enregistrement'];?></a>&nbsp;</td>
 
 
-   <td align="center" bgcolor="F7F7F7">&nbsp;<a href="http://<?php echo $_SERVER["HTTP_HOST"]; ?>/backoffice/<?php echo $carte['nom_classe']; ?>/maj_<?php echo $carte['nom_classe']; ?>.php?id=<?php echo  $carte['id_enregistrement'];; ?>" title="Modifier l'enregistrement"><img src="/backoffice/cms/img/modifier.gif" border="0"></a>&nbsp;</td>
+   <td align="center" bgcolor="F7F7F7">&nbsp;<a href="http://<?php echo $_SERVER["HTTP_HOST"]; ?>/backoffice/<?php echo $carte['nom_classe']; ?>/maj_<?php echo $carte['nom_classe']; ?>.php?id=<?php echo  $carte['id_enregistrement'];; ?>" title="Modifier l'enregistrement"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0"></a>&nbsp;</td>
 
 <!--
 
-   <td align="center" bgcolor="F3F3F3">&nbsp;<a href="moveCarte.php?id=<?php echo $carte['id'];?>&idnode=<?php echo $idNode; ?>" title="Déplacer la carte dans le classeur"><img src="/backoffice/cms/img/deplacer.gif" border="0"></a>&nbsp;</td>
+   <td align="center" bgcolor="F3F3F3">&nbsp;<a href="moveCarte.php?id=<?php echo $carte['id'];?>&idnode=<?php echo $idNode; ?>" title="Déplacer la carte dans le classeur"><img src="/backoffice/cms/img/2013/icone/deplacer.png" border="0"></a>&nbsp;</td>
 
 
 
-   <td align="center" bgcolor="F7F7F7">&nbsp;<a href="renameCarte.php?id=<?php echo $carte['id'];?>" title="Renommer la carte"><img src="/backoffice/cms/img/renommer.gif" border="0"></a>&nbsp;</td>
+   <td align="center" bgcolor="F7F7F7">&nbsp;<a href="renameCarte.php?id=<?php echo $carte['id'];?>" title="Renommer la carte"><img src="/backoffice/cms/img/2013/icone/renommer.png" border="0"></a>&nbsp;</td>
 -->
 
 
-   <td align="center" bgcolor="F3F3F3">&nbsp;<a href="#" onclick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cette carte ?')) document.location = 'deleteCarte.php?id=<?php echo $carte['id'];?>&idnode=<?php echo $idNode; ?>'" title="Supprimer l'association"><img src="/backoffice/cms/img/supprimer.gif" border="0"></a>&nbsp;</td>
+   <td align="center" bgcolor="F3F3F3">&nbsp;<a href="#" onclick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cette carte ?')) document.location = 'deleteCarte.php?id=<?php echo $carte['id'];?>&idnode=<?php echo $idNode; ?>'" title="Supprimer l'association"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0"></a>&nbsp;</td>
 
 
 
-   <!--td align="center" bgcolor="F7F7F7">&nbsp;<a href="duplicateCarte.php?id=<?php echo $carte['id'];?>" title="Dupliquer la carte"><img src="/backoffice/cms/img/dupliquer.gif" border="0"></a>&nbsp;</td-->
+   <!--td align="center" bgcolor="F7F7F7">&nbsp;<a href="duplicateCarte.php?id=<?php echo $carte['id'];?>" title="Dupliquer la carte"><img src="/backoffice/cms/img/2013/icone/dupliquer.png" border="0"></a>&nbsp;</td-->
 
 
 

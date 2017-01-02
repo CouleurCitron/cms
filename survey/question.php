@@ -2,9 +2,12 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 // CVS
 /*
-$Id: question.php,v 1.11 2013-03-01 10:28:20 pierre Exp $
-$Author: pierre $
+$Id: question.php,v 1.1 2013-09-30 09:43:18 raphael Exp $
+$Author: raphael $
 $Log: question.php,v $
+Revision 1.1  2013-09-30 09:43:18  raphael
+*** empty log message ***
+
 Revision 1.11  2013-03-01 10:28:20  pierre
 *** empty log message ***
 
@@ -149,8 +152,8 @@ $strHTML.="  </td> ";
 
 $strHTML.="  <td class=\"listDataValue\">&nbsp;".adodb_date2("d/m/Y",$oSelect->get_dateadd())."&nbsp;</td>
 	<td class=\"listDataValue\">&nbsp;<a href=\"add_reponse.php?question=". $oSelect->get_id() ."\"><img onMouseOver='popup(\"Gérer les réponses de cette question\")' onMouseOut='kill();' border=\"0\" alt=\"Modifier les réponses de cette question\" src=\"/backoffice/cms/img/detail.gif\"></a>&nbsp;</td>
-  <td class=\"listDataValue\">&nbsp;<a href=\"question_form.php?id=". $oSelect->get_id() ."\"><img onMouseOver='popup(\"Modifier la fiche question\");' onMouseOut='kill();' border=\"0\" alt=\"Modifier\" src=\"$URL_ROOT/backoffice/cms/img/modifier.gif\"></a>&nbsp;</td>
-  <td class=\"listDataValue\">&nbsp;<a href=\"#\" onclick=\"redirect('question.php?delid=". $oSelect->get_id() ."','Etes vous sur de vouloir supprimer cette question ?');\"><img onMouseOver='popup(\"Supprimer cette question\");' onMouseOut='kill();' border=\"0\" alt=\"Supprimer\" src=\"$URL_ROOT/backoffice/cms/img/supprimer.gif\"></a>&nbsp;</td>
+  <td class=\"listDataValue\">&nbsp;<a href=\"question_form.php?id=". $oSelect->get_id() ."\"><img onMouseOver='popup(\"Modifier la fiche question\");' onMouseOut='kill();' border=\"0\" alt=\"Modifier\" src=\"$URL_ROOT/backoffice/cms/img/2013/icone/modifier.png\"></a>&nbsp;</td>
+  <td class=\"listDataValue\">&nbsp;<a href=\"#\" onclick=\"redirect('question.php?delid=". $oSelect->get_id() ."','Etes vous sur de vouloir supprimer cette question ?');\"><img onMouseOver='popup(\"Supprimer cette question\");' onMouseOut='kill();' border=\"0\" alt=\"Supprimer\" src=\"$URL_ROOT/backoffice/cms/img/2013/icone/supprimer.png\"></a>&nbsp;</td>
 </tr>
 ";
 		}

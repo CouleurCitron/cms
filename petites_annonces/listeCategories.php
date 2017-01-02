@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: listeCategories.php,v 1.8 2013-03-01 10:28:18 pierre Exp $
-	$Author: pierre $
+	$Id: listeCategories.php,v 1.1 2013-09-30 09:42:11 raphael Exp $
+	$Author: raphael $
 
 	$Log: listeCategories.php,v $
+	Revision 1.1  2013-09-30 09:42:11  raphael
+	*** empty log message ***
+
 	Revision 1.8  2013-03-01 10:28:18  pierre
 	*** empty log message ***
 
@@ -147,7 +150,7 @@ if ($_SESSION['idSite_travail'] == 1) {
 }
 ?>
   <td nowrap="nowrap" align="center">&nbsp;<?php echo $categorie->ordre; ?>&nbsp;</td>
-  <td nowrap="nowrap" align="center">&nbsp;<a href="javascript:delete_categorie(<?php echo $eCount; ?>, <?php echo $categorie->id; ?>)"><img src="/backoffice/cms/img/supprimer.gif" border="0" /></a>&nbsp;</td>
+  <td nowrap="nowrap" align="center">&nbsp;<a href="javascript:delete_categorie(<?php echo $eCount; ?>, <?php echo $categorie->id; ?>)"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" /></a>&nbsp;</td>
  </tr>
 <?php
 }

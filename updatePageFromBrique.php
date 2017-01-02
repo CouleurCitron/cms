@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: updatePageFromBrique.php,v 1.17 2013-03-01 10:28:04 pierre Exp $
-	$Author: pierre $
+	$Id: updatePageFromBrique.php,v 1.1 2013-09-30 09:24:16 raphael Exp $
+	$Author: raphael $
 
 	$Log: updatePageFromBrique.php,v $
+	Revision 1.1  2013-09-30 09:24:16  raphael
+	*** empty log message ***
+
 	Revision 1.17  2013-03-01 10:28:04  pierre
 	*** empty log message ***
 

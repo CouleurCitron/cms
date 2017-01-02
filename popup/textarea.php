@@ -1,10 +1,16 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: textarea.php,v 1.7 2013-03-01 10:28:18 pierre Exp $
-	$Author: pierre $
+	$Id: textarea.php,v 1.2 2013-10-07 15:09:51 quentin Exp $
+	$Author: quentin $
 	
 	$Log: textarea.php,v $
+	Revision 1.2  2013-10-07 15:09:51  quentin
+	*** empty log message ***
+
+	Revision 1.1  2013-09-30 09:42:26  raphael
+	*** empty log message ***
+
 	Revision 1.7  2013-03-01 10:28:18  pierre
 	*** empty log message ***
 
@@ -42,8 +48,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 		nbLines++;
 		txtLine = '<tr><td align="right" class="awsformlabel"> <?php echo $_GET["nomchamp"]; ?></td>';
 		txtLine+= '<td>';
-		txtLine+= '<textarea name="<?php echo $_GET["nomchamp"]; ?>" cols="' + document.forms['building'].cols.value;
-		txtLine+= '" rows="' + document.forms['building'].rows.value + '">' + document.forms['building'].val.value;
+		txtLine+= '<textarea name="<?php echo $_GET["nomchamp"]; ?>" class="textareaEdit">' + document.forms['building'].val.value;
 		txtLine+= '</textarea>';
 		txtLine+="</td></tr>";
 		window.returnValue = txtLine;
@@ -53,7 +58,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 	function addit() {
 		nbLines = window.dialogArguments;
 		nbLines++;
-		txtLine = '<tr id=tr' + nbLines + '><td align="right">' + document.forms['building'].nom.value + '&nbsp;:&nbsp;</td><td><textarea id="' + document.forms['building'].nom.value + '" name="' + document.forms['building'].nom.value + '" cols="' + document.forms['building'].cols.value + '" rows="' + document.forms['building'].rows.value + '">' + document.forms['building'].val.value  + '</textarea></td></tr>'+"\n";
+		txtLine = '<tr id=tr' + nbLines + '><td align="right">' + document.forms['building'].nom.value + '&nbsp;:&nbsp;</td><td><textarea id="' + document.forms['building'].nom.value + '" name="' + document.forms['building'].nom.value + '" class="textareaEdit">' + document.forms['building'].val.value  + '</textarea></td></tr>'+"\n";
 		window.returnValue = txtLine;
 		window.close();
 	}

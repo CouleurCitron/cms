@@ -44,19 +44,15 @@ function selectNewsletter($id){
 			$bUseMultiple = 0;
 		}
 		
-		if (class_exists('news_assoinscritnewsletter')){ // nouvelle methode
-			$sql = " SELECT distinct i.* FROM news_inscrit AS i, news_assoinscritnewsletter AS x ";
-			$sql.= " WHERE x.xin_news_inscrit = i.ins_id ";
-			$sql.= " AND x.xin_newsletter = ".$oNews->get_id()." ORDER BY x.xin_news_inscrit ASC"; 		
-		}
-		else{ //  methode précédente - deprecated
-			$sql = " SELECT distinct i.* FROM news_inscrit AS i, news_assoinscrittheme AS x ";
-			$sql.= " WHERE x.xit_statut = ".DEF_ID_STATUT_LIGNE." ";
-			$sql.= " AND x.xit_news_inscrit = i.ins_id ";
-			$sql.= " AND x.xit_news_theme = ".$oNews->get_theme()." ORDER BY x.xit_news_inscrit ASC"; 
-		}
+		// newsletter inscrit	
+		$sql = " SELECT distinct news_inscrit.* FROM news_inscrit, news_assoinscrittheme";
+		$sql.= " WHERE  xit_statut =".DEF_ID_STATUT_LIGNE." ";
+		$sql.= " AND xit_news_inscrit = ins_id ";
+		$sql.= " AND xit_news_theme = ".$oNews->get_theme()." ORDER BY xit_news_inscrit ASC"; 
 		
-		$aInscrit = dbGetObjectsFromRequete("News_inscrit", $sql);		
+		//echo $sql;
+		
+		$aInscrit = dbGetObjectsFromRequete("News_inscrit", $sql);
 	 
 		// je supprime les lignes qui existent pour cette newsletter pour éviter la confusion
 		$sql = "delete from news_select where slc_newsletter=".$id;
@@ -80,22 +76,7 @@ function selectNewsletter($id){
 			if (defined("DEF_APP_USE_CRON") &&  (DEF_APP_USE_CRON)){
 				$sql = 'delete from news_queue where news_newsletter = '.$oNews->get_id();
 				dbExecuteQuery($sql);
-			}	
-				
-			if (defined('DEF_CRITERE_LIB') && is_file(DEF_CRITERE_LIB) && $bUseCriteres){
-				include_once(DEF_CRITERE_LIB);
-				$oCriNlter = new critereNewsletter();			
-				
-				$oCriNlter->bUseCriteres=$bUseCriteres;
-				$oCriNlter->eNews=$oNews->get_id();
-				$oCriNlter->theme=$oNews->get_theme();
-				
-				if (method_exists($oCriNlter, 'preProcess')){
-					$oCriNlter->preProcess();
-				}
 			}
-			
-			
 			
 			// tous les inscrits pour cette newsletter
 			for ($a=0; $a<sizeof($aInscrit); $a++) {
@@ -106,14 +87,14 @@ function selectNewsletter($id){
 				$idIns = $oInscrit->get_id();
 				
 				//if ($cpt%100 == 0) echo $oInscrit->get_mail().'-<br />';
-				if ($cpt%100 == 0) echo '&nbsp;';
+				if ($cpt%100 == 0) echo '-<br />';
 				
 				$to = $oInscrit->get_mail();
 				$lang=getInscritLang($oInscrit);
 				
 				
 				// function updated 
-				$bSend = sendNewsletter($oNews->get_id(), $idIns, $_GET['ldj'], $to, $themeNews, $bUseCriteres, $bUseMultiple, $lang, $oCriNlter);
+				$bSend = sendNewsletter($oNews->get_id(), $idIns, $_GET['ldj'], $to, $themeNews, $bUseCriteres, $bUseMultiple, $lang);
 		
 				if ($bSend)  
 					$eMail_envoyes++; 
@@ -214,52 +195,58 @@ function selectNewsletter($id){
 
 }
 
-function sendNewsletter ( $id , $idIns, $idLdj, $addy, $themeNews, $bUseCriteres=0, $bUseMultiple=0, $lang=1, $oCriNlter) {
+function sendNewsletter ( $id , $idIns, $idLdj, $addy, $themeNews, $bUseCriteres=0, $bUseMultiple=0, $lang=1) {
   	
-
+	
 
   	if ($_POST["actiontodo"] == "SENDTEST") {
 		 
 	}
-	elseif(($bUseCriteres==1)	&&	defined('DEF_CRITERE_LIB') && is_file(DEF_CRITERE_LIB)) {
-		include_once(DEF_CRITERE_LIB);
-		
-		$_SESSION['id_langue']=$lang;
-		$translator =& TslManager::getInstance();			
-		
-		//$oCriNlter = new critereNewsletter();
-		
-		$oCriNlter->bUseCriteres=$bUseCriteres;
-		$oCriNlter->lang=$lang;
-		$oCriNlter->eIns=$idIns;
-		$oCriNlter->eNews=$id;
-		$oCriNlter->theme=$themeNews;
-
-		// legacy option si news_assoinscritnewsletter n'est pas dispo
-		if (!class_exists('news_assoinscritnewsletter') && method_exists($oCriNlter, 'sendNewsletterOrNot')){
-			$bSend = $oCriNlter->sendNewsletterOrNot();
-			if ($bSend==false){
-				return false;
+	else {
+		if($bUseCriteres==1){
+			// si traitement par critères, donc custom, report sur objet metier
+			if (defined('DEF_CRITERE_LIB') && is_file(DEF_CRITERE_LIB)) {
+				include_once(DEF_CRITERE_LIB);
+				
+				$_SESSION['id_langue']=$lang;
+				$translator =& TslManager::getInstance();			
+				
+				$oCriNlter = new critereNewsletter();
+				
+				$oCriNlter->bUseCriteres=$bUseCriteres;
+				$oCriNlter->lang=$lang;
+				$oCriNlter->eIns=$idIns;
+				$oCriNlter->eNews=$id;
+				$oCriNlter->theme=$themeNews;
+				
+				if (method_exists($oCriNlter, 'sendNewsletterOrNot')){
+					$bSend = $oCriNlter->sendNewsletterOrNot();
+					if ($bSend==false){
+						return false;
+					}
+				}
 			}
 		}
-	}
- 
+ 	}
 	
 	$oNews = new Newsletter ($id);
 	$theme = $oNews->get_theme(); 
-	$sSubject = rewriteNewsletterSubject($oNews->get_libelle(), $bUseCriteres, $lang, $oCriNlter);
+	$sSubject = rewriteNewsletterSubject($oNews->get_libelle(), $bUseCriteres, $lang);
 	
 	if ($sSubject == false){ // sortie si pas de newsletter dans cette lang pour cet user // sujet vide
 		return false;
 	}
 	
 	$sBodyHTML = $oNews->get_html();			
-	$sBodyHTML = rewriteNewsletterBody($sBodyHTML, $idIns, $id, $theme, $bUseCriteres, $bUseMultiple, $lang, $sSubject, $oCriNlter);
+	$sBodyHTML = rewriteNewsletterBody($sBodyHTML, $idIns, $id, $theme, $bUseCriteres, $bUseMultiple, $lang, $sSubject);
 
 	if($sBodyHTML!=false){	 // sortie si pas de newsletter dans cette lang pour cet user // body vide
 		 
 		$sBodyTEXT = "Si vous n'arrivez pas à lire cet email, copiez-coller ce lien :\n";
 		$sBodyTEXT.= "http://".$_SERVER['HTTP_HOST']."/frontoffice/newsletter/read_newsletter.php?idnew=".$oNews->get_id()."&idInslien=1&ins=".md5($idIns);	
+		
+		$sBodyTEXT.= strip_tags($sBodyHTML);
+		
 		
 		$from = getNoReply ($id);
 		$replyto = getReplyTo ($id);
@@ -343,10 +330,13 @@ function sendNewsletter ( $id , $idIns, $idLdj, $addy, $themeNews, $bUseCriteres
 				if (defined("DEF_USEPHPMAILFUNCTION") && (strval(DEF_USEPHPMAILFUNCTION)=="1")){
 					$bSend = (bool)  mail($addy, $sSubject, $message, $headers);
 				}
-				else{
-					//$bSend = (bool)  multiPartMail($addy , $sSubject , $message_html , $message_text, $from, "", "", DEF_MAIL_HOST);
-					$bSend = (bool)  multiPartMail_file($addy , $sSubject , $message_html , $message_text, $from, $attachPath, $aName_file, $typeAttach='text/plain', DEF_MAIL_HOST, $replyto);
-						
+				else{					
+					if (count($aName_file)>0){ // si on a des fichiers
+						$bSend = (bool)  multiPartMail_file($addy , $sSubject , $message_html , $message_text, $from, $attachPath, $aName_file, $typeAttach='text/plain', DEF_MAIL_HOST, $replyto);
+					}
+					else{
+						$bSend = (bool)  multiPartMail($addy , $sSubject , $message_html , $message_text, $from, "", "", DEF_MAIL_HOST, $replyto);
+					}						
 				} 
 			
 			}
@@ -358,9 +348,12 @@ function sendNewsletter ( $id , $idIns, $idLdj, $addy, $themeNews, $bUseCriteres
 				$bSend = (bool)  mail($addy, $sSubject, $message, $headers);
 			}
 			else{
-				//$bSend = (bool)  multiPartMail($addy , $sSubject , $message_html , $message_text, $from, "", "", DEF_MAIL_HOST);
-				$bSend = (bool)  multiPartMail_file($addy , $sSubject , $message_html , $message_text, $from, $attachPath, $aName_file, $typeAttach='text/plain', DEF_MAIL_HOST, $replyto);
-					
+				if (count($aName_file)>0){ // si on a des fichiers
+					$bSend = (bool)  multiPartMail_file($addy , $sSubject , $message_html , $message_text, $from, $attachPath, $aName_file, $typeAttach='text/plain', DEF_MAIL_HOST, $replyto);
+				}
+				else{
+					$bSend = (bool)  multiPartMail($addy , $sSubject , $message_html , $message_text, $from, "", "", DEF_MAIL_HOST, $replyto);
+				}					
 			} 
 		}
 		//$bSend = (bool)  multiPartMail_file('thao@couleur-citron.com' , 'test'.$sSubject , $addy.$lang.$message_html , $message_text, $from, $attachPath, $aName_file, $typeAttach='text/plain', DEF_MAIL_HOST, $replyto);

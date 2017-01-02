@@ -389,7 +389,7 @@ $langpile = $model->getCountryPile('fr');
 </p>
 <p>
 <span class="export_template">
-<img align="top" border="0" src="/backoffice/cms/img/go.gif" alt="Import">
+<img align="top" border="0" src="/backoffice/cms/img/2013/icone/go.png" alt="Import">
 <strong>
 <a href="/backoffice/cms/utils/telecharger.php?file=frais_pays.zip&chemin=/backoffice/cms/shp_frais_port_grille/&">Télécharger l'ensemble des fichiers avec les frais de port de tous les pays</a>
 </strong>

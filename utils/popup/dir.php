@@ -20,10 +20,13 @@ color:#575B60;
 	2005/05/11 Michael
 	Modif pour Moz 
 
-	$Id: dir.php,v 1.11 2013-04-04 13:36:07 thao Exp $
-	$Author: thao $
+	$Id: dir.php,v 1.1 2013-09-30 09:44:01 raphael Exp $
+	$Author: raphael $
 
 	$Log: dir.php,v $
+	Revision 1.1  2013-09-30 09:44:01  raphael
+	*** empty log message ***
+
 	Revision 1.11  2013-04-04 13:36:07  thao
 	*** empty log message ***
 
@@ -219,7 +222,7 @@ if ($_GET["source"]!="") {
 </table>
 <hr size="1" />
 <table cellpadding="0" cellspacing="0" border="0" width="100%" id="arbo_liste_contenu" class="arbo">
-<tr class="<?php echo $colors[$i%2]; $i++; ?>"><td colspan="2"><img src="/backoffice/cms/img/ico_dossier_opened.gif" border="0">&nbsp;&nbsp;<?php if($relDir) echo $relDir; else echo "/";?></td></tr>
+<tr class="<?php echo $colors[$i%2]; $i++; ?>"><td colspan="2"><img src="/backoffice/cms/img/2013/ico_dossier_opened.png" border="0">&nbsp;&nbsp;<?php if($relDir) echo $relDir; else echo "/";?></td></tr>
 <?php 
 	
 	foreach($dirs as $k => $dir) {  
@@ -228,7 +231,7 @@ if ($_GET["source"]!="") {
 ?>
 <tr class="<?php echo $colors[$i%2]; $i++; ?>">
    <td>&nbsp;&nbsp;</td>
-   <td><span style="text-decoration: none">&nbsp;&nbsp;</span><a href="<?php echo $_SERVER['PHP_SELF']."?dir=".rawurlencode($relDir.'/'.$dir); ?>&form=<?php echo $_GET['form']; ?>&champ=<?php echo $_GET['champ']."".$paramSite.""; ?>"><img src="/backoffice/cms/img/ico_dossier.gif" border="0"><?php echo $dir; ?></a></td>
+   <td><span style="text-decoration: none">&nbsp;&nbsp;</span><a href="<?php echo $_SERVER['PHP_SELF']."?dir=".rawurlencode($relDir.'/'.$dir); ?>&form=<?php echo $_GET['form']; ?>&champ=<?php echo $_GET['champ']."".$paramSite.""; ?>"><img src="/backoffice/cms/img/2013/ico_dossier.png" border="0"><?php echo $dir; ?></a></td>
 </tr>
 <?php	
 			 

@@ -5,12 +5,12 @@
  * 
  * 22/10/2013 : Raphaël
  */
-
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_cms.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/autoClass/lib.inc.php');
 
+
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/autoClass/lib.inc.php');
 
 //pre_dump($_SESSION["sqlpag"]); die();
 
@@ -26,16 +26,7 @@ global $depth;
 $translator =& TslManager::getInstance();
 
 $classe = $_GET['classe']; 
-
 //die($classe);
-
-// permet de dérouler le menu contextuellement
-if (!isset($classeName)){
-    $classeName = preg_replace('/[^_]*_(.*)\.php/', '$1', basename($_SERVER['PHP_SELF']));
-}
-if (function_exists('activateMenu')){
-    activateMenu('gestion'.$classeName);
-} 
 
 
 /* On parse le xml */
@@ -48,6 +39,8 @@ else
 unset($stack);
 $stack = array();
 xmlClassParse($sXML);
+
+
 
 //$aItems = dbGetObjects($classe);
 
@@ -81,7 +74,6 @@ if($depth > 1){
     
 }
 
-
 //pre_dump($translate);
 
 //pre_dump($aItems);
@@ -106,6 +98,8 @@ function constructList($idParent="", $stack){
 
     //$sSqlSearch = "SELECT DISTINCT shp_gamme.*  FROM shp_gamme WHERE  shp_gamme.shp_gam_id_site=1  ORDER BY shp_gam_id_gamme ASC, shp_gam_ordre ASC";
 
+
+
     global $champsDisplay;
     global $displayField;
     global $champsParent;
@@ -121,13 +115,15 @@ function constructList($idParent="", $stack){
         $sSqlSearch = $asSqlSearch[0]."ORDER BY ".$classe.".".$stack[0]["attrs"]["PREFIX"]."_$champsParent ASC, ".$classe.".".$stack[0]["attrs"]["PREFIX"]."_".$stack[0]["attrs"]["ORDONABLE"]." ASC, ".$classe.".".$stack[0]["attrs"]["PREFIX"]."_id ASC";    
     }
 
-
-
-
+    
+    
     //pre_dump($sSqlSearch);
+
+
     //pre_dump($stack);
     
     $translator =& TslManager::getInstance();
+    
     
     if(!isset($sSqlSearch) || (isset($sSqlSearch) && $idParent != "") ){
         //pre_dump($idParent);
@@ -152,10 +148,11 @@ function constructList($idParent="", $stack){
             $sSql = str_replace("WHERE ", "WHERE ".$classe.".".$stack[0]["attrs"]["PREFIX"]."_$champsParent < \"1\" AND ", $sSqlSearch);
         }
 
+        
+        //pre_dump($sSql);
         $aItems = dbGetObjectsFromRequete($sqlClassSession, $sSql);
 
     }
-
     //pre_dump($aItems); die();
     
     $sHtml = "";

@@ -53,20 +53,20 @@ function OpenMenu(strCalkName){
 	updateLink(bOpen);
 }
 
-function EscamotLayer(strCalkName){
+/*function EscamotLayer(strCalkName){
   objLayer = document.getElementById(strCalkName);
 	if(bOpen == true){
 		objLayer.style.left = "0px";
 	}else{
 		objLayer.style.left = "-240px";
 	}
-	/* updateLink(bOpen);
-	Enlevé pour une seule raison, ca fait  déconner les liens sous IE
-	les %E9 pour les liens avec accent sont mal interprêté
-	je n'ai pas pousser plus loin l'investigation, mais en activant cette fonction, ca marche plus!
-	et elle semble pas indispensable (le menu fonctionne sans)...
-	*/
-}
+	// updateLink(bOpen);
+	//Enlevé pour une seule raison, ca fait  déconner les liens sous IE
+	//les %E9 pour les liens avec accent sont mal interprêté
+	//je n'ai pas pousser plus loin l'investigation, mais en activant cette fonction, ca marche plus!
+	//et elle semble pas indispensable (le menu fonctionne sans)...
+	
+}*/
 
 function updateLink(menuOpen){
 	iNbLink = document.links.length;

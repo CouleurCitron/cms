@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /* 
-$Author: pierre $
-$Revision: 1.4 $
+$Author: raphael $
+$Revision: 1.1 $
 
 $Log: arbo_browse.php,v $
+Revision 1.1  2013-09-30 09:34:00  raphael
+*** empty log message ***
+
 Revision 1.4  2013-03-01 10:28:05  pierre
 *** empty log message ***
 
@@ -262,109 +265,104 @@ if (strlen($_GET['v_comp_path']) > 0)
 
 -->
 </script>
-<form name="managetree" id="managetree" action="arboaddnode.php" method="post">
-<input type="hidden" name="urlRetour" id="urlRetour" value="<?php echo $_POST['urlRetour']; ?>" />
-<input type="hidden" name="idSite" id="idSite" value="<?php echo $idSite; ?>" />
-<input type="hidden" name="id" id="id" value="" />
+
+
 
 <div class="ariane"><span class="arbo2">BRIQUE >&nbsp;</span><span class="arbo3">Arborescence&nbsp;>&nbsp;
 <?php echo getAbsolutePathString($idSite, $db, $virtualPath); ?></span></div>
 
-  <table cellpadding="0" cellspacing="0" border="0">
- <tr>
-  <td colspan="5"><img src="/backoffice/cms/img/vide.gif"></td>
- </tr>
- <tr>
-   <td align="left" valign="top" class="arbo"><br />
-       <b>Arborescence :</b> <br />
-       <br />
-       <table cellpadding="8" cellspacing="0" border="0">
-         <tr>
-           <td bgcolor="#FFFFFF"><?php
-print drawCompTree($idSite, $db, $virtualPath, null);
-?></td>
-         </tr>
-     </table></td>
-  <td colspan="3" class="arbo2"><span class="arbo2"><img src="/backoffice/cms/img/vide.gif" width="15"></span></td>
-  <td align="left" valign="top" class="arbo">
-  <!-- contenu du dossier -->
-   <b><small><br />
-   Composants contenus dans le dossier en cours:</small></b>
-   <br />
-   <br />
-  <table border="0" cellpadding="5" cellspacing="0" bordercolor="#FFFFFF" class="arbo">
-  <tr class="col_titre">
-	<td align="center"><strong>Nom</strong></td>
-	<td align="center"><strong>Dimensions</strong></td>
-	<td align="center"><strong>Type</strong></td>
-	<td align="center"><strong>Pages concernées</strong></td>
-	<td align="center"><strong>Actions</strong></td>
-  </tr>
-  <?php
-	$contenus = getFolderComposants($idSite, $virtualPath);
-	if(!is_array($contenus)) {
-?>
-  <tr>
-    <td align="center" colspan="6"><strong>&nbsp;Aucun élément à afficher</strong>
-  </tr>
-<?php
-	} else {
-		foreach ($contenus as $k => $composant) {
-			$nb_pages = sizeof(getPageUsingComposant($idSite, $composant['id']));
-			
-			// page de modif de la brique
-			if ($composant['type'] == "Graphique"){
-				$sPageEdit = "graphic";
-			}
-			else if ($composant['type'] == "database") {
-				$sPageEdit = "database";
-				$sParam = "step=init&";
-			}
-			else if ($composant['type'] == "formulaire") {
-				$sPageEdit = "form";
-				$sParam = "step=init&";
-			}
-			else if ($composant['type'] == "formulaireHTML") {
-				$sPageEdit = "/backoffice/cms/formulaire/formulaire";
-				$sParam = "step=init&";
-			}
-			else if ($composant['type'] == "Sondage") {
-				$sPageEdit = "backoffice/cms/survey/survey";
-				$sParam = "step=init&";
-			}
-			else  $sPageEdit = "content";
 
-			// site de la brique
-			$oCms_site = new Cms_site($composant['id_site']);
-	if ( ($_SESSION['login'] == "ccitron") || ($composant['type'] != "PHP" && $_SESSION['login'] != "ccitron")) {
+
+<div class="arbo_col_content">
+    <div class="arbo_col_gauche">
+        <div class="bloc_titre">Arborescence :</div>
+            <div class="arborescence">
+                <?php
+print drawCompTree($idSite, $db, $virtualPath, null);
 ?>
- <tr class="<?php echo htmlImpairePaire($k);?>">
-   <td align="center">&nbsp;<a href="#" onClick="javascript:preview_content(<?php echo $composant['id'];?>,<?php echo $composant['width'];?>,<?php echo $composant['height'];?>)"><?php echo $composant['name'];?></a>&nbsp;</td>
-   <td align="center">&nbsp;<?php echo $composant['width'];?>x<?php echo $composant['height'];?>&nbsp;</td>
-   <td align="center">&nbsp;<?php echo $composant['type'];?>&nbsp;</td>
-   <!-- CC Mkl : Modif si brique Graphique => edition avec la page graphicEditor.php -->
-   <td align="center">&nbsp;<?php echo $nb_pages; ?>&nbsp;</td>
-   <td align="center">&nbsp;
-   <?php 
+            </div>
+    </div>
+    <div class="arbo_col_droite">
+        <form name="managetree" id="managetree" action="arboaddnode.php" method="post">
+        <input type="hidden" name="urlRetour" id="urlRetour" value="<?php echo $_POST['urlRetour']; ?>" />
+        <input type="hidden" name="idSite" id="idSite" value="<?php echo $idSite; ?>" />
+        <input type="hidden" name="id" id="id" value="" />
+        
+        <p>Composants contenus dans le dossier en cours:</p>
+       <table border="0" cellpadding="5" cellspacing="0" bordercolor="#FFFFFF" class="arbo">
+       <tr class="col_titre">
+             <td align="center"><strong>Nom</strong></td>
+             <td align="center"><strong>Dimensions</strong></td>
+             <td align="center"><strong>Type</strong></td>
+             <td align="center"><strong>Pages concernées</strong></td>
+             <td align="center"><strong>Actions</strong></td>
+       </tr>
+       <?php
+             $contenus = getFolderComposants($idSite, $virtualPath);
+             if(!is_array($contenus)) {
+     ?>
+       <tr>
+         <td align="center" colspan="6"><strong>&nbsp;Aucun élément à afficher</strong>
+       </tr>
+     <?php
+             } else {
+                     foreach ($contenus as $k => $composant) {
+                             $nb_pages = sizeof(getPageUsingComposant($idSite, $composant['id']));
+
+                             // page de modif de la brique
+                             if ($composant['type'] == "Graphique"){
+                                     $sPageEdit = "graphic";
+                             }
+                             else if ($composant['type'] == "database") {
+                                     $sPageEdit = "database";
+                                     $sParam = "step=init&";
+                             }
+                             else if ($composant['type'] == "formulaire") {
+                                     $sPageEdit = "form";
+                                     $sParam = "step=init&";
+                             }
+                             else if ($composant['type'] == "formulaireHTML") {
+                                     $sPageEdit = "/backoffice/cms/formulaire/formulaire";
+                                     $sParam = "step=init&";
+                             }
+                             else if ($composant['type'] == "Sondage") {
+                                     $sPageEdit = "backoffice/cms/survey/survey";
+                                     $sParam = "step=init&";
+                             }
+                             else  $sPageEdit = "content";
+
+                             // site de la brique
+                             $oCms_site = new Cms_site($composant['id_site']);
+             if ( ($_SESSION['login'] == "ccitron") || ($composant['type'] != "PHP" && $_SESSION['login'] != "ccitron")) {
+     ?>
+      <tr class="<?php echo htmlImpairePaire($k);?>">
+        <td align="center">&nbsp;<a href="#" onClick="javascript:preview_content(<?php echo $composant['id'];?>,<?php echo $composant['width'];?>,<?php echo $composant['height'];?>)"><?php echo $composant['name'];?></a>&nbsp;</td>
+        <td align="center">&nbsp;<?php echo $composant['width'];?>x<?php echo $composant['height'];?>&nbsp;</td>
+        <td align="center">&nbsp;<?php echo $composant['type'];?>&nbsp;</td>
+        <!-- CC Mkl : Modif si brique Graphique => edition avec la page graphicEditor.php -->
+        <td align="center">&nbsp;<?php echo $nb_pages; ?>&nbsp;</td>
+        <td align="center">&nbsp;
+        <?php 
+
+        if (ereg("swf|SWF",$composant['type'])){ ?><a href="flashEditor.php?<?php echo $sParam; ?>id=<?php echo $composant['id'];?>&idSite=<?php echo $idSite; ?>&minisite=<?php echo $_GET['minisite']; ?>"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0" title="Modifier la brique"></a><?php } 
+        elseif (ereg("video|VIDEO",$composant['type'])){ ?><a href="videoEditor.php?<?php echo $sParam; ?>id=<?php echo $composant['id'];?>&idSite=<?php echo $idSite; ?>&minisite=<?php echo $_GET['minisite']; ?>"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0" title="Modifier la brique"></a><?php } 
+        elseif ($composant['type'] == "Graphique" &&  (is_file($_SERVER['DOCUMENT_ROOT'].'/backoffice/cms_custom/'.$sPageEdit.'Editor.php'))){ ?><a href="/backoffice/cms_custom/<?php echo $sPageEdit; ?>Editor.php?<?php echo $sParam; ?>id=<?php echo $composant['id'];?>&idSite=<?php echo $idSite; ?>&minisite=<?php echo $_GET['minisite']; ?>"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0" title="Modifier la brique"></a><?php } 
+        elseif ($composant['type'] != "PHP"){ ?><a href="<?php echo $sPageEdit; ?>Editor.php?<?php echo $sParam; ?>id=<?php echo $composant['id'];?>&idSite=<?php echo $idSite; ?>&minisite=<?php echo $_GET['minisite']; ?>"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0" title="Modifier la brique"></a><?php } ?>
+     &nbsp;<a href="javascript:renommer(<?php echo $composant['id'];?>)"><img src="/backoffice/cms/img/2013/icone/renommer.png" border="0" title="Renommer la brique"></a>
+     &nbsp;<a href="javascript:dimensions(<?php echo $composant['id'];?>)"><img src="/backoffice/cms/img/2013/icone/propriete.png" border="0" title="Dimensions de la brique"></a>
+     &nbsp;<a href="moveComposant.php?id=<?php echo $composant['id'];?>"><img src="/backoffice/cms/img/2013/icone/deplacer.png" border="0" title="Déplacer la brique"></a>
+     <?php if ($composant['type'] != "formulaireHTML"){ ?> &nbsp;<a href="duplicate<?php echo ($composant['type']=="Graphique")?"graphic":""; ?>Composant.php?id=<?php echo $composant['id'];?>"><img src="/backoffice/cms/img/2013/icone/dupliquer.png" border="0" title="Dupliquer la brique"></a><?php } ?>
+     &nbsp;<a href="#" onClick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cette brique ?')){ document.location='deleteComposant.php?id=<?php echo $composant['id'];?>';}"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" title="Supprimer la brique"></a>
+     </td>
+       </tr>
+     <?php
+             }
+                     }
+             }
+       ?>
+       </table>
+        
+        </form>
+    </div>
     
-   if (ereg("swf|SWF",$composant['type'])){ ?><a href="flashEditor.php?<?php echo $sParam; ?>id=<?php echo $composant['id'];?>&idSite=<?php echo $idSite; ?>&minisite=<?php echo $_GET['minisite']; ?>"><img src="/backoffice/cms/img/modifier.gif" border="0" title="Modifier la brique"></a><?php } 
-   elseif (ereg("video|VIDEO",$composant['type'])){ ?><a href="videoEditor.php?<?php echo $sParam; ?>id=<?php echo $composant['id'];?>&idSite=<?php echo $idSite; ?>&minisite=<?php echo $_GET['minisite']; ?>"><img src="/backoffice/cms/img/modifier.gif" border="0" title="Modifier la brique"></a><?php } 
-   elseif ($composant['type'] == "Graphique" &&  (is_file($_SERVER['DOCUMENT_ROOT'].'/backoffice/cms_custom/'.$sPageEdit.'Editor.php'))){ ?><a href="/backoffice/cms_custom/<?php echo $sPageEdit; ?>Editor.php?<?php echo $sParam; ?>id=<?php echo $composant['id'];?>&idSite=<?php echo $idSite; ?>&minisite=<?php echo $_GET['minisite']; ?>"><img src="/backoffice/cms/img/modifier.gif" border="0" title="Modifier la brique"></a><?php } 
-   elseif ($composant['type'] != "PHP"){ ?><a href="<?php echo $sPageEdit; ?>Editor.php?<?php echo $sParam; ?>id=<?php echo $composant['id'];?>&idSite=<?php echo $idSite; ?>&minisite=<?php echo $_GET['minisite']; ?>"><img src="/backoffice/cms/img/modifier.gif" border="0" title="Modifier la brique"></a><?php } ?>
-&nbsp;<a href="javascript:renommer(<?php echo $composant['id'];?>)"><img src="/backoffice/cms/img/renommer.gif" border="0" title="Renommer la brique"></a>
-&nbsp;<a href="javascript:dimensions(<?php echo $composant['id'];?>)"><img src="/backoffice/cms/img/propriete.gif" border="0" title="Dimensions de la brique"></a>
-&nbsp;<a href="moveComposant.php?id=<?php echo $composant['id'];?>"><img src="/backoffice/cms/img/deplacer.gif" border="0" title="Déplacer la brique"></a>
-<?php if ($composant['type'] != "formulaireHTML"){ ?> &nbsp;<a href="duplicate<?php echo ($composant['type']=="Graphique")?"graphic":""; ?>Composant.php?id=<?php echo $composant['id'];?>"><img src="/backoffice/cms/img/dupliquer.gif" border="0" title="Dupliquer la brique"></a><?php } ?>
-&nbsp;<a href="#" onClick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cette brique ?')){ document.location='deleteComposant.php?id=<?php echo $composant['id'];?>';}"><img src="/backoffice/cms/img/supprimer.gif" border="0" title="Supprimer la brique"></a>
-</td>
-  </tr>
-<?php
-	}
-		}
-	}
-  ?>
-  </table>
-  </td>
- </tr>
-</table>
-</form>
+</div>

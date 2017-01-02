@@ -101,7 +101,7 @@ foreach($aSites as $key => $site){
 		]);\n";
 
 		fwrite($js, "/* JS CK Editor Styles Document */\n".$contenuDefaultEditor);
-		fclose($js);
+		fclose($js);		
 	}
 	if (!is_file($_SERVER['DOCUMENT_ROOT']."/custom/gabarit/".$site->get_rep()."/init.php")){
 		echo "creates /custom/gabarit/".$site->get_rep()."/init.php\n";

@@ -48,7 +48,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 <table cellpadding="0" cellspacing="0" border="0">
  <tr>
   <td align="right" nowrap class="arbo">Liste des choix&nbsp;:&nbsp;<br/>(un par ligne)</td>
-  <td align="right"><textarea name="items" cols="40" rows="10" class="arbo"></textarea></td>
+  <td align="right"><textarea name="items" class="arbo textareaEdit"></textarea></td>
  </tr>
  <tr>
   <td align="center" colspan="2"><input type="button" name="bouton" value="Ajouter le champ au formulaire" onClick="javascript:makeit();" class="arbo"></td>

@@ -15,11 +15,11 @@ $contenus = dbGetObjectsFromFieldValue("cms_theme", array("get_site", "get_statu
 if(sizeof($contenus) == 1) {
 	// skip
 	$oTheme = $contenus[0];
-	echo '<script type="text/javascript">document.location.href="pageLiteEditor3.php?idGab='.$_GET['idGab'].'&idThe='.$oTheme->get_id().'";</script>';
+	echo '<script type="text/javascript">document.location.href="pageLiteEditor3.php?idGab='.$_GET['idGab'].'&idThe='.$oTheme->get_id().'&idSite='.$idSite.'";</script>';
 }
 elseif(sizeof($contenus) == 0) {
 	// skip
-	echo '<script type="text/javascript">document.location.href="pageLiteEditor3.php?idGab='.$_GET['idGab'].'";</script>';
+	echo '<script type="text/javascript">document.location.href="pageLiteEditor3.php?idGab='.$_GET['idGab'].'&idSite='.$idSite.'";</script>';
 }
 else{
 
@@ -49,4 +49,6 @@ foreach ($contenus as $k => $oTheme) {
 </form>
 <?php
 } 
+
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoappend.php');
 ?>

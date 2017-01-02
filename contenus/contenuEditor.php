@@ -103,8 +103,8 @@ if ($operation == "UPDATE")
 	}
 	else{
 		$rep = $oSite->get_rep();
-	}	
-	
+	}
+        
 	if (is_file($_SERVER['DOCUMENT_ROOT'].'/include/modules/'.$rep.'/mod_rewrite.inc.php')){	
 		include_once('modules/'.$rep.'/mod_rewrite.inc.php');		
 		if (function_exists('do_rewrite_rule')){

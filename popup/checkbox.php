@@ -1,10 +1,16 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: checkbox.php,v 1.5 2013-03-01 10:28:18 pierre Exp $
-	$Author: pierre $
+	$Id: checkbox.php,v 1.2 2013-10-07 15:09:51 quentin Exp $
+	$Author: quentin $
 	
 	$Log: checkbox.php,v $
+	Revision 1.2  2013-10-07 15:09:51  quentin
+	*** empty log message ***
+
+	Revision 1.1  2013-09-30 09:42:19  raphael
+	*** empty log message ***
+
 	Revision 1.5  2013-03-01 10:28:18  pierre
 	*** empty log message ***
 
@@ -94,7 +100,7 @@ if ($_GET['brique'] != "formulaire") {
 ?>
  <tr>
   <td align="right" nowrap>Libellé&nbsp;:&nbsp;</td>
-  <td align="right"><textarea name="libelle" cols="40" rows="10"></textarea></td>
+  <td align="right"><textarea name="libelle" class="textareaEdit"></textarea></td>
  </tr>
 <?php
 if ($_GET['brique'] != "formulaire") {

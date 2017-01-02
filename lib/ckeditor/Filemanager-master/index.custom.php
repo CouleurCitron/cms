@@ -15,8 +15,8 @@ if (!isset($_SESSION["ck_filemanager_path"]) && $_SESSION["ck_filemanager_path"]
 	$_SESSION["ck_filemanager_path"] = $_GET["dir"]; 
 } 
 else if (isset($_SESSION["ck_filemanager_path"]) && $_SESSION["ck_filemanager_path"] != '' &&  $_GET["dir"] != '') {
-	$_SESSION["ck_filemanager_path"] = $_GET["dir"]; 
-} 
+	$_SESSION["ck_filemanager_path"] = $_GET["dir"];
+}   
  
 
 $aClasse = dbGetObjectsFromFieldValue("classe", array("get_statut"),  array(DEF_ID_STATUT_LIGNE), NULL); 

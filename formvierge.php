@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 	/*
-		$Id: formvierge.php,v 1.4 2013-03-01 10:28:04 pierre Exp $
-		$Author: pierre $
+		$Id: formvierge.php,v 1.1 2013-09-30 09:24:07 raphael Exp $
+		$Author: raphael $
 
 		$Log: formvierge.php,v $
+		Revision 1.1  2013-09-30 09:24:07  raphael
+		*** empty log message ***
+
 		Revision 1.4  2013-03-01 10:28:04  pierre
 		*** empty log message ***
 

@@ -91,7 +91,7 @@ $sValeur = str_replace(";", "\n", $oChamp->getValeur_champ());
  <tr>
   <td align="right" nowrap class="arbo">Liste des choix&nbsp;:&nbsp;<br/>(un par ligne)</td>
   <td align="right">
-  	<textarea name="items" id="items" cols="40" rows="10" class="arbo"><?php echo $sValeur; ?></textarea>
+  	<textarea name="items" id="items" class="arbo textareaEdit"><?php echo $sValeur; ?></textarea>
 	<input type="hidden" name="action" id="action" value="update" /> 
 	<input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
 	<input type="hidden" name="name_form" id="name_form" value="<?php echo $id; ?>" />

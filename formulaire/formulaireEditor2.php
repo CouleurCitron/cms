@@ -107,7 +107,7 @@ if($_GET['step'] == 'init') {
 <input type="hidden" name="desc_form" value="<?php echo $oForm->getDesc_form(); ?>">		
 <input type="hidden" name="id" value="<?php echo $id; ?>">
 <div align="left" class="arbo">Description &nbsp;:&nbsp;</div>
-<textarea name="desc_form" cols="60" rows="4" id="desc_form" class="arbo"><?php echo $oForm->getDesc_form(); ?></textarea><br/><br/>
+<textarea name="desc_form" id="desc_form" class="arbo textareaEdit"><?php echo $oForm->getDesc_form(); ?></textarea><br/><br/>
 
 <div align="left" class="arbo">Liste des champs du formulaire : </div><br>
 <table>

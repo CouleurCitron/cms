@@ -1,11 +1,11 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /* 
-$Author: pierre $
-$Revision: 1.17 $
+$Author: raphael $
+$Revision: 1.1 $
 
 $Log: popup_arbo_browse.php,v $
-Revision 1.17  2014-01-05 14:48:58  pierre
+Revision 1.1  2013-09-30 09:24:14  raphael
 *** empty log message ***
 
 Revision 1.16  2013-03-01 10:28:04  pierre
@@ -312,7 +312,7 @@ if ($bMinisite) {
 <?php
 if ($bMinisite) {
 ?>
-   <td align="center" bgcolor="F7F7F7">&nbsp;<?php echo  $oCms_site->get_name() ; ?></td>
+   <td align="center" bgcolor="F7F7F7">&nbsp;<?php echo  $oCms_site->getName_site() ; ?></td>
 <?php
 }
 ?>

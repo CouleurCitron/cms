@@ -35,10 +35,10 @@ body {
 
 <script type="text/javascript">
 function execChoose() {
-	window.opener.document.forms[0].node_id.value=<?php echo $nodeInfos['id']; ?>;
-	window.opener.document.forms[0].foldername.disabled=false;
-	window.opener.document.forms[0].foldername.value="<?php echo $nodeInfos['libelle']; ?>";
-	window.opener.document.forms[0].foldername.disabled=true;
+	window.opener.document.forms[1].node_id.value=<?php echo $nodeInfos['id']; ?>;
+	window.opener.document.forms[1].foldername.disabled=false;
+	window.opener.document.forms[1].foldername.value="<?php echo $nodeInfos['libelle']; ?>";
+	window.opener.document.forms[1].foldername.disabled=true;
 	self.close();
 }
 </script>

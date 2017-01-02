@@ -125,12 +125,12 @@ if (is_post('node_id')){
 	  <br>
 	  <br>
 		Description :<br> 
-	  <textarea name="description" cols="60" rows="10" class="arbo" id="form_description"><?php echo stripslashes($description); ?></textarea>
+	  <textarea name="description" class="arbo textareaEdit" id="form_description"><?php echo stripslashes($description); ?></textarea>
 	  </p>
 	  <p><?php echo $dossier; ?><br />
 		  <input name="foldername" type="text" disabled="disabled" class="arbo" id="foldername" value="<?php echo $foldername;?>" size="20" pattern="^.+$" errormsg="Veuillez sp&eacute;cifier un dossier d'enregistrement." />
 		&nbsp;   
-		<a href="#" class="arbo" onclick="chooseFolder();"><img src='/backoffice/cms/img/go.gif' border='0'>&nbsp;choisir le dossier</a>
+		<a href="#" class="arbo" onclick="chooseFolder();"><img src='/backoffice/cms/img/2013/icone/go.png' border='0'>&nbsp;choisir le dossier</a>
 	  </p>
 	  <p>
 		<input name="recurs" id="recurs" type="checkbox" class="arbo" value="true" />

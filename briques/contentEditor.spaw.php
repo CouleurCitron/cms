@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: contentEditor.spaw.php,v 1.4 2013-06-21 15:03:14 thao Exp $
-	$Author: thao $
+	$Id: contentEditor.spaw.php,v 1.1 2013-09-30 09:34:09 raphael Exp $
+	$Author: raphael $
 	
 	$Log: contentEditor.spaw.php,v $
+	Revision 1.1  2013-09-30 09:34:09  raphael
+	*** empty log message ***
+
 	Revision 1.4  2013-06-21 15:03:14  thao
 	*** empty log message ***
 

@@ -45,7 +45,7 @@ function geturl(id){
  ";
  
 
-$aCustom["Action"] = "<a href=\"javascript:geturl(##id##);\" title=\"Get URL\"><img src=\"/backoffice/cms/img/link.gif\"  alt=\"Get URL\" border=\"0\" /></a>";
+$aCustom["Action"] = "<a href=\"javascript:geturl(##id##);\" title=\"Get URL\"><img src=\"/backoffice/cms/img/2013/icone/link.png\"  alt=\"Get URL\" border=\"0\" /></a>";
 
 include('cms-inc/autoClass/list.php');
 ?>

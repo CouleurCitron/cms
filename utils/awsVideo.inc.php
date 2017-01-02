@@ -144,7 +144,7 @@ if ($detect->isMobile() || $detect->isTablet()){ //mobile OU une tablette
 	if (is_file($_SERVER['DOCUMENT_ROOT'].preg_replace('/^(.+)\.[^\.]+$/si', '$1.webm', $vidPath))){
 		$vidPath = preg_replace('/^(.+)\.[^\.]+$/si', '$1.webm', $vidPath);
 		echo "<source src='".$vidPath."' type='video/webm; codecs=\"vp8.0, vorbis\"'/>";
-	}	
+	}			
 	else{
 		//echo 'no file '.$_SERVER['DOCUMENT_ROOT'].preg_replace('/^(.+)\.[^\.]+$/si', '$1.webm', $vidPath);
 	}		

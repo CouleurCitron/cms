@@ -30,7 +30,7 @@ if (is_post("fsql")){
 
 ?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id="sqlForm" name="sqlForm" method="post">
-<textarea id="fsql" name="fsql" rows="10" cols="50">
+<textarea id="fsql" name="fsql" class="textareaEdit">
 <?php
 if (is_post("fsql")){
 	echo join(';', $aSQL);

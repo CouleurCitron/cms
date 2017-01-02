@@ -7,10 +7,13 @@
 
 	Michael: ajout de la suppresion de brique graphique => suppression du fichier XML de données
 	
-	$Id: deleteComposant.php,v 1.1 2013-02-11 10:27:06 thao Exp $
-	$Author: thao $
+	$Id: deleteComposant.php,v 1.1 2013-09-30 09:34:11 raphael Exp $
+	$Author: raphael $
 	
 	$Log: deleteComposant.php,v $
+	Revision 1.1  2013-09-30 09:34:11  raphael
+	*** empty log message ***
+
 	Revision 1.1  2013-02-11 10:27:06  thao
 	*** empty log message ***
 

@@ -2,9 +2,12 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 // CVS
 /*
-$Id: add_reponse.php,v 1.7 2013-03-01 10:28:20 pierre Exp $
-$Author: pierre $
+$Id: add_reponse.php,v 1.1 2013-09-30 09:43:18 raphael Exp $
+$Author: raphael $
 $Log: add_reponse.php,v $
+Revision 1.1  2013-09-30 09:43:18  raphael
+*** empty log message ***
+
 Revision 1.7  2013-03-01 10:28:20  pierre
 *** empty log message ***
 
@@ -229,16 +232,16 @@ if (sizeof($aReponse) == 0) {
 						
 				} 
 				$strHTML.="</td>";
-				$strHTML.="<td class=\"listDataValue\">&nbsp;<a href=\"javascript:setUpdateForm_translation(". $oReponse->get_id() .",'".addslashes(htmlentities(join(";",$aMesReponses)))."')\"><img onMouseOver='popup(\"Modifier la fiche réponse\");' onMouseOut='kill();' border=\"0\" alt=\"Modifier\" src=\"$URL_ROOT/backoffice/cms/img/modifier.gif\"></a>&nbsp;</td>";
+				$strHTML.="<td class=\"listDataValue\">&nbsp;<a href=\"javascript:setUpdateForm_translation(". $oReponse->get_id() .",'".addslashes(htmlentities(join(";",$aMesReponses)))."')\"><img onMouseOver='popup(\"Modifier la fiche réponse\");' onMouseOut='kill();' border=\"0\" alt=\"Modifier\" src=\"$URL_ROOT/backoffice/cms/img/2013/icone/modifier.png\"></a>&nbsp;</td>";
 		
 				
 			}
 			else {
 				$strHTML.="<td class=\"listDataValue\">&nbsp;".str_replace("\n","<br>",stripslashes($oReponse->get_libelle())) ."&nbsp;</td>";
-				$strHTML.="<td class=\"listDataValue\">&nbsp;<a href=\"javascript:setUpdateForm(". $oReponse->get_id() .",'".addslashes(htmlentities($oReponse->get_libelle()))."')\"><img onMouseOver='popup(\"Modifier la fiche réponse\");' onMouseOut='kill();' border=\"0\" alt=\"Modifier\" src=\"$URL_ROOT/backoffice/cms/img/modifier.gif\"></a>&nbsp;</td>";
+				$strHTML.="<td class=\"listDataValue\">&nbsp;<a href=\"javascript:setUpdateForm(". $oReponse->get_id() .",'".addslashes(htmlentities($oReponse->get_libelle()))."')\"><img onMouseOver='popup(\"Modifier la fiche réponse\");' onMouseOut='kill();' border=\"0\" alt=\"Modifier\" src=\"$URL_ROOT/backoffice/cms/img/2013/icone/modifier.png\"></a>&nbsp;</td>";
 		
 			}
-		$strHTML.="<td class=\"listDataValue\">&nbsp;<a href=\"#\" onclick=\"redirect('add_reponse.php?delid=". $oReponse->get_id()."&question=".$questionId."','Etes vous sur de vouloir supprimer cette réponse ?');\"><img onMouseOver='popup(\"Supprimer cette réponse\");' onMouseOut='kill();' border=\"0\" alt=\"Supprimer\" src=\"$URL_ROOT/backoffice/cms/img/supprimer.gif\"></a>&nbsp;</td>
+		$strHTML.="<td class=\"listDataValue\">&nbsp;<a href=\"#\" onclick=\"redirect('add_reponse.php?delid=". $oReponse->get_id()."&question=".$questionId."','Etes vous sur de vouloir supprimer cette réponse ?');\"><img onMouseOver='popup(\"Supprimer cette réponse\");' onMouseOut='kill();' border=\"0\" alt=\"Supprimer\" src=\"$URL_ROOT/backoffice/cms/img/2013/icone/supprimer.png\"></a>&nbsp;</td>
 			</tr>";
 			
 			

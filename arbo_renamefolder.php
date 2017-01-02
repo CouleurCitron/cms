@@ -3,13 +3,16 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 
 /* 
 
-$Author: pierre $
+$Author: raphael $
 
-$Revision: 1.8 $
+$Revision: 1.1 $
 
 
 
 $Log: arbo_renamefolder.php,v $
+Revision 1.1  2013-09-30 09:23:58  raphael
+*** empty log message ***
+
 Revision 1.8  2013-03-01 10:28:04  pierre
 *** empty log message ***
 
@@ -275,11 +278,11 @@ print drawCompTree($idSite, $db, $virtualPath);
 
         <tr align="center" bgcolor="EEEEEE">
 
-            <td colspan="2" nowrap bgcolor="D2D2D2" class="arbo"><a href="arbo.php?menuOpen=<?php echo $_GET['menuOpen']; ?>" class="arbo"><strong>Annuler</strong></a>&nbsp;&nbsp;<a href="arbo.php?menuOpen=<?php echo $_GET['menuOpen']; ?>" class="arbo"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a> 
+            <td colspan="2" nowrap bgcolor="D2D2D2" class="arbo"><a href="arbo.php?menuOpen=<?php echo $_GET['menuOpen']; ?>" class="arbo"><strong>Annuler</strong></a>&nbsp;&nbsp;<a href="arbo.php?menuOpen=<?php echo $_GET['menuOpen']; ?>" class="arbo"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a> 
 
               - <a href="#" class="arbo" onClick="javascript:document.forms[0].submit();"><strong>Renommer 
 
-              le dossier</strong></a>&nbsp;&nbsp;<a href="#" onClick="javascript:document.forms[0].submit();" class="arbo"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+              le dossier</strong></a>&nbsp;&nbsp;<a href="#" onClick="javascript:document.forms[0].submit();" class="arbo"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
 
         </tr>
 

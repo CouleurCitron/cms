@@ -30,9 +30,9 @@
 
 		
 		txtLine+= '<td arbo="awsformfield">';
-		txtLine+= '<textarea name="<?php echo noAccent($_GET["nomchamp"]); ?>" id="<?php echo noAccent($_GET["nomchamp"]); ?>" cols="' + document.forms['building'].cols.value + '" ';
+		txtLine+= '<textarea name="<?php echo noAccent($_GET["nomchamp"]); ?>" id="<?php echo noAccent($_GET["nomchamp"]); ?>"';
 		txtLine+= 'errorMsg="Le champ <?php echo noAccent($_GET["nomchamp"]); ?>  est obligatoire" pattern="'+ pattern +'" ';
-		txtLine+= 'rows="' + document.forms['building'].rows.value + '" class="awsformfield">' + document.forms['building'].val.value;
+		txtLine+= ' class="awsformfield textareaEdit">' + document.forms['building'].val.value;
 		txtLine+= '</textarea>';
 		txtLine+="</td></tr>";
 

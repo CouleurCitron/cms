@@ -78,7 +78,7 @@ $aZonedit = getContentFromPage($idGab, 1);
 
 if((sizeof($aZonedit) == 0)	|| ($aZonedit===false)) {
 	// skip
-	echo '<script type="text/javascript">document.location.href="pageLiteEditor4.php?idGab='.$_GET['idGab'].'&idThe='.$_GET['idThe'].'";</script>';
+	echo '<script type="text/javascript">document.location.href="pageLiteEditor4.php?idGab='.$_GET['idGab'].'&idThe='.$_GET['idThe'].'&idSite='.$idSite.'";</script>';
 }
 else{
 
@@ -86,36 +86,36 @@ for ($a=0; $a<sizeof($aZonedit); $a++){
 	$oZonedit = $aZonedit[$a];
 
 
-if ($idPage == "") { // MODE CREATION DE PAGE
-
-	// clé de la zone éditable créée
-	$aIdBrique[$a]["be"] = crea_brique_defo($oZonedit);
-	$aIdBrique[$a]["bex"] = "";
+	if ($idPage == "") { // MODE CREATION DE PAGE
 	
-}
-else { // MODE MODIFICATION DE PAGE
-
-	// obtention d'un objet cms_struct à partir de l'id de la zone editable
-	$oBrique = getOneObjetWithPageZonedit($idPage, $oZonedit->getId_content());
-
-	// Attention il est possible d'avoir une nouvelle zone éditable (rajouté en modif dans le gabarit)
-	if(! $oBrique ) { 
+		// clé de la zone éditable créée
 		$aIdBrique[$a]["be"] = crea_brique_defo($oZonedit);
 		$aIdBrique[$a]["bex"] = "";
+		
 	}
-	else {
-		if( $oBrique->getIsbriquedit_content()) {
-			$aIdBrique[$a]["be"] = $oBrique->getId_content();
+	else { // MODE MODIFICATION DE PAGE
+	
+		// obtention d'un objet cms_struct à partir de l'id de la zone editable
+		$oBrique = getOneObjetWithPageZonedit($idPage, $oZonedit->getId_content());
+	
+		// Attention il est possible d'avoir une nouvelle zone éditable (rajouté en modif dans le gabarit)
+		if(! $oBrique ) { 
+			$aIdBrique[$a]["be"] = crea_brique_defo($oZonedit);
 			$aIdBrique[$a]["bex"] = "";
 		}
-		else {	// si on a pas a faire à une brique éditable
-				// on créé une brique éditable par défaut au cas où
-				// pour pouvoir basculer en mode brique éditable
-			$aIdBrique[$a]["be"] = crea_brique_defo($oZonedit);
-			$aIdBrique[$a]["bex"] = $oBrique->getId_content();
+		else {
+			if( $oBrique->getIsbriquedit_content()) {
+				$aIdBrique[$a]["be"] = $oBrique->getId_content();
+				$aIdBrique[$a]["bex"] = "";
+			}
+			else {	// si on a pas a faire à une brique éditable
+					// on créé une brique éditable par défaut au cas où
+					// pour pouvoir basculer en mode brique éditable
+				$aIdBrique[$a]["be"] = crea_brique_defo($oZonedit);
+				$aIdBrique[$a]["bex"] = $oBrique->getId_content();
+			}
 		}
 	}
-}
 
 }
 
@@ -246,9 +246,9 @@ Etape 2 : affectation des contenus</span></div>
 //--------------------------------------------
 ?>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" class="arbo">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" class="arbo" id="pageLiteEdito3">
 <tr>
-	<td class="arbo" style="height:600px;width=<?php echo $widthGab; ?>px">
+	<td class="arbo" style="width:<?php echo $widthGab; ?>px">
 
 <?php
 $stop=0;
@@ -256,59 +256,59 @@ $contenu_par_defaut_a_suppr=0;
 
 $tampon = $oGab->getHtml_page();
 
-
-	// on cherche la chaine <!--DEBUTCMS;ID=
-	if (preg_match('/<\!--DEBUTCMS;/', $tampon)) {
-		//		$stop=1;
-		$aTampon=split(";", $tampon);
-		// découpage de la ligne en tableau pour extraire l'ID
-		$id_div = "";
-		$idDivArray = array();
-		for ($p=0; $p<sizeof($aTampon); $p++) {
-
-			$ligneTampon = $aTampon[$p];
-			//echo "---".$ligneTampon."---".substr($ligneTampon, 0, 2)."----<br>";
-			if (substr($ligneTampon, 0, 2) == "ID") 
-			{
-				$aTampon2=split("=", $ligneTampon);
-				$id_div = $aTampon2[1];
-				if (!in_array ($id_div, $idDivArray)) {
-					$idDivArray[] = $id_div;
-				}
-			}
-		}
-		$tampon2 = "";
-		for ($a=0; $a<sizeof($idDivArray); $a++) {
-		// récupération des objets Brique et Structure pour avoir les bonnes dimensions
-			$id_div = $idDivArray[$a];
-			if($idPage == "") { // Mode Création
-				$oContent = new Cms_content($id_div);
-			}
-			else { // Mode modification
-				$oBrique = getOneObjetWithPageZonedit($idPage, $id_div);
-				$oContent = new Cms_content($oBrique->id_content);
-			}
-			$oStruct = new Cms_struct_page();
-			$oStruct->getObjet($idGab, $id_div);
 	
-			$zoneDiv.= '<input name="Width'.$id_div.'" id="Width'.$id_div.'" type="hidden" value="'.$oStruct->getWidth_content().'" />'."\n";
-			$zoneDiv.= '<input name="Height'.$id_div.'" id="Height'.$id_div.'" type="hidden" value="'.$oStruct->getHeight_content().'" />'."\n";
-			$zoneDiv.= '<input name="Opacity'.$id_div.'" id="Opacity'.$id_div.'" type="hidden" value="'.$oStruct->getOpacity_content().'" />'."\n";
-			$zoneDiv.= '<input name="Index'.$id_div.'" id="Index'.$id_div.'" type="hidden" value="'.$oStruct->getZindex_content().'" />'."\n"."\n";
-			$zoneDiv.= '<input name="Top'.$id_div.'" id="Top'.$id_div.'" type="hidden" value="'.$oStruct->getTop_content().'" />'."\n";
-			$zoneDiv.= '<input name="Left'.$id_div.'" id="Left'.$id_div.'" type="hidden" value="'.$oStruct->getLeft_content().'" />'."\n";
-			$zoneDiv.= $oContent->getHtml_content();
-			
-			// supprime la redirection lors de l'affichage
-			if (ereg ("window.location.href",$zoneDiv) ) {
-				$zoneDiv = str_replace("window.location.href", "//window.location.href", $zoneDiv);
+// on cherche la chaine <!--DEBUTCMS;ID=
+if (preg_match('/<\!--DEBUTCMS;/', $tampon)) {
+	//		$stop=1;
+	$aTampon=split(";", $tampon);
+	// découpage de la ligne en tableau pour extraire l'ID
+	$id_div = "";
+	$idDivArray = array();
+	for ($p=0; $p<sizeof($aTampon); $p++) {
+
+		$ligneTampon = $aTampon[$p];
+		//echo "---".$ligneTampon."---".substr($ligneTampon, 0, 2)."----<br>";
+		if (substr($ligneTampon, 0, 2) == "ID") 
+		{
+			$aTampon2=split("=", $ligneTampon);
+			$id_div = $aTampon2[1];
+			if (!in_array ($id_div, $idDivArray)) {
+				$idDivArray[] = $id_div;
 			}
-			$tampon2.= $zoneDiv;
-			$zoneDiv = "";
-			
 		}
+	}
+	$tampon2 = "";
+	for ($a=0; $a<sizeof($idDivArray); $a++) {
+	// récupération des objets Brique et Structure pour avoir les bonnes dimensions
+		$id_div = $idDivArray[$a];
+		if($idPage == "") { // Mode Création
+			$oContent = new Cms_content($id_div);
+		}
+		else { // Mode modification
+			$oBrique = getOneObjetWithPageZonedit($idPage, $id_div);
+			$oContent = new Cms_content($oBrique->id_content);
+		}
+		$oStruct = new Cms_struct_page();
+		$oStruct->getObjet($idGab, $id_div);
+
+		$zoneDiv.= '<input name="Width'.$id_div.'" id="Width'.$id_div.'" type="hidden" value="'.$oStruct->getWidth_content().'" />'."\n";
+		$zoneDiv.= '<input name="Height'.$id_div.'" id="Height'.$id_div.'" type="hidden" value="'.$oStruct->getHeight_content().'" />'."\n";
+		$zoneDiv.= '<input name="Opacity'.$id_div.'" id="Opacity'.$id_div.'" type="hidden" value="'.$oStruct->getOpacity_content().'" />'."\n";
+		$zoneDiv.= '<input name="Index'.$id_div.'" id="Index'.$id_div.'" type="hidden" value="'.$oStruct->getZindex_content().'" />'."\n"."\n";
+		$zoneDiv.= '<input name="Top'.$id_div.'" id="Top'.$id_div.'" type="hidden" value="'.$oStruct->getTop_content().'" />'."\n";
+		$zoneDiv.= '<input name="Left'.$id_div.'" id="Left'.$id_div.'" type="hidden" value="'.$oStruct->getLeft_content().'" />'."\n";
+		$zoneDiv.= $oContent->getHtml_content();
+		
+		// supprime la redirection lors de l'affichage
+		if (ereg ("window.location.href",$zoneDiv) ) {
+			$zoneDiv = str_replace("window.location.href", "//window.location.href", $zoneDiv);
+		}
+		$tampon2.= $zoneDiv;
+		$zoneDiv = "";
 		
 	}
+
+}
 
 
 echo phpsrcEval($oGab->getHtml_page().$tampon2);
@@ -608,3 +608,6 @@ for ($p=0; $p<sizeof($aZonedit); $p++) {
 <style>
 DIV.space DIV.content DIV DIV { top:0px !important; left:0px !important }
 </style>
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoappend.php');
+?>

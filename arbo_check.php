@@ -5,17 +5,17 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/arbominisite.lib.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/composants.lib.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/selectSite.php');
 
-	if (is_get('idSite')){
-		$idSite = $_GET['idSite'];
-		$_POST['idSite'] = $idSite;
-		error_log('++++ GET '.$_POST['idSite']);
-		
-		// site de travail
-		$oSite = new Cms_site($_POST['idSite']);
-		$_SESSION['idSite_travail'] = $oSite->get_id();  
-		$idSite = $_SESSION['idSite_travail'];
-		sitePropsToSession($oSite);
-	}
+if (is_get('idSite')){
+	$idSite = $_GET['idSite'];
+	$_POST['idSite'] = $idSite;
+	error_log('++++ GET '.$_POST['idSite']);
+	
+	// site de travail
+	$oSite = new Cms_site($_POST['idSite']);
+	$_SESSION['idSite_travail'] = $oSite->get_id();  
+	$idSite = $_SESSION['idSite_travail'];
+	sitePropsToSession($oSite);
+}
 else{
 	$idSite = $_SESSION['idSite'];	
 }
@@ -28,11 +28,11 @@ echo "<pre>";
 
 $aNodes = dbGetObjectsFromRequete("Cms_arbo_pages", $sSql);
 
-for ($i=0;$i<count($aNodes);$i++){
+for ($i=0;$i<count($aNodes);$i++){	
 
 	$oNode = new Cms_arbo_pages($aNodes[$i]->get_id());	
 	if ($oNode->get_parent_id()!=-1){
-	$oParent = new Cms_arbo_pages($oNode->get_parent_id());			
+		$oParent = new Cms_arbo_pages($oNode->get_parent_id());			
 	}
 	else{
 		$oParent = false;

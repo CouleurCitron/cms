@@ -58,7 +58,7 @@ if( $_GET["idchamp"] != -1) {
 <table cellpadding="0" cellspacing="0" border="0">
  <tr>
   <td align="right" nowrap class="arbo">Libellé&nbsp;:&nbsp;</td>
-  <td align="right"><textarea name="libelle" cols="40" rows="10" class="arbo"><?php echo $sValeur; ?></textarea></td>
+  <td align="right"><textarea name="libelle" class="arbo textareaEdit"><?php echo $sValeur; ?></textarea></td>
  </tr>
  <tr>
   <td align="center" colspan="2"><input type="button" name="bouton" value="Ajouter le champ au formulaire" onClick="javascript:makeit();" class="arbo"></td>

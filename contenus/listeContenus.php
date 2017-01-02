@@ -43,38 +43,8 @@ include("listeRechContenus.php");
 <div class="ariane"><span class="arbo2">CONTENU >&nbsp;</span><span class="arbo3">Liste des contenus</span></div>
 
 <script type="text/javascript">document.title="Gestion du contenu";</script>
-<link rel="stylesheet" type="text/css" href="/backoffice/cms/css/bo.css">
 <script src="/backoffice/cms/js/preview.js" type="text/javascript" language="javascript"></script>
 <script src="listeContenus.js.php" type="text/javascript" language="javascript"></script>
-<style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
-
-	.ligneContent<?php echo  DEF_ID_STATUT_ATTEN ; ?>, .ligneContent<?php echo  DEF_ID_STATUT_LIGNE ; ?>, .ligneContent<?php echo  DEF_ID_STATUT_GEST ; ?>, .ligneContent<?php echo  DEF_ID_STATUT_ARCHI ; ?>, .ligneContent<?php echo  DEF_ID_STATUT_REDACT ; ?> {
-		font-family: Verdana, Arial, Helvetica, sans-serif;
-		font-size: 12px;
-		text-decoration: none;
-		font-weight: normal;
-		letter-spacing: normal;
-	}
-	tr.ligneContent<?php echo  DEF_ID_STATUT_ARCHI ; ?> { background-color: #DBDBDB; }
-	tr.ligneContent<?php echo  DEF_ID_STATUT_REDACT ; ?> { background-color: #FFFFFF; }
-	tr.ligneContent<?php echo  DEF_ID_STATUT_ATTEN ; ?> { background-color: #C8C8C8; }
-	tr.ligneContent<?php echo  DEF_ID_STATUT_GEST ; ?> { background-color: #E8C710; }
-	tr.ligneContent<?php echo  DEF_ID_STATUT_LIGNE ; ?> { background-color: #9DCD36; }
-	
-	tr.ligneContent<?php echo  DEF_ID_STATUT_ARCHI ; ?>:hover { background-color: #DBDBDB; }
-	tr.ligneContent<?php echo  DEF_ID_STATUT_REDACT ; ?>:hover { background-color: #DBDBDB; }
-	tr.ligneContent<?php echo  DEF_ID_STATUT_ATTEN ; ?>:hover { background-color: #C8C8C8; }
-	tr.ligneContent<?php echo  DEF_ID_STATUT_GEST ; ?>:hover { background-color: #E8C710; }
-	tr.ligneContent<?php echo  DEF_ID_STATUT_LIGNE ; ?>:hover { background-color: #9DCD36; }
-
-</style>
 <form name="contenuListForm" id="contenuListForm" method="post">
 <input type="hidden" name="id" id="id" value="<?php echo $_POST['id']; ?>">
 <input type="hidden" name="operation" id="operation" value="<?php echo $_POST['operation']; ?>">
@@ -82,16 +52,18 @@ body {
 <input type="hidden" name="page_id" id="page_id" value="<?php echo $rech_page_id; ?>">
 <input type="hidden" name="bChercherOpen" id="bChercherOpen" value="<?php echo $rech_bChercherOpen; ?>">
 
-<div class="arbo"><b>Liste des contenus modifiables <?php
-if ($_SESSION['idStatut'] != "") {
-?>"<?php echo getLibelleDefineWithCode($_SESSION['idStatut']); ?>"<?php
-} ?></b></div>
-
 <?php
 // site de travail
 //if (DEF_MENUS_MINISITES == "ON") print(putAfficheSite());
 ?>	  
-<div id="filters">
+<div id="filters" class="arbo">
+    <div class='search_gauche new_search'>
+                        <div class="spacer">&nbsp;</div>
+                            <h2 class="titleSearch">Liste des contenus modifiables <?php
+if ($_SESSION['idStatut'] != "") {
+?>"<?php echo getLibelleDefineWithCode($_SESSION['idStatut']); ?>"<?php
+} ?></h2>
+    </div>
 <table border="0" cellpadding="5" cellspacing="0">
 	<tr>
 		<td>
@@ -100,7 +72,7 @@ if ($bChercherOpen == "1") {
 
 if ($sRank != DEF_REDACT) {
 ?>
-	<select name="selectUser" id="selectUser" class="arbo" style="width:300px">
+	<select name="selectUser" id="selectUser" class="arbo">
 			<option value="-1">tous les utilisateurs</option><?php
 // les utilisateurs + les amdin
 for ($k=0; $k<sizeof($aUser); $k++)
@@ -120,7 +92,7 @@ for ($k=0; $k<sizeof($aUser); $k++)
 
 </td></tr><tr><td>
 
-<select name="selectGabarit" id="selectGabarit" class="arbo" style="width:300px">
+<select name="selectGabarit" id="selectGabarit" class="arbo">
 			<option value="">tous les gabarits</option><?php
 // gabarits
 for ($k=0; $k<sizeof($aGabarit); $k++)
@@ -147,8 +119,8 @@ if ($sPage == "") $sPage = "Page";
 ?>
 		<tr><td>
 		<input name="pagename" type="text" disabled class="arbo" id="pagename" value="<?php echo $sPage;?>" size="30">&nbsp;
-		<a href="#" class="arbo" onClick="choosePage();"><img src="/backoffice/cms/img/go.gif" border="0">&nbsp;choisir</a>&nbsp;
-		<a href="#" class="arbo" onClick="effacerPage();"><img src="/backoffice/cms/img/go.gif" border="0">&nbsp;effacer</a>
+		<a href="#" class="arbo" onClick="choosePage();"><img src="/backoffice/cms/img/2013/icone/go.png" border="0">&nbsp;choisir</a>&nbsp;
+		<a href="#" class="arbo" onClick="effacerPage();"><img src="/backoffice/cms/img/2013/icone/go.png" border="0">&nbsp;effacer</a>
 		</td></tr>
 <br /><?php
 // valeur sélectionnée
@@ -158,8 +130,8 @@ if ($sChemin == "") $sChemin = "Chemin";
 ?>		
 		<tr><td>
 		<input name="foldername" type="text" disabled class="arbo" id="foldername" value="<?php echo $sChemin;?>" size="30">&nbsp;
-		<a href="#" class="arbo" onClick="chooseFolder();"><img src="/backoffice/cms/img/go.gif" border="0">&nbsp;choisir</a>&nbsp;
-		<a href="#" class="arbo" onClick="effacerFolder();"><img src="/backoffice/cms/img/go.gif" border="0">&nbsp;effacer</a>
+		<a href="#" class="arbo" onClick="chooseFolder();"><img src="/backoffice/cms/img/2013/icone/go.png" border="0">&nbsp;choisir</a>&nbsp;
+		<a href="#" class="arbo" onClick="effacerFolder();"><img src="/backoffice/cms/img/2013/icone/go.png" border="0">&nbsp;effacer</a>
 		</td></tr>
 <?php
 }
@@ -260,14 +232,14 @@ else {
 	$sMessage = sizeof($aContenus)." contenus";
 }
 ?>
-<div class="resultat"><?php echo $sMessage; ?></div>
+<div class="pagination"><?php echo $sMessage; ?></div>
 <br />
 <?php
 // trop d'enregistrements : limitation des résultats à DEF_NBDROIT_CONTENT
 if ($eContent > sizeof($aContenus)) {
-?><div align="left" class="arbo"><font color="#FF0000">Il y a <?php echo $eContent; ?> réponses pour votre recherche, 
+?><div align="left" class="arbo">Il y a <?php echo $eContent; ?> réponses pour votre recherche, 
 ce qui est supérieur au seuil autorisé de <?php echo DEF_NBDROIT_CONTENT; ?> réponses. <br />
-Vous pouvez préciser la recherche.</font>
+Vous pouvez préciser la recherche.
 </div><br /> <?php
 }
 ?>
@@ -378,7 +350,7 @@ else print("".make_date_jjmmaaaa($oContenu->getDate_creat()));
 <?php
 if ($oContenu->getNature() == "CMS_CONTENT") {
 ?>
-&nbsp;<a href="javascript:majContenu(<?php echo $oContenu->getId();?>, <?php echo $idSite; ?>, 'listeContenus.php')"><img src="/backoffice/cms/img/modifier.gif" border="0" title="Modifier le contenu"></a>&nbsp;
+&nbsp;<a href="javascript:majContenu(<?php echo $oContenu->getId();?>, <?php echo $idSite; ?>, 'listeContenus.php')"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0" title="Modifier le contenu"></a>&nbsp;
 <?php
 }
 ?>

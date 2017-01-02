@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
 /*
-	$Id: detailannonce.php,v 1.7 2012-07-31 14:24:49 pierre Exp $
-	$Author: pierre $
+	$Id: detailannonce.php,v 1.1 2013-09-30 09:42:08 raphael Exp $
+	$Author: raphael $
 
 	$Log: detailannonce.php,v $
+	Revision 1.1  2013-09-30 09:42:08  raphael
+	*** empty log message ***
+
 	Revision 1.7  2012-07-31 14:24:49  pierre
 	*** empty log message ***
 

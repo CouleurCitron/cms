@@ -14,8 +14,8 @@ if ($idSite == "") $idSite = $_SESSION['idSite_travail'];
 
 $dir_gabarits = $_SERVER['DOCUMENT_ROOT']."/".DEF_GABARIT_ROOT;
 
-?><div class="ariane"><span class="arbo2">PAGES >&nbsp;</span><span class="arbo3">Créer une page&nbsp;>&nbsp;
-Etape 1 : choix du gabarit</span></div>
+?><div class="ariane"><span class="arbo2">PAGES >&nbsp;</span><span class="arbo3"><?php $translator->echoTransByCode('Creer_une_page'); ?>&nbsp;>&nbsp;
+<?php $translator->echoTransByCode('etape_1'); ?></span></div>
 
 <script type="text/javascript">document.title="Pages BB";</script>
 <script src="/backoffice/cms/js/preview.js" type="text/javascript"></script>
@@ -33,8 +33,8 @@ Etape 1 : choix du gabarit</span></div>
 <link rel="stylesheet" type="text/css" href="/backoffice/cms/css/bo.css">
 <form name="pageLiteForm" method="post">
 <span class="arbo">
-Choisissez le gabarit à utiliser pour continuer le processus.<br><br>
-Choix du gabarit à utiliser :<br>
+<?php $translator->echoTransByCode('Choisissez_gabarit'); ?><br><br>
+<?php $translator->echoTransByCode('Choix_gabarit'); ?><br>
   <br>
 <?php
 // répertoire des gabarits
@@ -45,7 +45,7 @@ if(dirExists($dir_gabarits)) {
 ?>
 </span>
 
-<table border="0" cellpadding="5" cellspacing="0" class="arbo">
+<table border="0" cellpadding="5" cellspacing="0" class="arbo" id="chooseGabarit">
   <?php
 	if((!is_array($contenus)) or (sizeof($contenus)==0)) {
 ?>
@@ -57,9 +57,9 @@ if(dirExists($dir_gabarits)) {
 		foreach ($contenus as $k => $page) {
 ?>
   <tr>
-   <td>Gabarit <?php echo $page['name'];?></td>
-    <td bgcolor="D2D2D2" class="arbo">&nbsp;<a href="pageLiteEditor2.php?idGab=<?php echo $page['id']; ?>" class="arbo">choisir</a>&nbsp;</td>
-    <td bgcolor="EEEEEE" class="arbo">&nbsp;<a href="javascript:preview_gabarit(<?php echo  $page['id'] ; ?>)" class="arbo">visualiser</a>&nbsp;</td>
+   <td><?php $translator->echoTransByCode('gabarits'); ?> <?php echo $page['name'];?></td>
+    <td class="arbo">&nbsp;<a href="pageLiteEditor2.php?idGab=<?php echo $page['id']; ?>&idSite=<?php echo $idSite; ?>" class="arbo"><?php $translator->echoTransByCode('choisir'); ?></a>&nbsp;</td>
+    <td class="arbo">&nbsp;<a href="javascript:preview_gabarit(<?php echo  $page['id'] ; ?>)" class="arbo"><?php $translator->echoTransByCode('Visualiser'); ?></a>&nbsp;</td>
   </tr>
 <?php
 		}
@@ -86,3 +86,6 @@ Si le problème persiste, veuillez contacter l'administrateur.
 ?>
 </span>
 </form>
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoappend.php');
+?>

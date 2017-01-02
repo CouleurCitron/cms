@@ -17,7 +17,7 @@ function savetheme(id){
 		document.##classePrefixe##_list_form.submit();
 }
  ";
-$aCustom["Action"] = "<a href=\"javascript:loadtheme(##id##);\" title=\"Charger depuis les fichiers\"><img src=\"/backoffice/cms/img/right.gif\" width=\"14\" height=\"14\" alt=\"Charger depuis les fichiers\" border=\"0\" /></a>";
-$aCustom["Action"] .= "&nbsp;&nbsp;<a href=\"javascript:savetheme(##id##);\" title=\"Sauver dans les fichiers\"><img src=\"/backoffice/cms/img/left.gif\" width=\"14\" height=\"14\" alt=\"Sauver dans les fichiers\" border=\"0\" /></a>";
+$aCustom["Action"] = "<a href=\"javascript:loadtheme(##id##);\" title=\"Charger depuis les fichiers\"><img src=\"/backoffice/cms/img/2013/icone/left.png\" alt=\"Charger depuis les fichiers\" border=\"0\" /></a>";
+$aCustom["Action"] .= "&nbsp;&nbsp;<a href=\"javascript:savetheme(##id##);\" title=\"Sauver dans les fichiers\"><img src=\"/backoffice/cms/img/2013/icone/right.png\"  alt=\"Sauver dans les fichiers\" border=\"0\" /></a>";
 
 include('cms-inc/autoClass/list.php'); ?>

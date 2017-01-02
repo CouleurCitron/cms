@@ -1,0 +1,19 @@
+AddDefaultCharset ISO-8859-1
+
+SetEnv no-gzip 1
+
+<IfModule mod_deflate.c>
+SetEnvIfNoCase Request_URI \
+\.(?:gif|jpe?g|png|flv|f4v|mp3|mov|mp4|mpg|mpeg)$ no-gzip dont-vary
+SetEnvIfNoCase Request_URI telecharger.php$ no-gzip dont-vary
+SetEnvIfNoCase Request_URI download.php$ no-gzip dont-vary               
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive Off
+</IfModule>
+
+Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
+Header set Pragma "no-cache"
+#Header set Content-Encoding "deflate"
+#Header append Vary User-Agent env=!dont-vary

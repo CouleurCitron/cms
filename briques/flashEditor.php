@@ -66,22 +66,14 @@ print $Upload-> Field[0];
 <input type="hidden" name="sparams" id="sparams" value="<?php echo $sParams; ?>" />
 <input type="hidden" name="fwmode" id="fwmode" value="<?php echo $sWmode; ?>" />
 <input type="hidden" name="minisite" id="minisite" value="<?php echo $_GET['minisite']; ?>" />
-<table width="369" border="0" cellpadding="0" cellspacing="0" class="arbo">
-  <tr>
-    <td><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="arbo">
-        <tr valign="middle">
-          <td height="28" colspan="2" nowrap="nowrap"><table width="100%" border="0" cellspacing="0" cellpadding="5">
-              <tr class="col_titre">
-                <td><strong>&nbsp;Cr&eacute;ation de la brique Flash</strong></td>
-              </tr>
-          </table></td>
-        </tr>
-        <tr>
-          <td colspan="2" align="right">&nbsp;</td>
-        </tr>
-        <tr>
-          <td align="right" style="vertical-align:middle"><strong>choix du SWF&nbsp;:&nbsp;</strong></td>
-          <td align="left"><select name="swf" id="swf" class="arbo">
+
+<div class="arbo" id="briqueFlashEditor">
+        <div class="col_titre">
+            Cr&eacute;ation de la brique Flash
+        </div>
+        <div>
+          <label for="swf">choix du SWF :</label>
+          <select name="swf" id="swf" class="arbo">
 		  	<option value="-1">Choisissez un fichier SWF</option>
 		  	<?php
 			$aRepertoires = array("/medias", "/media"); // CUSTOM			
@@ -110,24 +102,20 @@ print $Upload-> Field[0];
 				}				
 			}
 			?>  
-          </select></td>
-        </tr>
-        <tr>
-          <td colspan="2" align="center"> <br />
-ou <br />
-&nbsp;</td>
-        </tr>
-        <tr>
-          <td align="right" style="vertical-align:middle"><strong>Upload de SWF&nbsp;:&nbsp;</strong></td>
-          <td align="left"><?php echo $Upload->Field[1]; ?></td>
-        </tr>
-        <tr>
-          <td colspan="2" align="center"><br />
-              <input name="Suite (cr&eacute;ation) &gt;&gt;" type="submit" class="arbo" id="Suite (cr&eacute;ation) &gt;&gt;" value="Suite (cr&eacute;ation) &gt;&gt;"><br /><br /></td>
-        </tr>
-    </table></td>
-  </tr>
-</table>
+          </select>
+        </div>
+        <p>
+            ou
+        </p>
+        <div class="rightContent">
+            <label>Upload de SWF :</label>
+          <?php echo $Upload->Field[1]; ?>
+        </div>
+        <div>
+              <input name="Suite (cr&eacute;ation) &gt;&gt;" type="submit" class="arbo" id="SuiteButton" value="Suite (cr&eacute;ation) &gt;&gt;">
+        </div>
+    </div>
+
 </form>
 <?php	
 } elseif (is_post("pickswf")) {	

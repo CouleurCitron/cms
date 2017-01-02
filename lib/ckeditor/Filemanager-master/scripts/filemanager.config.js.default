@@ -3,11 +3,9 @@
     "options": {
         "culture": "en",
         "lang": "php",
-        "theme": "flat-turquoise",
         "defaultViewMode": "grid",
         "autoload": true,
         "showFullPath": false,
-        "showTitleAttr": false,
         "browseOnly": false,
         "showConfirmation": true,
         "showThumbs": true,
@@ -21,12 +19,10 @@
         "fileRoot": false,
         "relPath": false,
         "logger": false,
-        "capabilities": ["select", "download", "rename", "delete", "replace"],
+        "capabilities": ["select", "download", "rename", "move", "delete"],
         "plugins": []
     },
     "security": {
-        "allowChangeExtensions": false,
-        "allowNoExtension": false,
         "uploadPolicy": "DISALLOW_ALL",
         "uploadRestrictions": [
             "jpg",
@@ -46,11 +42,9 @@
             "xlsx",
             "ppt",
             "pptx",
-            "csv",
             "ogv",
             "mp4",
             "webm",
-            "m4v",
             "ogg",
             "mp3",
             "wav"
@@ -63,22 +57,15 @@
     },
     "exclude": {
         "unallowed_files": [
-            ".htaccess",
-			"__htaccess",
-			"favicon.ico",
-			"robots.txt",
-			"robots.php",
-			"node.php",
-			"sitemap.php",
-			"*.bak"
+            ".htaccess"
         ],
         "unallowed_dirs": [
             "_thumbs",
             ".CDN_ACCESS_LOGS",
             "cloudservers"
         ],
-        "unallowed_files_REGEXP": "/^\\./",
-        "unallowed_dirs_REGEXP": "/^\\./"
+        "unallowed_files_REGEXP": "/^\\./uis",
+        "unallowed_dirs_REGEXP": "/^\\./uis"
     },
     "images": {
         "imagesExt": [
@@ -87,20 +74,14 @@
             "gif",
             "png",
             "svg"
-        ],
-        "resize": {
-        	"enabled":true,
-        	"maxWidth": 1280,
-            "maxHeight": 1024
-        }
+        ]
     },
     "videos": {
         "showVideoPlayer": true,
         "videosExt": [
             "ogv",
             "mp4",
-            "webm",
-            "m4v"
+            "webm"
         ],
         "videosPlayerWidth": 400,
         "videosPlayerHeight": 222
@@ -112,22 +93,6 @@
             "mp3",
             "wav"
         ]
-    },
-    "edit": {
-        "enabled": true,
-        "lineNumbers": true,
-        "lineWrapping": true,
-        "codeHighlight": false,
-        "theme": "elegant",
-        "editExt": [
-            "txt",
-            "csv"
-        ]
-    },
-    "customScrollbar": {
-    	"enabled": true,
-    	"theme": "inset-2-dark",
-    	"button": true
     },
     "extras": {
         "extra_js": [],

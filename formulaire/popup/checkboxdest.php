@@ -69,7 +69,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
  </tr>
  <tr>
   <td align="right" nowrap class="arbo">Libellé&nbsp;:&nbsp;</td>
-  <td align="left"><textarea name="libelle"   id="libelle" cols="40" rows="10" class="arbo"></textarea></td>
+  <td align="left"><textarea name="libelle" id="libelle" class="arbo textareaEdit"></textarea></td>
  </tr>
  
  <tr>

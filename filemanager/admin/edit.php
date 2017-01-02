@@ -103,7 +103,7 @@ $edit=$_GET['edit'];
                             <input name="edit" type="hidden" id="edit" value="<?php echo $path; ?>">
                             <input name="save" type="hidden" id="save" value="true">
                             <br>
-                            <textarea name="filecontent" cols="75" rows="30" class="arbo" id="filecontent"><?php
+                            <textarea name="filecontent" class="arbo textareaEdit" id="filecontent"><?php
 					  $line_num=0;
 					  $fp=fopen($edit,"r");
 					  while ( ! feof ($fp ))

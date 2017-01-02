@@ -1,10 +1,16 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: radio.php,v 1.5 2013-03-01 10:28:18 pierre Exp $
-	$Author: pierre $
+	$Id: radio.php,v 1.2 2013-10-07 15:09:51 quentin Exp $
+	$Author: quentin $
 	
 	$Log: radio.php,v $
+	Revision 1.2  2013-10-07 15:09:51  quentin
+	*** empty log message ***
+
+	Revision 1.1  2013-09-30 09:42:24  raphael
+	*** empty log message ***
+
 	Revision 1.5  2013-03-01 10:28:18  pierre
 	*** empty log message ***
 
@@ -92,7 +98,7 @@ if ($_GET['brique'] != "formulaire") {
 ?>
  <tr>
   <td align="right" nowrap>Liste des choix&nbsp;:&nbsp;<br/>(un par ligne)</td>
-  <td align="right"><textarea name="items" cols="40" rows="10"></textarea></td>
+  <td align="right"><textarea name="items" class="textareaEdit"></textarea></td>
  </tr>
 <?php
 if ($_GET['brique'] != "formulaire") {

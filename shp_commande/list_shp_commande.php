@@ -12,7 +12,7 @@ function voirDetail(id) {
 }
 
 ";
-$aCustom["Action"] = "<a href=\"javascript:voirDetail(##id##);\" title=\"Voir le détail\"><img src=\"/backoffice/cms/img/details.gif\" width=\"14\" height=\"14\" alt=\"Voir le détail\" border=\"0\" /></a>&nbsp;&nbsp;&nbsp;<a href=\"javascript:exporter(##id##);\" title=\"Voir le détail\"> </a>";
+$aCustom["Action"] = "<a href=\"javascript:voirDetail(##id##);\" title=\"Voir le détail\"><img src=\"/backoffice/cms/img/2013/icone/details.png\" alt=\"Voir le détail\" border=\"0\" /></a>&nbsp;&nbsp;&nbsp;<a href=\"javascript:exporter(##id##);\" title=\"Voir le détail\"> </a>";
 
 include('cms-inc/autoClass/list.php');
 

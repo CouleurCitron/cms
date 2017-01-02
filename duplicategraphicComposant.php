@@ -1,8 +1,8 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: duplicategraphicComposant.php,v 1.9 2013-03-01 10:28:04 pierre Exp $
-	$Author: pierre $
+	$Id: duplicategraphicComposant.php,v 1.1 2013-09-30 09:24:06 raphael Exp $
+	$Author: raphael $
 
 */
 

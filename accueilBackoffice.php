@@ -1,10 +1,19 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Author: pierre $
-	$Id: accueilBackoffice.php,v 1.30 2013-03-25 15:34:02 pierre Exp $
+	$Author: raphael $
+	$Id: accueilBackoffice.php,v 1.3 2013-11-06 10:26:32 raphael Exp $
 	
 	$Log: accueilBackoffice.php,v $
+	Revision 1.3  2013-11-06 10:26:32  raphael
+	*** empty log message ***
+
+	Revision 1.2  2013-10-02 13:26:19  raphael
+	*** empty log message ***
+
+	Revision 1.1  2013-09-30 09:23:49  raphael
+	*** empty log message ***
+
 	Revision 1.30  2013-03-25 15:34:02  pierre
 	*** empty log message ***
 
@@ -144,7 +153,6 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/selectSite.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/class/bo_users.class.php');
 
-
 activateMenu('main');  //permet de dérouler le menu contextuellement
 
 
@@ -170,15 +178,6 @@ if (sizeof($aListeSite) == 0) {
 	dbInsert($oSite);
 }
 ?>
-<script type="text/javascript">
-	// déconnexion
-	function logoff()
-	{
-		document.accueilForm.operation.value="logoff";
-		document.accueilForm.action="<?php echo $_SERVER['PHP_SELF']; ?>";
-		document.accueilForm.submit();
-	}
-</script>
 <form name="accueilForm" id="accueilForm" method="post">
 	<input type="hidden" name="operation" id="operation" value="<?php echo $_POST['operation']; ?>" />
 <?php
@@ -240,9 +239,9 @@ print("<br />");
 		<tr>
 			<td><?php $translator->echoTransByCode('siteselectionne'); ?></td>
 			<td><?php echo $_SESSION['site']; ?>&nbsp;<?php
-				if ($oRank->get_libelle() == "ADMIN") {
-					print(putChangeSiteConnected());
-				}			 
+//				if ($oRank->get_libelle() == "ADMIN") {
+//					print(putChangeSiteConnected());
+//				}			 
 			 ?></td>
 		</tr>		
 	</table></div>

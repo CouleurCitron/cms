@@ -72,14 +72,14 @@ print drawCompTree($idSite, $db, $virtualPath, null, "/backoffice/cms/site/arbo.
       <table border="1" cellpadding="5" cellspacing="0" bordercolor="#FFFFFF">
         <tr bgcolor="E6E6E6">
 		          <td class="arbo" style="vertical-align:middle"><small>Tag&nbsp;:&nbsp;</small></td>
-          <td><textarea name="foldertag" cols="30" rows="5" class="arbo" id="foldertag" type="text"><?php echo $nodeInfos['tag']; ?></textarea></td>
+          <td><textarea name="foldertag" class="arbo textareaEdit id="foldertag" type="text"><?php echo $nodeInfos['tag']; ?></textarea></td>
         </tr>
 		<?php 
 		if(!strlen($_POST['foldertag'])) {
 		?>
         <tr align="center" bgcolor="EEEEEE">
-            <td colspan="2" bgcolor="D2D2D2" class="arbo"><a href="pageArbo.php?menuOpen=<?php echo $_GET['menuOpen']; ?>" class="arbo"><strong>Annuler</strong></a>&nbsp;&nbsp;<a href="pageArbo.php?menuOpen=<?php echo $_GET['menuOpen']; ?>" class="arbo"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a> 
-              - <a href="#" class="arbo" onClick="javascript:document.forms[0].submit();"><strong>Enregistrer</strong></a>&nbsp;&nbsp;<a href="#" onClick="javascript:document.forms[0].submit();" class="arbo"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+            <td colspan="2" bgcolor="D2D2D2" class="arbo"><a href="pageArbo.php?menuOpen=<?php echo $_GET['menuOpen']; ?>" class="arbo"><strong>Annuler</strong></a>&nbsp;&nbsp;<a href="pageArbo.php?menuOpen=<?php echo $_GET['menuOpen']; ?>" class="arbo"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a> 
+              - <a href="#" class="arbo" onClick="javascript:document.forms['managetree'].submit();"><strong>Enregistrer</strong></a>&nbsp;&nbsp;<a href="#" onClick="javascript:document.forms['managetree'].submit();" class="arbo"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
         </tr>
       </table>
       <br />

@@ -1,4 +1,4 @@
-<link href="/css/bo.css" rel="stylesheet" type="text/css">
+<link href="/backoffice/cms/css/bo.css" rel="stylesheet" type="text/css">
         <tr bgcolor="<?php echo $color; ?>"> 
   <td width="4%" align="center"><img src="./images/folder.gif"></td>
    <td width="56%" ><a class="arbo" href="<?php 

@@ -5,11 +5,11 @@ include_once('backoffice/cms/newsletter/functions.lib.php');
 
 
 /*
-  $Id: newsletter_send.php,v 1.28 2014-11-03 15:50:21 pierre Exp $
-  $Author: pierre $
+  $Id: newsletter_send.php,v 1.1 2013-09-30 09:41:38 raphael Exp $
+  $Author: raphael $
 
   $Log: newsletter_send.php,v $
-  Revision 1.28  2014-11-03 15:50:21  pierre
+  Revision 1.1  2013-09-30 09:41:38  raphael
   *** empty log message ***
 
   Revision 1.27  2013-03-22 13:47:08  raphael
@@ -324,22 +324,10 @@ if ($oNews->get_statut() != DEF_ID_STATUT_ARCHI ) {  // SID à décommenter
 
 	$eMail_envoyes = 0; 
 	
-	if (defined('DEF_CRITERE_LIB') && is_file(DEF_CRITERE_LIB) && $bUseCriteres){
-		
-		$oCriNlter = new critereNewsletter();
-		$oCriNlter->bUseCriteres=$bUseCriteres;
-		$oCriNlter->eNews=$oNews->get_id();
-		$oCriNlter->theme=$oNews->get_theme();
-		
-		if (method_exists($oCriNlter, 'preProcess')){
-			$oCriNlter->preProcess();
-		}
-	}
-	
 	// tous les inscrits pour cette newsletter
-	for ($a=0; $a<count($aInscrit); $a++) {
+	for ($a=0; $a<sizeof($aInscrit); $a++) {
 		
-		if ($cpt%100 == 0) echo '&nbsp;<br />';
+		if ($cpt%100 == 0) echo '-<br />';
 		
 		$oInscrit=$aInscrit[$a];		
 		$idIns = $oInscrit->get_id();
@@ -349,9 +337,10 @@ if ($oNews->get_statut() != DEF_ID_STATUT_ARCHI ) {  // SID à décommenter
 		$lang=$oInsSite->get_langue();
 		if($lang==NULL	||	$lang=-1){
 			$lang=$_SESSION['id_langue'];
-		}		
+		}
 		
-		$bSend = sendNewsletter($oNews->get_id(), $idIns, $_GET['ldj'], $to, $themeNews, $bUseCriteres, $bUseMultiple, $lang, $oCriNlter);
+		
+		$bSend = sendNewsletter($oNews->get_id(), $idIns, $_GET['ldj'], $to, $themeNews, $bUseCriteres, $bUseMultiple, $lang);
 
 		//creation de l'objet select 
 		$oNewsselect = new News_select();

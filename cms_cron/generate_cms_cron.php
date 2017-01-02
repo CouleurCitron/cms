@@ -22,7 +22,7 @@ activateMenu("gestionclasse");
  	<p>
 	  <br />
 		Copier coller : <br /> <br />
-	  <textarea name="description" cols="60" rows="10" class="arbo" id="form_description"><?php echo getAllCronTab(); ?></textarea>
+	  <textarea name="description" class="arbo textareaEdit" id="form_description"><?php echo getAllCronTab(); ?></textarea>
 	  </p>
  <p> <br /> <br />Le format de la crontab est le suivant : mm hh jj MMM JJJ tâche<br /><br />
 

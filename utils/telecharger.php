@@ -126,9 +126,7 @@ else{
 		$fullPathToFile = removeToSlashDir($fullPathToFile);
 	} 
 	
-	if(defined('CMS_DL_ZLIB_COMPRESSION')){
-		ini_set('zlib.output_compression',CMS_DL_ZLIB_COMPRESSION); 
-	}
+	ini_set('zlib.output_compression','Off'); 
 
 	header('HTTP/1.0 200 OK'); 
 	header('Content-Description: File Transfer');
@@ -141,29 +139,16 @@ else{
 		header('Content-Encoding: gzip'); 
 	}
 	else{
-		//header('Content-Length: '.filesize($fullPathToFile)); 
+		header('Content-Length: '.filesize($fullPathToFile)); 
 	}	
 	//header('Pragma: no-cache'); 
-	header('Cache-Control: no-cache, must-revalidate, post-check=0, pre-check=0, public'); 
-	header('Cache-Control: no-cache, private, max-age=0, must-revalidate'); // ajout dans le cas SSL
+	header('Cache-Control: must-revalidate, post-check=0, pre-check=0, public'); 
+	header('Cache-Control: private, max-age=0, must-revalidate'); // ajout dans le cas SSL
 	header('Pragma: public'); // ajout dans le cas SSL
 	header('Expires: 0'); 
-	header('Connection: close'); 
-	/*
-	 
-	header('Content-Description: File Transfer'); 
-	header('Cache-Control: public, must-revalidate, max-age=0'); // HTTP/1.1
-	header('Pragma: public');
-	header('Expires: Sat, 26 Jul 1997 05:00:00 GMT'); // Date in the past
-	header('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); 
-	header('Content-Type: application/force-download');  
-	header('Content-Disposition: attachment; filename="TOTO.pdf";');
-	header('Content-Transfer-Encoding: binary');
-	//header('Content-Length: '.filesize($fullPathToFile));*/
-					
-	 
+	header('Connection: close');  
  
-	ob_clean();
+	ob_end_clean();
 	flush();
 	set_time_limit(0);
 	/*if (function_exists('virtual')&&(strpos($fullPathToFile, '../')===false) &&(strpos($fullPathToFile, $_SERVER['DOCUMENT_ROOT'])===true)) { // virtual si chemin viable en http

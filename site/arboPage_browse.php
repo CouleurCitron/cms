@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /* 
-$Author: thao $
-$Revision: 1.3 $
+$Author: raphael $
+$Revision: 1.1 $
 
 $Log: arboPage_browse.php,v $
+Revision 1.1  2013-09-30 09:43:07  raphael
+*** empty log message ***
+
 Revision 1.3  2013-06-26 13:12:33  thao
 *** empty log message ***
 
@@ -294,151 +297,134 @@ if (strlen($_GET['v_comp_path']) > 0)
 
 -->
 </script>
-<form name="managetree" action="arboaddnode.php" method="post">
 
-<input type="hidden" name="urlRetour" value="<?php echo $_POST['urlRetour']; ?>">
-<input type="hidden" name="idSite" value="<?php echo $idSite; ?>">
-<input type="hidden" name="idPage" value="<?php echo $idPage; ?>">
-<input type="hidden" name="idGab" value="<?php echo $idGab; ?>">
+
 <?php
 // site de travail
 //if (DEF_MENUS_MINISITES == "ON") print(putAfficheSite());
 ?>	  
-<div class="ariane"><span class="arbo2">PAGE&nbsp;>&nbsp;</span><span class="arbo3">Arborescence&nbsp;>&nbsp;
+<div class="ariane"><span class="arbo2">PAGE&nbsp;>&nbsp;</span><span class="arbo3"><?php $translator->echoTransByCode('Ariane_Arborescence'); ?>&nbsp;>&nbsp;
 <?php echo strip_tags(getAbsolutePathString($idSite, $db, $virtualPath)); ?></span></div>
-  <table cellpadding="0" cellspacing="0" border="0">
- <tr>
-  <td colspan="5"><img src="/backoffice/cms/img/vide.gif"></td>
- </tr>
- <tr>
-   <td align="left" valign="top" class="arbo"><br />
-       <b>Arborescence :</b> <br />
-       <br />
-       <table cellpadding="8" cellspacing="0" border="0">
-         <tr>
-           <td bgcolor="#FFFFFF">
-		   <?php
+
+
+<div class="arbo_col_content">
+	<div class="arbo_col_gauche">
+		<div class="bloc_titre"><?php $translator->echoTransByCode('Ariane_Arborescence'); ?> :</div>
+                <div class="arborescence">
+                     <?php
 		    if ($isMinisite) 
 				print drawCompTreeMinisite($idSite, $db, $virtualPath,null);
 			else
 				print drawCompTree($idSite, $db, $virtualPath,null);
 			?>
-		
-		</td>
-         </tr>
-     </table></td>
-  <td colspan="3" class="arbo"><span class="arbo"><img src="/backoffice/cms/img/vide.gif" width="15"></span></td>
-  <td align="left" valign="top" class="arbo">
-  
-  
-  <?php /*if ($isMinisite)*/ include_once ("backoffice/cms/site/arbo_picto.php"); ?>
-  
-  <br />
-  <!-- contenu du dossier -->
-   <b><br />
-   Composants contenus dans le dossier en cours:</b>
-   <br />
-   <br />
-<table  border="0" cellpadding="5" cellspacing="0" bordercolor="#FFFFFF" class="arbo">
-  <tr class="col_titre">
-	<td align="center"><strong>&nbsp;&nbsp;</strong></td>
-	<td align="center"><strong>&nbsp;&nbsp;Nom&nbsp;</strong></td>
-	<td align="center"><strong>&nbsp;&nbsp;Gabarit</strong></td>
-	<td align="center"><strong>&nbsp;Créé<br />le</strong></td>
-	<td width="5" align="center"><strong>Dernière 
-	  modif.</strong></td>
-	<td align="center"><strong>Mise en<br />
-	  prod.</strong></td>
-	<td align="center"><strong>&nbsp;&nbsp;Actions</strong></td>
-  </tr>
-  <?php
-	$current_path =  getNodeInfos($db,$virtualPath);
-	$current_path = rawurlencode($current_path['path']);
-	$current_path = preg_replace('/\%2F/','/',$current_path);
-	$contenus = getFolderPages($idSite, $virtualPath);
-	if((!is_array($contenus)) or (sizeof($contenus)==0)) {
-?>
-  <tr>
-    <td align="center" colspan="7">&nbsp;<strong>Aucun élément à afficher</strong>  </tr>
-<?php
-	} else {
-		foreach ($contenus as $k => $page) {
-		
-			// id de la page
-			$oPage = new Cms_page($page['id']);
+                </div>
+            </div>
+	
+	<div class="arbo_col_droite">
+            <form name="managetree" action="arboaddnode.php" method="post">
 
-			// site de la page
-			$oSite = new Cms_site($page['id_site']);
-			
-			// son chemin est site/ et non /
-			//	la racin est la même pour tous donc ajouter /site/ pour la racine d'un site
-			if ($current_path == "/") {
-				$current_path_page = "/".$oSite->get_rep().$current_path;
-			} else $current_path_page = $current_path;
-			
-			// gabarit
-			$oGab = new Cms_page($page['gabarit']);
-			
-?>
- <tr class="<?php echo htmlImpairePaire($k);?>">
-   <td align="center">
-<?php
-// affichage des icones de preview des pages
-$idContent = -1;
-$sNature = "CMS_CONTENT";
-$idPage = $page['id'];
-$sNomPage = $page['name'];
+                <input type="hidden" name="urlRetour" value="<?php echo $_POST['urlRetour']; ?>">
+                <input type="hidden" name="idSite" value="<?php echo $idSite; ?>">
+                <input type="hidden" name="idPage" value="<?php echo $idPage; ?>">
+                <input type="hidden" name="idGab" value="<?php echo $idGab; ?>">
+                
+                <?php /*if ($isMinisite)*/ include_once ("backoffice/cms/site/arbo_picto.php"); ?>
+                
+                <p><?php $translator->echoTransByCode('Composants_contenus'); ?></p>
+                    <table  border="0" cellpadding="5" cellspacing="0" bordercolor="#FFFFFF" class="arbo">
+                        <tr class="col_titre">
+                            <td align="center"><strong>&nbsp;&nbsp;</strong></td>
+                            <td align="center"><strong>&nbsp;&nbsp;<?php $translator->echoTransByCode('Composants_nom'); ?>&nbsp;</strong></td>
+                            <td align="center"><strong>&nbsp;&nbsp;<?php $translator->echoTransByCode('Composants_gabarit'); ?></strong></td>
+                            <td align="center"><strong>&nbsp;<?php $translator->echoTransByCode('Composants_creation'); ?></strong></td>
+                            <td width="5" align="center"><strong><?php $translator->echoTransByCode('Composants_derniere_modif'); ?></strong></td>
+                            <td align="center"><strong><?php $translator->echoTransByCode('Composants_mise_en_prod'); ?></strong></td>
+                            <td align="center"><strong>&nbsp;&nbsp;<?php $translator->echoTransByCode('Composants_actions'); ?></strong></td>
+                        </tr>
+                       <?php
+                             $current_path =  getNodeInfos($db,$virtualPath);
+                             $current_path = rawurlencode($current_path['path']);
+                             $current_path = preg_replace('/\%2F/','/',$current_path);
+                             $contenus = getFolderPages($idSite, $virtualPath);
+                             if((!is_array($contenus)) or (sizeof($contenus)==0)) {
+                     ?>
+                       <tr>
+                         <td align="center" colspan="7">&nbsp;<strong><?php $translator->echoTransByCode('Composants_pas_d_element'); ?></strong>  </tr>
+                     <?php
+                             } else {
+                                     foreach ($contenus as $k => $page) {
 
-$bToutenligne_page = $oPage->getToutenligne_page();
-$bExisteligne_page = $oPage->getExisteligne_page();
+                                             // id de la page
+                                             $oPage = new Cms_page($page['id']);
+
+                                             // site de la page
+                                             $oSite = new Cms_site($page['id_site']);
+
+                                             // son chemin est site/ et non /
+                                             //	la racin est la même pour tous donc ajouter /site/ pour la racine d'un site
+                                             if ($current_path == "/") {
+                                                     $current_path_page = "/".$oSite->get_rep().$current_path;
+                                             } else $current_path_page = $current_path;
+
+                                             // gabarit
+                                             $oGab = new Cms_page($page['gabarit']);
+
+                     ?>
+                      <tr class="<?php echo htmlImpairePaire($k);?>">
+                        <td align="center">
+                     <?php
+                     // affichage des icones de preview des pages
+                     $idContent = -1;
+                     $sNature = "CMS_CONTENT";
+                     $idPage = $page['id'];
+                     $sNomPage = $page['name'];
+
+                     $bToutenligne_page = $oPage->getToutenligne_page();
+                     $bExisteligne_page = $oPage->getExisteligne_page();
 
 
-$sUrlPageLigne = "/content".$current_path_page.$page['name'];
+                     $sUrlPageLigne = "/content".$current_path_page.$page['name'];
 
-afficheIconePreviewPage($idContent, $sNature, $idPage, $sNomPage, $bToutenligne_page, $bExisteligne_page, $sUrlPageLigne);
-?>
-   </td>
-   <td align="center">
-<?php echo $page['name'];?>&nbsp;
-   </td>
-   <td align="center">&nbsp;<?php echo $oGab->getName_page()?>&nbsp;</td>
-   <td align="center">&nbsp;<?php echo $page['creation'];?>&nbsp;</td>
-   <td align="center">&nbsp;<?php echo $page['modification'];?>&nbsp;</td>
-   <td align="center">&nbsp;<?php echo $page['mep'];?>&nbsp;</td>
-   <td align="center" nowrap>
-<table cellpadding="0" cellspacing="1">
-<tr>
-	<td width="20"><a href="javascript:page_infos(<?php echo $page['id'];?>, <?php echo $page['gabarit'];?>)"><img src="/backoffice/cms/img/modifier.gif" border="0" title="Modifier la page"></a></td>
-	<?php if ($nameUser == "ccitron") { ?><td width="20"><a href="pageModif.php?id=<?php echo $page['id'];?>&idGab=<?php echo $page['gabarit'];?>"><img src="/backoffice/cms/img/propriete.gif" border="0" title="Propriétés de la page"></a></td> <?php } ?>
-	<td width="20"><?php
-// sponthus 31/05
-// A VOIR
-// pour l'instant on ne peut déplacer que des pages déjà créées 
-// le programme essaie de déplacer physiquement un fichier qui peut ne pas exister 
-// si la page n'a pas de version  en ligne
-// A VOIR
-if ($bExisteligne_page == 1) {
-?><a href="movePage.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/deplacer.gif" border="0" title="Déplacer la page"></a><?php
-}
-?></td>
-	<td width="20"><a href="renamePage.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/renommer.gif" border="0" title="Renommer la page"></a></td>
-	<td width="20"><a href="/node.php?page=<?php echo $page['id'];?>&amp;" target="_blank" onclick="prompt('Permalien vers cette page:', 'http://<?php echo $_SERVER['HTTP_HOST']; ?>/node.php?page=<?php echo $page['id'];?>&amp;amp;'); return false;" title="Permalien"><img src="/backoffice/cms/img/link.gif" alt="Permalien" border="0" height="14" width="14" /></a></td>
-	<td width="20"><a href="#" onClick="if(window.confirm('Etes vous sur(e) de vouloir supprimer cette page ?')){ document.location='/backoffice/cms/site/deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/supprimer.gif" border="0" title="Supprimer la page"></a></td>
-</tr>
-</table>
-<!--<a href="javascript:page_maj(<?php echo $page['id'];?>)">modifier</a>&nbsp;--></td>
-  </tr>
-<?php
-		}
-	}
-  ?>
-  </table>
-  </td>
- </tr>
-</table>
-</form>
-
-
-
-
-
+                     afficheIconePreviewPage($idContent, $sNature, $idPage, $sNomPage, $bToutenligne_page, $bExisteligne_page, $sUrlPageLigne);
+                     ?>
+                        </td>
+                        <td align="center">
+                     <?php echo $page['name'];?>&nbsp;
+                        </td>
+                        <td align="center">&nbsp;<?php echo $oGab->getName_page()?>&nbsp;</td>
+                        <td align="center">&nbsp;<?php echo $page['creation'];?>&nbsp;</td>
+                        <td align="center">&nbsp;<?php echo $page['modification'];?>&nbsp;</td>
+                        <td align="center">&nbsp;<?php echo $page['mep'];?>&nbsp;</td>
+                        <td align="center" nowrap>
+                     <table cellpadding="0" cellspacing="1">
+                     <tr>
+                             <td width="20"><a href="javascript:page_infos(<?php echo $page['id'];?>, <?php echo $page['gabarit'];?>)"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0" title="<?php $translator->echoTransByCode('Modifier'); ?>"></a></td>
+                             <?php if ($nameUser == "ccitron") { ?><td width="20"><a href="pageModif.php?id=<?php echo $page['id'];?>&idGab=<?php echo $page['gabarit'];?>"><img src="/backoffice/cms/img/2013/icone/propriete.png" border="0" title="<?php $translator->echoTransByCode('proprietes_de_la_page'); ?>"></a></td> <?php } ?>
+                             <td width="20"><?php
+                     // sponthus 31/05
+                     // A VOIR
+                     // pour l'instant on ne peut déplacer que des pages déjà créées 
+                     // le programme essaie de déplacer physiquement un fichier qui peut ne pas exister 
+                     // si la page n'a pas de version  en ligne
+                     // A VOIR
+                     if ($bExisteligne_page == 1) {
+                     ?><a href="movePage.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/2013/icone/deplacer.png" border="0" title="<?php $translator->echoTransByCode('Deplacer_la_page'); ?>"></a><?php
+                     }
+                     ?></td>
+                             <td width="20"><a href="renamePage.php?id=<?php echo $page['id'];?>"><img src="/backoffice/cms/img/2013/icone/renommer.png" border="0" title="<?php $translator->echoTransByCode('Renommer_la_page'); ?>"></a></td>
+                             <td width="20"><a href="/node.php?page=<?php echo $page['id'];?>&amp;" target="_blank" onclick="prompt('Permalien vers cette page:', 'http://<?php echo $_SERVER['HTTP_HOST']; ?>/node.php?page=<?php echo $page['id'];?>&amp;amp;'); return false;" title="<?php $translator->echoTransByCode('Permalien'); ?>"><img src="/backoffice/cms/img/2013/icone/link.png" alt="Permalien" border="0" /></a></td>
+                             <td width="20"><a href="#" onClick="if(window.confirm('<?php $translator->echoTransByCode('confirme_suppression'); ?>')){ document.location='/backoffice/cms/site/deletePage.php?id=<?php echo $page['id'];?>';}"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" title="<?php $translator->echoTransByCode('Supprimer_la_page'); ?>"></a></td>
+                     </tr>
+                     </table>
+                     <!--<a href="javascript:page_maj(<?php echo $page['id'];?>)">modifier</a>&nbsp;--></td>
+                       </tr>
+                     <?php
+                                     }
+                             }
+                       ?>
+                       </table>
+                
+            </form>
+                
+        </div>
+</div>

@@ -96,7 +96,7 @@ if (!isset($_POST['node_id']) or (strlen($_POST['node_id'])==0)) {
  <tr>
   <td align="right" bgcolor="E6E6E6">Dossier de stockage&nbsp;:&nbsp;</td>
   <td align="left" bgcolor="E6E6E6"><input name="foldername" type="text" disabled class="arbo" value="<?php echo $node_name; ?>" size="20">
-    &nbsp;&nbsp;<?php if(strlen($id) == 0 ) { ?><a href="#" class="arbo" onClick="chooseFolder();"><img src="/backoffice/cms/img/go.gif" border="0">&nbsp;choisir le dossier</a><?php } ?></td>
+    &nbsp;&nbsp;<?php if(strlen($id) == 0 ) { ?><a href="#" class="arbo" onClick="chooseFolder();"><img src="/backoffice/cms/img/2013/icone/go.png" border="0">&nbsp;choisir le dossier</a><?php } ?></td>
  </tr>
  <tr>
   <td align="right" bgcolor="EEEEEE">Type&nbsp;:&nbsp;</td>

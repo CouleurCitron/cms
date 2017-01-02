@@ -194,14 +194,16 @@ function annulerForm(){
 	}
 }
 </script>
+<div class="ariane">
 <?php
 if ($oPage->get_isgabarit_page()==1){
-	echo '<span class="arbo2">GABARIT&nbsp;>&nbsp;</span><span class="arbo3">Propriétés du gabarit</span>';
+	echo '<span class="arbo2">GABARIT&nbsp;>&nbsp;</span><span class="arbo3">'.$translator->getTransByCode('proprietes_du_gabarit').'</span>';
 }
 else{
-	echo '<span class="arbo2">PAGE&nbsp;>&nbsp;</span><span class="arbo3">Propriétés de la page</span>';
+	echo '<span class="arbo2">PAGE&nbsp;>&nbsp;</span><span class="arbo3">'.$translator->getTransByCode('proprietes_de_la_page').'</span>';
 }
 ?>
+</div>
 <form name="savePage" method="post" class="arbo">
 <input type="hidden" name="operation" id="operation">
 <input type="hidden" name="idPage" id="idPage" value="<?php echo $idPage; ?>">
@@ -232,26 +234,26 @@ Calendar.setup({
 </script>
 &nbsp;&nbsp;&nbsp;&nbsp;aucune&nbsp;<input name="neverPerempt" type="checkbox" class="arbo" id="neverPerempt" onClick="if(this.checked) {document.getElementById('datePeremption').value=''}" value="true"></p>
  --> 
-<p><strong>Titre de la page</strong><br />
+<p><strong><?php $translator->echoTransByCode('titre_de_la_page'); ?></strong><br />
 <input name="pagetitle" type="text" class="arbo" size="70" maxlength="255" value="<?php echo stripslashes($titre); ?>" /></p>
 
-<p><strong>Mots clefs <small>(séparés par des virgules)</small></strong><br />
-<textarea name="pagekeywords" class="arbo" cols="70" rows="4"><?php echo stripslashes($mots); ?></textarea></p>
+<p><strong><?php $translator->echoTransByCode('mots_cles'); ?></strong><br />
+<textarea name="pagekeywords" class="arbo textareaEdit"><?php echo stripslashes($mots); ?></textarea></p>
 
-<p><strong>Description</strong><br /> 
-<textarea name="description" class="arbo" cols="70" rows="4"><?php echo stripslashes($description); ?></textarea></p>
+<p><strong><?php $translator->echoTransByCode('Description'); ?></strong><br /> 
+<textarea name="description" class="arbo textareaEdit"><?php echo stripslashes($description); ?></textarea></p>
 
 <?php if (defined("DEF_PAGE_VIGNETTE") && DEF_PAGE_VIGNETTE == false ) {
 }
 else  { ?>
-<p><strong>Vignette</strong><br />
+<p><strong><?php $translator->echoTransByCode('Vignette'); ?></strong><br />
 <script type="text/javascript">
 function SetUrl(fileUrl){
 	document.getElementById('pagethumb').value=fileUrl;
 }
 </script>
 <input name="pagethumb" id="pagethumb" type="text" class="arbo" value="<?php echo stripslashes($thumb); ?>" size="100" maxlength="768" />
-<a href="javascript:openBrWindow('/backoffice/cms/lib/FCKeditor/editor/filemanager/browser/default/browser.html?Connector=connectors/php/connector.php&Type=Image','pickImg',700,600)">choisir</a></p> 
+<a href="javascript:openBrWindow('/backoffice/cms/lib/FCKeditor/editor/filemanager/browser/default/browser.html?Connector=connectors/php/connector.php&Type=Image','pickImg',700,600)"><?php $translator->echoTransByCode('choisir'); ?></a></p> 
 <?php } ?>
 
 <p><?php
@@ -266,62 +268,24 @@ if ($oPage->get_isgabarit_page()==0){ // pages only
 	
 	if ($aAssoClasses['list']){	
 		echo "<script language=\"Javascript\">
-				// Return a helper with preserved width of cells
-				var fixHelper = function(e, ui) {
-					ui.children().each(function() {
-						$(this).width($(this).width());
-					});
-					return ui;
-				};
-				$(function() {
-					$(\"#sortable tbody.sortablecontent\").sortable({
-						helper: fixHelper,
-						containment: 'parent',
-						// placeholder: 'ui-state-highlight',
-						update: function(){// callback quand l'ordre de la liste est changé
-							var sorterid = $(this).attr('rel');
-							var order = $(this).sortable('toArray');
-							
-							var orderid = new Array();
-							
-							$.each(
-								order,
-								function(intIndex, objValue) {
-									console.log(objValue);
-									var neworder = (intIndex+1);
-									
-									//on change le contenu de la cellule pour refleter la nouvelle position
-									$('#'+objValue.replace('myItem_'+sorterid,'_'+sorterid+'_sortableorder')).html(neworder);
-									
-									//on ajoute l'id de l'element dans le tableau correspond (utilisé dans la requete Ajax)
-									orderid.push($('#'+objValue.replace('myItem_'+sorterid,'_'+sorterid+'_sortableid')).val());
+                                jQuery( function($) {
+                                    $('.sortablelist').nestedSortable(
+                                      {
+                                        accept: 'sortable-element-class',
+                                        onChange : function(serialized) {
+                                          // Do something with serialized here
+                                          // such as sending it to the server via an AJAX call
+                                          // or storing it in a JS variable that you can
+                                          // send to the server once the user presses a button.
+                                          alert('ok');
+                                          console.log(serialized);
+                                        }
+                                      }
+                                    );
+                                });
 
-									//on change la classe css suivant la position de l'item
-									var classPairImpair = 'even';
-									if (neworder%2 == 0) classPairImpair = 'even'; else classPairImpair = 'odd';
-									$('#'+objValue).removeClass() ;
-									$('#'+objValue).addClass(classPairImpair) ;
-								}
-							);
-							orderid = orderid.toString();
-							
-							//On envoi uniquement l'id et la valeur de l'ordre
-							$.ajax({
-								type		: 'POST',
-								url			: '/include/cms-inc/autoClass/list.saveorder.php',
-								data		: 'orderid='+orderid,
-								dataType	: 'html',
-								success		: function ( donnees ) { // si la requête est un succès
-								},
-								error		: function (donnees){
-									alert('une erreur est survenue, veuillez contacter votre administrateur');
-								}
-							});
-				
-						}
-					}).disableSelection();
-				});
-				
+
+
 				//Permet de rompre l'association entre un objet métier et une page
 				function unlinkEmp(xcp_id){
 					sMessage = '".$translator->getById(81)."';
@@ -343,13 +307,14 @@ if ($oPage->get_isgabarit_page()==0){ // pages only
 				
 				function fancy_reuse(url){
 					$.fancybox({
-							'modal'				: true,
+							'modal'				: false,
 							'href' 				: url+'&noMenu=true',
 							'width'				: '68%',
 							'height'			: '100%',
 							'type'				: 'iframe',
-							'hideOnOverlayClick': false,
+							'hideOnOverlayClick': true,
 							'titleShow' 		: false,
+                                                        'showCloseButton'               : false,
 							'onCleanup'			: function(){
 								// alert('toto1');
 								// window.document.location.href=window.document.location.href.replace('#_','');
@@ -360,7 +325,7 @@ if ($oPage->get_isgabarit_page()==0){ // pages only
 				}
 			</script>";
 
-		echo "<strong>Objets Liés</strong><br />";
+		echo "<strong>".$translator->getTransByCode('Objets_Lies')."</strong><br />";
 		
 		$prevSerial = NULL;
 			
@@ -370,7 +335,7 @@ if ($oPage->get_isgabarit_page()==0){ // pages only
 				$xClassName = $aClasse['display'];
 				$xClassId = $aClasse['ref_id'];			
 			
-				$aAssoObjets = dbGetObjectsFromFieldValue3('cms_assoclassepage', array('get_cms_page', 'get_classe'), array('equals', 'equals'), array($idPage, $xClassId), NULL, NULL);				
+				$aAssoObjets = dbGetObjectsFromFieldValue3('cms_assoclassepage', array('get_cms_page', 'get_classe'), array('equals', 'equals'), array($idPage, $xClassId), array('get_order'), array('ASC'));				
 
 				$aListe_res = array();	
 				eval("$"."oRes = new ".$xClassName."();");
@@ -402,11 +367,11 @@ if ($oPage->get_isgabarit_page()==0){ // pages only
 				}
 				
 				$linkNew = '/backoffice/cms/page_infos_newasso.php?maj='.rawurlencode($linkNew).'&className='.$xClassName.'&idPage='.$oPage->get_id().'&nodeId='.$oPage->get_nodeid_page().'&classId='.$xClassId.'&noMenu=true';
-				$linkNew = '&nbsp;<a href="#_" onclick="javascript:fancy_reuse(\''.$linkNew.'\');" title="Nouveau"><img src="/backoffice/cms/img/add.gif" width="16" height="16" alt="Nouveau" border="0" /></a>';					
+				$linkNew = '&nbsp;<a href="#_" onclick="javascript:fancy_reuse(\''.$linkNew.'\');" title="Nouveau"><img src="/backoffice/cms/img/2013/icone/add.png"  alt="Nouveau" border="0" /></a>';					
 					
 					
 				$linkExist = '/backoffice/cms/page_infos_reuse.php?className='.$classeName.'&idPage='.$oPage->get_id().'&nodeId='.$oPage->get_nodeid_page().'&classId='.$xClassId.'&usedId=-1&oMenu=true';
-				$linkExist = '&nbsp;<a href="#_" onclick="javascript:fancy_reuse(\''.$linkExist.'\');" title="Utiliser existant"><img src="/backoffice/cms/img/dupliquer.gif" width="16" height="16" alt="Nouveau" border="0" /></a>';					
+				$linkExist = '&nbsp;<a href="#_" onclick="javascript:fancy_reuse(\''.$linkExist.'\');" title="Utiliser existant"><img src="/backoffice/cms/img/2013/icone/dupliquer.png"   alt="Nouveau" border="0" /></a>';					
 					
 				echo '<br /><strong> - '.$classeLibelle.'</strong> - '.$linkNew;
 				echo '  -  '.$linkExist.'<br />';
@@ -415,17 +380,16 @@ if ($oPage->get_isgabarit_page()==0){ // pages only
 					$oXres = dbGetObjectFromPK($xClassName, $oX->get_objet(), true);					
 					//$oXres = new $xClassName($oX->get_objet());	
 					if($oXres){
-						$aListe_res[] = $oXres;	
+						$aListe_res[] = $oXres;
 					}
 					else{
 						//echo '<p>asso missing id '.$oX->get_objet().'</p>';
 						dbDelete($oX);
 					}			
 				}	
-
 				$bStatusControl = false;
 				$bDeleteButtonControl = false;
-				include('cms-inc/autoClass/list.table.php');
+				include('cms-inc/autoClass/list.olsortable.php');
 				unset($visuLink);
 				unset($editLink);
 				echo '<br />';
@@ -496,7 +460,7 @@ else{ // gabarit only
 	}
 }
 ?></p>
-<input name="btEnregistrer" type="button" class="arbo" onClick="javascript:enregistrer()" value="Enregistrer">
+<input name="btEnregistrer" type="button" class="arbo" onClick="javascript:enregistrer()" value="<?php $translator->echoTransByCode('Enregistrer'); ?>">
 </form>
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/append.php');

@@ -230,14 +230,14 @@ if (isset($statutRetour) && ( $statutRetour != "")){
 un dossier par ligne,<br />
 par exemple:<br />
 content/<?php echo $oSite->get_rep(); ?>/</td>
-		<td class="arbo"><textarea class="arbo" cols="40" rows="6" id="fDir" name="fDir"><?php echo join($aConfDir, "
+		<td class="arbo"><textarea class="arbo textareaEdit" id="fDir" name="fDir"><?php echo join($aConfDir, "
 "); ?></textarea></td>
 	</tr>
 	<tr class="ligne">
 	  <td class="arbo"><strong>Fichiers index&eacute;s&nbsp;:</strong><br />
 un type par ligne,<br />
 par exemple:<br /> .php</td>
-	  <td class="arbo"><textarea class="arbo" cols="40" rows="6" id="fType" name="fType"><?php echo join($aConfType, "
+	  <td class="arbo"><textarea class="arbo textareaEdit" id="fType" name="fType"><?php echo join($aConfType, "
 "); ?></textarea></td>
     </tr>
 </table>

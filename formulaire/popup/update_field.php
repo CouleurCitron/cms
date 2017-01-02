@@ -211,7 +211,7 @@ $sValeur = str_replace(";", "\n", $oChamp->getValeur_champ());
 		?>
 		 <tr>
 			  <td align="right" nowrap class="arbo">Liste des choix&nbsp;:&nbsp;<br/>(un par ligne)</td>
-			  <td align="right"><textarea name="items" id="items" cols="40" rows="10" class="arbo"><?php echo $sValeur; ?></textarea><br /><br /></td>
+			  <td align="right"><textarea name="items" id="items" class="arbo textareaEdit"><?php echo $sValeur; ?></textarea><br /><br /></td>
 		 </tr>
 		 <?php
 		 }

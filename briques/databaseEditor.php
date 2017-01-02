@@ -19,7 +19,6 @@ if (strlen($id) > 0)
 
 //if (DEF_MENUS_MINISITES == "ON") print(putAfficheSite());
 ?>
-<link href="/backoffice/cms/css/bo.css" rel="stylesheet" type="text/css" />
 <?php
 if(!strlen($_GET['type'])>0) {
 	// premiere phase
@@ -39,22 +38,13 @@ if(!strlen($_GET['type'])>0) {
 <input type="hidden" id="id" name="id" value="<?php echo $_GET['id']; ?>" />
 <input type="hidden" name="picktype" id="picktype" value="picktype" />
 <input type="hidden" name="minisite" id="minisite" value="<?php echo $_GET['minisite']; ?>" />
-<table width="369" border="0" cellpadding="0" cellspacing="0" class="arbo">
-  <tr>
-    <td><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="arbo">
-        <tr valign="middle">
-          <td height="28" colspan="2" nowrap="nowrap"><table width="100%" border="0" cellspacing="0" cellpadding="5">
-              <tr class="col_titre">
-                <td><strong>&nbsp;Cr&eacute;ation de la brique Objet Base de donn&eacute;es</strong></td>
-              </tr>
-          </table></td>
-        </tr>
-        <tr>
-          <td colspan="2" align="right">&nbsp;</td>
-        </tr>
-        <tr>
-          <td align="right" style="vertical-align:middle">Type&nbsp;:&nbsp;</td>
-          <td align="left"><select name="type" id="type" class="arbo">
+
+<div class="arbo" id="briqueDatabaseEditor">
+        <div class="col_titre">
+          Cr&eacute;ation de la brique Objet Base de donn&eacute;es
+        </div>
+        <div>
+          <label for="type">Type :</label><select name="type" id="type" class="arbo">
 		  	<option value="-1">Choisissez un objet de base de données</option>
 		  	<?php
 			foreach($aClasse as $cKey => $oClasse){		 
@@ -67,22 +57,16 @@ if(!strlen($_GET['type'])>0) {
 				echo "<option value=\"".$oClasse->get_id()."\"".$selected.">".$oClasse->get_nom()."</option>\n";
 			}
 			?>          
-          </select></td>
-        </tr>
-        <tr>
-          <td colspan="2" align="right">&nbsp;</td>
-        </tr>
-        <tr>
-          <td align="right" style="vertical-align:middle">Nom&nbsp;:&nbsp;</td>
-          <td align="left"><input name="nom" type="text" class="arbo" id="nom" size="30"  maxlength="30" <?php echo $nom; ?> /></td>
-        </tr>
-        <tr>
-          <td colspan="2" align="center"><br />
-              <input name="Suite (cr&eacute;ation) &gt;&gt;" type="submit" class="arbo" id="Suite (cr&eacute;ation) &gt;&gt;" value="Suite (cr&eacute;ation) &gt;&gt;"><br /><br /></td>
-        </tr>
-    </table></td>
-  </tr>
-</table>
+          </select>
+        </div>
+        <div>
+            <label for="nom">Nom :</label>
+            <input name="nom" type="text" class="arbo" id="nom" size="30"  maxlength="30" <?php echo $nom; ?> />
+        </div>
+        <div>
+              <input name="Suite (cr&eacute;ation) &gt;&gt;" type="submit" class="arbo" id="SuiteButton" value="Suite (cr&eacute;ation) &gt;&gt;">
+        </div>
+    </div>
 </form>
 <?php	
 } elseif (is_get("picktype")) {	

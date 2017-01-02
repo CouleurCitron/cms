@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /* 
-$Author: pierre $
-$Revision: 1.8 $
+$Author: raphael $
+$Revision: 1.1 $
 
 $Log: popup_arbo_browse_node.php,v $
+Revision 1.1  2013-09-30 09:24:15  raphael
+*** empty log message ***
+
 Revision 1.8  2013-03-01 10:28:04  pierre
 *** empty log message ***
 
@@ -138,7 +141,7 @@ if (is_get("idSite") && $_GET["idSite"]!=-1) {
 else {
 	$idSite = $_SESSION['idSite_travail'];
 }
-
+ 
 // noms des champs à mettre à jour dans la fenêtre opener
 $idDiv = $_GET['idDiv'];
 if ($idDiv == "") $idDiv = $_POST['idDiv'];
@@ -167,8 +170,25 @@ body {
 <script type="text/javascript"> 
 	function setSelectZoneEdit(idNode, libelleNode){ // on a sélectionné une brique
 	 
-		window.opener.document.<?php echo $_GET['idForm']; ?>.<?php echo $_GET['idField']; ?>.value = idNode;
-		window.opener.document.<?php echo $_GET['idForm']; ?>.<?php echo $_GET['idField']; ?>_libelle.value = libelleNode;
+		
+		
+		<?php 
+		
+		if (is_as_get("source")) {
+		?>	
+			window.opener.document.<?php echo $_GET['idForm']; ?>.<?php echo $_GET['idField']; ?>_<?php echo $_GET['source']; ?>.value = idNode;
+			window.opener.document.<?php echo $_GET['idForm']; ?>.<?php echo $_GET['idField']; ?>_libelle_<?php echo $_GET['source']; ?>.value = libelleNode;
+		<?php
+		}
+		else {
+		?>
+			window.opener.document.<?php echo $_GET['idForm']; ?>.<?php echo $_GET['idField']; ?>.value = idNode;
+			window.opener.document.<?php echo $_GET['idForm']; ?>.<?php echo $_GET['idField']; ?>_libelle.value = libelleNode;
+		<?php
+		}
+		
+		?>
+		
 		self.close();
 	} 
 </script>
@@ -189,7 +209,7 @@ body {
        <table cellpadding="8" cellspacing="0" border="1" bordercolor="#FFFFFF">
          <tr>
            <td bgcolor="D2D2D2"><?php
-print drawCompTree($idSite, $db, $virtualPath, null, null, "&idField=".$_GET["idField"]."&idForm=".$_GET["idForm"]);
+print drawCompTree($idSite, $db, $virtualPath, null, null, "&idField=".$_GET["idField"]."&idForm=".$_GET["idForm"]."&source=".$_GET["source"]."");
 ?></td>
          </tr>
      </table></td>

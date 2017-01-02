@@ -1,13 +1,10 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: contentEditor.php,v 1.4 2014-01-16 17:13:29 pierre Exp $
-	$Author: pierre $
+	$Id: contentEditor.php,v 1.2 2014-01-16 17:00:14 quentin Exp $
+	$Author: quentin $
 	
 	$Log: contentEditor.php,v $
-	Revision 1.4  2014-01-16 17:13:29  pierre
-	*** empty log message ***
-
 	Revision 1.2  2014-01-16 17:00:14  quentin
 	*** empty log message ***
 
@@ -267,48 +264,29 @@ $oSite = new Cms_site($idSite);
 <input type="hidden" name="id" id="id" value="<?php if (strlen($_GET['id'])>0) echo $_GET['id']; ?>" />
 <input type="hidden" name="TYPEcontent" id="TYPEcontent" value="<?php echo $oContent->getType_content() ?>" />
 
-<table width="369" border="0" cellpadding="0" cellspacing="0" class="arbo">
-<tr>
-<td><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="arbo">
- <tr valign="middle"  >
-   <td height="28" colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="5">
-     <tr  class="col_titre">
-       <td><strong>&nbsp;Cr&eacute;ation du composant HTML</strong></td>
-     </tr>
-   </table> </td>
-   </tr>
- <tr>
-   <td colspan="2" align="right">&nbsp;</td>
-   </tr>
- <tr>
-  <td align="right" style="vertical-align:middle">Nom&nbsp;:&nbsp;</td>
-  <td align="left"><input name="nom" type="text" class="arbo" size="50"  maxlength="50" <?php echo $nom; ?> /></td>
- </tr>
- <tr>
-   <td colspan="2" align="right">&nbsp;</td>
-   </tr>
- <tr>
-  <td align="right" style="vertical-align:middle">Largeur&nbsp;:&nbsp;</td>
-  <td align="left"><input name="l" type="text" class="arbo" size="4" maxlength="4" <?php echo $larg; ?> />
-  &nbsp;pixels</td>
- </tr>
- <tr>
-   <td colspan="2" align="right">&nbsp;</td>
-   </tr>
- <tr>
-  <td align="right" style="vertical-align:middle">Hauteur&nbsp;:&nbsp;</td>
-  <td align="left"><input name="h" type="text" class="arbo" size="4" maxlength="4" <?php echo $long; ?> />
-  &nbsp;pixels</td>
- </tr>
- <tr>
-  <td  colspan="2" align="center"><br />    
-    <input name="suite" type="submit" class="arbo" value="Suite (edition) &gt;&gt;" />
-    <br />
-    <br /></td>
- </tr>
-</table></td>
-</tr>
-</table>
+<div class="arbo" id="briqueContentEditor">
+    <div class="col_titre"  >
+          Cr&eacute;ation du composant HTML
+      </div>
+    <div>
+        <label for="nom">Nom :</label>
+        <input name="nom" type="text" id="nom" class="arbo" size="50"  maxlength="50" <?php echo $nom; ?> />
+    </div>
+    <div>
+     <label for="l">Largeur :</label>
+     <input name="l" id="l" type="text" class="arbo" size="4" maxlength="4" <?php echo $larg; ?> />
+     <span>&nbsp;pixels</span>
+    </div>
+    <div>
+     <label for="h">Hauteur :</label>
+     <input name="h" id="h" type="text" class="arbo" size="4" maxlength="4" <?php echo $long; ?> />
+     <span>&nbsp;pixels</span>
+    </div>
+    <div> 
+       <input name="suite" type="submit" class="arbo" value="Suite (edition) &gt;&gt;" />
+    </div>
+</div>
+
 </form>
 <?php	
 } else {

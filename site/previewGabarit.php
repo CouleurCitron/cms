@@ -31,15 +31,26 @@ if(strlen($_GET['id'])>0){
 
 	$oGabarit= new Cms_page($_GET['id']);
 	
-	if ($oGabarit->get_iscustom()==0){
-		echo phpsrcEval($oGabarit->getHtml_page());
+	// choix du rep
+	if( $oGabarit->get_id_site()==-1){
+		$rep = 'all';
 	}
 	else{
-		if (is_file($_SERVER['DOCUMENT_ROOT'].'/custom/gabarit/'.$_SESSION['rep_travail'].'/'.$oGabarit->get_name_page().'.php')){
-			include($_SERVER['DOCUMENT_ROOT'].'/custom/gabarit/'.$_SESSION['rep_travail'].'/'.$oGabarit->get_name_page().'.php');
+		$rep = $_SESSION['rep_travail'];
+	}
+	
+	if (is_file($_SERVER['DOCUMENT_ROOT'].'/custom/gabarit/'.$rep.'/'.$oGabarit->get_options_page())){ // vignette
+		echo '<img src="/custom/gabarit/'.$rep.'/'.$oGabarit->get_options_page().'" />';	
+	}
+	elseif ($oGabarit->get_iscustom()==0){ // old style = briques
+		echo phpsrcEval($oGabarit->getHtml_page());
+	}
+	else{ // new style = no briques
+		if (is_file($_SERVER['DOCUMENT_ROOT'].'/custom/gabarit/'.$rep.'/'.$oGabarit->get_name_page().'.php')){
+			include($_SERVER['DOCUMENT_ROOT'].'/custom/gabarit/'.$rep.'/'.$oGabarit->get_name_page().'.php');
 		}
 		else{
-			echo 'gabarit custom introuvable : /custom/gabarit/'.$_SESSION['rep_travail'].'/'.$oGabarit->get_name_page().'.php';
+			echo 'gabarit custom introuvable : /custom/gabarit/'.$rep.'/'.$oGabarit->get_name_page().'.php';
 		}
 	}
 

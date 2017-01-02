@@ -36,7 +36,7 @@ if(!(isset($_POST['node_id']) && strlen($_POST['node_id'])>0 )) {
  <tr>
   <td align="right">Dossier de stockage&nbsp;:&nbsp;</td>
   <td align="left"><input name="foldername" type="text" disabled class="arbo" value="<?php echo $node_name; ?>" size="20">
-  &nbsp;&nbsp;<a href="#" class="arbo" onClick="chooseFolder();"><img src="/backoffice/cms/img/go.gif" border="0">&nbsp;choisir le dossier</a></td>
+  &nbsp;&nbsp;<a href="#" class="arbo" onClick="chooseFolder();"><img src="/backoffice/cms/img/2013/icone/go.png" border="0">&nbsp;choisir le dossier</a></td>
  </tr>
  <tr bgcolor="D2D2D2">
   <td colspan="2" align="center"><input name="Déplacer" type="submit" class="arbo" value="Déplacer"></td>

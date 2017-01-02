@@ -343,26 +343,3 @@ td.title sup {
 form#managetree input.arbo {
 	width:300px;
 }
-
-ol {
-	list-style-type: none;	
-}
-ol li div {
-	padding: 3px;
-	margin: 2px 0px;
-	background-color: #cbd1dc;
-	/*border: 1px solid #cbd1dc;*/
-}
-ol li:hover {
-	cursor:move;
-}
-ol li:hover div, ol li:hover div a{
-    background-color: #5679ad;
-    color: #fff;
-}
-ol li ol {
-	margin-left: 30px;
-}
-ol li ol li div {
-	background-color: #899DBA;
-}

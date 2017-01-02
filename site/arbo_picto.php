@@ -85,19 +85,19 @@ if (is_get("action")) {
       <td align="center" valign="top" class="arbo">
         <!-- contenu des actions -->
        <b><br />
-      Op&eacute;rations sur le dossier en cours :</b><br />
+      <?php $translator->echoTransByCode('Operations_dossier_courant'); ?></b><br />
       <br />
       <table width="300" border="0" cellpadding="5" cellspacing="0" bgcolor="#F0F1F3">       
           <tr bgcolor="#FFFFFF"> 
            
 			<?php if($virtualPath != "0") { ?>
 			 <td>
-			<a id="arbo_move" href="/backoffice/cms/site/arbo_movefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=MOVE<?php echo $param; ?>"><img src="/backoffice/cms/img/deplacer.gif" border="0" title="Déplacer le noeud"></a></td>
+			<a id="arbo_move" href="/backoffice/cms/site/arbo_movefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=MOVE<?php echo $param; ?>"><img src="/backoffice/cms/img/2013/icone/deplacer.png" border="0" title="<?php $translator->echoTransByCode('Deplacer_le_noeud'); ?>"></a></td>
 			<?php } ?>
 			
-            <?php if($virtualPath != "0") { ?><td><a id="arbo_rename" href="/backoffice/cms/site/arbo_renamefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=RENAME<?php echo $param; ?>"><img src="/backoffice/cms/img/renommer.gif" border="0" title="Renommer le noeud"></a></td><?php } ?>
+            <?php if($virtualPath != "0") { ?><td><a id="arbo_rename" href="/backoffice/cms/site/arbo_renamefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=RENAME<?php echo $param; ?>"><img src="/backoffice/cms/img/2013/icone/renommer.png" border="0" title="<?php $translator->echoTransByCode('Renommer_le_noeud'); ?>"></a></td><?php } ?>
            
-            <?php if($virtualPath != "0")  { ?><td><a id="arbo_delete" href="/backoffice/cms/site/arbo_deletefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=DELETE<?php echo $param; ?>"><img src="/backoffice/cms/img/supprimer.gif" border="0" title="Supprimer le noeud" /></a></td><?php } ?>
+            <?php if($virtualPath != "0")  { ?><td><a id="arbo_delete" href="/backoffice/cms/site/arbo_deletefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=DELETE<?php echo $param; ?>"><img src="/backoffice/cms/img/2013/icone/supprimer.png" border="0" title="<?php $translator->echoTransByCode('Supprimer_le_noeud'); ?>" /></a></td><?php } ?>
           
             <td>
 			<?php if($virtualPath == "0" && $isMinisite)  { ?>
@@ -105,24 +105,24 @@ if (is_get("action")) {
 			<?php } else {?>
 			<a id="arbo_create"  href="/backoffice/cms/site/arbo_createfolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=CREATE<?php echo $param; ?>">
 			<?php } ?>
-			<img src="/backoffice/cms/img/add.gif" border="0" title="Créer un nouveau dossier"></a></td>
+			<img src="/backoffice/cms/img/2013/icone/add.png" border="0" title="<?php $translator->echoTransByCode('Creer_nouveau_dossier'); ?>"></a></td>
 			
-          	<td><a id="arbo_order"  href="/backoffice/cms/site/arbo_orderfolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=ORDER<?php echo $param; ?>"><img src="/backoffice/cms/img/ordonner.gif" border="0" title="Ordre"></a></td>
+          	<td><a id="arbo_order"  href="/backoffice/cms/site/arbo_orderfolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=ORDER<?php echo $param; ?>"><img src="/backoffice/cms/img/2013/icone/ordonner.png" border="0" title="<?php $translator->echoTransByCode('Ordre'); ?>"></a></td>
 		  
             <?php 
 			
 			if ($isMinisite) echo "minisite"; 
 			if(sizeof(explode (",", $virtualPath)) == 2 && $isMinisite) { ?>
-			<td><a id="arbo_create"  href="/backoffice/cms/site/arbo_duplicatefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=DUPLICATE<?php echo $param; ?>"><img src="/backoffice/cms/img/dupliquer.gif" border="0" title="Dupliquer"></a></td> 
+			<td><a id="arbo_create"  href="/backoffice/cms/site/arbo_duplicatefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=DUPLICATE<?php echo $param; ?>"><img src="/backoffice/cms/img/2013/icone/dupliquer.png" border="0" title="<?php $translator->echoTransByCode('Dupliquer '); ?>"></a></td> 
 			<?php } ?>
           
-            <td><a id="arbo_description"  href="/backoffice/cms/site/arbo_description.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=DESCRIPTION<?php echo $param; ?>"><img src="/backoffice/cms/img/propriete.gif" border="0" title="Description du dossier"></a></td>
+            <td><a id="arbo_description"  href="/backoffice/cms/site/arbo_description.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=DESCRIPTION<?php echo $param; ?>"><img src="/backoffice/cms/img/2013/icone/propriete.png" border="0" title="<?php $translator->echoTransByCode('Description_du_dossier'); ?>"></a></td>
           
 		  	<?php if (preg_match ("/TAG/", $sFonct)) {  ?>
-            <td><a id="arbo_tag"  href="/backoffice/cms/site/arbo_tag.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=TAG<?php echo $param; ?>"><img border="0" src="/backoffice/cms/img/modifier-xml.gif" title="Tag du dossier"></a></td>
+            <td><a id="arbo_tag"  href="/backoffice/cms/site/arbo_tag.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=TAG<?php echo $param; ?>"><img border="0" src="/backoffice/cms/img/2013/icone/modifier-xml.png" title="<?php $translator->echoTransByCode('Tag_du_dossier'); ?>"></a></td>
 			<?php } ?>
           
-            <?php if ($nameUser == "ccitron") { ?> <td><a id="arbo_arbo_pages"  href="/backoffice/cms/cms_arbo_pages/maj_cms_arbo_pages.php?id=<?php echo ereg_replace('.*,([0-9]+)', '\\1', $virtualPath); ?>&action=MAJ<?php echo $param; ?>"><img src="/backoffice/cms/img/modifier.gif" border="0" title="Edition avancée"></a></td><?php } ?>
+            <?php if ($nameUser == "ccitron") { ?> <td><a id="arbo_arbo_pages"  href="/backoffice/cms/cms_arbo_pages/maj_cms_arbo_pages.php?id=<?php echo ereg_replace('.*,([0-9]+)', '\\1', $virtualPath); ?>&action=MAJ<?php echo $param; ?>"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0" title="<?php $translator->echoTransByCode('Edition_avancee'); ?>"></a></td><?php } ?>
          
 			<?php 
 			$currInfos 	= getNodeInfos($db,$virtualPath); 
@@ -145,7 +145,7 @@ if (is_get("action")) {
 			}
 			
 			 ?>
-            <td><a href="/#<?php echo $currDir;?>" target="_blank" onclick="prompt('Lien direct vers ce dossier:', 'http://<?php echo $_SERVER['HTTP_HOST']; ?>/#<?php echo $currDir;?>'); return false;" title="Lien direct"><img src="/backoffice/cms/img/link.gif" alt="Lien direct vers ce dossier" border="0"  /></a></td>
+            <td><a href="/#<?php echo $currDir;?>" target="_blank" onclick="prompt('<?php $translator->echoTransByCode('Lien_direct_vers_ce_dossier'); ?>', 'http://<?php echo $_SERVER['HTTP_HOST']; ?>/#<?php echo $currDir;?>'); return false;" title="<?php $translator->echoTransByCode('Lien_direct'); ?>"><img src="/backoffice/cms/img/2013/icone/link.png" alt="<?php $translator->echoTransByCode('Lien_direct_vers_ce_dossier'); ?>" border="0"  /></a></td>
           </tr>
        
     </table><!--</td>

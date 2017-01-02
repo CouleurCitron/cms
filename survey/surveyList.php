@@ -2,9 +2,12 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 // CVS
 /*
-$Id: surveyList.php,v 1.10 2013-03-01 10:28:20 pierre Exp $
-$Author: pierre $
+$Id: surveyList.php,v 1.1 2013-09-30 09:43:19 raphael Exp $
+$Author: raphael $
 $Log: surveyList.php,v $
+Revision 1.1  2013-09-30 09:43:19  raphael
+*** empty log message ***
+
 Revision 1.10  2013-03-01 10:28:20  pierre
 *** empty log message ***
 

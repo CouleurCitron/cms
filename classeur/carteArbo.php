@@ -82,39 +82,39 @@ print drawCompTreeCarte($idSite, $db,$virtualPath,null);
         <ul>
           <tr bgcolor="#FFFFFF">
             <td class="arbo"<?php if($virtualPath=="0") echo "title='Impossible de déplacer le dossier Racine' style='color:#b0b0b0'"; ?>><li>D&eacute;placer le dossier</li></td>
-            <td<?php if($virtualPath=="0") echo ' title="Impossible de déplacer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_movefoldercarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a><?php } ?></td>
+            <td<?php if($virtualPath=="0") echo ' title="Impossible de déplacer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_movefoldercarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a><?php } ?></td>
           </tr>
 
           <tr>
 
             <td bgcolor="EEEEEE" class="arbo"<?php if($virtualPath=="0") echo "title='Impossible de renommer le dossier Racine' style='color:#b0b0b0'"; ?>><li>Renommer le dossier</li></td>
-            <td<?php if($virtualPath=="0") echo ' title="Impossible de renommer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_renamefoldercarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a><?php } ?></td>
+            <td<?php if($virtualPath=="0") echo ' title="Impossible de renommer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_renamefoldercarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a><?php } ?></td>
            </tr>
 
           <tr bgcolor="#FFFFFF">
             <td bgcolor="E6E6E6" class="arbo"<?php if($virtualPath=="0") echo "title='Impossible de supprimer le dossier Racine' style='color:#b0b0b0'"; ?>><li>Supprimer le dossier</li></td>
-            <td<?php if($virtualPath=="0") echo ' title="Impossible de supprimer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_deletefoldercarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a><?php } ?></td>
+            <td<?php if($virtualPath=="0") echo ' title="Impossible de supprimer le dossier Racine"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_deletefoldercarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a><?php } ?></td>
           </tr>
           <tr >
 <?php // On désactive la création de sous dossiers si l'arbo a déjà 3 niveaux
 $toodeep = (substr_count($virtualPath,",")>3);
 ?>
             <td class="arbo"<?php if($toodeep) echo "title='Impossible de créer un dossier, vous avez atteint les 3 niveaux maximum autorisés' style='color:#b0b0b0'"; ?>><li>Cr&eacute;er un sous dossier</li></td>
-            <td <?php if($toodeep) echo ' title="Impossible de créer un dossier, vous avez atteint les 3 niveaux maximum autorisés"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_createfoldercarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a><?php } ?></td>
+            <td <?php if($toodeep) echo ' title="Impossible de créer un dossier, vous avez atteint les 3 niveaux maximum autorisés"><img border="0" src="'.$URL_ROOT.'/backoffice/cms/img/go_off.gif">'; else { ?>><a href="arbo_createfoldercarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a><?php } ?></td>
           </tr>
 
           <tr bgcolor="#FFFFFF">
             <td class="arbo"><li>Ordre d'affichage des sous dossiers</li></td>
-            <td><a href="arbo_orderfoldercarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+            <td><a href="arbo_orderfoldercarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
           </tr>
 		            <tr >
             <td class="arbo"><li>Description du dossier</li></td>
-            <td><a href="arbo_descriptioncarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+            <td><a href="arbo_descriptioncarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
            </tr>
 
           <tr bgcolor="#FFFFFF">
             <td class="arbo"><li>Associer un picto</li></td>
-            <td><a href="arbo_pictocarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/go.gif"></a></td>
+            <td><a href="arbo_pictocarte.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
           </tr>
         </ul>
     </table></td>

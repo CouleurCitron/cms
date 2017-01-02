@@ -1,10 +1,13 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
-	$Id: imageGestion.php,v 1.8 2013-03-01 10:28:04 pierre Exp $
-	$Author: pierre $
+	$Id: imageGestion.php,v 1.1 2013-09-30 09:24:08 raphael Exp $
+	$Author: raphael $
 	
 	$Log: imageGestion.php,v $
+	Revision 1.1  2013-09-30 09:24:08  raphael
+	*** empty log message ***
+
 	Revision 1.8  2013-03-01 10:28:04  pierre
 	*** empty log message ***
 
@@ -151,13 +154,13 @@ if ($files != null)
   <tr>
     <td bgcolor="F3F3F3">&nbsp;&nbsp;<?php echo $files[$i] ?></td>
     <td align="center" bgcolor="F7F7F7">
-	<a href="#" class="arbo" onClick="javascript:window.open('viewMedia.php?fic=<?php echo $files[$i] ?>','Média','directories=no,menubar=no,location=no,status=no,resizable=yes,width=200,height=200')"><img src="../../backoffice/cms/img/visualiser.gif" alt="Visualiser ce média" border=0 ></a>
+	<a href="#" class="arbo" onClick="javascript:window.open('viewMedia.php?fic=<?php echo $files[$i] ?>','Média','directories=no,menubar=no,location=no,status=no,resizable=yes,width=200,height=200')"><img src="../../backoffice/cms/img/2013/icone/visualiser.png" alt="Visualiser ce média" border=0 ></a>
 	</td>
     <td align="center" bgcolor="F3F3F3">
-	<a href="#" class="arbo" onClick="javascript:window.open('dialMedia.php?fic=<?php echo $files[$i] ?>','Média','directories=no,menubar=no,location=no,status=no,resizable=yes,width=330,height=150')"><img src="../../backoffice/cms/img/renommer.gif" alt="Renommer ce média" border=0 ></a>
+	<a href="#" class="arbo" onClick="javascript:window.open('dialMedia.php?fic=<?php echo $files[$i] ?>','Média','directories=no,menubar=no,location=no,status=no,resizable=yes,width=330,height=150')"><img src="../../backoffice/cms/img/2013/icone/renommer.png" alt="Renommer ce média" border=0 ></a>
 	</td>
     <td align="center" bgcolor="F7F7F7">
-	<a class="arbo" href="javascript:Confirmation('<?php echo $files[$i] ?>')" ><img src="../../backoffice/cms/img/supprimer.gif" alt="Supprimer ce média" border=0 ></a>
+	<a class="arbo" href="javascript:Confirmation('<?php echo $files[$i] ?>')" ><img src="../../backoffice/cms/img/2013/icone/supprimer.png" alt="Supprimer ce média" border=0 ></a>
 	</td>
   </tr>
   <?php

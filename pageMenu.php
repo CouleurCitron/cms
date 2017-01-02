@@ -2,10 +2,13 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 
 /*
-	$Author: pierre $
-	$Id: pageMenu.php,v 1.7 2013-03-25 14:04:09 pierre Exp $
+	$Author: raphael $
+	$Id: pageMenu.php,v 1.1 2013-09-30 09:24:14 raphael Exp $
 
 	$Log: pageMenu.php,v $
+	Revision 1.1  2013-09-30 09:24:14  raphael
+	*** empty log message ***
+
 	Revision 1.7  2013-03-25 14:04:09  pierre
 	*** empty log message ***
 

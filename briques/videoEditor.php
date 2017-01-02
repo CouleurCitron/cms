@@ -99,22 +99,14 @@ print $Upload-> Field[0];
 <input type="hidden" name="_cues" id="_cues" value="<?php echo $sCues; ?>" />
 <input type="hidden" name="minisite" id="minisite" value="<?php echo $_GET['minisite']; ?>" />
 <input type="hidden" name="nom" id="nom" value="<?php echo $composant['name']; ?>" />
-<table width="369" border="0" cellpadding="0" cellspacing="0" class="arbo">
-  <tr>
-    <td><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="arbo">
-        <tr valign="middle">
-          <td height="28" colspan="2" nowrap="nowrap"><table width="100%" border="0" cellspacing="0" cellpadding="5">
-              <tr class="col_titre">
-                <td><strong>&nbsp;Cr&eacute;ation de la brique Video </strong></td>
-              </tr>
-          </table></td>
-        </tr>
-        <tr>
-          <td colspan="2" align="right">&nbsp;</td>
-        </tr>
-        <tr>
-          <td align="right" style="vertical-align:middle"><strong>choix du video&nbsp;:&nbsp;</strong></td>
-          <td align="left">		  
+
+<div class="arbo" id="briqueVideoEditor">
+        <div class="col_titre">
+            Cr&eacute;ation de la brique Video
+        </div>
+        <div>
+          <label for="video">choix du video :</label>
+              
 		  <select name="video" id="video" class="arbo">
 		  	<option value="-1">Choisissez un fichier video</option>
 		  	<?php
@@ -144,32 +136,23 @@ print $Upload-> Field[0];
 				}				
 			}
 			?>  
-          </select></td>
-        </tr>
-        <tr>
-          <td colspan="2" align="center"> <br />
-ou <br />
-&nbsp;</td>
-        </tr>
-        <tr>
-          <td align="right" style="vertical-align:top"><strong>Video&nbsp;:&nbsp;</strong></td>
-          <td align="left"><?php echo $Upload->Field[1]; ?><br />
- .flv ou .mov (codec h264)<br />
-&nbsp;</td>
-        </tr>
-		<tr>
-          <td align="right" style="vertical-align:top"><strong>Vignette&nbsp;:&nbsp;<br />
-(optionel)&nbsp;</strong></td>
-          <td align="left"><?php echo $Upload->Field[2]; ?><br />
- .png ou .jpg<br /></td>
-        </tr>
-        <tr>
-          <td colspan="2" align="center"><br />
-              <input name="Suite (cr&eacute;ation) &gt;&gt;" type="submit" class="arbo" id="Suite (cr&eacute;ation) &gt;&gt;" value="Suite (cr&eacute;ation) &gt;&gt;"><br /><br /></td>
-        </tr>
-    </table></td>
-  </tr>
-</table>
+          </select>
+        </div>
+        <p>
+            ou
+        </p>
+        <div class="rightContent">
+            <div>
+              <label>Video :</label><?php echo $Upload->Field[1]; ?><span>.flv ou .mov (codec h264)</span>
+            </div>
+                    <div>
+                        <label>Vignette (optionel) :</label><?php echo $Upload->Field[2]; ?> <span>.png ou .jpg</span>
+            </div>
+        </div>
+        <div>
+              <input name="Suite (cr&eacute;ation) &gt;&gt;" type="submit" class="arbo" id="SuiteButton" value="Suite (cr&eacute;ation) &gt;&gt;">
+        </div>
+    </div>
 </form>
 <?php	
 } elseif (is_post("pickvideo")) {	
@@ -527,7 +510,7 @@ echo $sBodyHTML;
 <br />
 <span class="arbo2"><strong>Code HTML d'inclusion de la brique vidéo (copier/coller) :</strong></span>
 
-<textarea id="copypaste" name="copypaste" rows="15" cols="60"><?php echo compactJS($sBodyHTML); ?></textarea>
+<textarea id="copypaste" name="copypaste" class="textareaEdit" ><?php echo compactJS($sBodyHTML); ?></textarea>
 </form>
 <?php	
 }

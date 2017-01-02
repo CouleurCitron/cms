@@ -31,7 +31,7 @@ if (is_post("todo") == false){
 <form id="xmlclass" name="xmlclass" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 <input id="id" name="id" value="<?php echo $id; ?>" type="hidden" />
 <input id="todo" name="todo" value="sauve" type="hidden" />
-<textarea id="fxml" name="fxml" rows="25" cols="75">
+<textarea id="fxml" name="fxml" class="textareaEdit">
 <?php echo stripslashes(htmlentities($sXML)); ?>
 </textarea><br />
 <input id="freset" name="freset" type="reset" value="<?php $translator->echoTransByCode('btAnnuler'); ?>" />

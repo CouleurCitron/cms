@@ -2,9 +2,15 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
 	$Author: pierre $
-	$Id: pageLiteEditor4.php,v 1.6 2013-03-01 10:28:20 pierre Exp $
+	$Id: pageLiteEditor4.php,v 1.2 2014-07-16 13:06:01 pierre Exp $
 
 	$Log: pageLiteEditor4.php,v $
+	Revision 1.2  2014-07-16 13:06:01  pierre
+	*** empty log message ***
+
+	Revision 1.1  2013-09-30 09:43:16  raphael
+	*** empty log message ***
+
 	Revision 1.6  2013-03-01 10:28:20  pierre
 	*** empty log message ***
 
@@ -280,31 +286,35 @@ function okfile() { // Vérifie que le fichier n'existe pas déjà
 <!--span class="arbo">
 <a href="#" class="arbo" onClick="previewPage();">Visualiser</a> la page assemblée.</span-->
 
-<div class="ariane"><span class="arbo2">PAGE >&nbsp;</span><span class="arbo3"><?php echo $sTitre; ?> une page&nbsp;>&nbsp;
-Etape 3 : Nom et dossier de stockage</span></div>
+<div class="ariane"><span class="arbo2">PAGE >&nbsp;</span><span class="arbo3"><?php $translator->echoTransByCode('Creer_une_page'); ?>&nbsp;>&nbsp;
+<?php $translator->echoTransByCode('Etape_3'); ?></span></div>
 <?php
  
 (isset($_SESSION["pageLiteEditor4_nom"]) && $_SESSION["pageLiteEditor4_nom"]!="") ? $nom = $_SESSION["pageLiteEditor4_nom"] : $nom="nom&nbsp;:&nbsp;";
 (isset($_SESSION["pageLiteEditor4_dossier"]) && $_SESSION["pageLiteEditor4_dossier"]!="") ? $dossier = $_SESSION["pageLiteEditor4_dossier"] : $dossier="Dossier de stockage&nbsp;:&nbsp;";
 (isset($_SESSION["pageLiteEditor4_racine"]) && $_SESSION["pageLiteEditor4_racine"]!="") ? $foldername = $_SESSION["pageLiteEditor4_choisir_dossier"] : $foldername=$foldername;
-(isset($_SESSION["pageLiteEditor4_choisir_dossier"]) && $_SESSION["pageLiteEditor4_choisir_dossier"]!="") ? $choisir_dossier = $_SESSION["pageLiteEditor4_choisir_dossier"] : $choisir_dossier="<img src='/backoffice/cms/img/go.gif' border='0'>&nbsp;choisir le dossier";
+(isset($_SESSION["pageLiteEditor4_choisir_dossier"]) && $_SESSION["pageLiteEditor4_choisir_dossier"]!="") ? $choisir_dossier = $_SESSION["pageLiteEditor4_choisir_dossier"] : $choisir_dossier="<img src='/backoffice/cms/img/2013/icone/go.png' border='0'>&nbsp;choisir le dossier";
   
 
 ?>
+<div class="spacer">&nbsp;</div>
 <div id="tab_stockage">
 <table border="1" cellpadding="5" cellspacing="0" bordercolor="#FFFFFF" class="arbo" cellpading="0">
 <tr bgcolor="E6E6E6">
-  <td align="right"><?php echo $nom; ?></td>
+  <td align="right"><?php $translator->echoTransByCode('Composants_nom'); ?></td>
   <td><input name="name" type="text" class="arbo" id="nameid" value="<?php echo $name; ?>" size="35" maxlength="50" <?php echo $disabled;?> pattern="^([a-z]|[A-Z]|[0-9]|_)+$" errorMsg="Merci de spécifier un nom ne comportant que des caractères alphanumériques sans espace."></td>
 </tr>
 <tr bgcolor="EEEEEE">
-  <td align="right"><?php echo $dossier; ?></td>
+  <td align="right"><?php $translator->echoTransByCode('dossier_de_stockage'); ?></td>
   <td><input name="foldername" type="text" disabled class="arbo" id="foldername" value="<?php echo $foldername;?>" size="20" pattern="^.+$" errorMsg="Veuillez spécifier un dossier d'enregistrement.">&nbsp;<?php if(!$_GET['id'] > 0) { ?><a href="#" class="arbo" onClick="chooseFolder();"><?php echo $choisir_dossier; ?></a><?php } ?></td>
 </tr>
 <tr bgcolor="D2D2D2">
-  <td align="left" id="bt_retour"><input name="Retour" type="button" class="arbo" onClick="document.location='pageLiteEditor3.php?<?php echo $_SERVER['QUERY_STRING']; ?>';" value="<< Retour"></td>
-  <td align="right" id="bt_suite"><input name="Suite >>" type="button" class="arbo" onClick="if(okfile()){ document.forms[0].name.disabled=false; submit();}" value="Suite >>"></td>
+  <td align="left" id="bt_retour"><input name="Retour" type="button" class="arbo" onClick="document.location='pageLiteEditor3.php?<?php echo $_SERVER['QUERY_STRING']; ?>';" value="<< <?php $translator->echoTransByCode('Retour'); ?>"></td>
+  <td align="right" id="bt_suite"><input name="Suite >>" type="button" class="arbo" onClick="if(okfile()){ document.forms[0].name.disabled=false; submit();}" value="<?php $translator->echoTransByCode('Suite'); ?> >>"></td>
 </tr>
 </table>
 </div>
 </form>
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoappend.php');
+?>
