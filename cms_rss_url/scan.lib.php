@@ -140,9 +140,6 @@ function set_new_flux ($classeName, $id, $isnew = false) {
 								//echo "enddate : " .$eKeyValue." ".$date_to_compare."<br />";
 							} 
 							 
-							/*$eKeyValue = ereg_replace ( "<style[^<>]*>.*</style>", "", $eKeyValue );
-							$eKeyValue = ereg_replace ( "<[^<>]+>", "", $eKeyValue );	
-							$eKeyValue = ereg_replace ( "<[^<>]+$", "", $eKeyValue );	*/
 							if (preg_match ("/<[^<>]+>/", $eKeyValue)) {
 								//echo "1".$aNodeToSort[$i]["attrs"]["RSS"]." : ".($eKeyValue)."<br /><br />";
 								$eKeyValue = html2text($eKeyValue); 
@@ -162,9 +159,9 @@ function set_new_flux ($classeName, $id, $isnew = false) {
 								//$eKeyValue = htmlentities($eKeyValue, ENT_QUOTES, "UTF-8");
 							} 
 							
-							$eKeyValue = ereg_replace('\"', '',	$eKeyValue); 
-							$eKeyValue = ereg_replace("'", "\'",	$eKeyValue);  
-							$eKeyValue = ereg_replace("\r\n", "",	$eKeyValue);
+							$eKeyValue = str_replace('\"', '',	$eKeyValue); 
+							$eKeyValue = str_replace("'", "\'",	$eKeyValue);  
+							$eKeyValue = preg_replace("/\r\n/msi", "",	$eKeyValue);
 							//echo $eKeyValue."<br /><br />";
 							
 							

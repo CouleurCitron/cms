@@ -22,7 +22,7 @@ if($_POST['node_id']=="") {
 		$virtualPath = $_GET['v_comp_path'];
 		
 	$nodeInfos=getNodeInfosCarte($idSite, $db,$virtualPath);
-	$parentvirtualPath = ereg_replace(',[^,]+$','',$virtualPath);
+	$parentvirtualPath = preg_replace('/,[^,]+$/msi','',$virtualPath);
 	$parentnodeInfos=getNodeInfosCarte($idSite, $db,$parentvirtualPath);
 } else{
 	if (strlen($_POST['v_comp_path']) > 0)
