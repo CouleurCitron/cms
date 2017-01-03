@@ -107,10 +107,10 @@ if(isset($_FILES['importfile'])){
 	
 	if(move_uploaded_file($_FILES['importfile']['tmp_name'], $saveFile) || is_file($_SERVER['DOCUMENT_ROOT'].$_GET['importfile'])){
 		$status .= "Téléchargement du fichier : OK <br /><br />"; 
-		if (ereg('xls', $ext)){
+		if (preg_match('/xls/msi', $ext)){
 			echo ' import de XLS<br />';
 		}
-		elseif (ereg('csv', $ext)){
+		elseif (preg_match('/csv/msi', $ext)){
 			echo ' import de CSV<br />';
 		}
 		else{
@@ -229,7 +229,7 @@ if(isset($_FILES['importfile'])){
 		}
 		//----------------------------------------------------------		
 		
-		if (ereg('xls', $ext)){
+		if (preg_match('/xls/msi', $ext)){
 			//////////////////////////
 			//include('import.xls.php');
 
@@ -264,26 +264,7 @@ for ($irow=1;$irow<$data->sheets[0]['numRows'];$irow++){
 		
 		$aLigne = $data->sheets[0]["cells"][$irow];
 		//pre_dump($aLigne);
-		/*
-		// controle sur surexplode du a ; dans champs text
-		for ($iLigne=0;$iLigne<(count($aLigne)-1);$iLigne++){				
-			//echo ">> ".$aLigne[$iLigne]." - ".$aLigne[$iLigne+1]." >> " ;	
-			if ((ereg('^".*[^"]$', $aLigne[$iLigne])) && (ereg('^[^"].*', $aLigne[$iLigne+1]))){						
-				$tempMerge = $aLigne[$iLigne].";".$aLigne[$iLigne+1];
-				$aLigne[$iLigne] = $tempMerge;
-				$aLigne[$iLigne+1] = $tempMerge;
-				$tempArrayDebut = array_slice($aLigne, 0, $iLigne); 
-				$tempArrayFin = array_slice($aLigne, $iLigne+1); 						
-				$aLigne = array_merge($tempArrayDebut, $tempArrayFin);
-				$iLigne = $iLigne - 1;
-				//pre_dump($aLigne);
-			}
-		}
-		// controle sur double "" dans champs txt
-		for ($iLigne=0;$iLigne<count($aLigne);$iLigne++){		
-			$aLigne[$iLigne] = ereg_replace('""', '\"',	$aLigne[$iLigne]);
-		}
-		*/
+		
 		unset($oPrev);
 		if (isset($eRes)){
 			eval("$"."oPrev = new ".$classeName."(".$eRes.");");
@@ -418,14 +399,14 @@ for ($irow=1;$irow<$data->sheets[0]['numRows'];$irow++){
 					*/
 						if ($eKeyValue > -1){ // cas typique typique
 							if ($aNodeToSort[$i]["attrs"]["TYPE"] == "date"){ // cas date
-								if (ereg("[0-9]{2}.{1}[0-9]{2}.{1}[0-9]{4}",$eKeyValue)){ // traduction date FR to FR
-									$eKeyValue = ereg_replace("([0-9]{2}).{1}([0-9]{2}).{1}([0-9]{4})", "\\1/\\2/\\3", $eKeyValue);
+								if (preg_match("/[0-9]{2}.{1}[0-9]{2}.{1}[0-9]{4}/msi",$eKeyValue)){ // traduction date FR to FR
+									$eKeyValue = preg_replace("/([0-9]{2}).{1}([0-9]{2}).{1}([0-9]{4})/msi", "$1/$2/$3", $eKeyValue);
 								}
-								elseif (ereg("[0-9]{4}.{1}[0-9]{2}.{1}[0-9]{2}",$eKeyValue)){ // reformattage date US to FR
-									$eKeyValue = ereg_replace("([0-9]{4}).{1}([0-9]{2}).{1}([0-9]{2})", "\\3/\\2/\\1", $eKeyValue);
+								elseif (preg_match("/[0-9]{4}.{1}[0-9]{2}.{1}[0-9]{2}/msi",$eKeyValue)){ // reformattage date US to FR
+									$eKeyValue = preg_replace("/([0-9]{4}).{1}([0-9]{2}).{1}([0-9]{2})/msi", "$3/$2/$1", $eKeyValue);
 								}
-								elseif (ereg("[0-9]{2}.{1}[0-9]{2}.{1}[0-9]{2}",$eKeyValue)){ // traduction date FR to FR
-									$eKeyValue = ereg_replace("([0-9]{2}).{1}([0-9]{2}).{1}([0-9]{2})", "\\1/\\2/".date("Y","\\3"), $eKeyValue);
+								elseif (preg_match("/[0-9]{2}.{1}[0-9]{2}.{1}[0-9]{2}/msi",$eKeyValue)){ // traduction date FR to FR
+									$eKeyValue = preg_replace("/([0-9]{2}).{1}([0-9]{2}).{1}([0-9]{2})/msi", "$1/$2/".date("Y","$3"), $eKeyValue);
 								}
 								else{ // date impossible à reconnaitre
 									$eKeyValue = "n/a";
@@ -564,7 +545,7 @@ for ($irow=1;$irow<$data->sheets[0]['numRows'];$irow++){
 
 			//////////////////////////
 		}
-		elseif (ereg('csv', $ext)){
+		elseif (preg_match('/csv/msi', $ext)){
 			include('import.csv.php');
 		}
 

@@ -231,58 +231,58 @@ function extractChartData($htmlstring) {
 	//<!--CHART_HIDEDATA show--> // ou hide
 
 	// ID de graphique
-   if ( ereg ( "<!--CHART_ID ([^-]*).{1}-->", $htmlstring, $tab_result ) ) {
+   if ( preg_match ( "/<!\-\-CHART_ID ([^\-]*).{1}\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_id']=$tab_result[1];
    }
-   elseif ( ereg ( "<!--CHART_ID ([^-]*)-->", $htmlstring, $tab_result ) ) {
+   elseif ( preg_match ( "/<!\-\-CHART_ID ([^\-]*)\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_id']=$tab_result[1];
    }
    
 	// Type de graphique
-   if ( ereg ( "<!--CHART_TYPE ([^-]*).{1}-->", $htmlstring, $tab_result ) ) {
+   if ( preg_match ( "/<!\-\-CHART_TYPE ([^\-]*).{1}\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_type']=$tab_result[1];
    }
-   elseif ( ereg ( "<!--CHART_TYPE ([^-]*)-->", $htmlstring, $tab_result ) ) {
+   elseif ( preg_match ( "/<!\-\-CHART_TYPE ([^\-]*)\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_type']=$tab_result[1];
    }
    
    // Extraction des valeurs
-   if ( ereg ( "<!--CHART_DATA ([^-]*).{1}-->", $htmlstring, $tab_result ) ) {
+   if ( preg_match ( "/<!\-\-CHART_DATA ([^\-]*).{1}\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_data']=urldecode($tab_result[1]);
    }
-   elseif ( ereg ( "<!--CHART_TYPE ([^-]*)-->", $htmlstring, $tab_result ) ) {
+   elseif ( preg_match ( "/<!\-\-CHART_TYPE ([^\-]*)\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_type']=$tab_result[1];
    }
    
    // Extraction du titre
-   if ( ereg ( "<!--CHART_TITLE ([^-]*).{1}-->", $htmlstring, $tab_result ) ) {
+   if ( preg_match ( "/<!\-\-CHART_TITLE ([^\-]*).{1}\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_title']=urldecode($tab_result[1]);
    }
-   elseif ( ereg ( "<!--CHART_TYPE ([^-]*)-->", $htmlstring, $tab_result ) ) {
+   elseif ( preg_match ( "/<!\-\-CHART_TYPE ([^\-]*)\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_type']=$tab_result[1];
    }
       
    // Extraction de la lgende
-   if ( ereg ( "<!--CHART_LEGEND ([^-]*).{1}-->", $htmlstring, $tab_result ) ) {
+   if ( preg_match ( "/<!\-\-CHART_LEGEND ([^\-]*).{1}\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_legend']=urldecode($tab_result[1]);
    }
-   elseif ( ereg ( "<!--CHART_TYPE ([^-]*)-->", $htmlstring, $tab_result ) ) {
+   elseif ( preg_match ( "/<!\-\-CHART_TYPE ([^\-]*)\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_type']=$tab_result[1];
    }
       
    // Extraction du texte complmentaire
-   if ( ereg ( "<!--CHART_TXT ([^-]*).{1}-->", $htmlstring, $tab_result ) ) {
+   if ( preg_match ( "/<!\-\-CHART_TXT ([^\-]*).{1}\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_txt']=urldecode($tab_result[1]);
    }
-   elseif ( ereg ( "<!--CHART_TYPE ([^-]*)-->", $htmlstring, $tab_result ) ) {
+   elseif ( preg_match ( "/<!\-\-CHART_TYPE ([^\-]*)\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_type']=$tab_result[1];
    }
       
    // Extraction de l'affichage des donnes dans le graph (vrai/faux)
-   if ( ereg ( "<!--CHART_HIDEDATA ([^-]*).{1}-->", $htmlstring, $tab_result ) ) {
+   if ( preg_match ( "/<!\-\-CHART_HIDEDATA ([^\-]*).{1}\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_hidedata']=$tab_result[1];
    }
-   elseif ( ereg ( "<!--CHART_TYPE ([^-]*)-->", $htmlstring, $tab_result ) ) {
+   elseif ( preg_match ( "/<!\-\-CHART_TYPE ([^\-]*)\-\->/msi", $htmlstring, $tab_result ) ) {
 		$_SESSION['chart_type']=$tab_result[1];
    }
    

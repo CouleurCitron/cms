@@ -284,8 +284,8 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 		if($listParam!=""){
 			$redirString .= "&".$listParam;
 		}
-		if (ereg("id=[1-9]+", $redirString) && ereg("id=-1", $redirString)){ // 2 fois id= , on garde la value > 0
-			$redirString = ereg_replace("([?&]{1})id=-1", "\\1", $redirString);		
+		if (preg_match("/id=[1-9]+/msi", $redirString) && preg_match("/id=\-1/msi", $redirString)){ // 2 fois id= , on garde la value > 0
+			$redirString = preg_replace("/([?&]{1})id=\-1/msi", "$1", $redirString);		
 		}	
 ?>
 <script language="javascript" type="text/javascript">

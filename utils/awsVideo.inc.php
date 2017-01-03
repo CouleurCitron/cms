@@ -187,10 +187,6 @@ if (preg_match('/\.flv|mp4|mov$/si', basename($file))==1){
 	$w = $ThisFileInfo["video"]["resolution_x"];
 	$h = $ThisFileInfo["video"]["resolution_y"];
 }
-//elseif (ereg("\.mp4", basename($file)) || ereg("\.mov", basename($file))){
-//	$w = 1024;
-//	$h = 576; 
-//}
 else{ // trivial
 	$w = 512;
 	$h = 384; 
@@ -209,7 +205,6 @@ swfSrc = "/backoffice/cms/utils/scrubberLarge";
 AC_FL_RunContent( 'codebase','https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,1,0,0','id', 'awsvid', 'name', 'awsvid', 'width','<?php echo $w; ?>','height','<?php echo $h; ?>','src',swfSrc,'wmode','opaque','quality','high','scale', 'noScale', 'pluginspage','https://get.adobe.com/flashplayer/','movie',swfSrc, "salign", "", "flashvars", flashvars );
 
 function videoSizeUpdate(w, h){
-	<?php // if (!ereg("\.mp4", basename($file))&&!ereg("\.mov", basename($file))){ ?>
 	//alert(w+" / "+h);
 	//document.getElementById('awsvid').width = w;
 	//document.getElementById('awsvid').height = h;
@@ -234,9 +229,5 @@ function videoSizeUpdate(w, h){
 			}	
 		}
 	}
-	<?php
-	// }
-	//else{ echo "// not for mp4\n"; }
-	?>
 }
 </script>

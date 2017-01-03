@@ -342,7 +342,7 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 			elseif ($aNodeToSort[$i]["attrs"]["OPTION"] == "url"){ // cas url, on ajoute le protocole http:// si manque
 				if (isset($_POST["f".ucfirst($classePrefixe)."_".$aNodeToSort[$i]["attrs"]["NAME"]])){
 					$tempUrl = trim($_POST["f".ucfirst($classePrefixe)."_".$aNodeToSort[$i]["attrs"]["NAME"]]);
-					if (!ereg("^http|ftp]://.*", $tempUrl) && ($tempUrl != "")){
+					if (!preg_match("/^http|ftp]:\/\/.*/msi", $tempUrl) && ($tempUrl != "")){
 						$tempUrl = "http://".$tempUrl;
 					}					
 					setItemValue($oRes, $aNodeToSort[$i]["attrs"]["NAME"], $tempUrl);
@@ -663,7 +663,7 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 		if($listParam!=""){
 			$redirString .= "&".$listParam;
 		}
-		if (ereg("id=[1-9]+", $redirString) && ereg("id=-1", $redirString)){ // 2 fois id= , on garde la value > 0
+		if (preg_match("/id=[1-9]+/msi", $redirString) && preg_match("/id=\-1/msi", $redirString)){ // 2 fois id= , on garde la value > 0
 			$redirString = ereg_replace("([?&]{1})id=-1", "\\1", $redirString);		
 		}	
 ?>
@@ -1169,7 +1169,7 @@ for ($i=0;$i<count($aNodeToSort);$i++){
 							if ($bCms_site == true && $classeName != "classe" ) {
 								echo "je rentre".$oForeign->get_cms_site(). " ".$_SESSION['idSite_travail']. " ".$idSite;
 								$temp_cms_site = $oForeign->get_cms_site();
-								if ((isset($_SESSION['idSite_travail']) && $_SESSION['idSite_travail']!= "" &&  ereg("backoffice", $_SERVER['PHP_SELF']) && $temp_cms_site == $_SESSION['idSite_travail']) || ($temp_cms_site == $idSite)) {
+								if ((isset($_SESSION['idSite_travail']) && $_SESSION['idSite_travail']!= "" &&  preg_match("/backoffice/msi", $_SERVER['PHP_SELF']) && $temp_cms_site == $_SESSION['idSite_travail']) || ($temp_cms_site == $idSite)) {
 										echo "<option value=\"".$tempId."\"";
 										if ($eKeyValue == $tempId){
 											echo " selected";
@@ -1780,7 +1780,7 @@ for ($i=0;$i<count($aNodeToSort);$i++){
 							if ($bCms_site == true && $classeName != "classe" ) {
 								
 								$temp_cms_site = $oForeign->get_cms_site();
-								if ((isset($_SESSION['idSite_travail']) && $_SESSION['idSite_travail']!= "" &&  ereg("backoffice", $_SERVER['PHP_SELF']) /* && $temp_cms_site == $_SESSION['idSite_travail'*/)/* || ($temp_cms_site == $idSite)*/) {
+								if ((isset($_SESSION['idSite_travail']) && $_SESSION['idSite_travail']!= "" &&  preg_match("/backoffice/msi", $_SERVER['PHP_SELF']) /* && $temp_cms_site == $_SESSION['idSite_travail'*/)/* || ($temp_cms_site == $idSite)*/) {
 									// test sur select. chercher id de la fiche en cours ($id) et id du foreign en cours ($tempId) dans Asso.
 									echo "<input type=\"checkbox\" name=\"fAsso".ucfirst($tempAssoIn)."_".ucfirst($tempAssoOut)."_".$tempId."\" id=\"fAsso".ucfirst($tempAssoIn)."_".ucfirst($tempAssoOut)."_".$tempId."\" value=\"".$tempId."\" ";
 							

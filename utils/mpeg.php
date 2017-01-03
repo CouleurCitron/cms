@@ -7,9 +7,9 @@ if (!isset($_GET["f"]) || ($_GET["f"] == "")){
 else{
 	$path = "/custom/upload/video/".$_GET["f"];
 }
-if (ereg("^/.*", $path)){
+if (preg_match("/^\/.*/msi", $path)){
 	$path = $_SERVER['DOCUMENT_ROOT'].$path;
-	$name = ereg_replace("[^\.]*/([^/]+)", "\\1", $path);	
+	$name = preg_replace("/[^\.]*\/([^\/]+)/msi", "$1", $path);	
 }
 else{
 	$name = $path;

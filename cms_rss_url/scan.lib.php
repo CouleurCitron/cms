@@ -182,7 +182,7 @@ function set_new_flux ($classeName, $id, $isnew = false) {
 							elseif ($aNodeToSort[$i]["attrs"]["OPTION"] == "url"){ // cas url, on ajoute le protocole http:// si manque
 								if (isset($eKeyValue)){
 									$tempUrl = trim($eKeyValue);
-									if (!ereg("^http|ftp|https]://.*", $tempUrl) && ($tempUrl != "")){
+									if (!preg_match("/^http|ftp|https]:\/\/.*/msi", $tempUrl) && ($tempUrl != "")){
 										$tempUrl = "http://".$tempUrl;
 									}					 
 									eval("$"."oObjet->set_".$aNodeToSort[$i]["attrs"]["NAME"]."($"."tempUrl);");
@@ -333,5 +333,3 @@ function send_mail_success_to_admin ($from, $to, $classeName, $id, $items, $eNew
 }
 
 ?>
-
- 

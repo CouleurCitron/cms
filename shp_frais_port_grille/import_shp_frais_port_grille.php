@@ -101,9 +101,9 @@ if (isset($_FILES['importfile'])) {
 	if (isset($_POST['shipper_id']) && $_POST['shipper_id'] > 0) {
 		if(move_uploaded_file($_FILES['importfile']['tmp_name'], $saveFile) || is_file($_SERVER['DOCUMENT_ROOT'].$_GET['importfile'])){
 			$status .= "Téléchargement du fichier : OK <br /><br />"; 
-			if (ereg('xls', $ext)) {
+			if (preg_match('/xls/msi', $ext)) {
 				echo ' import de XLS<br />';
-			} elseif (ereg('csv', $ext)) {
+			} elseif (preg_match('/csv/msi', $ext)) {
 				echo ' import de CSV<br />';
 			} else {
 				echo ' import de type inconnu<br />';
@@ -212,10 +212,10 @@ if (isset($_FILES['importfile'])) {
 
 			//----------------------------------------------------------		
 			
-			if (ereg('xls', $ext)){
+			if (preg_match('/xls/msi', $ext)){
 				include('import.xls.php');
 			}
-			elseif (ereg('csv', $ext)) {
+			elseif (preg_match('/csv/msi', $ext)) {
 				
 				// Debut traitement CSV
 				//echo "open file : ".$saveFile."<br/>";

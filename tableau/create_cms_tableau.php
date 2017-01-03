@@ -235,7 +235,7 @@ else {
 <?php
 // -------------------------- NOTRE TABLEAU ------------------------------ //
 	 
-	if (ereg("maj_cms_tableau", $_SERVER["HTTP_REFERER"])) {
+	if (preg_match("/maj_cms_tableau/msi", $_SERVER["HTTP_REFERER"])) {
 		$strHTMLBase = getHTML ($oRes);
 		
 		$sql="select * from cms_tableau_perempt where cms_tableau =".$_GET["id"]." order by cms_version DESC";
@@ -690,8 +690,8 @@ else if ($actiontodo == "SAVEALL") {
 		if($listParam!=""){
 			$redirString .= "&".$listParam;
 		}
-		if (ereg("id=[1-9]+", $redirString) && ereg("id=-1", $redirString)){ // 2 fois id= , on garde la value > 0
-			$redirString = ereg_replace("([?&]{1})id=-1", "\\1", $redirString);		
+		if (preg_match("/id=[1-9]+/msi", $redirString) && preg_match("/id=\-1/msi", $redirString)){ // 2 fois id= , on garde la value > 0
+			$redirString = preg_replace("/([?&]{1})id=-1/msi", "$1", $redirString);		
 		}	
 		
 		//echo $oRes->get_html();
@@ -767,7 +767,7 @@ for ($i=0; $i<$nombreLignes;$i++){
 
 			$ligneTDcontenu = $aItems[1][$l];
 			if ($l==0) {
-				if (!ereg ("<b>", $ligneTDcontenu) && ltrim($ligneTDcontenu)!="") {
+				if (!preg_match ("/<b>/msi", $ligneTDcontenu) && ltrim($ligneTDcontenu)!="") {
 					$ligneTD = str_replace ($aItems[1][$l], "<b>".$aItems[1][$l]."</b>", $ligneTD);
 				}
 				if ($valuePDF!="") {

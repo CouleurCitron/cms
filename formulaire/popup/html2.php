@@ -31,7 +31,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 <form name="building">
 <input type="button" name="dummy" value="Insérer la mise en forme" onClick="javascript:if(SPAW_Clean_HTML_src('content',this)) makeit();">
 <?php
-if (!ereg('/$', $HTTP_SERVER_VARS['DOCUMENT_ROOT']))
+if (!preg_match('/\/$/msi', $HTTP_SERVER_VARS['DOCUMENT_ROOT']))
  $_root = $HTTP_SERVER_VARS['DOCUMENT_ROOT'].'/';
 else
   $_root = $HTTP_SERVER_VARS['DOCUMENT_ROOT'];

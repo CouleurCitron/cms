@@ -203,7 +203,7 @@ if ($_GET["source"]!="") {
 <span class="arbo2"><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?><?php echo $_SERVER['PHP_SELF']; ?>?form=<?php echo $_GET['form']; ?>&champ=<?php echo $_GET['champ']."".$paramSite.""; ?>">Racine</a>
 <?php
 	 
-	$path = split('/',$relDir);
+	$path = explode('/',$relDir);
 	$tmpPath = '';
 	if(strlen($relDir)>0) {
 		foreach($path as $k => $v) {
@@ -226,7 +226,7 @@ if ($_GET["source"]!="") {
 <?php 
 	
 	foreach($dirs as $k => $dir) {  
-		if ((ereg("custom", $relDir.'/'.$dir) || ereg("documents", $relDir.'/'.$dir)) && $dir!="GABARITS" || (ereg("content", $relDir.'/'.$dir )  ) ) { 
+		if ((preg_match("/custom/msi", $relDir.'/'.$dir) || preg_match("/documents/msi", $relDir.'/'.$dir)) && $dir!="GABARITS" || (preg_match("/content/msi", $relDir.'/'.$dir )  ) ) { 
 		 
 ?>
 <tr class="<?php echo $colors[$i%2]; $i++; ?>">
@@ -249,7 +249,7 @@ if ($_GET["source"]!="") {
 			$img = "ukn.gif";
 ?>
 <tr class="<?php echo $colors[$i%2]; $i++; ?>">
-   <?php if (!ereg("cvs", $file) && !ereg("node.php", $file)) {?> 
+   <?php if (!preg_match("/cvs/msi", $file) && !preg_match("/node\.php/msi", $file)) {?> 
    <td>&nbsp;&nbsp;</td>
    <td><span style="text-decoration: none">&nbsp;&nbsp;</span><a href="#" onClick="doIt('<?php echo str_replace("'","\'",$relDir).'/'.$file; ?>');"><img src="/backoffice/cms/filemanager/images/<?php echo $img; ?>" border="0"><?php echo $file; ?></a></td>
    <?php } ?>

@@ -16,16 +16,16 @@ $seekat = $_GET['position'];
 $filename = htmlspecialchars($_GET['file']);
 
 if ( $_SERVER['HTTPS'] != "on" ) 
-	$fullfilename = $path.ereg_replace('http://[^/]+(.*)', '\\1', $filename);
+	$fullfilename = $path.preg_replace('/http:\/\/[^\/]+(.*)/msi', '$1', $filename);
 else 
-	$fullfilename = $path.ereg_replace('https://[^/]+(.*)', '\\1', $filename);
+	$fullfilename = $path.preg_replace('/https:\/\/[^\/]+(.*)/msi', '$1', $filename);
 $filename = basename($fullfilename);
 $path = str_replace($filename, '', $fullfilename);
 
 $ext=strrchr($filename, '.');
 $file = $path . $filename;
  
-if((file_exists($file)) && ($ext=='.flv') && (strlen($filename)>2) && (!eregi(basename($_SERVER['PHP_SELF']), $filename)) && (ereg('^[^./][^/]*$', $filename)))
+if((file_exists($file)) && ($ext=='.flv') && (strlen($filename)>2) && (!preg_match('/'.basename($_SERVER['PHP_SELF']).'/msi', $filename)) && (preg_match('/^[^.\/][^\/]*$/msi', $filename)))
 {
         header('Content-Type: video/x-flv');
 		header('Cache-Control: private, max-age=0, must-revalidate'); // ajout dans le cas SSL

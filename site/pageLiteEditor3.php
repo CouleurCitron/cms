@@ -300,7 +300,7 @@ if (preg_match('/<\!--DEBUTCMS;/', $tampon)) {
 		$zoneDiv.= $oContent->getHtml_content();
 		
 		// supprime la redirection lors de l'affichage
-		if (ereg ("window.location.href",$zoneDiv) ) {
+		if (preg_match ("/window\.location\.href/msi",$zoneDiv) ) {
 			$zoneDiv = str_replace("window.location.href", "//window.location.href", $zoneDiv);
 		}
 		$tampon2.= $zoneDiv;

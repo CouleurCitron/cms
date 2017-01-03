@@ -271,20 +271,13 @@ function trier_rechercher ($oRes, $oRss) {
 		//
 	}*/
 
-	/*$sParam = ""; 
-	if ($_SERVER["QUERY_STRING"]!="" && ereg("param", $_SERVER["QUERY_STRING"])) {
-		$aParam = split('&', $_SERVER["QUERY_STRING"]);
-		for ($i = 0; $i<sizeof($aParam) ; $i++) {
-			if (!ereg("adodb", $aParam[$i]))
-				$sParam.="&".$aParam[$i]; 
-		}	 
-	}*/
+
 	 
 	$sWhere = $oRss->get_param_where();
 	$sValue = $oRss->get_value_where();	
 	
 	if ($sWhere!="" || $sValue!="") {
-		if (!ereg("node", $sWhere)) {
+		if (!preg_match("/node/msi", $sWhere)) {
 			$oRech = new dbRecherche();
 			$oRech->setValeurRecherche("declencher_recherche");
 			$oRech->setTableBD($classeName);
@@ -295,18 +288,18 @@ function trier_rechercher ($oRes, $oRss) {
 		}
 		else {
 			if (is_as_get("currPath")){
-				$aWhere = split("and", $sWhere);
+				$aWhere = explode("and", $sWhere);
 				$sClasseBD = ""; 
 				for ($i = 0; $i<sizeof($aWhere); $i++) {
 					$condition = trim($aWhere[$i]); 
-					$aWhereEgale = split("=", $condition);
+					$aWhereEgale = explode("=", $condition);
 					
 					for ($j = 0; $j<sizeof($aWhereEgale); $j++) {
 						$sWhereEgale = $aWhereEgale[$j]; 
-						if (ereg("\.", $sWhereEgale)) { 
-							$aClasseCondition = split("\.", $sWhereEgale); 
+						if (preg_match("/\./msi", $sWhereEgale)) { 
+							$aClasseCondition = explode("\.", $sWhereEgale); 
 							 
-							if (!ereg($aClasseCondition[0], $sClasseBD) && $aClasseCondition[0]!= $classeName) $sClasseBD.= $aClasseCondition[0].", "; 
+							if (!preg_match('/'.$aClasseCondition[0].'/msi', $sClasseBD) && $aClasseCondition[0]!= $classeName) $sClasseBD.= $aClasseCondition[0].", "; 
 						 
 							 
 							
@@ -341,7 +334,7 @@ function trier_rechercher ($oRes, $oRss) {
 	if ($sOrder!="") {
 		$aOrder = array();
 		if (strpos($sOrder, ",")!="") {
-			$aOrder = split ($sOrder, ",");
+			$aOrder = explode ($sOrder, ",");
 		}
 		else {
 			array_push($aOrder, $sOrder);
@@ -367,11 +360,11 @@ function trier_rechercher ($oRes, $oRss) {
 	$sLimit = $oRss->get_num_item();
 	
 	if ($sLimit != ""){
-		if (eregi('limit [0-9]+, [0-9]', $sLimit)){
+		if (preg_match('/limit [0-9]+, [0-9]/msi', $sLimit)){
 			$sql.= ' '.$sLimit; 
 		
 		}
-		elseif (eregi('[0-9]+', $sLimit)){
+		elseif (preg_match('/[0-9]+/msi', $sLimit)){
 			$sql.= ' LIMIT 0, '.$sLimit; 
 		}	
 	}
@@ -380,35 +373,6 @@ function trier_rechercher ($oRes, $oRss) {
 	 
 	$aResults =  dbGetObjectsFromRequete($classeName, $sql); 
 	 
-/*	unset($aRecherche);
-	unset($aGetterOrderBy);
-	unset($aGetterSensOrderBy);*/
-
-	/*execution de la requette avec pagination
-
-	$sParam = "";
-	
-	
-	$pager = new Pagination($db, $sql, $sParam);
-	$pager->Render($rows_per_page=20000000);
-
-	// tableau d'id renvoyé par la fonction de pagination
-	$aId = $pager->aResult;
-
-	// A VOIR sponthus
-	// la fonction de pagination devrait renvoyer un tableau d'objet
-	// pour l'instant je n'exploite qu'un tableau d'id
-	// ce ui m'oblige à re sélectionner mes objets
-	// à perfectionner
-*/
-	// liste des objets
-	
-	/*	$aListe_res   = $aResultatTri['aListe_res'];
-	$classePrefix = $aResultatTri['classePrefixe'];
-	$aNodeToSort  = $aResultatTri['aNodeToSort'];
-	$classeName   = $aResultatTri['classeName'];
-	
-	*/
 	$aListe_res = array();
 	for ($m=0; $m<sizeof($aResults); $m++)
 	{
@@ -605,7 +569,7 @@ function creer_liste_items ($aResultatTri, $oRss) {
 								else if ($aNodeToSort[$i]["attrs"]["TYPE"] == "timestamp" || $aNodeToSort[$i]["attrs"]["TYPE"] == "datetime"){ // cas timestamp
 									//$RSS[$aNodeToSort[$i]["attrs"]["RSS"]] = $eKeyValue; 
 									$eKeyValue = str_replace ("//", "", $eKeyValue); 
-									ereg ("([0-9]{2})[-/]{1}([0-9]{2})[-/]{1}([0-9]{4})[- ]{1}([0-9]{2})[-:]{1}([0-9]{2})[-:]{1}([0-9]{2})", $eKeyValue, $regs);  
+									preg_match ("/([0-9]{2})[\-\/]{1}([0-9]{2})[\-\/]{1}([0-9]{4})[\- ]{1}([0-9]{2})[\-:]{1}([0-9]{2})[\-:]{1}([0-9]{2})/msi", $eKeyValue, $regs);  
 									//$eKeyValue = strtotime($eKeyValue);  
 									//$RSS[$aNodeToSort[$i]["attrs"]["RSS"]] = date("r", mktime($regs[4], $regs[5], $regs[6], $regs[2], $regs[1], $regs[3])); 
 									$RSS[$aNodeToSort[$i]["attrs"]["RSS"]] = mktime($regs[4], $regs[5], $regs[6], $regs[2], $regs[1], $regs[3]); 
@@ -615,7 +579,7 @@ function creer_liste_items ($aResultatTri, $oRss) {
 								else if ($aNodeToSort[$i]["attrs"]["TYPE"] == "date"){ // cas date 
 									
 									$eKeyValue = str_replace ("//", "", $eKeyValue);  
-									ereg ("([0-9]{2})[-/]{1}([0-9]{2})[-/]{1}([0-9]{4})", $eKeyValue, $regs);   
+									preg_match ("/([0-9]{2})[\-\/]{1}([0-9]{2})[\-\/]{1}([0-9]{4})/msi", $eKeyValue, $regs);   
 									//$RSS[$aNodeToSort[$i]["attrs"]["RSS"]] = date("r", mktime(0, 0, 0, $regs[2], $regs[1], $regs[3]));
 									$RSS[$aNodeToSort[$i]["attrs"]["RSS"]] = mktime(0, 0, 0, $regs[2], $regs[1], $regs[3]);
 									
@@ -770,10 +734,10 @@ function creer_liste_items ($aResultatTri, $oRss) {
 			$liste_des_items .= "			<item>\n";
 			//$liste_des_items .= "<guid isPermaLink=\"false\">".ereg_replace("&([^q]{1})", "&amp;\\1", $RSS['link'])."</guid>\n"; 
 			//$liste_des_items .= "				<title>".rawurlencode(($RSS['title']))."</title>\n";
-			$liste_des_items .= "				<title><![CDATA[".ereg_replace("&([^q]{1})", "&amp;\\1", $RSS['title'])."]]></title>\n";
+			$liste_des_items .= "				<title><![CDATA[".preg_replace("/&([^q]{1})/msi", "&amp;$1", $RSS['title'])."]]></title>\n";
 			$liste_des_items .= "				<pubDate>".$RSS['pubDate']."</pubDate>\n";
 			//$liste_des_items .= "				<description>".rawurlencode(($RSS['description']))."</description>\n";
-			$liste_des_items .= "				<description><![CDATA[".ereg_replace("&([^q]{1})", "&amp;\\1", $description)."]]></description>\n";
+			$liste_des_items .= "				<description><![CDATA[".preg_replace("/&([^q]{1})/msi", "&amp;$1", $description)."]]></description>\n";
 			 
 			
 			if ($RSS['image'] != '') {
@@ -783,7 +747,7 @@ function creer_liste_items ($aResultatTri, $oRss) {
 				$aImg = split (";", $RSS['image']);
 				$RSS['image'] = $aImg[0]; 
 				if ($RSS['image'] != ""){	
-					$sEncFullPath = ereg_replace("http://[^/]+", $_SERVER['DOCUMENT_ROOT'], $RSS['image']); 
+					$sEncFullPath = preg_replace("/http:\/\/[^\/]+/msi", $_SERVER['DOCUMENT_ROOT'], $RSS['image']); 
 					if (is_file($sEncFullPath)) {
 						$aEncStats = stat($sEncFullPath); 
 				
@@ -792,19 +756,17 @@ function creer_liste_items ($aResultatTri, $oRss) {
 				}
 			}
 				
-		//	if ($RSS['enclosure'] != "" && !ereg(".pdf", $RSS['enclosure']) ){	  
-				//$RSS['enclosureurl'] = "http://".$_SERVER['HTTP_HOST']."/modules/utils/telecharger.php?chemin=/custom/upload/".$classeName."/&file=".$RSS['enclosure'];
-				$RSS['enclosure'] = "http://".$_SERVER['HTTP_HOST']."/custom/upload/".$classeName."/".$RSS['enclosure'];
-				$RSS['enclosure'] = controlLinkValue($RSS['enclosure'], $oRes);
-				$sEncFullPath = ereg_replace("http://[^/]+", $_SERVER['DOCUMENT_ROOT'], $RSS['enclosure']); 
-			
-				if (is_file($sEncFullPath)) {
-					$aEncStats = stat($sEncFullPath);  
-					$liste_des_items .= "				<enclosure url=\"".$RSS['enclosure']."\" length=\"".$aEncStats["size"]."\" type=\"".get_mimeType(get_extension(basename($sEncFullPath)))."\"/>\n";	
-				}
-			//}
-			$liste_des_items .= "				<link>".ereg_replace("&([^q]{1})", "&amp;\\1", $RSS['link'])."</link>\n";
-			$liste_des_items .= "				<guid>".ereg_replace("&([^q]{1})", "&amp;\\1", $RSS['link'])."</guid>\n";
+			$RSS['enclosure'] = "http://".$_SERVER['HTTP_HOST']."/custom/upload/".$classeName."/".$RSS['enclosure'];
+			$RSS['enclosure'] = controlLinkValue($RSS['enclosure'], $oRes);
+			$sEncFullPath = preg_replace("/http:\/\/[^\/]+/msi", $_SERVER['DOCUMENT_ROOT'], $RSS['enclosure']); 
+		
+			if (is_file($sEncFullPath)) {
+				$aEncStats = stat($sEncFullPath);  
+				$liste_des_items .= "				<enclosure url=\"".$RSS['enclosure']."\" length=\"".$aEncStats["size"]."\" type=\"".get_mimeType(get_extension(basename($sEncFullPath)))."\"/>\n";	
+			}
+
+			$liste_des_items .= "				<link>".preg_replace("/&([^q]{1})/msi", "&amp;$1", $RSS['link'])."</link>\n";
+			$liste_des_items .= "				<guid>".preg_replace("/&([^q]{1})/msi", "&amp;$1", $RSS['link'])."</guid>\n";
 			//$liste_des_items .= "				<frenchdate>".$RSS['frenchdate']."</frenchdate>\n"; 
 			 
 			 

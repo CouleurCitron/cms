@@ -107,7 +107,7 @@ if (count($_POST) == 0) {
 		}
 	}
 } else {
-	$ext = ereg_replace('.*\.([^\.]+)', '\\1', $_FILES['importfile']['name']);
+	$ext = preg_replace('/.*\.([^\.]+)/msi', '$1', $_FILES['importfile']['name']);
 	$saveFile = $uploadRep.'import.'.$ext;
 }
 	
@@ -116,9 +116,9 @@ if (isset($_FILES['importfile'])) {
 	
 	if (move_uploaded_file($_FILES['importfile']['tmp_name'], $saveFile) || is_file($_SERVER['DOCUMENT_ROOT'].$_GET['importfile'])) {
 		$status .= "Téléchargement du fichier : OK <br /><br />"; 
-		if (ereg('xls', $ext))
+		if (preg_match('/xls/msi', $ext))
 			echo ' import de XLS<br />';
-		elseif (ereg('csv', $ext))
+		elseif (preg_match('/csv/msi', $ext))
 			echo ' import de CSV<br />';
 		else	die(' import de type inconnu<br />');
 		
@@ -133,7 +133,7 @@ if (isset($_FILES['importfile'])) {
 		if (strpos($sBodyXLS, "<!-- htmlxls -->") !== false) {
 			echo "fichier XLS HTML en provenance d'un export\n<br>";
 
-			$rows = split("<tr>", $sBodyXLS);
+			$rows = explode("<tr>", $sBodyXLS);
 			
 			// check ligne 0
 			if (strpos($rows[0], "</tr>") === false) {
@@ -143,7 +143,7 @@ if (isset($_FILES['importfile'])) {
 			// traitement des lignes
 			for ($i = 0;$i < count($rows);$i++){
 				$rows[$i] = str_replace("</tr>", "", $rows[$i]);
-				$rows[$i] = split("<td>", $rows[$i]);
+				$rows[$i] = explode("<td>", $rows[$i]);
 				//check cell 0
 				if (strpos($rows[$i][0], "</td>") === false){
 					$rows[$i][0] = "";// = array_slice($rows[$i], 1); 
@@ -226,7 +226,7 @@ if (isset($_FILES['importfile'])) {
 		//----------------------------------------------------------
 		//echo "PARAMETERS startLine : $startLine | bImportIds : $bImportIds | bImportRefs : $bImportRefs<br/>";
 		
-		if (ereg('xls', $ext))  {
+		if (preg_match('/xls/msi', $ext))  {
 			
 			$data->read($saveFile);
 
@@ -349,7 +349,7 @@ if (isset($_FILES['importfile'])) {
 				}
 			}// fin while
 
-		} elseif (ereg('csv', $ext)) {
+		} elseif (preg_match('/csv/msi', $ext)) {
 			// Debut traitement CSV
 			//echo "open file : ".$saveFile."<br/>";
 			$fh = fopen($saveFile,'r'); 

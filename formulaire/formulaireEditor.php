@@ -140,7 +140,7 @@ else{
 		}	
 	}
 	
-	$ext = ereg_replace('.*\.([^\.]+)', '\\1', $_FILES['importfile']['name']);
+	$ext = preg_replace('/.*\.([^\.]+)/msi', '$1', $_FILES['importfile']['name']);
 	$saveFile = $uploadRep.''.$_FILES['importfile']['name'];
 	
 	// import du fichier XML
@@ -149,7 +149,7 @@ else{
 		//eccho $saveFile
 		if(move_uploaded_file($_FILES['importfile']['tmp_name'], $saveFile) || is_file($_SERVER['DOCUMENT_ROOT'].$_GET['importfile'])){
 			$status .= "Téléchargement du fichier : OK <br /><br />"; 
-			if (ereg('xml', $ext)){
+			if (preg_match('/xml/msi', $ext)){
 				//echo ' import de xml<br />';
 			} 
 			else{
@@ -239,7 +239,7 @@ else{
 					if ($dir = @opendir($basedir)) {
 						while (($file = readdir($dir)) !== false) {	
 										
-							if ((is_file($basedir."/".$file)) && (ereg(".*\.(xml|XML)", $file))) {
+							if ((is_file($basedir."/".$file)) && (preg_match("/.*\.(xml)/msi", $file))) {
 								$formPath = str_replace($_SERVER['DOCUMENT_ROOT'], "", $basedir."/".$file);								
 								$formName = str_replace($_SERVER['DOCUMENT_ROOT'].$basedir."/", "", $file);		 
 								 if($formName == $oForm->getName_form().".xml"){

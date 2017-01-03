@@ -76,7 +76,7 @@ if ($_GET['brique'] != "formulaire") {
 }
 ?>
 <?php
-if (!ereg('/$', $HTTP_SERVER_VARS['DOCUMENT_ROOT']))
+if (!preg_match('/\/$/msi', $HTTP_SERVER_VARS['DOCUMENT_ROOT']))
  $_root = $HTTP_SERVER_VARS['DOCUMENT_ROOT'].'/';
 else
   $_root = $HTTP_SERVER_VARS['DOCUMENT_ROOT'];
