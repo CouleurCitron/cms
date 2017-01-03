@@ -13,7 +13,7 @@ else{
 }
 
 // activation du menu : déroulement
-activateMenu(ereg_replace("([^\.]+)\.php", "\\1", basename($_SERVER['PHP_SELF']))); 
+activateMenu(preg_replace("/([^\.]+)\.php/msi", "$1", basename($_SERVER['PHP_SELF']))); 
 
 ?>
 <p>placer les images dans le dossier /tmp</p>
@@ -79,7 +79,7 @@ if (is_post('site')){
 				$oSli->set_cms_site($_POST['site']);
 				$oSli->set_src($file);
 				//set_titre
-				$oSli->set_titre(ereg_replace('([^\.]+)\.[^\.]{2,4}', '\\1', $file));
+				$oSli->set_titre(preg_replace('/([^\.]+)\.[^\.]{2,4}/msi', '$1', $file));
 				
 				
 				//dumpObjLite($oSli);

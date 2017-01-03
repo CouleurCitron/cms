@@ -1,7 +1,7 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php'); 
 $rel_dir = $_GET['rel_dir'];
-$rel_dir = ereg_replace("/(.+)", "\\1", $rel_dir);
+$rel_dir = preg_replace("/\/(.+)/msi", "$1", $rel_dir);
 //if(!isset($_SESSION['adminname']))return;
 ?>
 <link href="/backoffice/cms/filemanager/admin/style.css" rel="stylesheet" type="text/css">

@@ -53,7 +53,7 @@ while (isset($_GET['champ'.$k])&& $_GET['champ'.$k]!=""){
 	
 	
 	$jointure = " ".$_GET['champ'.$k]." ".urldecode($_GET['operateur'.$k])." '".$_GET['valeur'.$k]."' ";
-	if (eregi('where', $sql)){
+	if (preg_match('/where/msi', $sql)){
 		$sql = str_replace('where', 'where '.$jointure.' and ', $sql);
 	}
 	else{

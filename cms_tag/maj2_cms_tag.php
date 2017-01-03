@@ -308,7 +308,7 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 			$redirString .= "&".$listParam;
 		}
 		if (preg_match("/id=[1-9]+/msi", $redirString) && preg_match("/id=\-1/msi", $redirString)){ // 2 fois id= , on garde la value > 0
-			$redirString = ereg_replace("([?&]{1})id=-1", "\\1", $redirString);		
+			$redirString = preg_replace("/([?&]{1})id=-1/msi", "$1", $redirString);		
 		}	
 ?>
 <script language="javascript" type="text/javascript">

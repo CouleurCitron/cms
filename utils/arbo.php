@@ -69,7 +69,7 @@ if (!isset($courant)){
 	}
 	else{
 		//$urlToList = '/content/index.php';
-		$urlToList = ereg_replace("http://[^/]+/", "/", $referUrl);
+		$urlToList = preg_replace("/[htps]{4,5}:\/\/[^\/]+\//msi", "/", $referUrl);
 		//$urlToList = $PHP_SELF;
 		$pathToList = substr ($urlToList, 0, strrpos ($urlToList, "/") + 1);
 
@@ -81,9 +81,9 @@ if (!isset($courant)){
 	}
 
 	// calcul du path de niveau 1 correspondant à la page en cours
-	$aTempPathToList = split("/", $pathToList);
+	$aTempPathToList = explode("/", $pathToList);
 	if (count($aTempPathToList) > 2){
-		$aTempPathToList = array_slice(split("/", $pathToList),0,4);
+		$aTempPathToList = array_slice(explode("/", $pathToList),0,4);
 	}
 	$basePathToList = join($aTempPathToList, "/")."/";
 	$courant = getNodeInfosReverse($idSite,$db,stripslashes($pathToList));
@@ -196,17 +196,17 @@ if ( isset($_GET["filterdescription"]) ) {
 
 //echo $mybuffer;
 
-	$parts = split("description\=\"",$mybuffer);
+	$parts = explode("description\=\"",$mybuffer);
 
 	foreach ( array_keys($parts) as $key ) {
 		if ( $key == 0 ) continue;
-		list($description,$rest) = split("\"",$parts[$key],2);
+		list($description,$rest) = explode("\"",$parts[$key],2);
 		$mydescrition = array();
-		$mydescription = @split("\;",$description,3);
+		$mydescription = @explode("\;",$description,3);
 		$mydescription = $mydescription[$_GET["filterdescription"]-1];
 		$parts[$key] = $mydescription."\"".$rest;
 	}
-echo join("description=\"",$parts);
+echo implode("description=\"",$parts);
 }
 
 

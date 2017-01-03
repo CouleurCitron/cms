@@ -30,7 +30,7 @@ if($_POST['node_id']=="") {
 		$virtualPathDest = $_POST['v_comp_path_dest'];
 	$nodeInfos=getNodeInfosCarte($idSite, $db,$virtualPath);
 	$id=moveNodeCarte($db,$virtualPath,$_POST['node_id']);
-	$parentvirtualPath = ereg_replace(',[^,]+$','',$virtualPath);
+	$parentvirtualPath = preg_replace('/,[^,]+$/msi','',$virtualPath);
 	$parentnodeInfos=getNodeInfosCarte($idSite, $db,$parentvirtualPath);
 }
 ?>

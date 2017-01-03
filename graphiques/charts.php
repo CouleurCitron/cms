@@ -165,7 +165,7 @@ function KeeponlyAllNumeric (&$ArrayGET) {
 	if (is_array ($ArrayGET)) array_walk($ArrayGET, "KeeponlyAllNumeric");
 	else {
 		$ArrayGET = preg_replace("/\,/",'.',$ArrayGET); // converti , en point
-		$ArrayGET = ereg_replace("[^0-9\.]*",'',$ArrayGET); // supprime tous les caractres non numriques et hors "point"
+		$ArrayGET = preg_replace("/[^0-9\.]*/msi",'',$ArrayGET); // supprime tous les caractres non numriques et hors "point"
 	}
 }
 

@@ -76,7 +76,7 @@ window.location="show_<?php echo $classeName; ?>.php?adodb_next_page=<?php echo 
 		document.<?php echo $classeName; ?>_form.actiontodo.value = "MODIF";
 		document.<?php echo $classeName; ?>_form.display.value = null;
 		document.<?php echo $classeName; ?>_form.id.value = -1;
-		document.<?php echo $classeName; ?>_form.action = "maj_<?php echo $classeName; ?>.php?id=-1&adodb_next_page=-1<?php if($listParam!="") echo "&".ereg_replace("(id=)([0-9]+)", "previd=\\2", $listParam);?>";
+		document.<?php echo $classeName; ?>_form.action = "maj_<?php echo $classeName; ?>.php?id=-1&adodb_next_page=-1<?php if($listParam!="") echo "&".preg_replace("/(id=)([0-9]+)/msi", "previd=$2", $listParam);?>";
 		document.<?php echo $classeName; ?>_form.submit();
 		
 	}

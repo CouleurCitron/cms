@@ -31,7 +31,7 @@ else{
 
 
 // on vide les { }
-$sEditorStyles = ereg_replace("\{[^\}]*\}", "{}", $sEditorStyles);
+$sEditorStyles = preg_replace("/\{[^\}]*\}/msi", "{}", $sEditorStyles);
 
 preg_match_all("/\.([^ ^\{^\)^;^\n^\r^\f]{4,})[ \{]*/", $sEditorStyles, $aStyles);
 $aStyles = array_unique($aStyles[1]);

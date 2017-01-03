@@ -122,7 +122,7 @@ elseif (isset($_POST['todo']) && ($_POST['todo'] == "save")) {
 	
 	$ConfDir = implode(' ', $aConfDir);
 	
-	$ConfType = ereg_replace("[\n\r\t\v]", "", join($aConfType, " "));
+	$ConfType = preg_replace("/[\n\r\t\v]/msi", "", join($aConfType, " "));
 	$conf = "# Fichier de configuration de Swish-E pour le site ".$oSite->get_name()."\nIndexFile donnees.index\nIndexDir ".$ConfDir."\nIndexOnly ".$ConfType."\nMaxDepth 5\nParserWarnLevel 0\nIgnoreMetaTags DESCRIPTION KEYWORDS\n#TranslateCharacters :ascii7:";
 	
 	$file = $_SERVER['DOCUMENT_ROOT']."/custom/search/".strtoupper($oSite->get_rep())."/swish.conf";

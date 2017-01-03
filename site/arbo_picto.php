@@ -122,11 +122,11 @@ if (is_get("action")) {
             <td><a id="arbo_tag"  href="/backoffice/cms/site/arbo_tag.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=TAG<?php echo $param; ?>"><img border="0" src="/backoffice/cms/img/2013/icone/modifier-xml.png" title="<?php $translator->echoTransByCode('Tag_du_dossier'); ?>"></a></td>
 			<?php } ?>
           
-            <?php if ($nameUser == "ccitron") { ?> <td><a id="arbo_arbo_pages"  href="/backoffice/cms/cms_arbo_pages/maj_cms_arbo_pages.php?id=<?php echo ereg_replace('.*,([0-9]+)', '\\1', $virtualPath); ?>&action=MAJ<?php echo $param; ?>"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0" title="<?php $translator->echoTransByCode('Edition_avancee'); ?>"></a></td><?php } ?>
+            <?php if ($nameUser == "ccitron") { ?> <td><a id="arbo_arbo_pages"  href="/backoffice/cms/cms_arbo_pages/maj_cms_arbo_pages.php?id=<?php echo preg_replace('/.*,([0-9]+)/msi', '$1', $virtualPath); ?>&action=MAJ<?php echo $param; ?>"><img src="/backoffice/cms/img/2013/icone/modifier.png" border="0" title="<?php $translator->echoTransByCode('Edition_avancee'); ?>"></a></td><?php } ?>
          
 			<?php 
 			$currInfos 	= getNodeInfos($db,$virtualPath); 
-			$aPath 		= split ("/", $currInfos["path"]); 
+			$aPath 		= explode ("/", $currInfos["path"]); 
 			$currDir 	= $aPath[(sizeof($aPath)-2)];
 			
 			$currNode = getNodeInfos($db, $virtualPath);  

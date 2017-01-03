@@ -303,8 +303,7 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 		if (strval($_POST['fDeleteFile'.$iDel]) == "true"){		
 			$_POST[strval($_POST['fUpload'.$iDel])] = "";
 			
-			//$tempGetter = "$"."tempFile = $"."oRes->get_".ereg_replace("[^_]+_(.*)", "\\1", strval($_POST['fUpload'.$iDel]))."();";
-			$tempGetter = "$"."tempFile = $"."oRes->get_".eregi_replace(".+".$classePrefixe."_(.*)", "\\1", strval($_POST['fUpload'.$iDel]))."();";
+			$tempGetter = "$"."tempFile = $"."oRes->get_".preg_replace("/.+".$classePrefixe."_(.*)/msi", "$1", strval($_POST['fUpload'.$iDel]))."();";
 			
 			$tempGetter = str_replace("get_".$classePrefixe."_", "get", $tempGetter);
 			eval($tempGetter);
@@ -664,7 +663,7 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 			$redirString .= "&".$listParam;
 		}
 		if (preg_match("/id=[1-9]+/msi", $redirString) && preg_match("/id=\-1/msi", $redirString)){ // 2 fois id= , on garde la value > 0
-			$redirString = ereg_replace("([?&]{1})id=-1", "\\1", $redirString);		
+			$redirString = preg_replace("/([?&]{1})id=-1/", "$1", $redirString);		
 		}	
 ?>
 <script language="javascript" type="text/javascript">

@@ -12,7 +12,7 @@ function processDir($file){
 	if ($subdir = @opendir($file)) {
 		while (($subfile = readdir($subdir)) !== false) { 
 		
-			if ((eregi("[^\.]\.flv", $subfile))==1) {
+			if ((preg_match("/[^\.]\.flv/msi", $subfile))==1) {
 				$fullpath = $file.$subfile;
 				//echo $fullpath."<br />";
 				$relPath = str_replace($_SERVER['DOCUMENT_ROOT'], "", $fullpath);
@@ -25,7 +25,7 @@ function processDir($file){
 					
 					$bon_id_site = true;
 					
-					if ((eregi("/custom\/video/", $targetDir))==1) {
+					if ((preg_match("/custom\/video/msi", $targetDir))==1) {
 						// 2 = brique vidéo 
 						$type = 2;
 						$sType = "[Brique video] ";

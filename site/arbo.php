@@ -309,14 +309,14 @@ if (strlen($_GET['v_comp_path']) > 0)
 		  <?php if ($nameUser == "ccitron") { ?> 
 		  <tr>
             <td align="left" class="arbo">Edition avancée</td>
-            <td><a href="/backoffice/cms/cms_arbo_pages/maj_cms_arbo_pages.php?id=<?php echo ereg_replace('.*,([0-9]+)', '\\1', $virtualPath); ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
+            <td><a href="/backoffice/cms/cms_arbo_pages/maj_cms_arbo_pages.php?id=<?php echo preg_replace('/.*,([0-9]+)/msi', '$1', $virtualPath); ?>"><img border="0" src="<?php echo $URL_ROOT; ?>/backoffice/cms/img/2013/icone/go.png"></a></td>
           </tr>
 		  <?php } ?>
 		   <tr bgcolor="#FFFFFF">
             <td align="left" class="arbo">Lien direct pour accéder au dossier</td>
 			<?php 
 			$currInfos 	= getNodeInfos($db,$virtualPath); 
-			$aPath 		= split ("/", $currInfos["path"]); 
+			$aPath 		= explode ("/", $currInfos["path"]); 
 			$currDir 	= $aPath[(sizeof($aPath)-2)];
 			
 			$currNode = getNodeInfos($db, $virtualPath);  

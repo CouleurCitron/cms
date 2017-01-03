@@ -91,7 +91,7 @@ if (count($_POST) == 0){
 	}
 }
 else{
-	$ext = ereg_replace('.*\.([^\.]+)', '\\1', $_FILES['importfile']['name']);
+	$ext = preg_replace('/.*\.([^\.]+)/msi', '$1', $_FILES['importfile']['name']);
 	$saveFile = $uploadRep.'import.'.$ext;
 }
 	
@@ -122,7 +122,7 @@ if (isset($_FILES['importfile'])) {
 			if (strpos($sBodyXLS, "<!-- htmlxls -->") !== false){
 				echo "fichier XLS HTML en provenance d'un export\n<br>";
 	
-				$rows = split("<tr>", $sBodyXLS);
+				$rows = explode("<tr>", $sBodyXLS);
 				
 				// check ligne 0
 				if (strpos($rows[0], "</tr>") === false){
