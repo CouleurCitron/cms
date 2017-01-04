@@ -59,7 +59,7 @@ $listePage = getListPerim();
 <?php
 foreach($listePage as $k => $page) {
 	$infos = getPageById($page['id']);
-	$date = split('-',$page['date']);
+	$date = explode('-',$page['date']);
 	$date = $date[2].'/'.$date[1].'/'.$date[0];
 ?>
 <tr>

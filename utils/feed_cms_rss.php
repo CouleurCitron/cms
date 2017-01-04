@@ -506,7 +506,6 @@ function creer_liste_items ($aResultatTri, $oRss) {
 								}
 								else{// cas typique typique typique
 									// on converti br en \n et on remove les tags 
-									//$RSS[$aNodeToSort[$i]["attrs"]["RSSEN"]] = utf8_encode(html_entity_decode(ereg_replace("<[^<>]+>", "", eregi_replace("<br[^<>]*>", "\n", $eKeyValue))));
 									$RSS[$aNodeToSort[$i]["attrs"]["RSSEN"]] = html_to_rss($eKeyValue);
 									
 									if ($aNodeToSort[$i]["attrs"]["RSSEN"] == "description" && isset ($aNodeToSort[$i]["attrs"]["RSSHTML"]) &&  $aNodeToSort[$i]["attrs"]["RSSHTML"] == true) {
@@ -586,7 +585,6 @@ function creer_liste_items ($aResultatTri, $oRss) {
 								}
 								else{// cas typique typique typique
 									// on converti br en \n et on remove les tags 
-									//$RSS[$aNodeToSort[$i]["attrs"]["RSS"]] = utf8_encode(html_entity_decode(ereg_replace("<[^<>]+>", "", eregi_replace("<br[^<>]*>", "\n", $eKeyValue))));
 									if (isset($aNodeToSort[$i]["attrs"]["TRANSLATE"]) && $aNodeToSort[$i]["attrs"]["TRANSLATE"] == "reference") {
 										$eKeyValue = $translator->getByID($eKeyValue, $_SESSION["id_langue"]);
 									}
@@ -612,20 +610,9 @@ function creer_liste_items ($aResultatTri, $oRss) {
 		}	
 		 
 		// s'il existe une date de fin de publication, on n'affiche pas l'info
-		/*$RSS['pubDate']=ereg_replace("([0-9]{2})/([0-9]{2})/([0-9]{4})", "\\3/\\2/\\1", $RSS['pubDate']); 
-		$RSS['pubendDate']=ereg_replace("([0-9]{2})/([0-9]{2})/([0-9]{4})", "\\3/\\2/\\1", $RSS['pubendDate']); */
 		if ($RSS['pubendDate'] == "0000/00/00" ) $RSS['pubendDate'] =""; 
 		if ($RSS['pubDate'] == "0000/00/00" ) $RSS['pubDate'] ="";
 		
-		
-		
-		  		
-		/*$RSS['pubDate'] = date("r", strtotime($RSS['pubDate']));
-		$RSS['pubendDate'] = date("r", strtotime($RSS['pubendDate']));*/ 
-		/*pre_dump($RSS['pubDate']);
-		pre_dump($RSS['pubendDate']);
-		pre_dump(date("r"));		
-		$id = getItemValue($oRes, "id");*/
 		$today =  mktime();
 		//echo "---".$id.$RSS['pubDate']."              ".$RSS['pubendDate']."              ".$today."<br>\n";
 		
