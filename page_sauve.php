@@ -207,7 +207,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 
 				// enregistrement des briques editables effacées noeud => -2
 				$_POST['BeToSave'] = preg_replace("/^[;]*/","",$_POST['BeToSave']);
-				foreach(split(";",$_POST['BeToSave']) as $k => $v) { 
+				foreach(explode(";",$_POST['BeToSave']) as $k => $v) { 
 					if ($v!="") {
 	
 						$oContent = new Cms_content($v);
