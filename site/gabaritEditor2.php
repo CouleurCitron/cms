@@ -58,7 +58,7 @@ if ($_GET['fileGab'] == "") $_GET['fileGab'] = DEF_GABINIT.".php";
 if (DEF_BDD == "ORACLE" || DEF_BDD == "POSTGRES") {
 
 	$datemep = date("Y/m/d/H:m:s");
-	$datemep = split('/', $datemep);
+	$datemep = explode('/', $datemep);
 	$datemep = "to_date('".$datemep[2]."/".$datemep[1]."/".$datemep[0]."', 'dd/mm/yyyy')";
 
 } else if (DEF_BDD == "MYSQL") {
@@ -75,7 +75,7 @@ for ($a=0; $a<sizeof($aContent_purge); $a++) {
 	
 	
 	if ($_POST['selectedComposantList']!="") {
-		$aSelectedComposantList = split(',', $_POST['selectedComposantList']);
+		$aSelectedComposantList = explode(',', $_POST['selectedComposantList']);
 	}
 	else if (isset($_SESSION[$_SESSION['GabaritName']]) && $_SESSION[$_SESSION['GabaritName']]!="") { 
 		$aSelectedComposantList = $_SESSION[$_SESSION['GabaritName']];
@@ -269,7 +269,7 @@ if( (is_array($_SESSION[$_SESSION['GabaritName']])) or (isset($_POST['envoi'])) 
 
 	$selectedSessionComposant = $_SESSION[$_SESSION['GabaritName']];
 	
-	$displayedComposantList = split(',' ,$_POST['displayedComposantList']);
+	$displayedComposantList = explode(',' ,$_POST['displayedComposantList']);
 	
 if ($bDebug) {
 print("<font color=black><br>------toSelect--------<br>");

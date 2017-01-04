@@ -9,7 +9,7 @@ if (is_get("source")) {
 	
 	if (is_get("v_comp_path")) {
 		$virtualPath = $_GET["v_comp_path"];
-		$node_id = array_pop(split(',',$virtualPath));
+		$node_id = array_pop(explode(',',$virtualPath));
 		$aMS = dbGetObjectsFromFieldValue("cms_minisite", array('get_site', 'get_node'), array($idSite, $node_id), NULL);
 		
 		
@@ -33,7 +33,7 @@ if (is_get("source")) {
 
 function renameMinisite($idSite, $virtualPath, $old_libelle, $new_libelle){ 
  	
-	$node_id = array_pop(split(',',$virtualPath));
+	$node_id = array_pop(explode(',',$virtualPath));
 	
 	$aMS = dbGetObjectsFromFieldValue("cms_minisite", array('get_name', 'get_site', 'get_node'), array($old_libelle, $idSite, $node_id), NULL);
 
@@ -52,7 +52,7 @@ function renameMinisite($idSite, $virtualPath, $old_libelle, $new_libelle){
 
 function deleteMinisite($idSite, $virtualPath){ 
  	
-	$node_id = array_pop(split(',',$virtualPath)); 
+	$node_id = array_pop(explode(',',$virtualPath)); 
 	
 	$aMS = dbGetObjectsFromFieldValue("cms_minisite", array('get_site', 'get_node'), array($idSite, $node_id), NULL);
 
@@ -68,7 +68,7 @@ function deleteMinisite($idSite, $virtualPath){
 
 function saveNodeDescriptionMinisite($idSite, $folderdescription, $virtualPath) {
  	
-	$node_id = array_pop(split(',',$virtualPath)); 
+	$node_id = array_pop(explode(',',$virtualPath)); 
 	
 	$aMS = dbGetObjectsFromFieldValue("cms_minisite", array('get_site', 'get_node'), array($idSite, $node_id), NULL);
 
@@ -85,7 +85,7 @@ function saveNodeDescriptionMinisite($idSite, $folderdescription, $virtualPath) 
 
 function moveNodeMinisite($idSite, $db,$virtualPath,$new_node) {
  	
-	$node_id = array_pop(split(',',$virtualPath)); 
+	$node_id = array_pop(explode(',',$virtualPath)); 
 	
 	$aMS = dbGetObjectsFromFieldValue("cms_minisite", array('get_site', 'get_node'), array($idSite, $node_id), NULL);
 

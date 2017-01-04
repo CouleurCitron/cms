@@ -42,7 +42,7 @@ if (strlen($_GET['v_comp_path']) > 0)
 $_SESSION['carte_v_comp_path'] = $virtualPath;
 
 if( $_GET['v_comp_path']!="" ) {
-	$id_node = array_pop(split(',',$_GET['v_comp_path']));
+	$id_node = array_pop(explode(',',$_GET['v_comp_path']));
 	$infos_node = getNodeInfosCarte($idSite,$db,$_GET['v_comp_path']);
 }
 

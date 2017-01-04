@@ -731,7 +731,7 @@ function creer_liste_items ($aResultatTri, $oRss) {
 				$RSS['image'] = "http://".$_SERVER['HTTP_HOST']."/custom/upload/".$classeName."/".$RSS['image'];
 				 
 				$RSS['image'] = controlLinkValue($RSS['image'], $oRes); 
-				$aImg = split (";", $RSS['image']);
+				$aImg = explode (";", $RSS['image']);
 				$RSS['image'] = $aImg[0]; 
 				if ($RSS['image'] != ""){	
 					$sEncFullPath = preg_replace("/http:\/\/[^\/]+/msi", $_SERVER['DOCUMENT_ROOT'], $RSS['image']); 

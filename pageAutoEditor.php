@@ -63,7 +63,7 @@ if( $_POST['selectedComposant']=="0" ) { // On a supprimé la brique de la sélect
 }
 
 if( $_POST['selectedComposant']!="" ) {
-	$displayedComposantList = split(',' ,$_POST['displayedComposantList']);
+	$displayedComposantList = explode(',' ,$_POST['displayedComposantList']);
 	$selectedComposant = $_POST['selectedComposant'];
 	$_SESSION['selectedComposant'] = $_POST['selectedComposant'];
 }

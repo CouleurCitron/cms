@@ -260,7 +260,7 @@ $tampon = $oGab->getHtml_page();
 // on cherche la chaine <!--DEBUTCMS;ID=
 if (preg_match('/<\!--DEBUTCMS;/', $tampon)) {
 	//		$stop=1;
-	$aTampon=split(";", $tampon);
+	$aTampon=explode(";", $tampon);
 	// découpage de la ligne en tableau pour extraire l'ID
 	$id_div = "";
 	$idDivArray = array();
@@ -270,7 +270,7 @@ if (preg_match('/<\!--DEBUTCMS;/', $tampon)) {
 		//echo "---".$ligneTampon."---".substr($ligneTampon, 0, 2)."----<br>";
 		if (substr($ligneTampon, 0, 2) == "ID") 
 		{
-			$aTampon2=split("=", $ligneTampon);
+			$aTampon2=explode("=", $ligneTampon);
 			$id_div = $aTampon2[1];
 			if (!in_array ($id_div, $idDivArray)) {
 				$idDivArray[] = $id_div;

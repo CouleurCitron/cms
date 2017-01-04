@@ -23,19 +23,19 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 
 	function unserialize_JS($datatxt) { // décomprime un chaine comprimée en JavaScript
 		$divArray = array();
-		foreach (split('##', $datatxt) as $k => $v ) {
+		foreach (explode('##', $datatxt) as $k => $v ) {
 			if ($k==0)
 				$v = preg_replace('/^#/','',$v);
-			if ($k==(sizeof(split('##', $datatxt))-1))
+			if ($k==(sizeof(explode('##', $datatxt))-1))
 				$v = preg_replace('/#$/','',$v);
-			$t = split('#',$v);
+			$t = explode('#',$v);
 			$id = $t[0];
 			$attr = $t[1];
 			$tmparray = array(
 				'id' => $id
 			);
-			foreach(split(',',$attr) as $kk => $vv) {
-				$t = split('=',$vv);
+			foreach(explode(',',$attr) as $kk => $vv) {
+				$t = explode('=',$vv);
 				if(strlen($t[0]) >0)
 					$tmparray[$t[0]] = $t[1];
 				if(strlen($t[2]) >0)

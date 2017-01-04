@@ -183,7 +183,7 @@ function doIt(str) { // *** CC Mkl : Rajout de "document." pour Moz
   <td>&nbsp;&nbsp;</td>
   <td><span class="texteFile"><a href="<?php echo $_SERVER['PHP_SELF']; ?>?form=<?php echo $_GET['form']; ?>&champ=<?php echo $_GET['champ']; ?>">Racine</a></span></td>
 <?php
-	$path = split('/',$relDir);
+	$path = explode('/',$relDir);
 	$tmpPath = '';
 	if(strlen($relDir)>0) {
 		foreach($path as $k => $v) {

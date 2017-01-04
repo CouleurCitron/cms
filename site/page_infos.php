@@ -101,11 +101,11 @@ if ($_POST['operation'] == "SAUVE") {
 	if (DEF_BDD == "ORACLE" || DEF_BDD == "POSTGRES") {
 
 		$datemep = $_POST['dateMep'];
-		$datemep = split('/', $datemep);
+		$datemep = explode('/', $datemep);
 		$datemep = "to_date('".$datemep[2]."/".$datemep[1]."/".$datemep[0]."', 'dd/mm/yyyy')";
 
 	} else if (DEF_BDD == "MYSQL") { 
-		$datemep = split('/',$_POST['dateMep']);
+		$datemep = explode('/',$_POST['dateMep']);
 		//$datemep = "str_to_date('".$datemep[2]."/".$datemep[1]."/".$datemep[0]."', '%Y/%m/%d %H:%M:%S')";
 		$datemep = date('Y-m-d H:M:S', mktime(0, 0, 0, $datemep[1], $datemep[0], $datemep[2]));
 	} 
@@ -125,8 +125,8 @@ if ($_POST['operation'] == "SAUVE") {
 // date du jour pour le calendrier	
 if($idPage != ""){
 	$oPage = new Cms_page($idPage);  
-	$datemep = split(' ',$oPage->getDatemep_page());
-	$datemep = split('-',$datemep[0]);
+	$datemep = explode(' ',$oPage->getDatemep_page());
+	$datemep = explode('-',$datemep[0]);
 	$date = date('d/m/Y', mktime(0, 0, 0, $datemep[1], $datemep[2], $datemep[0]));
 }
 else {

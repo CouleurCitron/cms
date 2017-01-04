@@ -67,7 +67,7 @@ if(!strlen($_POST['foldername'])) {
 	}*/
 	
 	
-	$node_id_to_duplicate = array_pop(split(',',$_POST['v_comp_path']));
+	$node_id_to_duplicate = array_pop(explode(',',$_POST['v_comp_path']));
 	//echo "node_id_to_duplicate ".$node_id_to_duplicate."<br />";
 	
 	

@@ -106,7 +106,7 @@ function updateThemePageByNode($virtualPath, $theme){
 	
 	if( ($virtualPath=='0') || (strlen($virtualPath)=='0'))
 		return false;
-	$array_path = split(',',$virtualPath);
+	$array_path = explode(',',$virtualPath);
 	$node_id = array_pop($array_path);
 	 
 	

@@ -241,7 +241,7 @@ while((!feof($gabfilehandle)) && !$stop){
 	if (preg_match('/<\!--DEBUTCMS;/', $tampon)) {
 //		$stop=1;
 
-		$aTampon=split(";", $tampon);
+		$aTampon=explode(";", $tampon);
 
 		// découpage de la ligne en tableau pour extraire l'ID
 		$id_div = "";
@@ -251,7 +251,7 @@ while((!feof($gabfilehandle)) && !$stop){
 			
 			if (substr($ligneTampon, 0, 2) == "ID") 
 			{
-				$aTampon2=split("=", $ligneTampon);
+				$aTampon2=explode("=", $ligneTampon);
 				$id_div = $aTampon2[1];
 			}
 		}

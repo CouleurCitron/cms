@@ -20,7 +20,7 @@ if ($idSite == "") $idSite = $_SESSION['idSite_travail'];
 
 // ID_noeud par défaut auquel est associée la carte
 if( $_GET['v_comp_path']!="" ) {
-	$id_node = array_pop(split(',',$_GET['v_comp_path']));
+	$id_node = array_pop(explode(',',$_GET['v_comp_path']));
 	$infos_node = getNodeInfosCarte($idSite, $db,$_GET['v_comp_path']);
 }
 

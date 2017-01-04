@@ -545,7 +545,7 @@ for ($p=0; $p < DEF_MAXCHAMPSFORM; $p++) {
 			if ($oChamp->getValeur_champ() == "") {
 				$champCC.= "<tr><td class='awsformlabel'>".$oChamp->getName_champ()."</td><td class='awsformfield'>&nbsp;</td></tr>";
 			} else {
-				$aCC = split(";", $oChamp->getValeur_champ());
+				$aCC = explode(";", $oChamp->getValeur_champ());
 				for ($t=0; $t<sizeof($aCC); $t++)
 				{
 					$sCC = $aCC[$t];
@@ -568,7 +568,7 @@ for ($p=0; $p < DEF_MAXCHAMPSFORM; $p++) {
 			if ($oChamp->getValeur_champ() == "") {
 				$champBR.= "<tr><td align='left' class='awsformlabel'>".$oChamp->getName_champ()."</td><td class='awsformfield'>&nbsp;</td></tr>";
 			} else {
-				$aBR = split(";", $oChamp->getValeur_champ());
+				$aBR = explode(";", $oChamp->getValeur_champ());
 				for ($t=0; $t<sizeof($aBR); $t++)
 				{
 					$sBR = $aBR[$t];
@@ -590,7 +590,7 @@ for ($p=0; $p < DEF_MAXCHAMPSFORM; $p++) {
 			if ($oChamp->getId_champ() == -1) {
 				$champCOMBO.= "<tr><td class='awsformlabel'>".$oChamp->getName_champ()."</td><td class='awsformfield'>&nbsp;</td></tr>";
 			} else {
-				$aCOMBO = split(";", $oChamp->getValeur_champ());
+				$aCOMBO = explode(";", $oChamp->getValeur_champ());
 	
 				$champCOMBO = "<tr><td class='awsformlabel'>".$oChamp->getName_champ()."</td><td class='awsformfield'>";
 				$champCOMBO.= "<select name='".$idname_champ."' id='".$idname_champ."' class='arbo'>";
@@ -823,7 +823,7 @@ foreach ($aChamps as $oChamp) {
 	if ($oChamp->getObligatoire_champ() == 0) $sObligatoire = false; else $sObligatoire = true; 
 	if ($oChamp->getValeur_champ() != '') { 
 	 
-		$aValues = split (";", $oChamp->getValeur_champ());
+		$aValues = explode (";", $oChamp->getValeur_champ());
 		$aOption = array();
 		foreach ( $aValues as $value) {
 			$aOption["ID"] = noAccent($value);

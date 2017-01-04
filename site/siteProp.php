@@ -64,7 +64,7 @@ if ($bResult) {
 		<td class="arbo">
 <?php
 // les fonctionnalités du site
-$aFonct = split(";", $oSite->getFonct_site());
+$aFonct = explode(";", $oSite->getFonct_site());
 
 for ($a=0; $a<sizeof($aFonct); $a++)
 {

@@ -217,7 +217,7 @@ print drawCompTree($idSite, $db, $virtualPath, null, null, "&idField=".$_GET["id
   <td align="left" valign="top" class="arbo">
   <!-- contenu du dossier -->
 	 <?php
-	 $aNode = split (",", $virtualPath);
+	 $aNode = explode(",", $virtualPath);
 	 $idNode = $aNode[sizeof($aNode)-1];
 	 $infosNode = getNodeInfos($db, $virtualPath);
 	 $libelleNode = $infosNode["path"];
@@ -226,7 +226,3 @@ print drawCompTree($idSite, $db, $virtualPath, null, null, "&idField=".$_GET["id
  </tr>
 </table>
 </form>
-
- 
-
-

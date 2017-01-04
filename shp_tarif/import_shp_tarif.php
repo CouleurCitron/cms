@@ -140,7 +140,7 @@ if(isset($_FILES['importfile'])){
 			// traitement des lignes
 			for ($i = 0;$i < count($rows);$i++){
 				$rows[$i] = str_replace("</tr>", "", $rows[$i]);
-				$rows[$i] = split("<td>", $rows[$i]);
+				$rows[$i] = explode("<td>", $rows[$i]);
 				//check cell 0
 				if (strpos($rows[$i][0], "</td>") === false){
 					$rows[$i][0] = "";// = array_slice($rows[$i], 1); 

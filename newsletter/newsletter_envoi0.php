@@ -39,7 +39,7 @@ if ($_POST['actiontodo'] == "SEND") {
 	// la remplir avec tous ces contacts
 	foreach($_POST as $k=>$v)  
 	{
-		$tbK = split("_", $k);
+		$tbK = explode("_", $k);
 
 		 // contacts sélectionnés par groupe	
 		if ($tbK[0] == 'chkgrp') 

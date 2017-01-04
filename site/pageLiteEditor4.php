@@ -168,10 +168,10 @@ $_SESSION['divArray']=null;
 $divArray = array();
 $datatxt = $_POST['serializedData'];
 
-foreach (split('##', $datatxt) as $k => $v ) {
+foreach (explode('##', $datatxt) as $k => $v ) {
 	if ($k==0)
 		$v = preg_replace('/^#/','',$v);
-	if ($k==(sizeof(split('##', $datatxt))-1))
+	if ($k==(sizeof(explode('##', $datatxt))-1))
 		$v = preg_replace('/#$/','',$v);
 	$t = split('#',$v);
 	$id = $t[0];
@@ -179,8 +179,8 @@ foreach (split('##', $datatxt) as $k => $v ) {
 	$tmparray = array(
 		'id' => $id
 	);
-	foreach(split(',',$attr) as $kk => $vv) {
-		$t = split('=',$vv);
+	foreach(explode(',',$attr) as $kk => $vv) {
+		$t = explode('=',$vv);
 		if(strlen($t[0]) >0)
 			$tmparray[$t[0]] = $t[1];
 		if(strlen($t[2]) >0)

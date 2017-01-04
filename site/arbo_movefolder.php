@@ -223,7 +223,7 @@ if($_POST['node_id']=="") {
 		$virtualPathFinal=$new_nodeInfos['parent'].",".$virtualPathFinal;
 	}
 	
-	$array_path = split(',',$virtualPath);
+	$array_path = explode(',',$virtualPath);
 	$virtualPathFinal.=",".$array_path[sizeof($array_path)-1];
 	$id = moveNode($idSite, $db,$virtualPath,$_POST['node_id']);
 	if ($isMinisite)  $id_minisite =  moveNodeMinisite($idSite, $db,$virtualPath,$_POST['node_id']);

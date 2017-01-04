@@ -8,7 +8,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/htmlUtility.php'); 
 
 if (is_post("fsql")){
-	$aSQL = split(';', trim($_POST["fsql"]));
+	$aSQL = explode(';', trim($_POST["fsql"]));
 	
 	$eReturn = 0;
 	

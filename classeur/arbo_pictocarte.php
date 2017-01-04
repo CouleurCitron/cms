@@ -24,7 +24,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/arbocarte.lib.php');
 activateMenu('gestioncarte');  //permet de dérouler le menu contextuellement
 // ID_noeud par défaut auquel est associée la carte
 if( $_GET['v_comp_path']!="" ) {
-	$id_node = array_pop(split(',',$_GET['v_comp_path']));
+	$id_node = array_pop(explode(',',$_GET['v_comp_path']));
 	$infos_node = getNodeInfosCarte($idSite,$db,$_GET['v_comp_path']);
 }
 

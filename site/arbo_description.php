@@ -210,10 +210,10 @@ if(!strlen($_POST['folderdescription'])) {
 	$aFolderDescriptionVariable = array();
 	$aFolderDescriptionValue = array();
 	
-	$aFolderdescription = split("&", $nodeInfos['description']);
+	$aFolderdescription = explode("&", $nodeInfos['description']);
 	$ePaireCounter = 0;
 	foreach ($aFolderdescription as $paire => $paireAspliter) {
-		$aTempPaireSplit = split("=", $paireAspliter);
+		$aTempPaireSplit = explode("=", $paireAspliter);
 		$ePaireCounter++;
 		$aFolderDescriptionVariable[$ePaireCounter] = rawurldecode($aTempPaireSplit[0]);
 		$aFolderDescriptionValue[$ePaireCounter] = rawurldecode($aTempPaireSplit[1]);

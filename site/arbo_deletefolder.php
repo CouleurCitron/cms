@@ -149,7 +149,7 @@ if(!strlen($_POST['v_comp_path'])) {
 		if($path=='Racine')
 			$path=0;
 		//$virtualPath = $path;
-		$array_path = split(',',$virtualPath);
+		$array_path = explode(',',$virtualPath);
 		$virtualPathTmp ="";
 		for ($i=0; $i<sizeof($array_path)-1; $i++) {
 			$virtualPathTmp.=$array_path[$i];

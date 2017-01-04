@@ -225,9 +225,9 @@ function set_new_flux ($classeName, $id, $isnew = false) {
 					
 					$last_date = dbGetUniqueValueFromRequete($sql);
 					// echo "---".$last_date."<br />";
-					 $aD = split (" ", $last_date);
-					 $aJ = split ("-", $aD[0]);
-					 $aH = split (":", $aD[1]);
+					 $aD = explode (" ", $last_date);
+					 $aJ = explode ("-", $aD[0]);
+					 $aH = explode (":", $aD[1]);
 					 
 					// echo $aJ[2]." ".$aJ[1]." ".$aJ[0]." ". $aH[0]." ". $aH[1]." ". $aH[2]." <br />";
 					$today =  date("d/m/Y H:i:s", mktime  ( $aH[0],  $aH[1],  $aH[2],  $aJ[1],  $aJ[2],  $aJ[0]  ));  

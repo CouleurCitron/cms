@@ -125,7 +125,7 @@ Destinataire(s) / une adresse email par ligne&nbsp;:&nbsp;<br/>
 <input type="button" name="bouton" value="Suite" pattern="^.+$" errorMsg="Au moins une adresse email est requise." onClick="if(validate_form()) {submit();}">
 <?php
 } elseif ( (isset($_POST['nom']) && ($_GET['step']==1)) ) {
-$destinataires = join(',',split("\n",$_POST['destinataires']));
+$destinataires = implode(',',explode("\n",$_POST['destinataires']));
 ?><form name="formgeneration" action="<?php echo $_SERVER['PHP_SELF'].'?step=2'; ?>" method="post">
 <h1>Génération du formulaire <?php echo $_POST['nom'];?></h1>
 <iframe src="formvierge.php" name="visuform" width="450" height="500"></iframe>
@@ -146,7 +146,7 @@ $destinataires = join(',',split("\n",$_POST['destinataires']));
 <b>Destinataires&nbsp;:&nbsp;</b>
 <ul>
 <?php
-foreach (split(',',$destinataires) as $dest) {
+foreach (explode(',',$destinataires) as $dest) {
 ?>
 <li><?php echo $dest; ?></li>
 <?php	
@@ -200,4 +200,3 @@ Appel incorrect de la fonctionnalité. Merci de contacter l'administrateur si l'e
 <?php
 }
 ?>
-

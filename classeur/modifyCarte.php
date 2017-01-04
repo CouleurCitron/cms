@@ -36,7 +36,7 @@ activateMenu('gestioncarte');  //permet de dérouler le menu contextuellement
 
 if( $_GET['v_comp_path']!="" ) {
 
-	$id_node = array_pop(split(',',$_GET['v_comp_path']));
+	$id_node = array_pop(explode(',',$_GET['v_comp_path']));
 
 	$infos_node = getNodeInfosCarte($db,$_GET['v_comp_path']);
 

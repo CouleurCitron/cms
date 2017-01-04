@@ -237,7 +237,7 @@ if (checkUniqueName($oForm)) {
 			if ($oChamp->getValeur_champ() == "") {
 				$champCC.= "<tr><td class='arbo'>".$oChamp->getName_champ()."</td><td class=\"arbo\">&nbsp;</td></tr>";
 			} else {
-				$aCC = split(";", $oChamp->getValeur_champ());
+				$aCC = explode(";", $oChamp->getValeur_champ());
 				for ($t=0; $t<sizeof($aCC); $t++)
 				{
 					$sCC = $aCC[$t];
@@ -260,7 +260,7 @@ if (checkUniqueName($oForm)) {
 			if ($oChamp->getValeur_champ() == "") {
 				$champBR.= "<tr><td align='right' class='arbo'>".$oChamp->getName_champ()."</td><td class=\"arbo\">&nbsp;</td></tr>";
 			} else {
-				$aBR = split(";", $oChamp->getValeur_champ());
+				$aBR = explode(";", $oChamp->getValeur_champ());
 				for ($t=0; $t<sizeof($aBR); $t++)
 				{
 					$sBR = $aBR[$t];
@@ -282,7 +282,7 @@ if (checkUniqueName($oForm)) {
 			if ($oChamp->getId_champ() == -1) {
 				$champCOMBO.= "<tr><td class='arbo'>".$oChamp->getName_champ()."</td><td class=\"arbo\">&nbsp;</td></tr>";
 			} else {
-				$aCOMBO = split(";", $oChamp->getValeur_champ());
+				$aCOMBO = explode(";", $oChamp->getValeur_champ());
 	
 				$champCOMBO = "<tr><td class='arbo'>".$oChamp->getName_champ()."</td><td class=\"arbo\">";
 				$champCOMBO.= "<select name='".$oChamp->getName_champ()."' class='arbo'>";
