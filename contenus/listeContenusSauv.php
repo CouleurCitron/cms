@@ -269,7 +269,7 @@ foreach($aArchi_content as $k=>$oArchi_content) {
 	$oDroitContent = getDroit($oContent->getId_content());
 
 	if ($oDroitContent->getUser_id() != "-1") {
-		$oUser = new User($oDroitContent->getUser_id());
+		$oUser = new bo_users($oDroitContent->getUser_id());
 		$sNomUser = $oUser->getUser_nom();
 	} else $sNomUser = "non affecté";
 
