@@ -14,22 +14,5 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 	else {
 		echo 1;
 	}
-	
-	
-	/*function checkcaptcha ($captchareply) {
-	   $captchaok=0; 
-	   if ($_COOKIE['captcha']==substr(md5(strtoupper($captchareply)),4,6)&&$_COOKIE['captcha']){$captchaok=1;}
-	   
-	   if  (isset($_SESSION["captcha"]) && $_SESSION["captcha"] ==substr(md5(strtoupper($captchareply)),4,6) ){
-		 $captchaok=1;
-	  }
-	   return($captchaok);
-	}
 
-	if (checkcaptcha ($_POST["captcha"])) echo  1;
-	else echo 0; */
-
-	 
-	 
-	
-?> 
+?>

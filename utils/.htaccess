@@ -13,7 +13,9 @@ SetEnvIfNoCase Request_URI download.php$ no-gzip dont-vary
 ExpiresActive Off
 </IfModule>
 
+<IfModule mod_headers.c>
 Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
 Header set Pragma "no-cache"
 #Header set Content-Encoding "deflate"
 #Header append Vary User-Agent env=!dont-vary
+</IfModule>

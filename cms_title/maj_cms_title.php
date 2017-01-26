@@ -335,7 +335,8 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 			}
 			if ($aNodeToSort[$i]["attrs"]["OPTION"] == "password"){ // cas password, on cryte en md5
 				if (is_post("f".ucfirst($classePrefixe)."_".$aNodeToSort[$i]["attrs"]["NAME"])){
-					setItemValue($oRes, $aNodeToSort[$i]["attrs"]["NAME"], md5($_POST["f".ucfirst($classePrefixe)."_".$aNodeToSort[$i]["attrs"]["NAME"]]));
+					//setItemValue($oRes, $aNodeToSort[$i]["attrs"]["NAME"], md5($_POST["f".ucfirst($classePrefixe)."_".$aNodeToSort[$i]["attrs"]["NAME"]]));
+					setItemValue($oRes, $aNodeToSort[$i]["attrs"]["NAME"], password_hash($_POST["f".ucfirst($classePrefixe)."_".$aNodeToSort[$i]["attrs"]["NAME"]], PASSWORD_DEFAULT));
 				}
 			}
 			elseif ($aNodeToSort[$i]["attrs"]["OPTION"] == "url"){ // cas url, on ajoute le protocole http:// si manque
