@@ -36,7 +36,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 			$sConteneur = "	\"".$oObjet->get_absolute_path_name()."\", "; 
 			//if ($cpt < sizeof($aObjets)-1) $sUrl.= ", \n"; 
 			
-			$aAncre = split ("/", $oObjet->get_absolute_path_name());
+			$aAncre = explode ("/", $oObjet->get_absolute_path_name());
 			$sConteneur.= "	\"".$aAncre[(sizeof($aAncre)-2)]."\", ";
 			//if ($cpt < sizeof($aObjets)-1) $sAncre.= ", \n"; 
 			
