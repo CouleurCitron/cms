@@ -9,10 +9,9 @@ maj d'un contenu pour le rédacteur (contributeur)
 
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/composants.lib.php');
-include_once 'cms-inc/msohtml_lib.php' ;
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_cms.php');
- include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php');
 
 
 // id du contenu à sauver

@@ -1,5 +1,4 @@
 <?php
-
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 /*
 sponthus 01/07/2005
@@ -12,10 +11,8 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/composants.lib.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/gabarit.lib.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/pages.lib.php');
 
-include_once ('cms-inc/msohtml_lib.php');
-
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_cms.php');
- include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php');
 
 activateMenu('gestioncontenu');  //permet de dérouler le menu contextuellement
 

@@ -7,7 +7,6 @@ mise à jour du contenu d'une brique et seulement du contenu
 
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/composants.lib.php');
-include_once 'cms-inc/msohtml_lib.php' ;
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/selectSite.php');
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php');

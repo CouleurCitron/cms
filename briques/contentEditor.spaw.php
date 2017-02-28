@@ -153,9 +153,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/composants.lib.php');
-include_once 'cms-inc/msohtml_lib.php' ;
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/selectSite.php');
-
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php');
 
 activateMenu('gestionbrique');
@@ -259,7 +257,7 @@ if($_POST['mode_page'] == "preview") {
 	// on est en mode preview
 	// on sauvegarde le post en session au càs où...
 	
-	$htmlContent=mso_html_cleanup(stripslashes($_POST['HTMLcontent']));
+	$htmlContent=stripslashes($_POST['HTMLcontent']);
 	//$htmlContent=preg_replace("/".$server."/",'',$htmlContent);
 	//$htmlContent=preg_replace("/".$script."/",'',$htmlContent);
 	
