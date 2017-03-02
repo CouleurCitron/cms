@@ -69,7 +69,7 @@ $config['param_mail'] = array(
 
 
 // Ouverture de la connexion a la base de données
-$dbc = mysql_connect($config['param_db']['server'], $config['param_db']['user'], $config['param_db']['pw']);
+/*$dbc = mysql_connect($config['param_db']['server'], $config['param_db']['user'], $config['param_db']['pw']);
 if(!$dbc){
 	echo 'Connexion au serveur '.$config['param_db']['server'].' impossible';
 	exit;
@@ -79,22 +79,40 @@ if(!$dbc){
 		echo 'La base de données n\'existe pas';
 		exit;
 	}
-} 
-//boucle sur tous les uses
-//$sql = "select * from mre-mipusers where tu_statut=".DEF_ID_STATUT_LIGNE."";
-$query = 'select * from cms_rss_url where rssurl_statut= 4';
-if (!$result = mysql_db_query($config['param_db']['base'], $query)) {echo $query;exit;}
+}*/
 
-if(mysql_num_rows($result) == 0){
-	echo $query;exit;
-} 
-else {	 
-	while($Donnees=mysql_fetch_array($result))  {
+$dbRss = ADONewConnection(DEF_DRIVER); 
+$dbRss->debug = DEF_BDD_DEBUG;
+$dbRss->connectSID = true;
+$resConRss = $dbRss->Connect($config['param_db']['server'], $config['param_db']['user'], $config['param_db']['pw'], $config['param_db']['base']);
+if ($resConRss==false){
+	echo '<p>database connection has failed, please alert the site admin: <a href="mailto:'.DEF_USERMAIL.'">'.DEF_USERMAIL.'</a></p>';
+	if($dbRss->_errorMsg!=''){
+		echo '<!-- <p>'.$dbRss->_errorMsg.'</p> -->';
+	}
+}
+else{
+	if (defined("DEF_BDD_CHARSET")){
+		$dbRss->SetCharSet(DEF_BDD_CHARSET);
+	}
+	else{
+		$dbRss->SetCharSet('latin1');
+	}
+}
+
+$query = 'select * from cms_rss_url where rssurl_statut= 4';
+$rsRss = $dbRss->Execute('SHOW COLUMNS FROM `cms_site`');
+if (!$rsRss) {
+	echo $query;
+}
+else{
+	while(!$rsRss->EOF) {
 		$classeName = "cms_rss_url";
-		$id = $Donnees['rssurl_id'];
+		$id = $rsRss->fields['rssurl_id'];
 		echo "<br />--- ".$id;
 		$eNew_entries = set_new_flux ($classeName, $id); 
-		echo '<br />'.$eNew_entries.' nouvelle(s) entrée(s).<br>';		  
-    }	
-} 
+		echo '<br />'.$eNew_entries.' nouvelle(s) entrée(s).<br>';		 
+		$rsRss->MoveNext();			
+	}
+}
 ?>
