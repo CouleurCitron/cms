@@ -51,7 +51,7 @@ echo $base;
 // Adresses des sites
 $config['url_www'] = 'http://'.$_SERVER['HTTP_HOST'].'/'; 
 $config['url_comptes'] = 'http://'.$_SERVER['HTTP_HOST'].'/';
-$HTTP_EMAIL_FROM = "thao@couleur-citron.com";
+$HTTP_EMAIL_FROM = "technique@couleur-citron.com";
 // Paramètres envoi e-mail
 $config['param_mail'] = array(
 	//'server'		=> 'mail.credit-municipal-toulouse.fr',
@@ -62,7 +62,7 @@ $config['param_mail'] = array(
 //	'password'		=> 'Hbtr4mZ8',
 	'user'			=> 'thao',
 	'password'		=> 'tzbv2be',
-	'from'			=> array('thao@couleur-citron.com', 'Couleur Citron'),
+	'from'			=> array('technique@couleur-citron.com', 'Couleur Citron'),
 	'organization'	=> 'Couleur Citron', 
 	'format'		=> 'txt'
 );
@@ -101,7 +101,7 @@ else{
 }
 
 $query = 'select * from cms_rss_url where rssurl_statut= 4';
-$rsRss = $dbRss->Execute('SHOW COLUMNS FROM `cms_site`');
+$rsRss = $dbRss->Execute($query);
 if (!$rsRss) {
 	echo $query;
 }
