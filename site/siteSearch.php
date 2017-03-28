@@ -223,7 +223,7 @@ if (isset($statutRetour) && ( $statutRetour != "")){
 ?>
 	<tr class="ligne">
 		<td width="146" class="arbo"><strong>Site&nbsp;:</strong></td>
-		<td width="265" class="arbo"><?php echo $oSite->get_name(); ?><?//=$oSite->getDesc_site()?>&nbsp;</td>
+		<td width="265" class="arbo"><?php echo $oSite->get_name(); ?>&nbsp;</td>
 	</tr>
 	<tr class="ligne">
 		<td class="arbo"><strong>Dossiers index&eacute;s&nbsp;:</strong><br />

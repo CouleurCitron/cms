@@ -1,6 +1,6 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php'); //include('cms-inc/autoClass/show.php'); ?>
-<?php
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
+
 if (!isset($classeName)){
 	$classeName = preg_replace('/[^_]*_(.*)\.php/si', '$1', basename($_SERVER['PHP_SELF']));
 }
@@ -62,7 +62,10 @@ if ($_GET['id']) {
 // si l'opération est une suppression revenir à la page précédente
 if ($operation=="DELETE") {?><script>
 window.location="show_<?php echo $classeName; ?>.php?adodb_next_page=<?php echo $_GET['adodb_next_page'];; ?>"
-</script><?}?>
+</script>
+<?php
+						  }
+?>
 
 <script language="javascript" type="text/javascript">
 	// retour à la liste

@@ -316,7 +316,7 @@ function setUpdateForm_translation(idToUpdate, libelle){
 <strong><div class="arbo2">Gestion des questions du sondage</div></strong><br><br>
 <div class="arbo"><strong>Gestion des réponses :</strong></div>
 <form name="reponse" method="post" action="<?php echo  $_SERVER['PHP_SELF'] ; ?>?question=<?php echo $questionId ?>">
-<?echo stripslashes($strHTML) ?>
+<?php echo stripslashes($strHTML); ?>
 </form>
 <br><br>
 <div class="arbo"><a href="question_form.php">Ajouter</a> une question&nbsp;&nbsp;|&nbsp;&nbsp;Retour à la <a href="question.php">liste des questions</a></div>

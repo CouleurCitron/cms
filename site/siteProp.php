@@ -53,7 +53,7 @@ if ($bResult) {
 <table align="center" border="0" cellpadding="3" cellspacing="3" class="arbo">
 	<tr class="ligne">
 		<td class="arbo" >Nom</td>
-		<td class="arbo"><?php echo $oSite->get_name(); ?><?//=$oSite->getDesc_site()?>&nbsp;</td>
+		<td class="arbo"><?php echo $oSite->get_name(); ?>&nbsp;</td>
 	</tr>
 	<tr class="ligne">
 		<td class="arbo">URL</td>
