@@ -143,10 +143,19 @@ function selectNewsletter($id){
 				
 			} 
 			
+			//MAJ newsletter
+			$oNews->set_dateenvoi(getDateNow());  
+			$oNews->set_nbmail($eMail_envoyes);			
 			
 			//*****************************   appel cron
 			
 			if (defined("DEF_APP_USE_CRON") &&  (DEF_APP_USE_CRON)){
+				
+				if(defined('DEF_ID_STATUT_ENCOURS')){
+					$oNews->set_statut(DEF_ID_STATUT_ENCOURS);
+				}
+				
+				dbUpdate($oNews);
 				
 				return 
 				"La newsletter est en cours d'envoi (".$eMail_envoyes." mail(s)).<br />
@@ -154,12 +163,8 @@ function selectNewsletter($id){
 				Un mail à l'administrateur lui sera envoyé une fois l'ensemble des mails envoyés.";  
 			
 			}
-			else {
+			else {				 
 				
-				 
-				//MAJ newsletter
-				$oNews->set_dateenvoi(getDateNow());  
-				$oNews->set_nbmail($eMail_envoyes);
 				
 				// statut
 				if (defined('DEF_JOBS_NEWS_THEME_ID') && DEF_JOBS_NEWS_THEME_ID == $themeNews) {
