@@ -32,6 +32,12 @@ function envoyer(id){
 }
  ";
 $aCustom["Action"] = "<a href=\"javascript:envoyer(##id##);\" title=\"Envoyer\"><img src=\"/backoffice/cms/img/mail.gif\" width=\"20\" height=\"17\" alt=\"Envoyer\" border=\"0\" /></a>";
+
+if (class_exists('news_stats')){
+	$aCustom["Action"] .= "<a href=\"stats_newsletter.php?id=##id##\" title=\"Stats\"><img src=\"/backoffice/cms/img/modifier-xml.gif\" width=\"16\" height=\"16\" alt=\"Envoyer\" border=\"0\" /></a>";
+}
+
+
 if (defined("DEF_NEWSLETTER_USE_EXPORT") && DEF_NEWSLETTER_USE_EXPORT == "true") {
 	$aCustom["Action"].= "&nbsp;&nbsp;&nbsp;<a href=\"javascript:exporter(##id##);\" title=\"Exporter les inscrits\"><img src=\"/backoffice/cms/img/go_off.gif\" width=\"13\" height=\"13\" alt=\"Exporter les inscrits\" border=\"0\" /></a>";
 } 
