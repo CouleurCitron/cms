@@ -173,7 +173,7 @@ foreach (explode('##', $datatxt) as $k => $v ) {
 		$v = preg_replace('/^#/','',$v);
 	if ($k==(sizeof(explode('##', $datatxt))-1))
 		$v = preg_replace('/#$/','',$v);
-	$t = split('#',$v);
+	$t = explode('#',$v);
 	$id = $t[0];
 	$attr = $t[1];
 	$tmparray = array(
