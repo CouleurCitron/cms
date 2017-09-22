@@ -509,8 +509,7 @@ else{
 			else{
 				$sBodyHTML = $oNews->get_html();
 			}
-			echo $sBodyHTML;
-
+			echo $sBodyHTML;			
 			?>
 		</td></tr></table>	</tr>
 		<tr>
