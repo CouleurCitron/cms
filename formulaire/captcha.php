@@ -10,6 +10,8 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
  
 	if (!$resp->is_valid) {
 		echo  0;
+
+		error_log('recaptcha '.$resp->error);
 //                echo "--------------<br />";
 //                echo $resp->error;
                 
