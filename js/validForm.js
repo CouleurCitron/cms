@@ -161,7 +161,8 @@ function isDate(d) {
 
 // contrôle la validité d'un mail
 function isEmail(sEmail){
-	var filter=/^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+\.([a-zA-Z0-9]{2,4})+$/;
+	var filter=/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-\.]+\.[a-zA-Z]{2,4}$/;
+	//var filter=/^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+\.([a-zA-Z0-9]{2,4})+$/;
 	if (filter.test(sEmail)){
 		return true;
 	}			
