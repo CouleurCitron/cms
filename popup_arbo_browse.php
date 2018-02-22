@@ -312,7 +312,7 @@ if ($bMinisite) {
 <?php
 if ($bMinisite) {
 ?>
-   <td align="center" bgcolor="F7F7F7">&nbsp;<?php echo  $oCms_site->getName_site() ; ?></td>
+   <td align="center" bgcolor="F7F7F7">&nbsp;<?php echo  $oCms_site->get_name() ; ?></td>
 <?php
 }
 ?>
