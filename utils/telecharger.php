@@ -1,21 +1,21 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php'); 
+include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/utils/dir.lib.php');
- 
+
 if($_SERVER['HTTPS'] == 'on'){
 	/*$url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 	echo '<script type="text/javascript">';
-	echo 'window.location.href="'.$url.'";'; 
+	echo 'window.location.href="'.$url.'";';
 	echo '</script>';
 	echo '<noscript>';
 	echo '<meta http-equiv="refresh" content="0;url='.$url.'" />';
 	echo '</noscript>'; exit;*/
 }
- 
 
 
 
-// on essaie de reconnaitre l'extension pour que le téléchargement corresponde au type de fichier afin d'éviter les erreurs de corruptions 
+
+// on essaie de reconnaitre l'extension pour que le téléchargement corresponde au type de fichier afin d'éviter les erreurs de corruptions
 if (is_get('export')) {
 	include_once('../newsletter/newsletter_export.php');
 	$sRep = $_SERVER['DOCUMENT_ROOT'].'/custom/newsletter/';
@@ -52,7 +52,7 @@ elseif (preg_match ('/.*\.xlsx$/i',  basename($Fichier_a_telecharger))==1){ // x
 }
 if (function_exists('finfo_open')){
 	$finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
-	$type = finfo_file($finfo, $_SERVER['DOCUMENT_ROOT'].'/'.$chemin.$Fichier_a_telecharger); 
+	$type = finfo_file($finfo, $_SERVER['DOCUMENT_ROOT'].'/'.$chemin.$Fichier_a_telecharger);
 }
 else{
 	switch(strrchr(basename($Fichier_a_telecharger), '.')) {
@@ -89,7 +89,7 @@ if($type === false){
 //pre_dump($type); die();
 
 if (is_file($chemin.$Fichier_a_telecharger)){
-	// nada tout va bien 
+	// nada tout va bien
 	$fullPathToFile = $chemin.$Fichier_a_telecharger;
 }
 elseif (is_file($_SERVER['DOCUMENT_ROOT'].$chemin.$Fichier_a_telecharger)){
@@ -104,50 +104,50 @@ else{
 	error_log($chemin.$Fichier_a_telecharger. ' was not found');
 	die($chemin.$Fichier_a_telecharger. ' was not found');
 }
- 
- 
- 	
+
+
+
 if (isDownloadable($fullPathToFile)===false){
- 
+
 	header('HTTP/1.1 401 Unauthorized');
-	header('Connection: close');  
+	header('Connection: close');
 	error_log('Hack attempt : '.$fullPathToFile);
 	exit;
-}   
-else{ 
+}
+else{
 	// on enleve les slashes après test downloadable
 	//
-	
+
 	if (defined('DEF_UPLOAD_REMOVE_SLASHDIR') ) {
-		if (DEF_UPLOAD_REMOVE_SLASHDIR) 
-			$fullPathToFile = removeToSlashDir($fullPathToFile); 
+		if (DEF_UPLOAD_REMOVE_SLASHDIR)
+			$fullPathToFile = removeToSlashDir($fullPathToFile);
 	}
 	else {
 		$fullPathToFile = removeToSlashDir($fullPathToFile);
-	} 
-	
-	ini_set('zlib.output_compression','Off'); 
+	}
 
-	header('HTTP/1.0 200 OK'); 
+	ini_set('zlib.output_compression','Off');
+
+	header('HTTP/1.0 200 OK');
 	header('Content-Description: File Transfer');
-	header('Content-Disposition: attachment; filename="'.basename($Fichier_a_telecharger).'"'); 
-	header("Content-Type: ".$type); 
+	header('Content-Disposition: attachment; filename="'.basename($Fichier_a_telecharger).'"');
+	header("Content-Type: ".$type);
 	//header("Content-Transfer-Encoding: ".$type."\n"); // Surtout ne pas enlever le \n
 	header('Content-Transfer-Encoding: binary'."\n");
-	
+
 	if (ini_get('zlib.output_compression')==1){
-		header('Content-Encoding: gzip'); 
+		header('Content-Encoding: gzip');
 	}
 	else{
-		header('Content-Length: '.filesize($fullPathToFile)); 
-	}	
-	//header('Pragma: no-cache'); 
-	header('Cache-Control: must-revalidate, post-check=0, pre-check=0, public'); 
+		header('Content-Length: '.filesize($fullPathToFile));
+	}
+	//header('Pragma: no-cache');
+	header('Cache-Control: must-revalidate, post-check=0, pre-check=0, public');
 	header('Cache-Control: private, max-age=0, must-revalidate'); // ajout dans le cas SSL
 	header('Pragma: public'); // ajout dans le cas SSL
-	header('Expires: 0'); 
-	header('Connection: close');  
- 
+	header('Expires: 0');
+	header('Connection: close');
+
 	ob_end_clean();
 	flush();
 	set_time_limit(0);
