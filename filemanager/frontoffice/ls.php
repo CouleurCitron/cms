@@ -27,8 +27,6 @@ else{
 	$aFM = dbGetObjectsFromFieldValue("cms_filemanager", array('get_url', 'get_cms_site'),  array($fmDir, $idSite), NULL);
 }
 
-
-
 if ((count($aFM) > 0)&&($aFM!=false)){
 	$oFM = $aFM[0];
 	$_localDir = $_SERVER['DOCUMENT_ROOT'].'/custom/filemanager/'.$oSite->get_rep().'/'.$oFM->get_url().'/files/'.$_GET['dir'];
@@ -61,7 +59,6 @@ if (($_SESSION['FO']['chroot']==1)&&(	($_SESSION['FO']['login']!='*')||($_SESSIO
 	}
 }
 
-
 //----------------------------------------------------------
 
 if (!isset($_GET['dir']) || ($_GET['dir'] == '') || ($_GET['dir'] == '/') || !is_dir($_localDir)){
@@ -87,21 +84,14 @@ else{
 <script type="text/vbscript" src="/backoffice/cms/js/flashDetection.vbs.php"></script>
 <script type="text/javascript" src="/backoffice/cms/js/flashDetection.php"></script>
 <script src="/backoffice/cms/js/AC_RunActiveContent.js" type="text/javascript"></script> 
-
 </head>
-
 <body>
 <div id="header"><div id="header_tt"></div></div>
 <div id="content">
-
 <?php
 include('ls.inc.php');
-
 ?>
-
 </div>
-<div id="footer">
-
-</div>
+<div id="footer"></div>
 </body>
 </html>

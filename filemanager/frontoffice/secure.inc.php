@@ -73,7 +73,7 @@ else{
 	// pas de FM valide
 	unset($_SESSION['FO']);
 	$sRetour = '';
-		die();
+	die();
 
 }
 ?>
