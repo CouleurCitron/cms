@@ -143,7 +143,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 
 	
 	if (sizeof($aIdGab)) { // on doit trouver toutes les pages liées à X gabarits
-		$listPage = getPagesFromXGabarits($aIdGab);
+		$listPage = getPagesFromXGabarits($aIdGab, $idSite);
 		if ($bDebug) print("<br />1");		
 	} else if($id_gabarit!="") { // on doit trouver les pages liées à un gabarit fraîchement modifié
 		$oGab = new Cms_page($id_gabarit);
