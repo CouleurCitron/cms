@@ -21,6 +21,13 @@ function getPagesImages($page_url) {
 	if($site_url == '') {
 		$site_url = $_SERVER["HTTP_HOST"];
 	}
+	
+	if($_SERVER['HTTPS'] == 'on'){	
+		$protocol='https';
+	}
+	else{
+		$protocol='http';
+	}
 
 	$curl_init = curl_init();
 	curl_setopt($curl_init, CURLOPT_URL, $page_url);
@@ -29,19 +36,20 @@ function getPagesImages($page_url) {
 	curl_setopt($curl_init, CURLOPT_VERBOSE, 0);
 	curl_setopt($curl_init, CURLOPT_HEADER, 0);
 	$curl_data = curl_exec($curl_init);
-	curl_close($curl_init);
+	
 	if(!curl_errno($curl_init)){
 		$newDom = new domDocument;
 		$newDom->loadHTML($curl_data);
 		foreach($newDom->getElementsByTagName('img') as $img_tag) {
 			$img_src = $img_tag->getAttribute('src');
-			$file_headers = @get_headers('http://'.$_SERVER["HTTP_HOST"].$img_src);
+			$file_headers = @get_headers($protocol.'://'.$_SERVER["HTTP_HOST"].$img_src);
 			if(file_exists($_SERVER['DOCUMENT_ROOT'].$img_src)) {
 				global $aCacheFile;
-				$aCacheFile[] = 'http://'.$site_url.str_replace( array('%2F'), array('/'), rawurlencode($img_src));
+				$aCacheFile[] = $protocol.'://'.$site_url.str_replace( array('%2F'), array('/'), rawurlencode($img_src));
 			}
 		}
 	}
+	curl_close($curl_init);
 }
 
 function regenerateManifeste($id_site) {
@@ -54,8 +62,14 @@ function regenerateManifeste($id_site) {
 	if($site_url == '') {
 		$site_url = $_SERVER["HTTP_HOST"];
 	}
-	//var_dump($site_url);
-
+	
+	if($_SERVER['HTTPS'] == 'on'){	
+		$protocol='https';
+	}
+	else{
+		$protocol='http';
+	}
+	
 	//Liste des répertoires à parcourir et intégrer
 	$directories = array(
 		"/custom/js/".$site_repo.'/',
@@ -64,7 +78,7 @@ function regenerateManifeste($id_site) {
 		"/custom/img/".$site_repo."/"
 	);
 
-        $page_url_home = 'http://'.$site_url.'/content/' . $site_repo . '/';
+        $page_url_home = $protocol.'://'.$site_url.'/content/' . $site_repo . '/';
         //$aCacheFile[] = $page_url_home;
         
 	//Toutes les pages
@@ -72,7 +86,7 @@ function regenerateManifeste($id_site) {
     $contenus = getAllPagesNotRecursive($id_site);
 	foreach ($contenus as $k => $oPage) {
 		foreach ($oPage as $o => $iPage) {
-			$page_url = 'http://'.$site_url.'/content'.$iPage->absolute_path_name;
+			$page_url = $protocol.'://'.$site_url.'/content'.$iPage->absolute_path_name;
 			$file_headers = @get_headers($page_url);
 			$InvalidHeaders = array('404', '403', '500');
 			$add = true;
@@ -99,7 +113,7 @@ function regenerateManifeste($id_site) {
 		            && $file != "CVS" ) {
 		    	$file_parts = pathinfo($_SERVER['DOCUMENT_ROOT'].$dir.$file);
 		    	if($file_parts['extension'] != '') {
-		        	$aCacheFile[] = 'http://'.$site_url.$dir.rawurlencode($file);
+		        	$aCacheFile[] = $protocol.'://'.$site_url.$dir.rawurlencode($file);
 		    	}
 		    }
 		}
@@ -112,7 +126,7 @@ function regenerateManifeste($id_site) {
 	$cache_data = "CACHE MANIFEST\n\n";
 	$cache_data .= '# '.time()."\n\n";
 	$cache_data .= "CACHE:\n";
-	$cache_data .= join("\n", $aCacheFile)."\n";
+	$cache_data .= implode("\n", $aCacheFile)."\n";
 	$cache_data .= "\nFALLBACK:\n";
 	$cache_data .= "\nNETWORK:\n";
 	$cache_data .= "*\n";

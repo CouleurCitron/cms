@@ -25,8 +25,7 @@ $resp = recaptcha_check_answer ($privatekey,
 
 if (!$resp->is_valid) {
 	echo  0;
-	//error_log('recaptcha '.$resp->error);
-	/*echo "--------------<br />";
+	echo "--------------<br />";
 	echo $resp->error;
 
 	echo "<pre> _POST: =========\n";

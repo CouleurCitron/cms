@@ -18,7 +18,6 @@ if ($idSite == "") $idSite = $_SESSION['idSite_travail'];
 // liste des gabarits
 // $contenus = getListGabarits($idSite);
 $contenus = getAllPagesNotRecursive($_SESSION['idSite']);
-var_dump(count($contenus));
 
 ?>
 <script type="text/javascript">
