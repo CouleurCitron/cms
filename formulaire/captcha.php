@@ -8,7 +8,7 @@ if(defined('DEV_RECAPTCHA_SECRETKEY')){
 else{
 	$privatekey=$_POST["privatekey"];
 }
-	
+
 if (preg_match('/^192\.168\./si', $_SERVER["REMOTE_ADDR"])){
 	$remoteip = '37.1.253.217';
 }
@@ -16,7 +16,7 @@ else{
 	$remoteip = $_SERVER["REMOTE_ADDR"];
 }
 
-$resp = recaptcha_check_answer (	$privatekey,
+$resp = recaptcha_check_answer ($privatekey,
 							$remoteip,
 							$_POST["recaptcha_challenge_field"],
 							$_POST["recaptcha_response_field"],
@@ -25,8 +25,7 @@ $resp = recaptcha_check_answer (	$privatekey,
 
 if (!$resp->is_valid) {
 	echo  0;
-	//error_log('recaptcha '.$resp->error);
-	/*echo "--------------<br />";
+	echo "--------------<br />";
 	echo $resp->error;
 
 	echo "<pre> _POST: =========\n";
