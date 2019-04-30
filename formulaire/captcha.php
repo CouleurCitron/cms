@@ -5,8 +5,11 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/lib/recaptcha/recaptcha
 if(defined('DEV_RECAPTCHA_SECRETKEY')){
 	$privatekey=DEV_RECAPTCHA_SECRETKEY;
 }
-else{
+elseif(is_post("privatekey")){
 	$privatekey=$_POST["privatekey"];
+}
+else{
+ 'recaptcha cant work wihout privatekey - DEV_RECAPTCHA_SECRETKEY');
 }
 
 if (preg_match('/^192\.168\./si', $_SERVER["REMOTE_ADDR"])){
@@ -25,6 +28,7 @@ $resp = recaptcha_check_answer ($privatekey,
 
 if (!$resp->is_valid) {
 	echo  0;
+  error_log($resp->error);
 	/*echo "--------------<br />";
 	echo $resp->error;
 
