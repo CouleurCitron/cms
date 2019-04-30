@@ -35,7 +35,7 @@ if (!isset($_SESSION['recaptchareqs'][$reqNonce])){
   
     if (!$resp->is_valid) {
       echo  0;
-      error_log(implode("\n", $resp->error));
+      //error_log(implode("\n", $resp->error));
       /*echo "--------------<br />";
       echo $resp->error;
 
