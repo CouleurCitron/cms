@@ -9,7 +9,7 @@ elseif(is_post("privatekey")){
 	$privatekey=$_POST["privatekey"];
 }
 else{
- 'recaptcha cant work wihout privatekey - DEV_RECAPTCHA_SECRETKEY');
+ error_log('recaptcha cant work wihout privatekey - DEV_RECAPTCHA_SECRETKEY');
 }
 
 if (preg_match('/^192\.168\./si', $_SERVER["REMOTE_ADDR"])){
