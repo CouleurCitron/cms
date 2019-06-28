@@ -15,17 +15,17 @@ function fileToIcon($filepath){
 	}
 	else{
 		$filename = basename($filepath);		
-		$ext = ereg_replace('.*\.([^\.]+)', '\\1', $filename);
-		if (eregi('png|gif|jpeg|jpg|bmp|tif|tiff', $ext)){
+		$ext = preg_replace('/.*\.([^\.]+)/msi/msi', '$1', $filename);
+		if (preg_match('/png|gif|jpeg|jpg|bmp|tif|tiff', $ext)){
 			return '/backoffice/cms/img/filemanager/image2.png';			
 		}
-		elseif (eregi('zip|7z|tar|gz|rar', $ext)){
+		elseif (preg_match('/zip|7z|tar|gz|rar/msi', $ext)){
 			return '/backoffice/cms/img/filemanager/compressed.png';			
 		}
-		elseif (eregi('swf|mpeg|mpg|avi|mp4|mov|flv', $ext)){
+		elseif (preg_match('/swf|mpeg|mpg|avi|mp4|mov|flv/msi', $ext)){
 			return '/backoffice/cms/img/filemanager/movie.png';			
 		}
-		elseif (eregi('doc|rtf|html|htm|oft|pdf|xls', $ext)){
+		elseif (preg_match('/doc|rtf|html|htm|oft|pdf|xls/msi', $ext)){
 			return '/backoffice/cms/img/filemanager/layout.png';			
 		}
 		else{
@@ -34,7 +34,7 @@ function fileToIcon($filepath){
 	}
 }
 
-$baseDir = ereg_replace("(.+/)[^\.^/]+\.[^\.^/]+", "\\1", $_SERVER["PHP_SELF"]);
+$baseDir = preg_replace("/(.+\/)[^\.^/]+\.[^\.^\/]+/msi", "$1", $_SERVER["PHP_SELF"]);
 
 
 if ($_GET['dir'] == ''){
@@ -87,9 +87,6 @@ if ($_GET['dir'] != ''){
 	echo '<td>&nbsp;</td>';
 	echo '</tr>';
 }
-
-
-//$_localDir = $_SERVER['DOCUMENT_ROOT'].$_GET['dir'];
 
 if ($dir = @opendir($_localDir)) {
 	$aFiles = array();	
@@ -171,7 +168,6 @@ if ($dir = @opendir($_localDir)) {
 	
 	closedir($dir);
 }
-
 
 echo '</table>';
 ?>
