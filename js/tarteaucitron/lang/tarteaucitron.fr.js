@@ -1,65 +1,81 @@
 /*global tarteaucitron */
 tarteaucitron.lang = {
-    "adblock": "Bonjour! Ce site joue la transparence et vous donne le choix des services tiers &agrave; activer.",
-    "adblock_call": "Merci de d&eacute;sactiver votre adblocker pour commencer la personnalisation.",
+
+    "middleBarHead": "? ??",
+    "adblock": "Bonjour! Ce site joue la transparence et vous donne le choix des services tiers a activer.",
+    "adblock_call": "Merci de désactiver votre adblocker pour commencer la personnalisation.",
     "reload": "Recharger la page",
     
-    "alertBigScroll": "En continuant de d&eacute;filer,",
+    "alertBigScroll": "En continuant de défiler,",
     "alertBigClick": "En poursuivant votre navigation,",
     "alertBig": "vous acceptez l'utilisation de services tiers pouvant installer des cookies",
     
-    "alertBigPrivacy": "Ce site utilise des cookies et vous donne le contr&ocirc;le sur ce que vous souhaitez activer",
+    "alertBigPrivacy": "Ce site utilise des cookies et vous donne le contrôle sur ceux que vous souhaitez activer",
     "alertSmall": "Gestion des services",
-    "acceptAll": "OK, tout accepter",
+    "acceptAll": "Tout accepter",
     "personalize": "Personnaliser",
     "close": "Fermer",
 
-    "all": "Pr&eacute;f&eacute;rence pour tous les services",
+    "privacyUrl": "Politique de confidentialité",
 
-    "info": "Protection de votre vie priv&eacute;e",
-    "disclaimer": "En autorisant ces services tiers, vous acceptez le d&eacute;p&ocirc;t et la lecture de cookies et l'utilisation de technologies de suivi n&eacute;cessaires &agrave; leur bon fonctionnement.",
+    "all": "Préférences pour tous les services",
+
+    "info": "Protection de votre vie privée",
+    "disclaimer": "En autorisant ces services tiers, vous acceptez le dépôt et la lecture de cookies et l'utilisation de technologies de suivi nécessaires a leur bon fonctionnement.",
     "allow": "Autoriser",
     "deny": "Interdire",
-    "noCookie": "Ce service ne d&eacute;pose aucun cookie.",
-    "useCookie": "Ce service peut d&eacute;poser",
-    "useCookieCurrent": "Ce service a d&eacute;pos&eacute;",
-    "useNoCookie": "Ce service n'a d&eacute;pos&eacute; aucun cookie.",
+    "noCookie": "Ce service ne dépose aucun cookie.",
+    "useCookie": "Ce service peut déposer",
+    "useCookieCurrent": "Ce service a déposé",
+    "useNoCookie": "Ce service n'a déposé aucun cookie.",
     "more": "En savoir plus",
     "source": "Voir le site officiel",
     "credit": "Gestion des cookies par tarteaucitron.js",
+    "noServices": "Ce site n'utilise aucun cookie nécessitant votre consentement.",
+
+    "toggleInfoBox": "Afficher/masquer les informations sur le stockage des cookies",
+    "title": "Panneau de gestion des cookies",
+    "cookieDetail": "Détail des cookies",
+    "ourSite": "sur notre site",
+    "newWindow": "(nouvelle fenetre)",
+    "allowAll": "Tout accepter",
+    "denyAll": "Tout refuser",
     
-    "fallback": "est d&eacute;sactiv&eacute;.",
+    "fallback": "est désactivé.",
 
     "ads": {
-        "title": "R&eacute;gies publicitaires",
-        "details": "Les r&eacute;gies publicitaires permettent de g&eacute;n&eacute;rer des revenus en commercialisant les espaces publicitaires du site."
+        "title": "Régies publicitaires",
+        "details": "Les régies publicitaires permettent de générer des revenus en commercialisant les espaces publicitaires du site."
     },
     "analytic": {
         "title": "Mesure d'audience",
-        "details": "Les services de mesure d'audience permettent de g&eacute;n&eacute;rer des statistiques de fr&eacute;quentation utiles &agrave; l'am&eacute;lioration du site."
+        "details": "Les services de mesure d'audience permettent de générer des statistiques de fréquentation utiles a l'amélioration du site."
     },
     "social": {
-        "title": "R&eacute;seaux sociaux",
-        "details": "Les r&eacute;seaux sociaux permettent d'am&eacute;liorer la convivialit&eacute; du site et aident &agrave; sa promotion via les partages."
+        "title": "Réseaux sociaux",
+        "details": "Les réseaux sociaux permettent d'améliorer la convivialité du site et aident a sa promotion via les partages."
     },
     "video": {
-        "title": "Vid&eacute;os",
-        "details": "Les services de partage de vid&eacute;o permettent d'enrichir le site de contenu multim&eacute;dia et augmentent sa visibilit&eacute;."
+        "title": "Vidéos",
+        "details": "Les services de partage de vidéo permettent d'enrichir le site de contenu multimédia et augmentent sa visibilité."
     },
     "comment": {
         "title": "Commentaires",
-        "details": "Les gestionnaires de commentaires facilitent le d&eacute;p&ocirc;t de vos commentaires et luttent contre le spam."
+        "details": "Les gestionnaires de commentaires facilitent le dépôt de vos commentaires et luttent contre le spam."
     },
     "support": {
         "title": "Support",
-        "details": "Les services de support vous permettent d'entrer en contact avec l'&eacute;quipe du site et d'aider &agrave; son am&eacute;lioration."
+        "details": "Les services de support vous permettent d'entrer en contact avec l'équipe du site et d'aider a son amélioration."
     },
     "api": {
         "title": "APIs",
-        "details": "Les APIs permettent de charger des scripts : g&eacute;olocalisation, moteurs de recherche, traductions, ..."
+        "details": "Les APIs permettent de charger des scripts : géolocalisation, moteurs de recherche, traductions, ..."
     },
     "other": {
         "title": "Autre",
-        "details": "Services visant &agrave; afficher du contenu web."
-    }
+        "details": "Services visant a afficher du contenu web."
+    },
+    
+    "mandatoryTitle": "Cookies obligatoires",
+    "mandatoryText": "Ce site utilise des cookies nécessaires a son bon fonctionnement qui ne peuvent pas etre désactivés."
 };
