@@ -295,7 +295,7 @@ else{
 	if ( is_file ($_SERVER['DOCUMENT_ROOT']."/include/bo/class/liendujour.class.php" )) {
 		
 		$aLDJ = dbGetObjectsFromFieldValue('liendujour', array('get_statut', 'get_newsletter'),  array(DEF_ID_STATUT_LIGNE, $id), NULL); 
-		if (sizeof($aLDJ) > 0) $oLDJ = $aLDJ[0];
+		if (newSizeOf($aLDJ) > 0) $oLDJ = $aLDJ[0];
 	}	
 	 
 	if ($oNews->get_statut() == DEF_CODE_STATUT_DEFAUT) { ?>

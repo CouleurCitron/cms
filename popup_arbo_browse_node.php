@@ -218,7 +218,7 @@ print drawCompTree($idSite, $db, $virtualPath, null, null, "&idField=".$_GET["id
   <!-- contenu du dossier -->
 	 <?php
 	 $aNode = explode(",", $virtualPath);
-	 $idNode = $aNode[sizeof($aNode)-1];
+	 $idNode = $aNode[newSizeOf($aNode)-1];
 	 $infosNode = getNodeInfos($db, $virtualPath);
 	 $libelleNode = $infosNode["path"];
    	 echo "<a href=\"javascript:setSelectZoneEdit('".$idNode."', '".$libelleNode."')\">Valider</a>";?>

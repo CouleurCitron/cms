@@ -317,7 +317,7 @@ if (strlen($_GET['v_comp_path']) > 0)
 			<?php 
 			$currInfos 	= getNodeInfos($db,$virtualPath); 
 			$aPath 		= explode ("/", $currInfos["path"]); 
-			$currDir 	= $aPath[(sizeof($aPath)-2)];
+			$currDir 	= $aPath[(newSizeOf($aPath)-2)];
 			
 			$currNode = getNodeInfos($db, $virtualPath);  
 			$currNodeId = $currNode["id"];

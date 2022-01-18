@@ -51,11 +51,7 @@ include("listeRechContenus.php");
 <input type="hidden" name="node_id" id="node_id" value="<?php echo $rech_node_id; ?>">
 <input type="hidden" name="page_id" id="page_id" value="<?php echo $rech_page_id; ?>">
 <input type="hidden" name="bChercherOpen" id="bChercherOpen" value="<?php echo $rech_bChercherOpen; ?>">
-
-<?php
-// site de travail
-//if (DEF_MENUS_MINISITES == "ON") print(putAfficheSite());
-?>	  
+  
 <div id="filters" class="arbo">
     <div class='search_gauche new_search'>
                         <div class="spacer">&nbsp;</div>
@@ -75,7 +71,7 @@ if ($sRank != DEF_REDACT) {
 	<select name="selectUser" id="selectUser" class="arbo">
 			<option value="-1">tous les utilisateurs</option><?php
 // les utilisateurs + les amdin
-for ($k=0; $k<sizeof($aUser); $k++)
+for ($k=0; $k<newSizeOf($aUser); $k++)
 {
 	$oUser = $aUser[$k];
 
@@ -95,7 +91,7 @@ for ($k=0; $k<sizeof($aUser); $k++)
 <select name="selectGabarit" id="selectGabarit" class="arbo">
 			<option value="">tous les gabarits</option><?php
 // gabarits
-for ($k=0; $k<sizeof($aGabarit); $k++)
+for ($k=0; $k<newSizeOf($aGabarit); $k++)
 {
 	$oGab = new Cms_page($aGabarit[$k]['id']);
 
@@ -225,18 +221,18 @@ src="/backoffice/cms/img/puce-grise.gif" border="0"> : <?php echo $eContent_ARCH
 </table></div>
 <?php
 // nombre d'enregistrements de la liste
-if (sizeof($aContenus) == 1 || sizeof($aContenus) == 0) {
-	$sMessage = sizeof($aContenus)." contenu";
+if (newSizeOf($aContenus) == 1 || newSizeOf($aContenus) == 0) {
+	$sMessage = newSizeOf($aContenus)." contenu";
 }
 else {
-	$sMessage = sizeof($aContenus)." contenus";
+	$sMessage = newSizeOf($aContenus)." contenus";
 }
 ?>
 <div class="pagination"><?php echo $sMessage; ?></div>
 <br />
 <?php
 // trop d'enregistrements : limitation des résultats à DEF_NBDROIT_CONTENT
-if ($eContent > sizeof($aContenus)) {
+if ($eContent > newSizeOf($aContenus)) {
 ?><div align="left" class="arbo">Il y a <?php echo $eContent; ?> réponses pour votre recherche, 
 ce qui est supérieur au seuil autorisé de <?php echo DEF_NBDROIT_CONTENT; ?> réponses. <br />
 Vous pouvez préciser la recherche.
@@ -246,7 +242,7 @@ Vous pouvez préciser la recherche.
 
 <table id="arbo_liste_contenu" class="arbo" border="0" cellpadding="5" cellspacing="0" align="center" width="100%">
   <?php
-	if(sizeof($aContenus) == 0) {
+	if(newSizeOf($aContenus) == 0) {
 ?>
   <tr>
     <td align="center" colspan="10"><strong>&nbsp;Aucun élément à afficher</strong>
@@ -275,7 +271,7 @@ if (DEF_MENUS_MINISITES == "ON") {
 
   </tr>
 <?php
-		for ($p=0; $p<sizeof($aContenus); $p++) {
+		for ($p=0; $p<newSizeOf($aContenus); $p++) {
 
 			$oContenu = $aContenus[$p];
 ?>
@@ -305,8 +301,8 @@ $idPage = $oContenu->getIdPage();
 $sNomPage = $oContenu->getPage();
 $bToutenligne_page = $oContenu->getToutenligne_page();
 $bExisteligne_page = $oContenu->getExisteligne_page();
-//$nb_pages = sizeof( getPageUsingComposant( $idSite, $oContent->getId_content() ) );
-$nb_pages = sizeof( getPageUsingComposant( $idSite, $oContenu->getId() ) );
+//$nb_pages = newSizeOf( getPageUsingComposant( $idSite, $oContent->getId_content() ) );
+$nb_pages = newSizeOf( getPageUsingComposant( $idSite, $oContenu->getId() ) );
 
 // la racine est la même pour tous
 // donc ajouter le nom du site après / pour avoir la racine du site en question

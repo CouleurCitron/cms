@@ -44,7 +44,7 @@ if (is_get("id")) {
 		array("getNode_libelle", "getId_site") , 
 		array($name , $idSite) , array(), array());
 	 
-	if (sizeof($aArboPages ) == 0) {
+	if (newSizeOf($aArboPages ) == 0) {
 		$id_node = addNode($idSite, $db, $virtualPath, $name);
 		$oNode = new Cms_arbo_pages ($id_node);
 		$oMinisite->set_node($id_node);
@@ -58,7 +58,7 @@ if (is_get("id")) {
 	
 	$oR = dbUpdate ($oMinisite);
 	if ($oR) {
-		if (sizeof($aArboPages ) == 0) {
+		if (newSizeOf($aArboPages ) == 0) {
 			echo "<span class=\"arbo\">Le minisite &quot;<strong>".$oMinisite->get_name()."</strong>&quot; a été créé avec succès.</span><br /><br />";
 		}
 		else  {

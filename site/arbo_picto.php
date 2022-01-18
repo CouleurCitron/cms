@@ -112,7 +112,7 @@ if (is_get("action")) {
             <?php 
 			
 			if ($isMinisite) echo "minisite"; 
-			if(sizeof(explode (",", $virtualPath)) == 2 && $isMinisite) { ?>
+			if(newSizeOf(explode (",", $virtualPath)) == 2 && $isMinisite) { ?>
 			<td><a id="arbo_create"  href="/backoffice/cms/site/arbo_duplicatefolder.php?idSite=<?php echo $idSite; ?>&v_comp_path=<?php echo $virtualPath; ?>&action=DUPLICATE<?php echo $param; ?>"><img src="/backoffice/cms/img/2013/icone/dupliquer.png" border="0" title="<?php $translator->echoTransByCode('Dupliquer '); ?>"></a></td> 
 			<?php } ?>
           
@@ -127,7 +127,7 @@ if (is_get("action")) {
 			<?php 
 			$currInfos 	= getNodeInfos($db,$virtualPath); 
 			$aPath 		= explode ("/", $currInfos["path"]); 
-			$currDir 	= $aPath[(sizeof($aPath)-2)];
+			$currDir 	= $aPath[(newSizeOf($aPath)-2)];
 			
 			$currNode = getNodeInfos($db, $virtualPath);  
 			$currNodeId = $currNode["id"];

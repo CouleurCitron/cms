@@ -51,7 +51,7 @@ if ($_POST['actiontodo'] == "SEND") {
 			$aInscrit = dbGetObjectsFromRequete("Inscrit", $sql);
 			//--------------------------------------
 
-			for ($p=0; $p<sizeof($aInscrit); $p++) {
+			for ($p=0; $p<newSizeOf($aInscrit); $p++) {
 
 				$oInscrit = $aInscrit[$p];
 

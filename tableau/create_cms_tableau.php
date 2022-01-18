@@ -241,7 +241,7 @@ else {
 		$sql="select * from cms_tableau_perempt where cms_tableau =".$_GET["id"]." order by cms_version DESC";
 		$aResTemp=dbGetObjectsFromRequete("cms_tableau_perempt", $sql); 
 		
-		if (sizeof($aResTemp) == 0) {
+		if (newSizeOf($aResTemp) == 0) {
 			$tableauTmp = new Cms_tableau_perempt();
 			$tableauTmp->set_tableau($oRes->get_id()); 
 			$tableauTmp->set_version(1);
@@ -415,7 +415,7 @@ else if ($actiontodo == "UPLIGNE") {
 	$ligneToDown = $arrayTR[$iligneToDown];
 	$ligneToUp = $arrayTR[$iligneToUp];
 	$ligneAllTR = "";
-	for ($i=0; $i<sizeof($arrayTR);$i++){
+	for ($i=0; $i<newSizeOf($arrayTR);$i++){
 		if ($i == $iligneToDown) {
 			$ligneAllTR.=$ligneToUp;
 		}
@@ -453,7 +453,7 @@ else if ($actiontodo == "DOWNLIGNE") {
 	$ligneToDown = $arrayTR[$iligneToDown];
 	$ligneToUp = $arrayTR[$iligneToUp];
 	$ligneAllTR = "";
-	for ($i=0; $i<sizeof($arrayTR);$i++){
+	for ($i=0; $i<newSizeOf($arrayTR);$i++){
 		if ($i == $iligneToDown) {
 			$ligneAllTR.=$ligneToUp;
 		}
@@ -490,7 +490,7 @@ else if ($actiontodo == "LEFTCOLONNE") {
 	
 	$ligneAllTR = "";
 	 
-	for ($j=0; $j<sizeof($arrayTR);$j++) {
+	for ($j=0; $j<newSizeOf($arrayTR);$j++) {
 		$ligneTR = $arrayTR[$j];
 		$aItems = array();
 		preg_match_all  ("|<td[^>]*>(.*)<\/td>|U", $ligneTR, $aItems);
@@ -501,7 +501,7 @@ else if ($actiontodo == "LEFTCOLONNE") {
 		$colToRight = $arrayTDBalise[$icolToRight];
 		
 		$ligneTR = "<tr>";
-		for ($i=0;$i<sizeof($arrayTDBalise);$i++) {
+		for ($i=0;$i<newSizeOf($arrayTDBalise);$i++) {
 			
 			if ($i == $icolToLeft) {
 				$ligneTR.=$colToRight;
@@ -545,7 +545,7 @@ else if ($actiontodo == "DELLIGNE") {
 	$idLignetoDel = $_POST["lignetodel"];
 	
 	$ligneAllTR = "";
-	for ($i=0; $i<sizeof($arrayTR);$i++){
+	for ($i=0; $i<newSizeOf($arrayTR);$i++){
 		$ligneTR = $arrayTR[$i];
 		$ligneTR1 = $arrayTR[0];
 		$ligneTR2 = $arrayTR[1];
@@ -555,7 +555,7 @@ else if ($actiontodo == "DELLIGNE") {
 			preg_match_all  ("|<td[^>]*>(.*)<\/td>|U", $ligneTR, $aItems);
 			$arrayTDValue = $aItems[1];
 			$ligneTRsansRowspan = "<tr>";
-			for ($l=0;$l<sizeof($arrayTDValue);$l++) {
+			for ($l=0;$l<newSizeOf($arrayTDValue);$l++) {
 				preg_match_all  ("|<td[^>]*>(.*)<\/td>|U", $ligneTR, $aItems);
 				$arrayTDValue = $aItems[1];
 				$arrayTDBalise = $aItems[0];
@@ -630,7 +630,7 @@ else if ($actiontodo == "DELCOLONNE") {
 		$idLigne = $i+1; 
 		$idColonne = 0;
 		
-		for ($l=0;$l<sizeof($arrayTDValue);$l++) {
+		for ($l=0;$l<newSizeOf($arrayTDValue);$l++) {
 			if ($l==$idColonnetoDel) {
 				$ligneTD="";
 			}

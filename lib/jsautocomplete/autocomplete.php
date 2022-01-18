@@ -79,7 +79,7 @@ if ($classeName!="" && $fieldName!="") {
 	$aJoinData = array_unique($aJoinData);
 	
 	//echo $sql;
-	//echo sizeof($aJoinData);
+	//echo newSizeOf($aJoinData);
 	$sData = "var ".$dataName." = [\"".join ("\" , \"", $aJoinData )."\"];";
   
 	

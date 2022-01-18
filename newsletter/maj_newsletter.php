@@ -470,7 +470,7 @@ else{
 	<?php
 	$aTheme=dbGetObjectsFromRequete("news_theme","select * from news_theme order by theme_libelle");
 	
-	for($i=0;$i<sizeof($aTheme);$i++){
+	for($i=0;$i<newSizeOf($aTheme);$i++){
 		$oTheme=$aTheme[$i];
 		
 		if ($oNews->get_theme() == $oTheme->get_id()) $selected = "selected";
@@ -631,8 +631,8 @@ else{
    <td bgcolor="#EEEEEE"  align="left" class="arbo">
    <?php
    // requete pour expéditeur	
-	if (sizeof($aExp) > 0) {
-		for ($i=0; $i<sizeof($aExp); $i++){
+	if (newSizeOf($aExp) > 0) {
+		for ($i=0; $i<newSizeOf($aExp); $i++){
 			$oExp = $aExp[$i];
 			if (($oNews->get_expediteur() == $oExp->get_id()) ||($oNews->get_expediteur() == -1 && $i == 0)){
 				$checked = "checked";

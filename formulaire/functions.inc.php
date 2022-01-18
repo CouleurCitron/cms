@@ -29,7 +29,7 @@ function createObjectForm( $formulaire , $idform) {
 	if (isset ($myAttributes[0]["MINISITE"]) && $myAttributes[0]["MINISITE"] != '' ) {
 		$form_minisite = $myAttributes[0]["MINISITE"];
 		$aSite = dbGetObjectsFromFieldValue("cms_site", array("get_rep"),  array($form_minisite), NULL);
-		if (sizeof($aSite)) {
+		if (newSizeOf($aSite)) {
 			$form_idSite = $aSite[0]->get_id();
 		} 
 	}
@@ -51,7 +51,7 @@ function createObjectForm( $formulaire , $idform) {
 	
 	if ($idform == '') {
 		$aForm = dbGetObjectsFromFieldValue("Cms_form", array("getName_form", "getId_site"),  array($form_name, $form_idSite), NULL);
-		if (sizeof($aForm) > 0) {
+		if (newSizeOf($aForm) > 0) {
 			$idform = $aForm[0]->getId_form();
 		} 
 	}
@@ -91,7 +91,7 @@ function createObjectForm( $formulaire , $idform) {
 		$type_champ = $field['type'];
 		$values_champ = $field['values']; // array
 		$valeur_champ = "";
-		if (sizeof($values_champ) > 0) {
+		if (newSizeOf($values_champ) > 0) {
 			$aValues = array () ;
 			foreach ($values_champ as $value) {
 				array_push ($aValues, $value["LIBELLE"]) ;
@@ -155,12 +155,12 @@ function createObjectForm( $formulaire , $idform) {
 		}
 		else {
 			$aChamp = dbGetObjectsFromFieldValue("Cms_champform", array("getDesc_champ", "getId_form"),  array($id_champ, $idform), NULL); 
-			if (sizeof($aChamp) > 0   ) { 
+			if (newSizeOf($aChamp) > 0   ) { 
 				$idChamp = $aChamp[0]->getId_champ();
 			} 
 			  
 			//echo strtoupper($type_champ)."<br />"; 
-			//echo sizeof($values_champ)."<br />"; 
+			//echo newSizeOf($values_champ)."<br />"; 
 			//echo "oblig_champ : ".$oblig_champ."<br />"; 
 			//echo "idoblig_champ : ".$idoblig_champ."<br />";  
 			//pre_dump(str_replace(' ','',$option_champ));
@@ -216,7 +216,7 @@ function createObjectForm( $formulaire , $idform) {
 	 
 	 $aContent = dbGetObjectsFromFieldValue("Cms_content", array("getType_content", "getObj_id_content"),  array("formulaireHTML", $idform), NULL);
 		  
-	if (sizeof($aContent) > 0) { 
+	if (newSizeOf($aContent) > 0) { 
 		$id = $aContent[0]->getId_content();
 	} 
 	

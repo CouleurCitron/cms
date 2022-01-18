@@ -7,7 +7,7 @@ include_once('backoffice/cms/site/minisite.inc.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/arbopage.lib.php');
 
 $script = explode('/',$_SERVER['PHP_SELF']);
-$script = $script[sizeof($script)-1];
+$script = $script[newSizeOf($script)-1];
 
 
 if (!$isMinisite) {

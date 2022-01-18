@@ -76,13 +76,13 @@ $heightGab = $oGabarit->getHeight_page();
 // alors les briques inutilement créées partiront à la purge
 $aZonedit = getContentFromPage($idGab, 1);
 
-if((sizeof($aZonedit) == 0)	|| ($aZonedit===false)) {
+if((newSizeOf($aZonedit) == 0)	|| ($aZonedit===false)) {
 	// skip
 	echo '<script type="text/javascript">document.location.href="pageLiteEditor4.php?idGab='.$_GET['idGab'].'&idThe='.$_GET['idThe'].'&idSite='.$idSite.'";</script>';
 }
 else{
 
-for ($a=0; $a<sizeof($aZonedit); $a++){
+for ($a=0; $a<newSizeOf($aZonedit); $a++){
 	$oZonedit = $aZonedit[$a];
 
 
@@ -264,7 +264,7 @@ if (preg_match('/<\!--DEBUTCMS;/', $tampon)) {
 	// découpage de la ligne en tableau pour extraire l'ID
 	$id_div = "";
 	$idDivArray = array();
-	for ($p=0; $p<sizeof($aTampon); $p++) {
+	for ($p=0; $p<newSizeOf($aTampon); $p++) {
 
 		$ligneTampon = $aTampon[$p];
 		//echo "---".$ligneTampon."---".substr($ligneTampon, 0, 2)."----<br>";
@@ -278,7 +278,7 @@ if (preg_match('/<\!--DEBUTCMS;/', $tampon)) {
 		}
 	}
 	$tampon2 = "";
-	for ($a=0; $a<sizeof($idDivArray); $a++) {
+	for ($a=0; $a<newSizeOf($idDivArray); $a++) {
 	// récupération des objets Brique et Structure pour avoir les bonnes dimensions
 		$id_div = $idDivArray[$a];
 		if($idPage == "") { // Mode Création
@@ -326,7 +326,7 @@ echo phpsrcEval($oGab->getHtml_page().$tampon2);
   </tr>
 <?php
 // pour les zone editables de la page
-for ($p=0; $p<sizeof($aZonedit); $p++) {
+for ($p=0; $p<newSizeOf($aZonedit); $p++) {
 	
 	$oZonedit = $aZonedit[$p];
 	$id_div = $oZonedit->getId_content();
@@ -569,7 +569,7 @@ document.getElementById('divhachures').style.display='';
 
 <?php
 // pour les zone editables de la page
-for ($p=0; $p<sizeof($aZonedit); $p++) {
+for ($p=0; $p<newSizeOf($aZonedit); $p++) {
 	
 	$oZonedit = $aZonedit[$p];
 	$eId = $oZonedit->getId_content();

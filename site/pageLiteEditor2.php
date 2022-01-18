@@ -12,12 +12,12 @@ if ($idSite == "") $idSite = $_SESSION['idSite_travail'];
 	
 $contenus = dbGetObjectsFromFieldValue("cms_theme", array("get_site", "get_statut"),  array($idSite, DEF_ID_STATUT_LIGNE), NULL);
 
-if(sizeof($contenus) == 1) {
+if(newSizeOf($contenus) == 1) {
 	// skip
 	$oTheme = $contenus[0];
 	echo '<script type="text/javascript">document.location.href="pageLiteEditor3.php?idGab='.$_GET['idGab'].'&idThe='.$oTheme->get_id().'&idSite='.$idSite.'";</script>';
 }
-elseif(sizeof($contenus) == 0) {
+elseif(newSizeOf($contenus) == 0) {
 	// skip
 	echo '<script type="text/javascript">document.location.href="pageLiteEditor3.php?idGab='.$_GET['idGab'].'&idSite='.$idSite.'";</script>';
 }

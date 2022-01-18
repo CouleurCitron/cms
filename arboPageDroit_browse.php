@@ -315,7 +315,7 @@ $ePage = getCountListPages($aRecherche, $sOrderBy);
 	// construction de l'objet d'affichage
 	//////////////////////////////////////////////////
 		
-	for ($p=0; $p<sizeof($aPage); $p++)
+	for ($p=0; $p<newSizeOf($aPage); $p++)
 	{
 		$aPageAffich[] = new Cms_affich_droitpage($aPage[$p]->getId_page());
 	}
@@ -434,7 +434,7 @@ else $AFFECTE_selected="";
 		<td><select name="selectUser" class="arbo" style="width:300px">
 			<option value="-1">tous les utilisateurs</option><?php
 // les utilisateurs + les amdin
-for ($k=0; $k<sizeof($aUser); $k++)
+for ($k=0; $k<newSizeOf($aUser); $k++)
 {
 	$oUser = $aUser[$k];
 
@@ -453,7 +453,7 @@ for ($k=0; $k<sizeof($aUser); $k++)
 		<tD><select name="selectGabarit" class="arbo" style="width:300px">
 			<option value="">tous les gabarits</option><?php
 // gabarits
-for ($k=0; $k<sizeof($aGabarit); $k++)
+for ($k=0; $k<newSizeOf($aGabarit); $k++)
 {
 	$oGab = new Cms_page($aGabarit[$k]['id']);
 
@@ -486,15 +486,15 @@ if ($sChemin == "") $sChemin = "Chemin";
 
 <?php
 // nombre d'enregistrements de la liste
-if (sizeof($aPage) == 1) $sMessage = "1 page correspond à votre recherche";
-else $sMessage = sizeof($aPage)." pages correspondent à votre recherche";
+if (newSizeOf($aPage) == 1) $sMessage = "1 page correspond à votre recherche";
+else $sMessage = newSizeOf($aPage)." pages correspondent à votre recherche";
 ?>
 <div class="arbo"><?php echo $sMessage; ?></div>
 <br />
 
 <?php
 // trop d'enregistrements : limitation des résultats à DEF_NBDROIT_PAGE
-if ($ePage > sizeof($aPage)) {
+if ($ePage > newSizeOf($aPage)) {
 ?><div align="left" class="arbo"><font color="#FF0000">Il y a <?php echo $ePage; ?> réponses pour votre recherche, 
 ce qui est supérieur au seuil autorisé de <?php echo DEF_NBDROIT_PAGE; ?> réponses. <br />
 Vous pouvez préciser la recherche.</font>
@@ -513,7 +513,7 @@ Vous pouvez préciser la recherche.</font>
 <?php
 // toutes les pages
 //----------------------------------
-for ($p=0; $p<sizeof($aPageAffich); $p++) {
+for ($p=0; $p<newSizeOf($aPageAffich); $p++) {
 	
 	// Objet d'affichage
 	$oPageAffich = $aPageAffich[$p];
@@ -531,30 +531,30 @@ $sChemin = cheminAere($oPageAffich->getNoeud());
 // pour chaque contenu
 // écriture du nom de la zone
 $aContenu = $oPageAffich->getAContenu();
-for ($m=0; $m<sizeof($aContenu); $m++) {
+for ($m=0; $m<newSizeOf($aContenu); $m++) {
 	$oContenu = $aContenu[$m];
 	print("".$oContenu->getZone());
-	if ($m != sizeof($aContenu)-1) print("<br />");
+	if ($m != newSizeOf($aContenu)-1) print("<br />");
 }
 ?>&nbsp;</td>
 		<td><?php
 // pour chaque contenu
 // écriture du nom de la brique
 $aContenu = $oPageAffich->getAContenu();
-for ($m=0; $m<sizeof($aContenu); $m++) {
+for ($m=0; $m<newSizeOf($aContenu); $m++) {
 	$oContenu = $aContenu[$m];
 	print("".$oContenu->getContent());
-	if ($m != sizeof($aContenu)-1) print("<br />");
+	if ($m != newSizeOf($aContenu)-1) print("<br />");
 }
 ?>&nbsp;</td>
 		<td><?php
 // pour chaque contenu
 // écriture du nom de l'utilisateur affecté
 $aContenu = $oPageAffich->getAContenu();
-for ($m=0; $m<sizeof($aContenu); $m++) {
+for ($m=0; $m<newSizeOf($aContenu); $m++) {
 	$oContenu = $aContenu[$m];
 	print("<a href='javascript:modifDroits(".$oPageAffich->getId_page().")'>".$oContenu->getNom()."</a>");
-	if ($m != sizeof($aContenu)-1) print("<br />");
+	if ($m != newSizeOf($aContenu)-1) print("<br />");
 }
 ?>&nbsp;</td>
 <?php

@@ -75,7 +75,7 @@ if((isset($_GET['delid'])) and (strlen($_GET['delid']) >0)) {
 	$aSelect = dbGetObjectsFromRequete("cms_survey_answer", $sqlSelect);
 
 	// Si il y a des réponse alors on boucle
-	for ($i = 0; $i<sizeof($aSelect);$i++) {
+	for ($i = 0; $i<newSizeOf($aSelect);$i++) {
 		$oSelect = $aSelect[$i];
 		$bRetour = dbDeleteId("cms_survey_reponse", "cms_answer", $oSelect->get_id()); 
 		if (!$bRetour) {
@@ -114,7 +114,7 @@ $sql = "select *
 $aSelect = dbGetObjectsFromRequete("cms_survey_ask", $sql);
 
  
-	if (sizeof($aSelect)==0) {
+	if (newSizeOf($aSelect)==0) {
 		$strHTML .= "<div class='arbo'>Il n'y a pas de question définie. Pour en créer, veuillez cliquer sur <a href=\"question_form.php\">Ajouter</a></div>";
 	} else {
 		$strHTML .= '<table class="listDataTable">
@@ -124,7 +124,7 @@ $aSelect = dbGetObjectsFromRequete("cms_survey_ask", $sql);
   <td class="MainTitle" colspan="3">&nbsp;Action&nbsp;</td>
  </tr>';
  		$c=0;
-		for ($i = 0; $i<sizeof($aSelect);$i++) {
+		for ($i = 0; $i<newSizeOf($aSelect);$i++) {
 			$oSelect = $aSelect[$i];
 			
 			

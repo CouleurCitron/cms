@@ -34,7 +34,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 	foreach (explode('##', $datatxt) as $k => $v ) {
 		if ($k==0)
 			$v = preg_replace('/^#/','',$v);
-		if ($k==(sizeof(explode('##', $datatxt))-1))
+		if ($k==(newSizeOf(explode('##', $datatxt))-1))
 			$v = preg_replace('/#$/','',$v);
 		$t = explode('#',$v);
 		$id = $t[0];
@@ -139,7 +139,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 
 		// taille du div_array pour cette page
 		// ensemble des briques de cette page
-		// le nombre de briques du divarray est sizeof(div_array[0]['id'])
+		// le nombre de briques du divarray est newSizeOf(div_array[0]['id'])
 		if ($div_array[0]['id'] != "") $eIdDivarray = 1;
 		else $eIdDivarray = 0;
 		

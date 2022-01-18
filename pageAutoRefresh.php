@@ -75,7 +75,7 @@ print drawCompTree($db,$virtualPath,null);
 	// $CPath = Real path on disk (/dir1/dir2/dir3)
 		$contenus = getFolderPages($VPath);
 		$retour="";
-		if((is_array($contenus)) && (sizeof($contenus)!=0)) {
+		if((is_array($contenus)) && (newSizeOf($contenus)!=0)) {
 
 			foreach ($contenus as $k => $page) {
 		$retour.='  <tr>

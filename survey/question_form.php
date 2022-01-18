@@ -23,7 +23,7 @@ $libelle = '';
 		$id = $_GET['id']; 
 		
 		$rs = getObjectById("cms_survey_ask", $id);
-		if (sizeof($rs) == 0){
+		if (newSizeOf($rs) == 0){
 			// planté !  On loggue
 			error_log(" erreur lors de l'execution de la requete ".$sql);
 			error_log($db->ErrorMsg());

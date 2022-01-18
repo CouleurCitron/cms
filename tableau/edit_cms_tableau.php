@@ -129,7 +129,7 @@ if(!$_GET['nom']&&!$_POST['nom']) {
 	$arrayROWSPANValue = array ();
 
 		
-	for ($l=0;$l<sizeof($arrayTD);$l++) {
+	for ($l=0;$l<newSizeOf($arrayTD);$l++) {
 		$idColonne = $l+1;
 		$ligneAll = $aItems[0][$l];
 		if ($idLigne == 0) {
@@ -155,7 +155,7 @@ if(!$_GET['nom']&&!$_POST['nom']) {
 		$arrayTDBalise = $aItems[0];
 		$ligneAll ="";
 		$cptRowspan=0;
-		for ($l=0;$l<sizeof($arrayTD);$l++) { 
+		for ($l=0;$l<newSizeOf($arrayTD);$l++) { 
 			$idColonne = $l+1;
 			$ligneTD = $arrayTDBalise[$l];
 			$boolRechercheClass = strpos($ligneTD, "class");
@@ -202,7 +202,7 @@ else {
 	$ligneAllAll = "";
 	$idLigne = ($_GET["ligne"]-1);
 	
-	for ($i=0; $i<sizeof($arrayTR);$i++){
+	for ($i=0; $i<newSizeOf($arrayTR);$i++){
 		$ligneTR = $arrayTR[$i];
 		if ($i == 0) $ligneFirst =$arrayTR[$i];
 		$ligneAll ="";
@@ -212,7 +212,7 @@ else {
 		if ($i==$idLigne) {
 			$ligneTRtemp="";
 			preg_match_all  ("|<td[^>]+>(.*)<\/td>|U", $ligneTR, $aItems);
-			for ($l = 0; $l<sizeof($aItems[0]);$l++) {
+			for ($l = 0; $l<newSizeOf($aItems[0]);$l++) {
 				$idColonne = $l+1;
 				$ref = ($idLigne+1)."/".($l+1); 
 				$ligneTRtemp.= "<td ".getColorTD($idLigne+1).">".$_POST[$ref]."</td>";

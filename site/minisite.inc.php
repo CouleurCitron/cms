@@ -14,7 +14,7 @@ if (is_get("source")) {
 		
 		
 		
-		if (sizeof($aMS) > 0) {
+		if (newSizeOf($aMS) > 0) {
 			$oMinisite = $aMS[0]; 
 			$id_minisite = $oMinisite->get_id();
 		}
@@ -37,7 +37,7 @@ function renameMinisite($idSite, $virtualPath, $old_libelle, $new_libelle){
 	
 	$aMS = dbGetObjectsFromFieldValue("cms_minisite", array('get_name', 'get_site', 'get_node'), array($old_libelle, $idSite, $node_id), NULL);
 
-	if (sizeof($aMS) > 0) {
+	if (newSizeOf($aMS) > 0) {
 		$oMS = $aMS[0];
 		$oMS->set_name($new_libelle);
 		return (dbUpdate ($oMS));
@@ -56,7 +56,7 @@ function deleteMinisite($idSite, $virtualPath){
 	
 	$aMS = dbGetObjectsFromFieldValue("cms_minisite", array('get_site', 'get_node'), array($idSite, $node_id), NULL);
 
-	if (sizeof($aMS) > 0) {
+	if (newSizeOf($aMS) > 0) {
 		$oMS = $aMS[0];  
 		return (dbDelete ($oMS) );
 	}
@@ -72,7 +72,7 @@ function saveNodeDescriptionMinisite($idSite, $folderdescription, $virtualPath) 
 	
 	$aMS = dbGetObjectsFromFieldValue("cms_minisite", array('get_site', 'get_node'), array($idSite, $node_id), NULL);
 
-	if (sizeof($aMS) > 0) {
+	if (newSizeOf($aMS) > 0) {
 		$oMS = $aMS[0];  
 		$oMS->set_desc($folderdescription);
 		return (dbUpdate ($oMS));
@@ -89,7 +89,7 @@ function moveNodeMinisite($idSite, $db,$virtualPath,$new_node) {
 	
 	$aMS = dbGetObjectsFromFieldValue("cms_minisite", array('get_site', 'get_node'), array($idSite, $node_id), NULL);
 
-	if (sizeof($aMS) > 0) {
+	if (newSizeOf($aMS) > 0) {
 		$oMS = $aMS[0];  
 		$oMS->set_node($new_node);
 		return (dbUpdate ($oMS));

@@ -316,7 +316,7 @@ ou <br />
 // nombre de champs possibles
 for ($p=0; $p < DEF_MAXCHAMPSFORM; $p++) { 
 	// objet champ
-	if ($p < sizeof($aChamp)) $oChamp = $aChamp[$p];
+	if ($p < newSizeOf($aChamp)) $oChamp = $aChamp[$p];
 	else $oChamp = new Cms_champform();
 	
 	if ($oChamp->getDesc_champ()!= '') $idname_champ = noAccent($oChamp->getDesc_champ());
@@ -452,7 +452,7 @@ for ($p=0; $p < DEF_MAXCHAMPSFORM; $p++) {
 		
 		 
 		// objet champ
-		if ($p < sizeof($aChamp)) {
+		if ($p < newSizeOf($aChamp)) {
 			$oChamp = $aChamp[$p];
 		}
 		else {
@@ -546,7 +546,7 @@ for ($p=0; $p < DEF_MAXCHAMPSFORM; $p++) {
 				$champCC.= "<tr><td class='awsformlabel'>".$oChamp->getName_champ()."</td><td class='awsformfield'>&nbsp;</td></tr>";
 			} else {
 				$aCC = explode(";", $oChamp->getValeur_champ());
-				for ($t=0; $t<sizeof($aCC); $t++)
+				for ($t=0; $t<newSizeOf($aCC); $t++)
 				{
 					$sCC = $aCC[$t];
 	
@@ -569,7 +569,7 @@ for ($p=0; $p < DEF_MAXCHAMPSFORM; $p++) {
 				$champBR.= "<tr><td align='left' class='awsformlabel'>".$oChamp->getName_champ()."</td><td class='awsformfield'>&nbsp;</td></tr>";
 			} else {
 				$aBR = explode(";", $oChamp->getValeur_champ());
-				for ($t=0; $t<sizeof($aBR); $t++)
+				for ($t=0; $t<newSizeOf($aBR); $t++)
 				{
 					$sBR = $aBR[$t];
 					
@@ -594,7 +594,7 @@ for ($p=0; $p < DEF_MAXCHAMPSFORM; $p++) {
 	
 				$champCOMBO = "<tr><td class='awsformlabel'>".$oChamp->getName_champ()."</td><td class='awsformfield'>";
 				$champCOMBO.= "<select name='".$idname_champ."' id='".$idname_champ."' class='arbo'>";
-				for ($t=0; $t<sizeof($aCOMBO); $t++)
+				for ($t=0; $t<newSizeOf($aCOMBO); $t++)
 				{
 					$sCOMBO = $aCOMBO[$t];
 					$champCOMBO.= "<option value='".$sCOMBO."'>".$sCOMBO;

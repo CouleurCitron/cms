@@ -24,7 +24,7 @@ if ($actiontodo == 'SAUVE') {
 		$name = $_POST["fCms_name"]; 
 		$aMS = dbGetObjectsFromFieldValue("cms_minisite", array('get_name', 'get_site' ),  array($name, $_SESSION['idSite']), NULL);
 	
-		if (sizeof($aMS) > 0) {
+		if (newSizeOf($aMS) > 0) {
 			echo "<p>Le nom du minisite existe déjà, merci de le modifier <br /></p>";
 			echo "<p><a href=\"list_cms_minisite.php\">Retour à liste de minisite</a><br /></p>";
 			$oMS = $aMS[0]; 

@@ -19,7 +19,7 @@ if (isset($_GET['type_champ']) && $_GET['type_champ']!="" && isset($_GET['id']) 
 				$aTheme= dbGetObjectsFromRequete("news_theme", $sRequete);
 				$sel.="<select class=\"arbo\" id=\"type_champ_plus_".$_GET['id']."\" name=\"type_champ_plus_".$_GET['id']."\">";
 				$sel.="<option value =\"\">Sélectionnez la newsletter</option>";
-				for ($i=0; $i<sizeof($aTheme); $i++) {
+				for ($i=0; $i<newSizeOf($aTheme); $i++) {
 					$oTheme = $aTheme[$i];
 					$sel.="<option value=\"".$oTheme->get_id()."\">".$oTheme->get_libelle()."</option>";
 				}

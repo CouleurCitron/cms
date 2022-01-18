@@ -136,7 +136,7 @@ if (count($langpile) > 0) {
 		if ($lang_id == DEF_APP_LANGUE)
 			continue;
 		$found_it = false;
-		for ($k=0; $k<sizeof($aListe_res); $k++) {
+		for ($k=0; $k<newSizeOf($aListe_res); $k++) {
 			$oRes = $aListe_res[$k];
 			if ($oRes->get_id_langue() == $lang_id) {
 				$found_it = true;

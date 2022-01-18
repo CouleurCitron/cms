@@ -82,7 +82,7 @@ void* zmq_thread(void* context_pointer) {
 }
 
 void* zmq_thread_init(void* zmq_context, int signal_fd) {
-  acl_zmq_context* context = malloc(sizeof(acl_zmq_context));
+  acl_zmq_context* context = malloc(newSizeOf(acl_zmq_context));
   pthread_t thread;
 
   context->context = zmq_context;

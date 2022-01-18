@@ -170,7 +170,7 @@ function trier_rechercher ($oRes, $oRss) {
 	}*/
 
 	// autres tris
-	/*for ($i=0; $i < sizeof($aListeTri); $i++){
+	/*for ($i=0; $i < newSizeOf($aListeTri); $i++){
 
 		$oTri = $aListeTri[$i];
 
@@ -290,11 +290,11 @@ function trier_rechercher ($oRes, $oRss) {
 			if (is_as_get("currPath")){
 				$aWhere = explode("and", $sWhere);
 				$sClasseBD = ""; 
-				for ($i = 0; $i<sizeof($aWhere); $i++) {
+				for ($i = 0; $i<newSizeOf($aWhere); $i++) {
 					$condition = trim($aWhere[$i]); 
 					$aWhereEgale = explode("=", $condition);
 					
-					for ($j = 0; $j<sizeof($aWhereEgale); $j++) {
+					for ($j = 0; $j<newSizeOf($aWhereEgale); $j++) {
 						$sWhereEgale = $aWhereEgale[$j]; 
 						if (preg_match("/\./msi", $sWhereEgale)) { 
 							$aClasseCondition = explode("\.", $sWhereEgale); 
@@ -374,14 +374,14 @@ function trier_rechercher ($oRes, $oRss) {
 	$aResults =  dbGetObjectsFromRequete($classeName, $sql); 
 	 
 	$aListe_res = array();
-	for ($m=0; $m<sizeof($aResults); $m++)
+	for ($m=0; $m<newSizeOf($aResults); $m++)
 	{
 		$oResult = $aResults[$m];
 		//eval("$"."aListe_res[] = new ".$classeName."($"."oResult);");
 		$aListe_res[] = $oResult;
 	}	 
 	$resultat_tri['aListe_res'] = $aListe_res;
-	//sizeof($resultat_tri);
+	//newSizeOf($resultat_tri);
 	//pre_dump($resultat_tri);
 	return $resultat_tri;
 }
@@ -424,7 +424,7 @@ function creer_liste_items ($aResultatTri, $oRss) {
 	//$URL_MEDIA;
 	// DEF_RSS_HTML_TOP 
 	
-	for($k=0; $k<sizeof($aListe_res); $k++) {	
+	for($k=0; $k<newSizeOf($aListe_res); $k++) {	
 	 
 		
 		
@@ -791,7 +791,7 @@ function generer_contenu ($oInfosRSS) {
 	// Tri et recherche
 	$resultat_tri = trier_rechercher ($oRes, $oInfosRSS);
 
-	if(sizeof($resultat_tri['aListe_res'])>0) {
+	if(newSizeOf($resultat_tri['aListe_res'])>0) {
 		$contenu = creer_liste_items ($resultat_tri,  $oInfosRSS);
 	}
 	 

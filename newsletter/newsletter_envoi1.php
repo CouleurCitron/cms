@@ -26,12 +26,12 @@ if ($aNews){
 
 	$aInscrit2 = dbGetObjectsFromRequete("News_inscrit", $sql);
 	//--------------------------------------
-	//print("<br><div>sizeof(aInscrit2)=".sizeof($aInscrit2)."</div>");
+	//print("<br><div>newSizeOf(aInscrit2)=".newSizeOf($aInscrit2)."</div>");
 	
 	/*
-	$html = "sizeof(aNews)=".sizeof($aNews)."<br>";
+	$html = "newSizeOf(aNews)=".newSizeOf($aNews)."<br>";
 	$html.= "sSql=".$sSql;
-	$html = "sizeof(aInscrit2)=".sizeof($aInscrit2)."<br>";
+	$html = "newSizeOf(aInscrit2)=".newSizeOf($aInscrit2)."<br>";
 	send_mail("", "sylvie@couleur-citron.com" , "newsletter ?" , $html , "newsetter_text", "mail_auto");
 	*/
 	
@@ -41,14 +41,14 @@ if ($aNews){
 	if ($eInssel != 0) {
 		$sql = "select * from news_select where slc_newsletter=".$idNews;
 		$aNewssel = dbGetObjectsFromRequete("news_select", $sql);
-		for ($pp=0; $pp<sizeof($aNewssel); $pp++) {
+		for ($pp=0; $pp<newSizeOf($aNewssel); $pp++) {
 			$oNewssel = $aNewssel[$pp];
 			$bRetour = dbDelete($oNewssel);
 		}
 	}
 	
 	
-	for ($p=0; $p<sizeof($aInscrit2); $p++) {
+	for ($p=0; $p<newSizeOf($aInscrit2); $p++) {
 		$oInscrit2 = $aInscrit2[$p];
 		$oNewsselect = new News_select();
 		$oNewsselect->set_newsletter($idNews);
@@ -57,7 +57,7 @@ if ($aNews){
 		$oNewsselect->set_dateenvoi("");
 		$oNewsselect->set_statut(DEF_ID_STATUT_NEWS_ATTEN);
 		$$idNews = dbInsertWithAutoKey($oNewsselect);
-	} // fin for ($p=0; $p<sizeof($aInscrit2); $p++) {
+	} // fin for ($p=0; $p<newSizeOf($aInscrit2); $p++) {
 	
 	
 	// envoyer

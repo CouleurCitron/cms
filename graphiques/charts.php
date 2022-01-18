@@ -191,14 +191,14 @@ function StripAllSlashes (&$ArrayGET) {
 
 // spcial!!! si le tableau a demand  tre invers, on l'inverse maintenant
 function invert_tab($t){
-  if (sizeof($t) >0)
-	for($i=0;$i<sizeof($t);$i++) {
-		if (sizeof($t[$i]) >0)
-			for($j=0;$j<sizeof($t[$i]);$j++) {
+  if (newSizeOf($t) >0)
+	for($i=0;$i<newSizeOf($t);$i++) {
+		if (newSizeOf($t[$i]) >0)
+			for($j=0;$j<newSizeOf($t[$i]);$j++) {
 				$new_tab[$j][$i]= $t[$i][$j];
 			}
 	}
-	if (sizeof($new_tab)>0) return $new_tab;
+	if (newSizeOf($new_tab)>0) return $new_tab;
 	else return false;
 }
 
@@ -209,12 +209,12 @@ function import_tabexcel($import) {
 	$tab = preg_split("/[\r]?\n/",$import); // Sparation de chaque lignes du tableau
 	
 	// si la dernire ligne est vide on la supprime
-	if(sizeof($tab)>0 && $tab[sizeof($tab)-1]=="") array_pop($tab);
+	if(newSizeOf($tab)>0 && $tab[newSizeOf($tab)-1]=="") array_pop($tab);
 	
-	for($i=0;$i<sizeof($tab);$i++) {
+	for($i=0;$i<newSizeOf($tab);$i++) {
 		$tab[$i] = preg_split("/\t/",$tab[$i]); // Sparation de chaque lments des lignes du tableau
 	}
-	if (sizeof($tab)>0) return $tab;
+	if (newSizeOf($tab)>0) return $tab;
 	else return false;
 }
 

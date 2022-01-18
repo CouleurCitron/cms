@@ -68,7 +68,7 @@ $heightGab = $oGabarit->getHeight_page();
 // alors les briques inutilement créées partiront à la purge
 $aZonedit = getContentFromPage($idGab, 1);
 
-for ($a=0; $a<sizeof($aZonedit); $a++)
+for ($a=0; $a<newSizeOf($aZonedit); $a++)
 {
 	$oZonedit = $aZonedit[$a];
 
@@ -110,11 +110,11 @@ else { // MODE MODIFICATION DE PAGE
 // gabarit 
 $_GET['idGab'])
 // nombre de zone edit dans le gabarit 
-sizeof($aZonedit))
+newSizeOf($aZonedit))
 // zones editables du gabarit
-for ($p=0; $p<sizeof($aZonedit); $p++) print("<br />ID_CONTENT=>".$aZonedit[$p]->getId_Content());
+for ($p=0; $p<newSizeOf($aZonedit); $p++) print("<br />ID_CONTENT=>".$aZonedit[$p]->getId_Content());
 // nouvelles briques vierges remplaçant les zone editables
-for ($p=0; $p<sizeof($aIdBrique); $p++) print("<br />ID_CONTENT=>".$aIdBrique[$p]);
+for ($p=0; $p<newSizeOf($aIdBrique); $p++) print("<br />ID_CONTENT=>".$aIdBrique[$p]);
 */
 
 $buffer=1024;   // buffer de lecture de 1Ko
@@ -245,7 +245,7 @@ while((!feof($gabfilehandle)) && !$stop){
 
 		// découpage de la ligne en tableau pour extraire l'ID
 		$id_div = "";
-		for ($p=0; $p<sizeof($aTampon); $p++) {
+		for ($p=0; $p<newSizeOf($aTampon); $p++) {
 
 			$ligneTampon = $aTampon[$p];
 			
@@ -315,7 +315,7 @@ unlink($tmpfile);
   </tr>
 <?php
 // pour les zone editables de la page
-for ($p=0; $p<sizeof($aZonedit); $p++) {
+for ($p=0; $p<newSizeOf($aZonedit); $p++) {
 	
 	$oZonedit = $aZonedit[$p];
 	$id_div = $oZonedit->getId_content();
@@ -548,7 +548,7 @@ document.getElementById('divhachures').style.display='';
 
 <?php
 // pour les zone editables de la page
-for ($p=0; $p<sizeof($aZonedit); $p++) {
+for ($p=0; $p<newSizeOf($aZonedit); $p++) {
 	
 	$oZonedit = $aZonedit[$p];
 	$eId = $oZonedit->getId_content();

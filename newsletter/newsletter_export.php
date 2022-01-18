@@ -69,7 +69,7 @@ function export_envoi_newsletter($sRep)
 	// sinon les requetes ne s'executent pas ...
 
 	// indice des fichiers
-	if (sizeof($aResult) == 0) $j=0;
+	if (newSizeOf($aResult) == 0) $j=0;
 	else $j=1;
 		
 	$sFilename = $sRep."export_envoi_newsletter_".$j.".csv";
@@ -94,7 +94,7 @@ function export_envoi_newsletter($sRep)
 	}
 
 	// requete d'insertion pour la nouvelle BDD
-	for ($i=0; $i<sizeof($aResult); $i++)
+	for ($i=0; $i<newSizeOf($aResult); $i++)
 	{
 		$bChangeFile = false;
 	
@@ -184,7 +184,7 @@ function export_list_inscrits_envoi($sRep, $id)
 	// sinon les requetes ne s'executent pas ...
 
 	// indice des fichiers
-	if (sizeof($aResult) == 0) $j=0;
+	if (newSizeOf($aResult) == 0) $j=0;
 	else $j=1;
 	
 	dirExists($sRep);	
@@ -221,7 +221,7 @@ function export_list_inscrits_envoi($sRep, $id)
 	// requete d'insertion pour la nouvelle BDD
 	$oNews = new Newsletter($id);
 	$oTheme = new News_theme ($oNews->get_theme());
-	for ($i=0; $i<sizeof($aResult); $i++){
+	for ($i=0; $i<newSizeOf($aResult); $i++){
 		
 		// envoi
 		$oIns = $aResult[$i];
@@ -252,7 +252,7 @@ function export_list_inscrits_envoi($sRep, $id)
 		
 		$aInscrittheme = dbGetObjectsFromRequete($assoTable, $sql2);
 
-		if ($aInscrittheme&&(sizeof($aInscrittheme) > 0)){
+		if ($aInscrittheme&&(newSizeOf($aInscrittheme) > 0)){
 			$oInscrittheme = $aInscrittheme[0];
 			$sContent.= "".$oTheme->get_libelle().";";
 			

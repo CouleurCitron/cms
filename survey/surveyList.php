@@ -130,7 +130,7 @@ $sql = " select * from cms_survey_ask
 $aSelect = dbGetObjectsFromRequete("cms_survey_ask", $sql);
  
 
-if (sizeof($aSelect)==0) {
+if (newSizeOf($aSelect)==0) {
 	// planté !  On loggue 
 	$strHTML .= 'Aucune question.';
 } else {
@@ -141,7 +141,7 @@ if (sizeof($aSelect)==0) {
   <td class="arbo" bgcolor="#D2D2D2"><b>Date d\'ajout</b></td>
  </tr>';
  		 
-		for ($i = 0; $i<sizeof($aSelect);$i++) {
+		for ($i = 0; $i<newSizeOf($aSelect);$i++) {
 		$oSelect = $aSelect[$i];
 			$strHTML.="
 <tr class=\"listDataL". $i%2 ."\"><td class=\"listDataValue\">";

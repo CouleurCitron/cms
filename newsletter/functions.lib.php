@@ -79,7 +79,7 @@ function selectNewsletter($id){
 			}
 			
 			// tous les inscrits pour cette newsletter
-			for ($a=0; $a<sizeof($aInscrit); $a++) {
+			for ($a=0; $a<newSizeOf($aInscrit); $a++) {
 				
 				
 				
@@ -469,7 +469,7 @@ function getAttachedFile ( $id ) {
 	$aAttachedFile = dbGetObjectsFromRequete("cms_pdf", $sql);
 
 	
-	if (($aAttachedFile!==false)	&&	(sizeof($aAttachedFile) > 0)) {
+	if (($aAttachedFile!==false)	&&	(newSizeOf($aAttachedFile) > 0)) {
 		foreach ($aAttachedFile as $oAttachedFile) {
 			$attachedFile = $oAttachedFile->get_src ();
 			if (is_file($_SERVER['DOCUMENT_ROOT'].'/custom/upload/cms_pdf/'.$attachedFile)){					
@@ -486,7 +486,7 @@ function selectNewsletterByCron($id_cron){
 
 	$aObj = dbGetObjectsFromFieldValue2('news_assonewscron', array('get_cms_cron', 'get_statut'), array($id_cron, DEF_ID_STATUT_LIGNE), array(), array());
 	
-	if (sizeof($aObj) > 0 && $aObj != false) {
+	if (newSizeOf($aObj) > 0 && $aObj != false) {
 		return $aObj;
 	}
 	else {

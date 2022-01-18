@@ -66,11 +66,11 @@ if ($bResult) {
 // les fonctionnalités du site
 $aFonct = explode(";", $oSite->getFonct_site());
 
-for ($a=0; $a<sizeof($aFonct); $a++)
+for ($a=0; $a<newSizeOf($aFonct); $a++)
 {
 	$sLibFonct = getLibelleDefineWithCode($aFonct[$a]);
 ?>
-	<?php echo $sLibFonct; ?><?php if ($a != sizeof($aFonct)-1) { ?><br><?php } ?>
+	<?php echo $sLibFonct; ?><?php if ($a != newSizeOf($aFonct)-1) { ?><br><?php } ?>
 <?php
 }
 ?>		

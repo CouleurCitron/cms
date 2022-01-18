@@ -70,7 +70,7 @@ if (DEF_BDD == "ORACLE" || DEF_BDD == "POSTGRES") {
 // purge des briques zones éditables qui sont créées 
 $aContent_purge = getContentPurge();
 
-for ($a=0; $a<sizeof($aContent_purge); $a++) {
+for ($a=0; $a<newSizeOf($aContent_purge); $a++) {
 	
 	
 	

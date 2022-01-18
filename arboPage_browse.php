@@ -348,7 +348,7 @@ if (strlen($_GET['v_comp_path']) > 0)
 	$current_path = rawurlencode($current_path['path']);
 	$current_path = preg_replace('/\%2F/','/',$current_path);
 	$contenus = getFolderPages($idSite, $virtualPath);
-	if((!is_array($contenus)) or (sizeof($contenus)==0)) {
+	if((!is_array($contenus)) or (newSizeOf($contenus)==0)) {
 ?>
   <tr>
     <td align="center" colspan="7">&nbsp;<strong>Aucun élément à afficher</strong>  </tr>

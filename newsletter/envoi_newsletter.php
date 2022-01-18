@@ -129,7 +129,7 @@ function showNewsletter(id){
 </script>
 <span class="arbo2">NEWSLETTER >&nbsp;</span><span class="arbo3">Envoyer une newsletters</span><br><br>
 <?php
-if(sizeof($aNewsletter) > 0){
+if(newSizeOf($aNewsletter) > 0){
 ?>
 <form name="newsletter" method="post">
 <input type="hidden" name="id" id="id" value="" />
@@ -152,7 +152,7 @@ if(sizeof($aNewsletter) > 0){
 	    </tr>
 <?php
 // liste des newsletter
-for ($p=0; $p<sizeof($aNewsletter); $p++) 
+for ($p=0; $p<newSizeOf($aNewsletter); $p++) 
 {
 	$oNews = $aNewsletter[$p];
 ?>

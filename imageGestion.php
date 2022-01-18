@@ -149,7 +149,7 @@ body {
 		}
 if ($files != null)
 	 sort($files);
- for($i=0;$i<sizeof($files);$i++) {
+ for($i=0;$i<newSizeOf($files);$i++) {
   ?> 
   <tr>
     <td bgcolor="F3F3F3">&nbsp;&nbsp;<?php echo $files[$i] ?></td>

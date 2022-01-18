@@ -328,7 +328,7 @@ print drawCompTreeCarte($idSite, $db,$virtualPath,null);
   <?php
 	$contenus = getEnregistrement($virtualPath);
 	
-	if((!is_array($contenus)) or (sizeof($contenus)==0)) {
+	if((!is_array($contenus)) or (newSizeOf($contenus)==0)) {
 ?>
 
 
@@ -400,7 +400,7 @@ $aClasse =  dbGetObjectsFromRequete("classe", $sql);
 echo "Sélectionner un objet &nbsp; <select name=\"fClasse\" id=\"fClasse\" class=\"arbo\" onchange=\"javascript:submit_classe();\">\n";
 //echo "<select name=\"fClasse\" id=\"fClasse\" class=\"arbo\" >\n";
 echo "<option value=\"-1\">- - Objet - -</option>";
-for ($i = 0; $i<sizeof($aClasse); $i++) {
+for ($i = 0; $i<newSizeOf($aClasse); $i++) {
 	$oClasse= $aClasse[$i];
 	echo "<option value=\"".$oClasse->get_id()."\">".$oClasse->get_nom()."</option>\n";
 }

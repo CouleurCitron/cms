@@ -193,7 +193,7 @@ if(isset($_POST['dowhat']) && $_POST['dowhat'] == 'recordReuse'){
 		function changeStatut(idStatut)	{
 			cbToChange = "";
 	<?php
-	for ($m=0; $m<sizeof($aListe_res); $m++) {
+	for ($m=0; $m<newSizeOf($aListe_res); $m++) {
 		$oRes = $aListe_res[$m];	
 		$cb = "cb_".ucfirst($classePrefixe)."_".$oRes->get_id();	
 	?>
@@ -276,7 +276,7 @@ if(isset($_POST['dowhat']) && $_POST['dowhat'] == 'recordReuse'){
 	<!-- Fin Pagination -->
 	<br />
 	<?php
-	if(sizeof($aListe_res)>0) {// s'il y a des enregistrements à afficher
+	if(newSizeOf($aListe_res)>0) {// s'il y a des enregistrements à afficher
 		eval("$"."oRes = new ".$classeName."();");
 		if(!is_null($oRes->XML_inherited))
 			$sXML = $oRes->XML_inherited;

@@ -11,5 +11,5 @@ $classeName = $_GET["classeName"];
 
 $aObj =  dbGetObjectsFromFieldValue($classeName, array('get_id'), array($id), '');
 
-echo sizeof($aObj);
+echo newSizeOf($aObj);
 ?>

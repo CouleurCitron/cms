@@ -151,9 +151,9 @@ if(!strlen($_POST['v_comp_path'])) {
 		//$virtualPath = $path;
 		$array_path = explode(',',$virtualPath);
 		$virtualPathTmp ="";
-		for ($i=0; $i<sizeof($array_path)-1; $i++) {
+		for ($i=0; $i<newSizeOf($array_path)-1; $i++) {
 			$virtualPathTmp.=$array_path[$i];
-			if ($i != sizeof($array_path)-2) $virtualPathTmp.=",";
+			if ($i != newSizeOf($array_path)-2) $virtualPathTmp.=",";
 		}
 		
 		$path = true;

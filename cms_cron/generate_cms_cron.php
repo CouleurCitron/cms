@@ -87,7 +87,7 @@ function getCronTab ($id_cron) {
 function getAllCronTab () {
 	 
 	$aObj = dbGetObjectsFromFieldValue2("cms_cron", array('get_statut'),  array(DEF_ID_STATUT_LIGNE), array('get_ordre'), array('ASC'));
-	if (sizeof($aObj) > 0 && $aObj != false) {
+	if (newSizeOf($aObj) > 0 && $aObj != false) {
 		
 		$cron = '';
 		

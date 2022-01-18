@@ -66,7 +66,7 @@ function export_envoi_newsletter($sRep)
 	// sinon les requetes ne s'executent pas ...
 
 	// indice des fichiers
-	if (sizeof($aResult) == 0) $j=0;
+	if (newSizeOf($aResult) == 0) $j=0;
 	else $j=1;
 		
 	$sFilename = $sRep."export_envoi_newsletter_".$j.".txt";
@@ -84,7 +84,7 @@ function export_envoi_newsletter($sRep)
 	}
 
 	// requete d'insertion pour la nouvelle BDD
-	for ($i=0; $i<sizeof($aResult); $i++)
+	for ($i=0; $i<newSizeOf($aResult); $i++)
 	{
 		$bChangeFile = false;
 	
@@ -169,7 +169,7 @@ function export_list_inscrits_envoi($sRep, $id)
 	// sinon les requetes ne s'executent pas ...
 
 	// indice des fichiers
-	if (sizeof($aResult) == 0) $j=0;
+	if (newSizeOf($aResult) == 0) $j=0;
 	else $j=1;
 		
 	$sFilename = $sRep."export_envoi_newsletter_".$id.".csv";
@@ -198,7 +198,7 @@ function export_list_inscrits_envoi($sRep, $id)
 	$sContent.= "Statut;";
 	$sContent.= ""."\n";
 	// requete d'insertion pour la nouvelle BDD
-	for ($i=0; $i<sizeof($aResult); $i++)
+	for ($i=0; $i<newSizeOf($aResult); $i++)
 	{
 		
 		// envoi

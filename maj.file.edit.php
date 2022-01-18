@@ -186,7 +186,7 @@ foreach ($langpile as $lang_id => $lang_props) {
 	
 	$field_name = 'titre'; 	 
 	echo "<input type=\"text\" id=\"f".ucfirst($classePrefixe)."_".$field_name."_".$lang_props['libellecourt']."\" class=\"".$lang_props['libellecourt']."\" name=\"f".ucfirst($classePrefixe)."_".$field_name."_".$lang_props['libellecourt']."\" value=\"".$eTslValue."\" size=\"69\"/>";
-	if (sizeof($langpile) > 1)
+	if (newSizeOf($langpile) > 1)
 		echo "<span class='".$lang_props['libellecourt']."'>&nbsp;".$lang_props['libellecourt']."</span>";
  
 }
@@ -210,7 +210,7 @@ foreach ($langpile as $lang_id => $lang_props) {
 	$field_name = 'texte'; 	
 		 
 	echo "<textarea id=\"f".ucfirst($classePrefixe)."_".$field_name."_".$lang_props['libellecourt']."\" class=\"".$lang_props['libellecourt']."\" name=\"f".ucfirst($classePrefixe)."_".$field_name."_".$lang_props['libellecourt']."\" cols=\"60\" rows=\"4\" style=\"font-size:11px\">".$eTslValue."</textarea>";
-	if (sizeof($langpile) > 1)
+	if (newSizeOf($langpile) > 1)
 		echo "<span class='".$lang_props['libellecourt']."'>&nbsp;".$lang_props['libellecourt']."</span>";
 	echo " <a class='".$lang_props['libellecourt']."' href=\"javascript:openWYSYWYGWindow('http://".$_SERVER['HTTP_HOST']."/backoffice/cms/utils/popup_wysiwyg.php', 'wysiwyg', 600, 600, 'scrollbars=yes', 'true','f".ucfirst($classePrefixe)."_".$field_name."_".$lang_props['libellecourt']."', 'add_".$classePrefixe."_form');\" title=\"HTML editor\"><img src=\"/backoffice/cms/img/bt_popup_wysiwyg.gif\" id=\"wysiwyg\" style=\"cursor: pointer; border: 1px solid red;\" alt=\"HTML editor\" onmouseover=\"this.style.background='red';\" onmouseout=\"this.style.background=''\" /></a><br />\n";
  
@@ -236,7 +236,7 @@ foreach ($langpile as $lang_id => $lang_props) {
 	$field_name = 'url'; 	
 		 
 	echo "<input type=\"text\" id=\"f".ucfirst($classePrefixe)."_".$field_name."_".$lang_props['libellecourt']."\" class=\"".$lang_props['libellecourt']."\" name=\"f".ucfirst($classePrefixe)."_".$field_name."_".$lang_props['libellecourt']."\" value=\"".$eTslValue."\" size=\"69\"/>";
-	if (sizeof($langpile) > 1)
+	if (newSizeOf($langpile) > 1)
 		echo "<span class='".$lang_props['libellecourt']."'>&nbsp;".$lang_props['libellecourt']."</span>";
  	echo "&nbsp;<a class='".$lang_props['libellecourt']."' href=\"javascript:openLinkWindow('/backoffice/cms/utils/popup/dir.php', 'links', 600, 600, 'scrollbars=yes', 'true','f".ucfirst($classePrefixe)."_".$field_name."_".$lang_props['libellecourt']."', 'add_".$classePrefixe."_form');\" title=\"Link picker\"><img src=\"/backoffice/cms/img/bt_popup_url.png\" id=\"wysiwyg\" style=\"cursor: pointer; border: 1px solid red;\" alt=\"Link picker\" onmouseover=\"this.style.background='red';\" onmouseout=\"this.style.background=''\" /></a>\n"; 
 }

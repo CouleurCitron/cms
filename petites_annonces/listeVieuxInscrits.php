@@ -164,7 +164,7 @@ $aId = $pager->aResult;
 // à perfectionner
 
 $listeInscrits = array();
-for ($m=0; $m<sizeof($aId); $m++)
+for ($m=0; $m<newSizeOf($aId); $m++)
 {
 	$listeInscrits[] = new Inscript($aId[$m]);
 }
@@ -179,7 +179,7 @@ $sCC = "cb_".$inscrit->id;
 if ($_POST[$sCC] == 1) $idSelected[] = $inscrit->id;
 }
 
-for ($t=0; $t<sizeof($idSelected); $t++) {
+for ($t=0; $t<newSizeOf($idSelected); $t++) {
 
 //print("<br>".$idSelected[$t]);
 
@@ -255,7 +255,7 @@ function doAction(sAction)
 
 <br />
 <?php
-if(sizeof($listeInscrits)>0) {
+if(newSizeOf($listeInscrits)>0) {
 ?>
 <table align="center" border="1" cellpadding="1" cellspacing="0" class="arbo">
 <tr>

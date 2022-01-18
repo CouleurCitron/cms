@@ -60,7 +60,7 @@ foreach($aPages as $key => $page){
 	$aContent = getContentFromPage($page->get_id_page(), 0);
 	
 	if($aContent){
-		for ($a=0; $a<sizeof($aContent); $a++){
+		for ($a=0; $a<newSizeOf($aContent); $a++){
 			$oContent = $aContent[$a];				
 			if (intval($oContent->get_isbriquedit_content())==1){
 				$oContent->updateNoeud($page->get_nodeid_page());

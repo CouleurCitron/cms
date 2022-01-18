@@ -260,7 +260,7 @@ foreach($aArchi_content as $k=>$oArchi_content) {
 
 	// pages utilisant ce composant
 	$aPages = getPageUsingComposant($idSite, $oContent->getId_content());
-	$nb_pages = sizeof($aPages);
+	$nb_pages = newSizeOf($aPages);
 
 	// noeud
 	$oNoeud = new Cms_arbo_pages($oContent->getNodeid_content());
@@ -332,7 +332,7 @@ if ($oContent->getStatut_content() == DEF_ID_STATUT_ATTEN ||
 if ($nb_pages > 0) {
 ?><table>
 <?php
-	for ($a=0; $a<sizeof($aPages); $a++) {
+	for ($a=0; $a<newSizeOf($aPages); $a++) {
 	
 		$oPage = new Cms_page($aPages[$a]);
 		$oSite = new Cms_site($oPage->getId_site());

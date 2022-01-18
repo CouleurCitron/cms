@@ -44,7 +44,7 @@ if (DEF_MENUS_MINISITES == "ON") print(putAfficheSite());
 <br /><br />
 <?php
 	// tableau vide
-	if((!is_array($contenus)) or (sizeof($contenus)==0)) {
+	if((!is_array($contenus)) or (newSizeOf($contenus)==0)) {
 ?>
 <strong><div class="arbo"><?php $translator->echoTransByCode('pas_de_gabarits'); ?></div></strong>
 <?php

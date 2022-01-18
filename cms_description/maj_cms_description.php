@@ -752,7 +752,7 @@ $Upload-> InitForm();
 
 		bType_<?php echo $classeName; ?> = false;
 		<?php
-		for ($i=0; $i<sizeof($aTyres); $i++)
+		for ($i=0; $i<newSizeOf($aTyres); $i++)
 		{
 			$oTyres = $aTyres[$i];
 		?>
@@ -957,7 +957,7 @@ for ($i=0;$i<count($aNodeToSort);$i++){
 										//echo $whereValue."-".DEF_ID_ADMIN_DEFAUT."".$whereField." ".$whereClasse;
 										$aWhere = dbGetObjects($whereClasse);
 										//var_dump($aWhere);
-										for($a=0;$a<sizeof($aWhere);$a++){
+										for($a=0;$a<newSizeOf($aWhere);$a++){
 											$oWhere = $aWhere[$a];
 											// test sur valeur par defaut
 											if (isset($childNode["attrs"]["DEFAULT"]) && $childNode["attrs"]["DEFAULT"]!= "" && DEF_ID_ADMIN_DEFAUT == $whereValue) {
@@ -1006,7 +1006,7 @@ for ($i=0;$i<count($aNodeToSort);$i++){
 							$aForeignNew[] = $aForeign[$ii];	
 						} 
 						else { 
-							for($b=0;$b<sizeof($aValue);$b++) {
+							for($b=0;$b<newSizeOf($aValue);$b++) {
 								eval("$"."currentWhereFieldValue = $"."oForeign->get_".$whereField."();");
 								if ($currentWhereFieldValue == $aValue[$b]){
 									$aForeignNew[] = $aForeign[$ii];					
@@ -1528,11 +1528,11 @@ for ($i=0;$i<count($aNodeToSort);$i++){
 			echo "<script language=\"javascript\" type=\"text/javascript\">\n";
 			echo "// retour test de conditionnement - esclave\n";
 			$k=0;
-			if (sizeof($test2)>1) { 
+			if (newSizeOf($test2)>1) { 
 				echo "// plusieurs \n";
 				echo "if (";
 				echo " document.getElementById(\"f".ucfirst($classePrefixe)."_".$whereField."\").value != \"".$test2[$k]."\" ";
-					while ($k<sizeof($test2)) {
+					while ($k<newSizeOf($test2)) {
 						$k++;
 						echo "	&& document.getElementById(\"f".ucfirst($classePrefixe)."_".$whereField."\").value != \"".$test2[$k]."\"";
 					}

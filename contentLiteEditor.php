@@ -74,7 +74,7 @@ if ($operation == "UPDATE")
 	// toutes les structures où cette zone editable est remplie
 	$aStructBriquedit = getObjetWithZonedit($oContent->getId_content());
 
-	for ($a=0; $a<sizeof($aStructBriquedit); $a++)
+	for ($a=0; $a<newSizeOf($aStructBriquedit); $a++)
 	{
 		$oStructBriquedit = $aStructBriquedit[$a];
 

@@ -162,7 +162,7 @@ $oUser = unserialize($_SESSION['BO']['LOGGED']);
 
 $aListeSite = listSite("ALL");
 
-if (sizeof($aListeSite) == 0) {
+if (newSizeOf($aListeSite) == 0) {
 	// création du site par défaut
 	$oSite = new Cms_site();
 	$oSite->set_id(1);
@@ -179,7 +179,7 @@ if (sizeof($aListeSite) == 0) {
 }
 ?>
 <form name="accueilForm" id="accueilForm" method="post">
-	<input type="hidden" name="operation" id="operation" value="<?php echo $_POST['operation']; ?>" />
+	<input type="hidden" name="operation" id="operation" value="<?php if (isset($_POST['operation'])) echo $_POST['operation']; ?>" />
 <?php
 $bTrace = false;
 //$bTrace = true;

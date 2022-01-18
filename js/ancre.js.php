@@ -27,18 +27,18 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 	
 	$aObjets= dbGetObjectsFromRequete("cms_arbo_pages", $sql); 
 	$cpt = 0;
-	if (sizeof($aObjets) > 0) {
+	if (newSizeOf($aObjets) > 0) {
 		foreach ($aObjets as $oObjet) { 
 			
 			echo "new conteneur(";
 
 			//$sUrl.= "	\"".$oObjet->get_absolute_path_name()."\""; 
 			$sConteneur = "	\"".$oObjet->get_absolute_path_name()."\", "; 
-			//if ($cpt < sizeof($aObjets)-1) $sUrl.= ", \n"; 
+			//if ($cpt < newSizeOf($aObjets)-1) $sUrl.= ", \n"; 
 			
 			$aAncre = explode ("/", $oObjet->get_absolute_path_name());
-			$sConteneur.= "	\"".$aAncre[(sizeof($aAncre)-2)]."\", ";
-			//if ($cpt < sizeof($aObjets)-1) $sAncre.= ", \n"; 
+			$sConteneur.= "	\"".$aAncre[(newSizeOf($aAncre)-2)]."\", ";
+			//if ($cpt < newSizeOf($aObjets)-1) $sAncre.= ", \n"; 
 			
 			$sConteneur.= "	\"".$oObjet->getId_site()."\", ";
 			
@@ -47,7 +47,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 			
 			echo $sConteneur.") ";
 			
-			if ($cpt < sizeof($aObjets)-1) echo", \n"; 
+			if ($cpt < newSizeOf($aObjets)-1) echo", \n"; 
 			$cpt++;
 			
 		}	

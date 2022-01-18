@@ -134,7 +134,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/utils/chars.lib.php');
  $aTheme= dbGetObjectsFromRequete("news_theme", $sRequete);
  echo "<select class=\"arbo\" id=\"theme\" name=\"theme\">";
  echo "<option value =\"\">Sélectionnez la newsletter</option>";
- for ($i=0; $i<sizeof($aTheme); $i++) {
+ for ($i=0; $i<newSizeOf($aTheme); $i++) {
  	$oTheme = $aTheme[$i];
 	echo "<option value=\"".$oTheme->get_id()."\">".$oTheme->get_libelle()."</option>";
  }

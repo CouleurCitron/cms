@@ -114,7 +114,7 @@ function delete_categorie(eAnnonce, id)
 </script>
 <div class="arbo2"><strong>Petites annonces - liste des catégories</strong></div><br />
 <?php
-if(sizeof($listeCategories)>0) {
+if(newSizeOf($listeCategories)>0) {
 ?>
 <table align="center" border="1" cellpadding="0" cellspacing="0">
  <tr>

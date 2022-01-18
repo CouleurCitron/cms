@@ -70,7 +70,7 @@ if ($bAffichSite) {
 	</tr>
   <?php
 	// tableau vide
-	if((!is_array($contenus)) or (sizeof($contenus)==0)) {
+	if((!is_array($contenus)) or (newSizeOf($contenus)==0)) {
 ?>
   <tr>
     <td align="center" colspan="9">&nbsp;<strong>Aucun élément à afficher</strong>  </tr>

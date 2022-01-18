@@ -39,7 +39,7 @@ Cette fonction peut être longue à s'executer, patienter jusqu'à la fin du traite
 <br /><br />
 <?php
 	// tableau vide
-	if((!is_array($contenus)) or (sizeof($contenus)==0)) {
+	if((!is_array($contenus)) or (newSizeOf($contenus)==0)) {
 ?>
 <strong><div class="arbo">Pas de pages pour ce site</div></strong>
 <?php

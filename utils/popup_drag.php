@@ -373,7 +373,7 @@ else if ($serialize!=''){
 		</div>';
 	} 
 	
-	echo '<input type="hidden" id="maxlegende" name="maxlegende" value="'.sizeof($myTab).'" />';
+	echo '<input type="hidden" id="maxlegende" name="maxlegende" value="'.newSizeOf($myTab).'" />';
 	
 }
 else {

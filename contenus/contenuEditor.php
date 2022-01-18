@@ -17,24 +17,35 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/include_class.php');
 activateMenu('gestioncontenu');  //permet de dérouler le menu contextuellement
 
 // id du contenu à sauver
-$id = $_GET['id'];
-if ($id == "") $id = $_POST['id'];
+if (is_get('id')){
+	$id = $_GET['id'];
+}
+elseif (is_post('id')){
+	$id = $_POST['id'];
+}
 
 // url retour
-$urlRetour = $_GET['urlRetour'];
-if ($urlRetour == "") $urlRetour = $_POST['urlRetour'];
+if (is_get('urlRetour')){
+	$urlRetour = $_GET['urlRetour'];
+}
+elseif (is_post('urlRetour')){
+	$urlRetour = $_POST['urlRetour'];
+}
 
 // idStatut
-$idStatut = $_GET['idStatut'];
-if ($idStatut == "") $idStatut = $_POST['idStatut'];
-
+if (is_get('idStatut')){
+	$idStatut = $_GET['idStatut'];
+}
+elseif (is_post('idStatut')){
+	$idStatut = $_POST['idStatut'];
+}
 
 // objet Content
 $oContent = new Cms_content($id);
 
 
 $composant = null;
-if (strlen($id) > 0) $composant = getComposantById($id);
+if ((int)($id) > 0) $composant = getComposantById($id);
 
 
 
@@ -55,8 +66,12 @@ $_SESSION['idThe']=$oPage->get_theme();
 
 
 // operation
-$operation = $_GET['operation'];
-if ($operation == "") $operation = $_POST['operation'];
+if (is_get('operation')){
+	$operation = $_GET['operation'];
+}
+elseif (is_post('operation')){
+	$operation = $_POST['operation'];
+}
 
 if ($operation == "UPDATE")
 {
@@ -142,17 +157,12 @@ if ($operation == "UPDATE")
 
 	if ($return > 0) {
 		$sMessage = "Le contenu a été correctement sauvegardé";
-
-/*
-		if ($urlRetour != "") $sRetourListe = "<a href='".$urlRetour."?idStatut=".$idStatut."'>retour</a>";
-		else $sRetourListe = "";
-*/		
+	
 		$sDebut_Div = "<div style=\"font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10px;\">";
 		$sFin_Div = "</div>";
 
 		print("<br />$sDebut_Div");
 		print("$sMessage");
-		//print("<br /><br />$sRetourListe");
 		print("<br />$sFin_Div");
 
 ?><script type="text/javascript">
@@ -183,10 +193,10 @@ document.location="listeContenus.php";
 // on est en mode conception
 // this part determines the physical root of your website
 // it's up to you how to do this
-if (!preg_match('/\/$/msi', $HTTP_SERVER_VARS['DOCUMENT_ROOT']))
-  $_root = $HTTP_SERVER_VARS['DOCUMENT_ROOT'].'/';
+if (!preg_match('/\/$/msi', $_SERVER['DOCUMENT_ROOT']))
+  $_root = $_SERVER['DOCUMENT_ROOT'].'/';
 else
-  $_root = $HTTP_SERVER_VARS['DOCUMENT_ROOT'];
+  $_root = $_SERVER['DOCUMENT_ROOT'];
 
 define('DR', $_root);
 unset($_root);
@@ -195,8 +205,7 @@ if (defined("DEF_FCK_VERSION") && DEF_FCK_VERSION == "ckeditor" ) {
 } 
 else {
 	include("backoffice/cms/lib/FCKeditor/fckeditor.php") ;
-}
- 
+} 
 
 // here we add some styles to styles dropdown
 ?>
@@ -213,7 +222,7 @@ if ($id == "") {
 ?>Création <?php
 } else { 
 ?>Modification <?php } ?>du composant HTML <?php echo $oContent->getName_content(); ?></span>
-<form "createBriqueStep1" action="<?php echo $_SERVER['PHP_SELF']; ?>?idSite=<?php echo $idSite; ?>&minisite=<?php echo $_GET['minisite']; ?>&id=<?php if (strlen($_GET['id'])>0) echo $_GET['id']; ?>&operation=UPDATE" method="post">
+<form name="createBriqueStep1" id="createBriqueStep1" action="<?php echo $_SERVER['PHP_SELF']; ?>?idSite=<?php echo $idSite; ?>&minisite=<?php echo $_GET['minisite']; ?>&id=<?php if (strlen($_GET['id'])>0) echo $_GET['id']; ?>&operation=UPDATE" method="post">
 <input type="hidden" name="operation" value="<?php echo $operation; ?>">
 <input type="hidden" name="urlRetour" value="<?php echo $urlRetour; ?>">
 <input type="hidden" name="idStatut" value="<?php echo $idStatut; ?>">
@@ -240,15 +249,7 @@ if(!$_GET['init']==1){
 if (defined("DEF_FCK_VERSION") && DEF_FCK_VERSION == "ckeditor" ) { 
 	
 	$ck = "CKEDITOR.replace( 'FCKeditor1', {\n";
-	/*if (defined("DEF_FCK_TOOLBARSET")) $ck.=  "toolbar : '".DEF_FCK_TOOLBARSET."',";
-	$ck.= "width : '90%',";
-	$ck.= "height : '400px',"; */
-		//if (defined("DEF_FCK_TOOLBARSET")) $ck.=  "toolbar : '".DEF_FCK_TOOLBARSET."',";
-
-		$ck.= "customConfig : '/backoffice/cms/lib/ckeditor/config.php',";
-
-		//$ck.= "extraPlugins : 'stylesheetparser,aws_video'";
-
+	$ck.= "customConfig : '/backoffice/cms/lib/ckeditor/config.php',";
 	$ck.= "});";
 			
 			
@@ -304,9 +305,5 @@ Les tailles seront appliquées définitivement à partir de l'étape suivante (previ
 <input type="hidden" name="pageEditor" value="<?php echo $_SERVER['REQUEST_URI'];?>">
 <input type="hidden" name="TYPEcontent" value="HTML">
 
-
-<!--
-<div align="left"><a href="<?//=$urlRetour?>" class="arbo">retour</a></div>
--->
 
 </form>

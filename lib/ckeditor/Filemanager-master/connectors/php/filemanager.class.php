@@ -265,7 +265,7 @@ class Filemanager {
 			$suffix='/';
 		}
 		$tmp = explode('/',$this->get['old']);
-		$filename = $tmp[(sizeof($tmp)-1)];
+		$filename = $tmp[(newSizeOf($tmp)-1)];
 		$path = str_replace('/' . $filename,'',$this->get['old']);
 
 		$new_file = $this->getFullPath($path . '/' . $this->get['new']). $suffix;
@@ -583,10 +583,10 @@ class Filemanager {
 			$current_path = $path;
 		}
 		$tmp = explode('/',$current_path);
-		$this->item['filename'] = $tmp[(sizeof($tmp)-1)];
+		$this->item['filename'] = $tmp[(newSizeOf($tmp)-1)];
 
 		$tmp = explode('.',$this->item['filename']);
-		$this->item['filetype'] = $tmp[(sizeof($tmp)-1)];
+		$this->item['filetype'] = $tmp[(newSizeOf($tmp)-1)];
 		$this->item['filemtime'] = filemtime($this->getFullPath($current_path));
 		$this->item['filectime'] = filectime($this->getFullPath($current_path));
 
@@ -869,7 +869,7 @@ private function checkFilename($path,$filename,$i='') {
 		} else {
 			$i++;
 		}
-		$filename = str_replace($_i . '.' . $tmp[(sizeof($tmp)-1)],$i . '.' . $tmp[(sizeof($tmp)-1)],$filename);
+		$filename = str_replace($_i . '.' . $tmp[(newSizeOf($tmp)-1)],$i . '.' . $tmp[(newSizeOf($tmp)-1)],$filename);
 		return $this->checkFilename($path,$filename,$i);
 	}
 }

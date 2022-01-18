@@ -107,7 +107,7 @@ function afficher_inscrit(id)
 </script>
 <div class="arbo2"><strong>Petites annonces - demandes d'inscription</strong></div><br />
 <?php
-if(sizeof($listeInscrits)>0) {
+if(newSizeOf($listeInscrits)>0) {
 ?>
 <table align="center" border="1" cellpadding="1" cellspacing="0" class="arbo">
  <tr>

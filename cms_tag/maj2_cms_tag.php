@@ -171,8 +171,8 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 		$sql = "select * from cms_assotagclasse where xtc_cms_tag = ".$id.""; 
 		
 		$aAssotag = dbGetObjectsFromRequete ("cms_assotagclasse", $sql);
-		if (sizeof($aAssotag) > 0) {
-			for ($k=0; $k<sizeof($aAssotag); $k++) {
+		if (newSizeOf($aAssotag) > 0) {
+			for ($k=0; $k<newSizeOf($aAssotag); $k++) {
 				$oAssotag = $aAssotag[$k];
 				$bDelete = dbDelete ($oAssotag);
 			}
@@ -183,13 +183,13 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 		$aClasseTag = getTagPosts($_POST, "fAssoCms_tag_Classe_"); 
 		  
 		if ($aClasseTag) {
-			for ($k=0; $k < sizeof($aClasseTag);$k++) {
+			for ($k=0; $k < newSizeOf($aClasseTag);$k++) {
 				$oClasse = getObjectById("classe", $aClasseTag[$k]); 
 				$sTempClasse = $oClasse->get_nom();   
 				$aAssoClasse = getTagPosts($_POST, "fAsso".ucfirst($sTempClasse)."_"); 
 			 	 
 				if ($aAssoClasse) {
-					for ($j = 0; $j<sizeof($aAssoClasse); $j++) {
+					for ($j = 0; $j<newSizeOf($aAssoClasse); $j++) {
 						$oTagAsso = new Cms_assotagclasse();
 						$oTagAsso->set_cms_tag($id);
 						$oTagAsso->set_classe($aClasseTag[$k]);
@@ -233,13 +233,13 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 			if ($bRetour) {
 				$aClasseTag = getTagPosts($_POST, "fAssoCms_tag_Classe_"); 
 				if ($aClasseTag) {
-					for ($k = 0; $k<sizeof($aClasseTag); $k++) {
+					for ($k = 0; $k<newSizeOf($aClasseTag); $k++) {
 						$oClasse = getObjectById("classe", $aClasseTag[$k]); 
 						$sTempClasse = $oClasse->get_nom();   
 						$aAssoClasse = getTagPosts($_POST, "fAsso".ucfirst($sTempClasse)."_"); 
 						//pre_dump($aAssoClasse);
 						if ($aAssoClasse) {
-							for ($j = 0; $j<sizeof($aAssoClasse); $j++) {
+							for ($j = 0; $j<newSizeOf($aAssoClasse); $j++) {
 								$oTagAsso = new Cms_assotagclasse();
 								$oTagAsso->set_cms_tag($bRetour);
 								$oTagAsso->set_classe($aClasseTag[$k]);
@@ -280,8 +280,8 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 	else
 		$status.= $classeName.' - Erreur lors de '. ( ($operation == "INSERT") ? "l'ajout" : "la modification" )."<br><br>";
 		//$status.= $reason."<br><br>";
-		//$status.= "taille aClasseTag ".sizeof($aClasseTag)."<br><br>";
-		//$status.= "taille aAssoClasse ".sizeof($aAssoClasse)."<br><br>";
+		//$status.= "taille aClasseTag ".newSizeOf($aClasseTag)."<br><br>";
+		//$status.= "taille aAssoClasse ".newSizeOf($aAssoClasse)."<br><br>";
 		$status.="<a href=\"javascript:retour()\" class=\"arbo\"></a>";
 	 
 ?>
@@ -401,7 +401,7 @@ $ControlePatternValues = array();
 
 $listClass = array();
 
-if (sizeof($aClasseTag) > 0) { 
+if (newSizeOf($aClasseTag) > 0) { 
 	
 	foreach ($aClasseTag as $oClasseTag){ 
 		

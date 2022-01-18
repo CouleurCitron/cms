@@ -37,7 +37,7 @@ function processDir($file){
 						// vérifier idsite
 						$aFileDiapo = dbGetObjectsFromFieldValue("cms_diapo", array("get_src", "get_cms_site"),  array($subfile."".$subfile, $_SESSION["idSite"]), NULL);
 						
-						if( sizeof($aFileDiapo) == 0) {
+						if( newSizeOf($aFileDiapo) == 0) {
 							$bon_id_site = false;	
 						}
 						

@@ -41,13 +41,13 @@ $dir_gabarits = $_SERVER['DOCUMENT_ROOT']."/".DEF_GABARIT_ROOT;
 if(dirExists($dir_gabarits)) {	
 	$contenus = getListGabarits($idSite);
 
-	if(sizeof($contenus) > 0) {
+	if(newSizeOf($contenus) > 0) {
 ?>
 </span>
 
 <table border="0" cellpadding="5" cellspacing="0" class="arbo" id="chooseGabarit">
   <?php
-	if((!is_array($contenus)) or (sizeof($contenus)==0)) {
+	if((!is_array($contenus)) or (newSizeOf($contenus)==0)) {
 ?>
   <tr>
     <td align="center" colspan="3">&nbsp;<strong>Aucun élément à afficher</strong></td>

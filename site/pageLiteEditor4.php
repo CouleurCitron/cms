@@ -171,7 +171,7 @@ $datatxt = $_POST['serializedData'];
 foreach (explode('##', $datatxt) as $k => $v ) {
 	if ($k==0)
 		$v = preg_replace('/^#/','',$v);
-	if ($k==(sizeof(explode('##', $datatxt))-1))
+	if ($k==(newSizeOf(explode('##', $datatxt))-1))
 		$v = preg_replace('/#$/','',$v);
 	$t = explode('#',$v);
 	$id = $t[0];
@@ -224,7 +224,7 @@ function drawFileInPath($idSite, $VPath) {
 	$contenus = getFolderPages($idSite, $VPath);
 	$node_id = preg_replace("/(.*,)/","",$VPath);
 	$retour="";
-	if((is_array($contenus)) && (sizeof($contenus)!=0)) {
+	if((is_array($contenus)) && (newSizeOf($contenus)!=0)) {
 
 		foreach ($contenus as $k => $page) {
 	$retour.='	tab_file[tab_file.length] = "'. $node_id ."§". str_replace('"','\"', str_replace('.php','',$page['name'])) .'";'."\n";

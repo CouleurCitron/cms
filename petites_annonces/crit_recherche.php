@@ -249,7 +249,7 @@ $aParamValue[] = $sensTri;
 
 
 $sParam = "";
-for ($m=0; $m<sizeof($aParam); $m++) {
+for ($m=0; $m<newSizeOf($aParam); $m++) {
 $sParam.= "&".$aParam[$m]."=".$aParamValue[$m];
 }
 
@@ -278,7 +278,7 @@ $aId = $pager->aResult;
 // à perfectionner
 
 $listeAnnonces = array();
-for ($m=0; $m<sizeof($aId); $m++)
+for ($m=0; $m<newSizeOf($aId); $m++)
 {
 	$listeAnnonces[] = new Annonce($aId[$m]);
 }

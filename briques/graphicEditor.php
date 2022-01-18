@@ -275,11 +275,11 @@ if(!(strlen($larg)>0 && strlen($long)>0)) {
 		$chart['save_chart_value'] = $chart['chart_value_text'];
 		if($_SESSION['chart_hidedata']=="hide") {
 			// Remplit la premiere ligne de "null" => les titres ne sont pas touchs
-			$chart['chart_value_text'][0] = array_fill(0,sizeof($chart['chart_value_text'][0]),null);
-			for($i=1;$i<sizeof($chart['chart_value_text']);$i++) { // Parcours toutes les lignes sauf la premiere
+			$chart['chart_value_text'][0] = array_fill(0,newSizeOf($chart['chart_value_text'][0]),null);
+			for($i=1;$i<newSizeOf($chart['chart_value_text']);$i++) { // Parcours toutes les lignes sauf la premiere
 				// Supprime aussi la premire colonne
 				array_shift($chart['chart_value_text'][$i]);
-				$chart['chart_value_text'][$i] = array_fill(0,sizeof($chart['chart_value_text'][$i]),"");
+				$chart['chart_value_text'][$i] = array_fill(0,newSizeOf($chart['chart_value_text'][$i]),"");
 				array_unshift($chart['chart_value_text'][$i],null);
 			}
 		}
@@ -384,7 +384,7 @@ if(!(strlen($larg)>0 && strlen($long)>0)) {
 	// Reset des valeurs de sessions pour viter les conflits
 	// Rcupration des valeurs passes en arguments (POST)
 	// Ces valeurs sont enregistres dans la session
-	if(!$_POST['init']==1 && !$_GET['init']==1 && sizeof($datas[0])==0){
+	if(!$_POST['init']==1 && !$_GET['init']==1 && newSizeOf($datas[0])==0){
 		$_SESSION['HTMLcontent']='';
 		$contenuhtml = preg_replace ( "/\`/","'",$_POST['contenuhtml']);
 		$chart_id = extractChartData($contenuhtml);
@@ -406,8 +406,8 @@ if(!(strlen($larg)>0 && strlen($long)>0)) {
 
 	// Initialisation de la taille du tableau  afficher
 	// avec le nombre de valeurs du tableau de donnes
-	$xSize=sizeof($datas);
-	$ySize=sizeof($datas[0]);
+	$xSize=newSizeOf($datas);
+	$ySize=newSizeOf($datas[0]);
 
 	// valeurs par dfaut du tableau de valeurs si cration de la brique
 	// taille par dfaut 2x2

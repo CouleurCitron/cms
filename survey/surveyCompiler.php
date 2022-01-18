@@ -75,7 +75,7 @@ function genComposant($SURVEYid, $SURVEYstyle, $sSite){
 	// Sélection de la question dans la base de donnée
  
 	$oAsk = getObjectById("cms_survey_ask", $SURVEYid);
-	if (sizeof($oAsk) == 0) { 
+	if (newSizeOf($oAsk) == 0) { 
 		 $SURVEYtext="";
 	} else {
 		$sqlAnswer = "	SELECT	*
@@ -89,7 +89,7 @@ function genComposant($SURVEYid, $SURVEYstyle, $sSite){
 		$SURVEYtext .= "function validate_survey(form) {\n";
 		if ($oAsk->get_multiple() == 'Y') {
 			$SURVEYtext .= "\tvar go_submit = false;\n";
-			$SURVEYtext .= "\tfor (var i=0; i<".sizeof($aAnswer)."; i++) {\n";
+			$SURVEYtext .= "\tfor (var i=0; i<".newSizeOf($aAnswer)."; i++) {\n";
 			$SURVEYtext .= "\t\tif (document.getElementById('answer_'+[i]).checked)\n";
 			$SURVEYtext .= "\t\t\tgo_submit = true;\n";
 			$SURVEYtext .= "\t}\n";
@@ -118,7 +118,7 @@ function genComposant($SURVEYid, $SURVEYstyle, $sSite){
 		$SURVEYtext .= "<input type=\"hidden\" id=\"id_site\" name=\"id_site\" value=\"".$_SESSION['idSite']."\" />\n"; 
 		$SURVEYtext .= "<input type=\"hidden\" id=\"id_ask\" name=\"id_ask\" value=\"".$SURVEYid."\" />\n"; 
 		
-		for ($i = 0; $i<sizeof($aAnswer);$i++) {
+		for ($i = 0; $i<newSizeOf($aAnswer);$i++) {
 			$oAnswer = $aAnswer[$i];
 			$SURVEYtext .="<div class='fd_blanc'>";
 			if ($oAsk->get_multiple() == 'Y') {

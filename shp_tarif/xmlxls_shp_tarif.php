@@ -106,7 +106,7 @@ echo "<?mso-application progid=\"Excel.Sheet\""."?".">\n";
   </Style>
  </Styles>
  <Worksheet ss:Name="Feuil1">
-  <Table ss:ExpandedColumnCount="<?php echo count($aNodeToSort); ?>" ss:ExpandedRowCount="<?php echo (sizeof($aListe_res)+1); ?>" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="<?php echo count($aNodeToSort); ?>" ss:ExpandedRowCount="<?php echo (newSizeOf($aListe_res)+1); ?>" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="15">   
 <?php
 
@@ -136,9 +136,9 @@ for ($i=0;$i<count($aNodeToSort);$i++){
 }
 echo "</Row>\n"; 
 
-if(sizeof($aListe_res)>0) {
+if(newSizeOf($aListe_res)>0) {
 	// liste
-	for($k=0; $k<sizeof($aListe_res); $k++) {
+	for($k=0; $k<newSizeOf($aListe_res); $k++) {
 		$oRes = $aListe_res[$k];
 		
 		echo "<Row>\n";

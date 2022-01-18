@@ -115,7 +115,7 @@ if($_GET['step'] == 'init') {
 // nombre de champs possibles
 for ($p=0; $p < DEF_MAXCHAMPSFORM; $p++) { 
 	// objet champ
-	if ($p < sizeof($aChamp)) $oChamp = $aChamp[$p];
+	if ($p < newSizeOf($aChamp)) $oChamp = $aChamp[$p];
 	else $oChamp = new Cms_champform();
 ?>
 	<tr>
@@ -188,7 +188,7 @@ if (checkUniqueName($oForm)) {
 		$sTypeChamp = $_POST['type_champ_'.$p];
 
 		// objet champ
-		if ($p < sizeof($aChamp)) {
+		if ($p < newSizeOf($aChamp)) {
 			$oChamp = $aChamp[$p];
 		}
 		else {
@@ -238,7 +238,7 @@ if (checkUniqueName($oForm)) {
 				$champCC.= "<tr><td class='arbo'>".$oChamp->getName_champ()."</td><td class=\"arbo\">&nbsp;</td></tr>";
 			} else {
 				$aCC = explode(";", $oChamp->getValeur_champ());
-				for ($t=0; $t<sizeof($aCC); $t++)
+				for ($t=0; $t<newSizeOf($aCC); $t++)
 				{
 					$sCC = $aCC[$t];
 	
@@ -261,7 +261,7 @@ if (checkUniqueName($oForm)) {
 				$champBR.= "<tr><td align='right' class='arbo'>".$oChamp->getName_champ()."</td><td class=\"arbo\">&nbsp;</td></tr>";
 			} else {
 				$aBR = explode(";", $oChamp->getValeur_champ());
-				for ($t=0; $t<sizeof($aBR); $t++)
+				for ($t=0; $t<newSizeOf($aBR); $t++)
 				{
 					$sBR = $aBR[$t];
 					
@@ -286,7 +286,7 @@ if (checkUniqueName($oForm)) {
 	
 				$champCOMBO = "<tr><td class='arbo'>".$oChamp->getName_champ()."</td><td class=\"arbo\">";
 				$champCOMBO.= "<select name='".$oChamp->getName_champ()."' class='arbo'>";
-				for ($t=0; $t<sizeof($aCOMBO); $t++)
+				for ($t=0; $t<newSizeOf($aCOMBO); $t++)
 				{
 					$sCOMBO = $aCOMBO[$t];
 					$champCOMBO.= "<option value='".$sCOMBO."'>".$sCOMBO;

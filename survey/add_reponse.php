@@ -184,7 +184,7 @@ elseif((isset($_POST['libelle_ans_FR'])) and (strlen($_POST['libelle_ans_FR']) >
 $rs = getObjectById("cms_survey_ask", $questionId);
 
 // Gestion des erreurs
-if (sizeof($rs) == 0){
+if (newSizeOf($rs) == 0){
 	// planté !  On loggue
 	error_log(date()." plantage lors de l'execution de la requete ".$sql);
 	error_log($db->ErrorMsg());
@@ -197,7 +197,7 @@ $sqlReponse = "SELECT * FROM cms_survey_answer WHERE cms_ask = ".$questionId."";
 $aReponse =dbGetObjectsFromRequete("cms_survey_answer", $sqlReponse);
 
 // Gestion des erreurs
-if (sizeof($aReponse) == 0) { 
+if (newSizeOf($aReponse) == 0) { 
 	$strHTML .=	"<br><br><div class='arbo'>Il n'y a pas de réponse définie. Pour en créer, veuillez compléter le formulaire en bas de page.</div>";
 }else {
 	$strHTML .= "<div class='arbo'>Intitulé de la question :<br><br>".str_replace("\n","<br>",stripslashes($rs->fields[1]))."<bR><br></div>";
@@ -207,7 +207,7 @@ if (sizeof($aReponse) == 0) {
 	<td class="MainTitle">&nbsp;Libellé&nbsp;</td>
 	<td class="MainTitle" colspan="2">&nbsp;Action&nbsp;</td>
 		</tr>';
-	for ($i = 0; $i<sizeof($aReponse);$i++) {
+	for ($i = 0; $i<newSizeOf($aReponse);$i++) {
 	
 	
 		$oReponse = $aReponse[$i];

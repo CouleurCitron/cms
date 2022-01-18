@@ -18,7 +18,7 @@ else{
 	$aThemes=false;
 }
 
-if (($aThemes!=false) && (sizeof($aThemes) == 1)){
+if (($aThemes!=false) && (newSizeOf($aThemes) == 1)){
 	$oThemes = $aThemes[0];
 	$sEditorStyles = $oThemes->get_editor();
 }

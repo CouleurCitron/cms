@@ -111,7 +111,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 
 
 	// pas de regénération demandée
-	if(!($id > 0 || $id_gabarit!="" || sizeof($aIdGab))) exit("");
+	if(!($id > 0 || $id_gabarit!="" || newSizeOf($aIdGab))) exit("");
 
 
 	// REGENERATION :: 2 cas :: on regénère à la demande de :
@@ -126,7 +126,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 	// dans tous les cas on ne génère que les pages qui ont une version en ligne (dans CMS_ARCHI_CONTENT)
 	// ET on génère avec le contenu de CMS_ARCHI_CONTENT et non pas celui de CMS_CONTENT
 	$bDebug=0;
-	if (!sizeof($aIdGab) && $id_gabarit==""){ 
+	if (!newSizeOf($aIdGab) && $id_gabarit==""){ 
 		$listPage = getPageUsingComposant($idSite, $id); 
 		$aIdGab = array();
 		foreach($listPage as $k => $idPage) {
@@ -142,7 +142,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 	}
 
 	
-	if (sizeof($aIdGab)) { // on doit trouver toutes les pages liées à X gabarits
+	if (newSizeOf($aIdGab)) { // on doit trouver toutes les pages liées à X gabarits
 		$listPage = getPagesFromXGabarits($aIdGab, $idSite);
 		if ($bDebug) print("<br />1");		
 	} else if($id_gabarit!="") { // on doit trouver les pages liées à un gabarit fraîchement modifié
@@ -156,7 +156,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 	}
 	 
 	// pas de pages à regénérer
-	if(!(is_array($listPage) && sizeof($listPage))) exit("");
+	if(!(is_array($listPage) && newSizeOf($listPage))) exit("");
 	
 	
 	// pages liées
@@ -205,7 +205,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 	
 	
 	// la liste des pages finale est épurée des pages à ne pas regénérer
-	if (sizeof($listAllPage)) {
+	if (newSizeOf($listAllPage)) {
 
 ?>
 <link href="/backoffice/cms/css/bo.css" rel="stylesheet" type="text/css">
@@ -275,7 +275,7 @@ function stripAll() {
 <input name="envoyer" id="boutonvalid" type="button" class="arbo" value="<?php $translator->echoTransByCode('Regenerer_les_pages_selectionnees'); ?>" onclick="alert_case()">
 </form>
 <?php
-	} // fin if (sizeof($listAllPage)) {
+	} // fin if (newSizeOf($listAllPage)) {
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/cms-inc/append.php');
 ?>

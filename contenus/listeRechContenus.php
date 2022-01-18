@@ -13,7 +13,7 @@ $sRank = $oRank->get_libelle();
 $sValidauto = $oUserLogged->get_validauto();
 
 // maj statut du contenu
-if ($_POST['operation'] != "")
+if (is_post('operation')	&& $_POST['operation'] != "")
 {
 	$oContent = new Cms_content($_POST['id']);
 	$oContent->setStatut_content($_POST['operation']);
@@ -86,7 +86,7 @@ if ($_POST['operation'] != "")
 // ajout 22/06
 // gestion des alertes pour les admins
 $aUser = listUsersWidthAdmin($_SESSION['idSite_travail']);
-if (sizeof($aStatut) > 0) {
+if (isset($aStatut)	&&	newSizeOf($aStatut) > 0) {
 	// je récupère la première valeur
 	$idStatutContent = $aStatut[0]->get_id();
 	
@@ -295,7 +295,7 @@ $aRecherche_archi[] = $oRech;
 // les admin et gestionnaire de site ont accès aux critères de recherche
 // les rédacteurs ne voient que LEUR briques
 $idUser = $idUser_logged;
-if ($sRank != DEF_REDACT) {
+if (is_post('selectUser')	&&	$sRank != DEF_REDACT) {
 	$idUser = $_POST['selectUser'];
 }
 else {
@@ -312,7 +312,7 @@ $oRech = new dbRecherche();
 $oRech->setNomBD("bo_users.user_id");
 $oRech->setTypeBD("entier");
 $oRech->setValeurRecherche($idUser);
-$oRech->setTableBD("bo_users;cms_droit;cms_content;cms_struct_page");
+$oRech->setTableBD("bo_users;cms_droit;cms_content;cms_struct_page;cms_arbo_pages");
 $oRech->setJointureBD("bo_users.user_id=cms_droit.user_id;cms_droit.id_content=cms_content.id_content;cms_struct_page.id_content=cms_content.id_content;cms_arbo_pages.node_id=cms_content.nodeid_content");
 $oRech->setPureJointure(0);
 
@@ -384,16 +384,17 @@ if ($_POST['champTri'] != "")
 	$sOrderBy = $_POST['champTri']." ".$_POST['sensTri'];
 else $sOrderBy = " cms_content.name_content ASC ";
 */
-
+$sOrderBy='';
 
 //===================================================================
 
 	// EXECUTION DE LA REQUETE
 	// liste des briques editables (nommées zones dans l'interface)
 
-	// liste de toutes les briques EDITABLES inclues dans une zone editable
-	
+	// liste de toutes les briques EDITABLES inclues dans une zone editable	
 	$aContenusID = getListContentEdit($aRecherche, $sOrderBy, DEF_NBDROIT_CONTENT);
+
+
 
 	// taille totale de la liste résultat
 	$eContent = getCountListContentEdit($aRecherche, $sOrderBy);
@@ -410,7 +411,7 @@ else $sOrderBy = " cms_content.name_content ASC ";
 	// construction de l'objet d'affichage
 	
 	// CMS_CONTENT
-	for ($p=0; $p<sizeof($aContenusID); $p++)
+	for ($p=0; $p<newSizeOf($aContenusID); $p++)
 	{	
 		$tempContenus = new Cms_affich_content("CMS_CONTENT", $aContenusID[$p][0]);
 		if($tempContenus->getId() != NULL){
@@ -422,7 +423,7 @@ else $sOrderBy = " cms_content.name_content ASC ";
 	// les briques de CMS_CONTENT et toutes les briques en ligne de CMS_ARCHI_CONTENT
 	if ($_SESSION['idStatut'] == "") {
 		// CMS_ARCHI_CONTENT
-		for ($p=0; $p<sizeof($aContenusArchiID); $p++)
+		for ($p=0; $p<newSizeOf($aContenusArchiID); $p++)
 		{
 			
 			$tempContenus = new Cms_affich_content("CMS_ARCHI_CONTENT", $aContenusArchiID[$p][1]);
@@ -541,4 +542,3 @@ $eContent_ARCHI = dbGetUniqueValueFromRequete($sql);
 
 $eContent_ALL = $eContent_ATTEN + $eContent_REDACT + $eContent_GEST + $eContent_LIGNE + $eContent_ARCHI;
 
-?>

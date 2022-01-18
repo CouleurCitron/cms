@@ -26,7 +26,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/autoprepend.php');
 		foreach (explode('##', $datatxt) as $k => $v ) {
 			if ($k==0)
 				$v = preg_replace('/^#/','',$v);
-			if ($k==(sizeof(explode('##', $datatxt))-1))
+			if ($k==(newSizeOf(explode('##', $datatxt))-1))
 				$v = preg_replace('/#$/','',$v);
 			$t = explode('#',$v);
 			$id = $t[0];

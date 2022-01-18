@@ -190,7 +190,7 @@ Voici la liste des zones editables de ce gabarit : <br>
   <span class="arbo">
 <table cellpadding="3" cellspacing="3">
   <?php
-if (sizeof($aZonedit) != 0) {
+if (newSizeOf($aZonedit) != 0) {
 ?>
     <tr>
 	    <tD>&nbsp;</tD>
@@ -201,7 +201,7 @@ if (sizeof($aZonedit) != 0) {
   <?php
 }
 
-for ($t=0; $t < sizeof($aZonedit); $t++)
+for ($t=0; $t < newSizeOf($aZonedit); $t++)
 {
 	$oZonedit = $aZonedit[$t];
 	$eNumero = $t + 1;
@@ -241,7 +241,7 @@ for ($t=0; $t < sizeof($aZonedit); $t++)
 <br>
 <br>
 Combien de zones éditables voulez vous ajouter dans ce gabarit ?&nbsp;
-<input type="hidden" name="nbZoneEditGab" value="<?php echo sizeof($aZonedit); ?>">
+<input type="hidden" name="nbZoneEditGab" value="<?php echo newSizeOf($aZonedit); ?>">
 <input type="hidden" name="nbZoneEdit" value="<?php echo $nbZoneEdit; ?>">
 <input type="text" class="arbo" name="nbZoneEditAjout" value="<?php echo $nbZoneEditAjout; ?>" size="5">
 &nbsp;
@@ -262,7 +262,7 @@ if ($nbZoneEditAjout != 0) {
   <?php
 }
 
-for ($t=sizeof($aZonedit); $t < sizeof($aZonedit)+$nbZoneEditAjout; $t++)
+for ($t=newSizeOf($aZonedit); $t < newSizeOf($aZonedit)+$nbZoneEditAjout; $t++)
 {
 	$eNumero = $t + 1;
 ?>
@@ -274,7 +274,7 @@ for ($t=sizeof($aZonedit); $t < sizeof($aZonedit)+$nbZoneEditAjout; $t++)
     </tr>
   <?php
 }
-?><input type="hidden" id="enumero" name="enumero" value="<?php echo $eNumero-sizeof($aZonedit); ?>">
+?><input type="hidden" id="enumero" name="enumero" value="<?php echo $eNumero-newSizeOf($aZonedit); ?>">
 </table>
 <br>
 <br>

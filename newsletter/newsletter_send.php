@@ -325,7 +325,7 @@ if ($oNews->get_statut() != DEF_ID_STATUT_ARCHI ) {  // SID à décommenter
 	$eMail_envoyes = 0; 
 	
 	// tous les inscrits pour cette newsletter
-	for ($a=0; $a<sizeof($aInscrit); $a++) {
+	for ($a=0; $a<newSizeOf($aInscrit); $a++) {
 		
 		if ($cpt%100 == 0) echo '-<br />';
 		

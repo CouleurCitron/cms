@@ -59,5 +59,3 @@ if (isset($_POST['node_id'])) {
 else {
 	$rech_node_id = $_SESSION['rech_node_id'];
 }
-
-?>

@@ -287,7 +287,7 @@ if ($bMinisite) {
 <?php
 	} else {
 		foreach ($aContent as $k => $oContent) {
-			$nb_pages = sizeof( getPageUsingComposant( $idSite, $oContent->getId_content() ) );
+			$nb_pages = newSizeOf( getPageUsingComposant( $idSite, $oContent->getId_content() ) );
 			
 			// page de modif de la brique
 			if ($oContent->getType_content() == "Graphique") $sPageEdit = "graphic";

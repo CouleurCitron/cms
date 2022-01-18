@@ -43,7 +43,7 @@ $sLogOperation = "";
 if ($operation == "VALIDER") {
 
 	// pour tous les content de la page
-	for ($i=0; $i<sizeof($aContent); $i++)
+	for ($i=0; $i<newSizeOf($aContent); $i++)
 	{
 		// objet content
 		$oContent = $aContent[$i];
@@ -134,7 +134,7 @@ $sChemin = cheminAere($oNoeud->getAbsolute_path_name());
 		<td><strong>Utilisateur</strong></td>
 	</tr>
 <?php
-for ($i=0; $i<sizeof($aContent); $i++)
+for ($i=0; $i<newSizeOf($aContent); $i++)
 {
 	$oContent = $aContent[$i];
 	
@@ -155,7 +155,7 @@ for ($i=0; $i<sizeof($aContent); $i++)
 		<td><select name="fIdUser<?php echo $i; ?>" class="arbo">
 		<option value="-1">non affecté</option>
 <?php
-for ($t=0; $t<sizeof($aUser); $t++) {
+for ($t=0; $t<newSizeOf($aUser); $t++) {
 		$oUser = $aUser[$t];
 		
 		// utilisateur propriétaire du droit

@@ -139,7 +139,7 @@ gestion des gabarits
 <?php
 
 	// test des pages qui utilisent la brique modifiée.
-	if( sizeof($oPage->getPagesFromGabarit()) > 0) {
+	if( newSizeOf($oPage->getPagesFromGabarit()) > 0) {
 ?>
 </span>
 <hr align="center" width="80%" class="arbo2" height="1">

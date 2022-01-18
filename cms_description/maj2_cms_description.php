@@ -158,8 +158,8 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 		// on efface les assos 
 		$sql = "select * from cms_assodescriptionclasse where xdc_cms_description = ".$id.""; 
 		$aAssodescription = dbGetObjectsFromRequete ("cms_assodescriptionclasse", $sql);
-		if (sizeof($aAssodescription) > 0) {
-			for ($k=0; $k<sizeof($aAssodescription); $k++) {
+		if (newSizeOf($aAssodescription) > 0) {
+			for ($k=0; $k<newSizeOf($aAssodescription); $k++) {
 				$oAssodescription = $aAssodescription[$k];
 				$bDelete = dbDelete ($oAssodescription);
 			}
@@ -169,12 +169,12 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 		
 		$aClasseDescription = getTagPosts($_POST, "fAssoCms_description_Classe_"); 
 		if ($aClasseDescription) {
-			for ($k = 0; $k<sizeof($aClasseDescription); $k++) {
+			for ($k = 0; $k<newSizeOf($aClasseDescription); $k++) {
 				$oClasse = getObjectById("classe", $aClasseDescription[$k]); 
 				$sTempClasse = $oClasse->get_nom();   
 				$aAssoClasse = getTagPosts($_POST, "fAsso".ucfirst($sTempClasse)."_");  
 				if ($aAssoClasse) {
-					for ($j = 0; $j<sizeof($aAssoClasse); $j++) {
+					for ($j = 0; $j<newSizeOf($aAssoClasse); $j++) {
 						$oDescriptionAsso = new Cms_assodescriptionclasse();
 						$oDescriptionAsso->set_cms_description($bRetour);
 						$oDescriptionAsso->set_classe($aClasseDescription[$k]);
@@ -214,12 +214,12 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 			if ($bRetour) {
 				$aClasseDescription = getTagPosts($_POST, "fAssoCms_description_Classe_"); 
 				if ($aClasseDescription) {
-					for ($k = 0; $k<sizeof($aClasseDescription); $k++) {
+					for ($k = 0; $k<newSizeOf($aClasseDescription); $k++) {
 						$oClasse = getObjectById("classe", $aClasseDescription[$k]); 
 						$sTempClasse = $oClasse->get_nom();   
 						$aAssoClasse = getTagPosts($_POST, "fAsso".ucfirst($sTempClasse)."_");  
 						if ($aAssoClasse) {
-							for ($j = 0; $j<sizeof($aAssoClasse); $j++) {
+							for ($j = 0; $j<newSizeOf($aAssoClasse); $j++) {
 								$oDescriptionAsso = new Cms_assodescriptionclasse();
 								$oDescriptionAsso->set_cms_description($bRetour);
 								$oDescriptionAsso->set_classe($aClasseDescription[$k]);

@@ -307,7 +307,7 @@ print drawCompTree($idSite, $db, $virtualPath, null);
      <?php
              } else {
                      foreach ($contenus as $k => $composant) {
-                             $nb_pages = sizeof(getPageUsingComposant($idSite, $composant['id']));
+                             $nb_pages = newSizeOf(getPageUsingComposant($idSite, $composant['id']));
 
                              // page de modif de la brique
                              if ($composant['type'] == "Graphique"){

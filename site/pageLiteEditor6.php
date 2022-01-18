@@ -337,7 +337,7 @@ if (isset($_SESSION["pageLiteEditor6_redirect"]) && $_SESSION["pageLiteEditor6_r
 
 	// taille du div_array pour cette page
 	// ensemble des briques de cette page
-	// le nombre de briques du divarray est sizeof(div_array[0]['id'])
+	// le nombre de briques du divarray est newSizeOf(div_array[0]['id'])
 	if ($div_array[0]['id'] != "") $eIdDivarray = 1;
 	else $eIdDivarray = 0;
 	

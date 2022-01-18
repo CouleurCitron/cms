@@ -2552,7 +2552,7 @@ tarteaucitron.services.xiti = {
         }
         Xt_h = new Date();
         Xt_i = '<img style="display:none" border="0" alt="" ';
-        Xt_i += 'src="http://logv3.xiti.com/hit.xiti?' + Xt_param;
+        Xt_i += 'src="https://logv3.xiti.com/hit.xiti?' + Xt_param;
         Xt_i += '&hl=' + Xt_h.getHours() + 'x' + Xt_h.getMinutes() + 'x' + Xt_h.getSeconds();
         if (parseFloat(navigator.appVersion) >= 4) {
             Xt_s = screen;

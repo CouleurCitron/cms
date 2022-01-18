@@ -158,8 +158,8 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 		// on efface les assos 
 		$sql = "select * from cms_assotitleclasse where xtc_cms_title = ".$id.""; 
 		$aAssotitle = dbGetObjectsFromRequete ("cms_assotitleclasse", $sql);
-		if (sizeof($aAssotitle) > 0) {
-			for ($k=0; $k<sizeof($aAssotitle); $k++) {
+		if (newSizeOf($aAssotitle) > 0) {
+			for ($k=0; $k<newSizeOf($aAssotitle); $k++) {
 				$oAssotitle = $aAssotitle[$k];
 				$bDelete = dbDelete ($oAssotitle);
 			}
@@ -169,12 +169,12 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 		
 		$aClasseTitle = getTagPosts($_POST, "fAssoCms_title_Classe_"); 
 		if ($aClasseTitle) {
-			for ($k = 0; $k<sizeof($aClasseTitle); $k++) {
+			for ($k = 0; $k<newSizeOf($aClasseTitle); $k++) {
 				$oClasse = getObjectById("classe", $aClasseTitle[$k]); 
 				$sTempClasse = $oClasse->get_nom();   
 				$aAssoClasse = getTagPosts($_POST, "fAsso".ucfirst($sTempClasse)."_");  
 				if ($aAssoClasse) {
-					for ($j = 0; $j<sizeof($aAssoClasse); $j++) {
+					for ($j = 0; $j<newSizeOf($aAssoClasse); $j++) {
 						$oTitleAsso = new Cms_assotitleclasse();
 						$oTitleAsso->set_cms_title($bRetour);
 						$oTitleAsso->set_classe($aClasseTitle[$k]);
@@ -212,12 +212,12 @@ if($actiontodo == "SAUVE") { // MODE ENREGISTREMENT
 			if ($bRetour) {
 				$aClasseTitle = getTagPosts($_POST, "fAssoCms_title_Classe_"); 
 				if ($aClasseTitle) {
-					for ($k = 0; $k<sizeof($aClasseTitle); $k++) {
+					for ($k = 0; $k<newSizeOf($aClasseTitle); $k++) {
 						$oClasse = getObjectById("classe", $aClasseTitle[$k]); 
 						$sTempClasse = $oClasse->get_nom();   
 						$aAssoClasse = getTagPosts($_POST, "fAsso".ucfirst($sTempClasse)."_");  
 						if ($aAssoClasse) {
-							for ($j = 0; $j<sizeof($aAssoClasse); $j++) {
+							for ($j = 0; $j<newSizeOf($aAssoClasse); $j++) {
 								$oTitleAsso = new Cms_assotitleclasse();
 								$oTitleAsso->set_cms_title($bRetour);
 								$oTitleAsso->set_classe($aClasseTitle[$k]);

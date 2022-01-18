@@ -141,7 +141,7 @@ if ($fTypeSelect == "0") $checked_classique="selected"; else $checked_classique=
 if ($fCategSelect == "-1") $checked_tous_categ="selected"; else $checked_tous_categ="";
 ?>recherche par catégorie : <select name="fCategSelect" class="arbo">
 	<option value="-1" <?php echo $checked_tous_type; ?> >toutes les catégories</option><?php
-for ($m=0; $m<sizeof($aListeCategpa); $m++) { 
+for ($m=0; $m<newSizeOf($aListeCategpa); $m++) { 
 
 	$oCategpa = $aListeCategpa[$m];
 	if ($fCategSelect == $oCategpa->getId()) $checked_categ="selected"; else $checked_categ="";
@@ -163,7 +163,7 @@ for ($m=0; $m<sizeof($aListeCategpa); $m++) {
 
 <br>
 <?php
-if(sizeof($listeAnnonces)>0) {
+if(newSizeOf($listeAnnonces)>0) {
 ?>
 <table align="center" border="1" cellpadding="1" cellspacing="0" class="arbo">
  <tr>
