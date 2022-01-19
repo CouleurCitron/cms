@@ -380,9 +380,6 @@ ORDER IMPOSSIBLE CAR DONNEES DE TABLES DIFFERENTES
 
 
 // clause order by envoyée par champtri et senstri
-if ($_POST['champTri'] != "") 
-	$sOrderBy = $_POST['champTri']." ".$_POST['sensTri'];
-else $sOrderBy = " cms_content.name_content ASC ";
 */
 $sOrderBy='';
 

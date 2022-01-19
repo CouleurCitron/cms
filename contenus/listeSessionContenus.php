@@ -20,8 +20,12 @@ if (isset($_POST['bChercherOpen'])) {
 	$rech_bChercherOpen = $_POST['bChercherOpen'];
 	$_SESSION['rech_bChercherOpen'] = $_POST['bChercherOpen'];
 }
-else {
+elseif (isset($_SESSION['rech_bChercherOpen'])) {
 	$rech_bChercherOpen = $_SESSION['rech_bChercherOpen'];
+}
+else {
+	$rech_bChercherOpen = '';
+	$_SESSION['rech_bChercherOpen'] = '';
 }
 
 // critères de recherche :: zone de texte
@@ -29,8 +33,12 @@ if (isset($_POST['fZone'])) {
 	$rech_zone = $_POST['fZone'];
 	$_SESSION['rech_fZone'] = $_POST['fZone'];
 }
-else {
+elseif (isset($_SESSION['rech_fZone'])) {
 	$rech_zone = $_SESSION['rech_fZone'];
+}
+else {
+	$rech_zone = '';
+	$_SESSION['rech_fZone'] = '';
 }
 
 // critères de recherche :: gabarit
@@ -38,8 +46,12 @@ if (isset($_POST['selectGabarit'])) {
 	$rech_selectGabarit = $_POST['selectGabarit'];
 	$_SESSION['rech_selectGabarit'] = $_POST['selectGabarit'];
 }
-else {
+elseif (isset($_SESSION['rech_selectGabarit'])) {
 	$rech_selectGabarit = $_SESSION['rech_selectGabarit'];
+}
+else {
+	$rech_selectGabarit = '';
+	$_SESSION['rech_selectGabarit'] = '';
 }
 
 // critères de recherche :: page
@@ -47,15 +59,24 @@ if (isset($_POST['page_id'])) {
 	$rech_page_id = $_POST['page_id'];
 	$_SESSION['rech_page_id'] = $_POST['page_id'];
 }
-else {
+elseif (isset($_SESSION['rech_page_id'])) {
 	$rech_page_id = $_SESSION['rech_page_id'];
 }
+else {
+	$rech_page_id = '';
+	$_SESSION['rech_page_id'] = '';
+}
+
 
 // critères de recherche :: chemin
 if (isset($_POST['node_id'])) {
 	$rech_node_id = $_POST['node_id'];
 	$_SESSION['rech_node_id'] = $_POST['node_id'];
 }
-else {
+elseif (isset($_SESSION['rech_node_id'])) {
 	$rech_node_id = $_SESSION['rech_node_id'];
+}
+else {
+	$rech_node_id = '';
+	$_SESSION['rech_node_id'] = '';
 }

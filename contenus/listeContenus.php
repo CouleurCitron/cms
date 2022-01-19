@@ -46,8 +46,8 @@ include("listeRechContenus.php");
 <script src="/backoffice/cms/js/preview.js" type="text/javascript" language="javascript"></script>
 <script src="listeContenus.js.php" type="text/javascript" language="javascript"></script>
 <form name="contenuListForm" id="contenuListForm" method="post">
-<input type="hidden" name="id" id="id" value="<?php echo $_POST['id']; ?>">
-<input type="hidden" name="operation" id="operation" value="<?php echo $_POST['operation']; ?>">
+<input type="hidden" name="id" id="id" value="<?php if(is_post('id')) echo $_POST['id']; ?>">
+<input type="hidden" name="operation" id="operation" value="<?php if(is_post('operation')) echo $_POST['operation']; ?>">
 <input type="hidden" name="node_id" id="node_id" value="<?php echo $rech_node_id; ?>">
 <input type="hidden" name="page_id" id="page_id" value="<?php echo $rech_page_id; ?>">
 <input type="hidden" name="bChercherOpen" id="bChercherOpen" value="<?php echo $rech_bChercherOpen; ?>">
@@ -76,7 +76,7 @@ for ($k=0; $k<newSizeOf($aUser); $k++)
 	$oUser = $aUser[$k];
 
 	// valeur sélectionnée
-	if ($_POST['selectUser'] == $oUser->getUser_id()) $user_selected = "selected";
+	if (is_post('selectUser')	&&	$_POST['selectUser'] == $oUser->getUser_id()) $user_selected = "selected";
 	else $user_selected = "";
 
 ?><option value="<?php echo $oUser->getUser_id(); ?>" <?php echo $user_selected; ?> >
@@ -221,7 +221,7 @@ src="/backoffice/cms/img/puce-grise.gif" border="0"> : <?php echo $eContent_ARCH
 </table></div>
 <?php
 // nombre d'enregistrements de la liste
-if (newSizeOf($aContenus) == 1 || newSizeOf($aContenus) == 0) {
+if (isset($aContenus)	&& newSizeOf($aContenus) < 2) {
 	$sMessage = newSizeOf($aContenus)." contenu";
 }
 else {
